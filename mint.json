@@ -78,7 +78,11 @@
         "api-reference/returnlineitem/get",
         "api-reference/returnlineitem/create",
         "api-reference/returnlineitem/update",
-        "api-reference/returnlineitem/delete"
+        "api-reference/returnlineitem/delete",
+        "api-reference/warranty/get",
+        "api-reference/warranty/create",
+        "api-reference/warranty/update",
+        "api-reference/warranty/delete"
       ]
     }
   ],
