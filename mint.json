@@ -71,6 +71,14 @@
         "api-reference/return/create",
         "api-reference/return/update",
         "api-reference/return/delete",
+        "api-reference/return/close",
+        "api-reference/return/reopen",
+        "api-reference/return/refund"
+      ]
+    },
+    {
+      "group": "Return Line Items",
+      "pages": [
         "api-reference/returnlineitem/get",
         "api-reference/returnlineitem/create",
         "api-reference/returnlineitem/update",
@@ -83,7 +91,12 @@
         "api-reference/warranty/get",
         "api-reference/warranty/create",
         "api-reference/warranty/update",
-        "api-reference/warranty/delete",
+        "api-reference/warranty/delete"
+      ]
+    },
+    {
+      "group": "Warranty Line Items",
+      "pages": [
         "api-reference/warrantylineitem/get",
         "api-reference/warrantylineitem/create",
         "api-reference/warrantylineitem/update",
