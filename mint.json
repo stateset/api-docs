@@ -67,22 +67,14 @@
     {
       "group": "Returns",
       "pages": [
+        "api-reference/return/get",
         "api-reference/return/create",
         "api-reference/return/update",
         "api-reference/return/delete",
-        "api-reference/return/get",
         "api-reference/returnlineitem/get",
         "api-reference/returnlineitem/create",
         "api-reference/returnlineitem/update",
-        "api-reference/returnlineitem/delete",
-        "api-reference/warranty/get",
-        "api-reference/warranty/create",
-        "api-reference/warranty/update",
-        "api-reference/warranty/delete",
-        "api-reference/warrantylineitem/get",
-        "api-reference/warrantylineitem/create",
-        "api-reference/warrantylineitem/update",
-        "api-reference/warrantylineitem/delete"
+        "api-reference/returnlineitem/delete"
       ]
     },
     {
@@ -96,6 +88,27 @@
         "api-reference/warrantylineitem/create",
         "api-reference/warrantylineitem/update",
         "api-reference/warrantylineitem/delete"
+      ]
+    },
+    {
+      "group": "Manufacturing and Production",
+      "pages": [
+        "api-reference/billofmaterials/get",
+        "api-reference/billofmaterials/create",
+        "api-reference/billofmaterials/update",
+        "api-reference/billofmaterials/delete",
+        "api-reference/billofmaterialslineitem/get",
+        "api-reference/billofmaterialslineitem/create",
+        "api-reference/billofmaterialslineitem/update",
+        "api-reference/billofmaterialslineitem/delete",
+        "api-reference/workorder/get",
+        "api-reference/workorder/create",
+        "api-reference/workorder/update",
+        "api-reference/workorder/delete",
+        "api-reference/workorderlineitem/get",
+        "api-reference/workordermaterialslineitem/create",
+        "api-reference/workorderlineitem/update",
+        "api-reference/workorderlineitem/delete"
       ]
     }
   ],
