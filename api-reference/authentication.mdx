@@ -9,14 +9,96 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et eros iaculi
 'Authorization': 'Token <team_token>'
 ```
 
-## API Tokens
+# GraphQL API
 
-Nullam convallis mauris at nunc consectetur, ac imperdiet leo rutrum. Maecenas cursus purus a pellentesque blandit. Pellentesque vitae lacinia libero, non mollis metus.
+### Enable the GraphQL API for your Stateset Project
 
-Nam id ullamcorper urna, at rutrum enim. [Maecenas vulputate](/introduction) vehicula libero, vitae sodales augue pretium nec. Quisque a magna tempor, semper risus vel, fermentum nunc. Pellentesque fermentum interdum ex, eu convallis massa blandit sed. Aliquam bibendum ipsum vel laoreet auctor.
+Stateset One projects come with a Hasura GraphQL API by default.
 
-### Permissions
+You can deploy the Stateset GraphQL API and Postgres by signing up on [stateset.io/signup](https://stateset.io/signup)
 
-Etiam lobortis ut odio ut fermentum. Nunc odio velit, sollicitudin at consectetur id, tristique eget turpis. Aliquam at risus vitae dolor sodales venenatis. In hac habitasse platea dictumst.
+Upon SignUp at [stateset.io/signup](https://stateset.io/signup) you will receive an email with your Stateset One GraphQL URL
 
-Aenean consequat diam eget mollis fermentum. [Quisque eu malesuada](/introduction) felis, non dignissim libero.
+```
+https://<your-project-name>.stateset.app/v1/graphql
+```
+
+### Accessing your Stateset One Backend
+
+You will need the Stateset Admin Secret Key to access the Stateset One GraphQL API.
+
+#### API Access
+
+Stateset strives to streamline all ecommerce operations for online sellers, no matter where they sell their products online. We are continuously adding new marketplaces, shopping carts, and integration tools, because we know the e-commerce space is growing. As a result, we’ve worked hard to provide developer resources to build custom integrations with Stateset.
+
+**Stateset API**
+
+The Stateset REST API is a great way to get data directly to and from Stateset, like creating purchase orders or retrieving returns, order, shipment and warranty data.
+
+The Stateset REST API is available for any plan and allows developers to build applications that interface with the Stateset One Platform.
+
+# Permissions
+
+Stateset's permissions are implemented using Hasura Session Variables. Hasura is a GraphQL engine that provides fine-grained access control for tables and views. With Hasura, you can define permission rules for users based on their roles, and session variables play a crucial role in enforcing these permissions.
+
+#### User Roles and Permissions
+
+In Stateset, you can define your own user roles within the Hasura GraphQL Engine. User roles represent different levels of access or privileges that users can have within the system. Examples of roles could be "admin," "manager," or "user."
+
+| Role      | Description                                 | Allowed Activity                            |
+| --------- | ------------------------------------------- | ------------------------------------------- |
+| anonymous | A user who is not logged-in                 | Only read from some restricted tables/views |
+| user      | A user who is logged in                     | CRUD on data that belongs to them           |
+| manager   | A user that has access to other users' data | CRUD on all users' data                     |
+
+#### Defining Permissions
+
+Once user roles are defined, you can assign specific permissions to each role. Permissions are defined at the table or view level and dictate what actions a user with a particular role can perform on that table or view. Actions can include querying data, inserting records, updating data, or deleting records.
+
+| Role            | Condition                                                                   | Permission expression                                                               |
+| --------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `user`          | `user_id` column is equal to the user id session variable in a request      | <pre><code>{
+  "user_id": {
+    "_eq": "X-Hasura-User-Id"
+  }
+}
+</code></pre>       |
+| `project-admin` | `project_id` column is equal to the project id session variable of the user | <pre><code>{
+  "project_id": {
+    "_eq": "X-Hasura-Project-Id"
+  }
+}
+</code></pre> |
+
+#### Incorporating Session Variables
+
+Permissions in Stateset usually incorporate session variables. Session variables are pieces of data that are returned from the authentication service for each request made to Stateset. They contain information about the authenticated user and their role.
+
+#### JWT Mode
+
+In JWT (JSON Web Token) mode, session variables are encoded into the payload of the JWT token. The authentication service, which generates the JWT token, includes the relevant session variables in the token's payload. These session variables can include user-related information like the user's ID, role, or any other custom data.
+
+_Example Claims using JWT_
+
+```json
+{
+	"https://hasura.io/jwt/claims": {
+		"x-hasura-org-id": "{{org.id}}",
+		"x-hasura-user-id": "{{user.id}}",
+		"x-hasura-default-role": "user",
+		"x-hasura-allowed-roles": [
+			"user"
+		]
+	}
+}
+```
+
+#### Webhook Mode
+
+In webhook mode, session variables are returned as a JSON object in the body of the response from the webhook. When a user makes a request to Stateset, the authentication service validates the request and returns a response containing session variables. These session variables are then used by Stateset to determine the user's role and enforce the appropriate permissions.
+
+#### Enforcing Permissions
+
+With the session variables obtained from either JWT mode or webhook mode, Stateset evaluates the permissions associated with the user's role. It checks if the user has the necessary permissions to perform the requested action on the specific table or view. If the user's role has the required permissions, the action is allowed; otherwise, it is denied.
+
+By utilizing Hasura Session Variables, Stateset ensures that permissions are properly enforced based on the user's role and the associated rules defined for each table or view. This approach provides a flexible and secure way to control data access within the Stateset platform.
