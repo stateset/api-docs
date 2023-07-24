@@ -106,7 +106,7 @@
         "api-reference/workorder/update",
         "api-reference/workorder/delete",
         "api-reference/workorderlineitem/get",
-        "api-reference/workordermaterialslineitem/create",
+        "api-reference/workorderlineitem/create",
         "api-reference/workorderlineitem/update",
         "api-reference/workorderlineitem/delete"
       ]
