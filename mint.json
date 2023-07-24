@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Stateset API Docs",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#9563FF",
+    "primary": "#2563eb",
     "light": "#AE87FF",
     "dark": "#0D001D",
     "background": {
@@ -15,13 +15,13 @@
     },
     "anchors": {
       "from": "#FF7F57",
-      "to": "#9563FF"
+      "to": "#2563eb"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@stateset.io"
     }
   ],
   "topbarCtaButton": {
@@ -43,7 +43,7 @@
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "https://stateset.io/community"
     },
     {
       "name": "Blog",
@@ -75,8 +75,8 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/stateset",
+    "github": "https://github.com/stateset",
+    "linkedin": "https://www.linkedin.com/company/stateset"
   }
 }
