@@ -29,8 +29,7 @@ curl --location --request DELETE 'https://api.return.com/api/return' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-		"user_group_id": "example_1"
-		"current_token": "abcdef"
+		"id": "re_1NXWPnCo6bFb1KQto6C8OWvE"
 }'
 ```
 
@@ -40,8 +39,11 @@ curl --location --request DELETE 'https://api.return.com/api/return' \
 
 ```json Response
 {
-  "success": 1
+  "id": "re_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "return",
+  "deleted": true
 }
+
 ```
 
 </ResponseExample>
