@@ -58,6 +58,79 @@ curl --location --request PUT 'https://api.stateset.com/api/bill_of_materials' \
 }'
 ```
 
+```javascript Node.js
+
+const updated = await stateset.billofmaterials.update(
+  'bom_ODkRWQtx9NVsRX'
+);
+
+```
+
+```graphQL GraphQL
+
+               mutation (
+                $id: String
+                $bill_of_materials: bill_of_materials_set_input!
+              ) {
+                update_bill_of_materials (
+                where: { id : { _eq: $id}}
+                _set: $bill_of_materials
+                ) {
+                  returning {
+                        created_at
+                        description
+                        groups
+                        id
+                        number
+                        name
+                        updated_at
+                        valid
+                  }
+                }
+              }`;
+```
+
+
+```python Python
+
+updated = stateset.billofmaterials.update(
+  'bom_ODkRWQtx9NVsRX'
+)
+
+```
+
+```ruby Ruby
+
+updated = Stateset::BillOfMaterials.update(
+  'bom_ODkRWQtx9NVsRX'
+)
+
+```
+
+```php PHP
+
+$updated = $stateset->billofmaterials->update(
+  'bom_ODkRWQtx9NVsRX'
+);
+
+```
+
+```go Go
+
+updated, err := stateset.BillOfMaterials.Update(
+  'bom_ODkRWQtx9NVsRX'
+)
+
+```
+
+```java Java
+
+BillOfMaterials updated = stateset.billOfMaterials.update(
+  'bom_ODkRWQtx9NVsRX'
+);
+
+```
+
 </RequestExample>
 
 <ResponseExample>
@@ -65,12 +138,6 @@ curl --location --request PUT 'https://api.stateset.com/api/bill_of_materials' \
 ```json Response
 {
   "success": 1,
-  "user_group": {
-    "team_id": 113,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "ok",
-    "provided_id": "6"
-  }
 }
 ```
 
