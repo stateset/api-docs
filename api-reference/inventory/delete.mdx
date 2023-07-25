@@ -33,6 +33,23 @@ curl --location --request DELETE 'https://api.stateset.com/api/inventory_item' \
 }'
 ```
 
+```graphQL GraphQL
+
+               mutation deleteInventoryItem ($inventory_item_id: String) {
+                delete_inventory_item(where: {id: {_eq: $inventory_item_id}}) {
+                  affected_rows
+                }
+              }
+```
+
+```javascript Node.js
+
+const deleted = await stateset.inventoryItems.del(
+  'ii_ODkRWQtx9NVsRX'
+);
+
+```
+
 </RequestExample>
 
 <ResponseExample>

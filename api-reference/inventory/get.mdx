@@ -6,66 +6,89 @@ description: "This endpoint gets or creates a new inventory item."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="id" type="string">
+  This is the unique identifier for the inventory item.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
+<ParamField body="sku" type="string">
+  This is the stock keeping unit (SKU) for the inventory item.
 </ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user group should be
-  associated with or id of the datasource you provided when creating it.
+<ParamField body="description" type="string">
+  This is the description for the inventory item.
 </ParamField>
 
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will be accessible through
-  variables in the dashboards and SQL editor
+<ParamField body="size" type="string">
+  This is the size for the inventory item.
 </ParamField>
+
+<ParamField body="incoming" type="number">
+  This is the number of items incoming for the inventory item.
+</ParamField>
+
+<ParamField body="color" type="string">
+  This is the color for the inventory item.
+</ParamField>
+
+<ParamField body="warehouse" type="number">
+  This is the identifier for the warehouse for the inventory item.
+</ParamField>
+
+<ParamField body="available" type="number">
+  This is the number of items available for the inventory item.
+</ParamField>
+
+<ParamField body="arriving" type="date">
+  This is the date when the items are expected to arrive for the inventory item.
+</ParamField>
+
+<ParamField body="purchase_order_id" type="string">
+  This is the identifier for the purchase order associated with the inventory item.
+</ParamField>
+
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the unique identifier for the inventory item.
 </ResponseField>
 
-<ResponseField name="new_user_group" type="boolean">
-  Indicates whether a new user group was created.
+<ResponseField name="sku" type="string">
+  This is the stock keeping unit (SKU) for the inventory item.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this information, since
-  you will not need to use it.
+<ResponseField name="description" type="string">
+  This is the description for the inventory item.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be used to identify
-  which user group is viewing the dashboard. You should save this on your end to use when rendering
-  an embedded dashboard.
+<ResponseField name="size" type="string">
+  This is the size for the inventory item.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="incoming" type="number">
+  This is the number of items incoming for the inventory item.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="color" type="string">
+  This is the color for the inventory item.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON or null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="warehouse" type="number">
+  This is the identifier for the warehouse for the inventory item.
 </ResponseField>
 
-</Expandable>
-
+<ResponseField name="available" type="number">
+  This is the number of items available for the inventory item.
 </ResponseField>
+
+<ResponseField name="arriving" type="date">
+  This is the date when the items are expected to arrive for the inventory item.
+</ResponseField>
+
+<ResponseField name="purchase_order_id" type="string">
+  This is the identifier for the purchase order associated with the inventory item.
+</ResponseField>
+
 
 <RequestExample>
 
@@ -84,31 +107,18 @@ curl --location --request GET 'https://api.stateset.com/api/inventory_item' \
 
 ```json Response
 {
-    "ineventory_item": [
+    "inventory_item": [
         {
             "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
-            "created_date": "2023-06-28T19:34:59.189838+00:00",
-            "amount": null,
-            "action_needed": null,
-            "condition": null,
-            "customerEmail": "customer@gmail.com",
-            "customer_id": null,
-            "description": null,
-            "enteredBy": null,
-            "flat_rate_shipping": null,
-            "order_date": null,
-            "order_id": "524213310335630636",
-            "reason_category": null,
-            "reported_condition": null,
-            "requested_date": null,
-            "rma": "#1014-R5",
-            "serial_number": null,
-            "shipped_date": null,
-            "status": "RCV",
-            "tax_refunded": null,
-            "total_refunded": null,
-            "tracking_number": null,
-            "return_line_items": []
+            "sku": "SKU-123",
+            "description": "This is a description",
+            "size": "Large",
+            "incoming": 10,
+            "color": "Red",
+            "warehouse": 1,
+            "available": 10,
+            "arriving": "2021-01-01",
+            "purchase_order_id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
         },
     ]
 }   
