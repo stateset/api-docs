@@ -28,6 +28,74 @@ curl --location --request POST 'https://api.stateset.com/api/warranty' \
 }'
 ```
 
+```js Node.js
+
+const warranty = await stateset.warranties.create({
+  warranty: 'W-23213322',
+  warranty_line_items: [
+    {id: 'WI-232133223'},
+  ],
+});
+
+```
+
+```py Python
+
+warranty = stateset.warranties.create({
+  warranty: 'W-23213322',
+  warranty_line_items: [
+    {id: 'WI-232133223'},
+  ],
+})
+
+```
+
+```go Golang
+
+warranty, err := stateset.Warranties.Create(&stateset.WarrantyParams{
+  Warranty: 'W-23213322',
+  WarrantyLineItems: []*stateset.WarrantyLineItemParams{
+    {ID: 'WI-232133223'},
+  },
+})
+
+```
+
+```rb Ruby
+
+warranty = Stateset::Warranty.create({
+  warranty: 'W-23213322',
+  warranty_line_items: [
+    {id: 'WI-232133223'},
+  ],
+})
+
+```
+
+```java Java
+
+Warranty warranty = Warranty.create({
+  warranty: 'W-23213322',
+  warranty_line_items: [
+    {id: 'WI-232133223'},
+  ],
+})
+
+```
+
+```php PHP
+
+$warranty = Warranty::create([
+  'warranty' => 'W-23213322',
+  'warranty_line_items' => [
+    ['id' => 'WI-232133223'],
+  ],
+]);
+
+```
+
+
+
 </RequestExample>
 
 <ResponseExample>
