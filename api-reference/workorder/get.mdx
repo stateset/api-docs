@@ -129,6 +129,90 @@ curl --location --request GET 'https://api.stateset.com/api/work_order' \
     "mapping": {"40": "213", "134": "386"},
     "properties": {"filterValue": "value"}
 }'
+
+```
+
+```graphQL GraphQL
+
+query MyWorkOrders {
+  work_orders {
+    bill_of_materials_number
+    created_at
+    created_by
+    expected_completion_date
+    id
+    issue_date
+    location
+    manufacture_order
+    memo
+    number
+    order_number
+    part
+    priority
+    site
+    status
+    updated_at
+    work_order_line_items {
+      id
+      line_status
+      line_type
+      part_name
+      part_number
+      total_quantity
+      unit_quantity
+      work_order_number
+    }
+  }
+}
+
+```
+
+```javascript Node.js
+
+var workOrders = await stateset.workOrders.get({
+  'wo_2331232131232121'
+});
+
+```
+  
+```python Python
+
+workOrders = stateset.workOrders.get({
+  'wo_2331232131232121'
+})
+
+```
+
+```ruby Ruby
+
+workOrders = Stateset::WorkOrders.get({
+  'wo_2331232131232121'
+})
+
+```
+
+```php PHP
+
+$workOrders = $stateset->workOrders->get([
+  'wo_2331232131232121'
+]);
+
+```
+
+```go Go
+
+workOrders, err := stateset.WorkOrders.Get(
+  []string{"wo_2331232131232121"}
+)
+
+```
+
+```java Java
+
+WorkOrder[] workOrders = stateset.workOrders.get(
+  new String[]{"wo_2331232131232121"}
+);
+
 ```
 
 </RequestExample>
