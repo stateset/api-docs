@@ -115,3 +115,19 @@ curl --location --request GET 'https://api.stateset.com/api/inventory_item' \
 ```
 
 </ResponseExample>
+
+
+### Inventory Item
+
+| Name                | Type                       | Description                                                 |
+| ------------------- | -------------------------- | ----------------------------------------------------------- |
+| id                  | Text (Primary Key, Unique) | Unique identifier for the entry                             |
+| sku                 | Text (Nullable)            | Stock Keeping Unit (SKU) for the entry                      |
+| description         | Text (Nullable)            | Description or additional details about the entry           |
+| size                | Text (Nullable)            | Size of the item                                            |
+| incoming            | Integer (Nullable)         | Number of items incoming                                    |
+| color               | Text (Nullable)            | Color of the item                                           |
+| warehouse           | Integer (Nullable)         | Identifier for the warehouse                                |
+| available           | Integer (Nullable)         | Number of items available                                   |
+| arriving            | Date (Nullable)            | Date when the items are expected to arrive                  |
+| purchase\_order\_id | Text (Nullable)            | Identifier for the purchase order associated with the entry |

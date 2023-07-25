@@ -6,79 +6,171 @@ description: "This endpoint gets or creates a new bill of materials."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="id" type="string">
+  This is the id of the bill of materials to get. If the id is not provided, a new bill of materials will be created.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
-</ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user group should be
-  associated with or id of the datasource you provided when creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will be accessible through
-  variables in the dashboards and SQL editor
-</ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the id of the bill of materials.
 </ResponseField>
 
-<ResponseField name="new_user_group" type="boolean">
-  Indicates whether a new user group was created.
-</ResponseField>
-
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this information, since
-  you will not need to use it.
-</ResponseField>
-
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be used to identify
-  which user group is viewing the dashboard. You should save this on your end to use when rendering
-  an embedded dashboard.
+<ResponseField name="number" type="string">
+  This is the number of the bill of materials.
 </ResponseField>
 
 <ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+  This is the name of the bill of materials.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="description" type="string">
+  This is the description of the bill of materials.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON or null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="groups" type="string">
+  This is the groups of the bill of materials.
 </ResponseField>
 
-</Expandable>
+<ResponseField name="created_at" type="string">
+  This is the date and time when the bill of materials was created.
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  This is the date and time when the bill of materials was last updated.
+</ResponseField>
+
+<ResponseField name="valid" type="boolean">
+  This indicates whether the bill of materials is valid or not.
+</ResponseField>
+
+<ResponseField name="line_items" type="object ">
+  This is an array of line items associated with the bill of materials.
+
+  <Expandable title="Show child attributes">
+
+  <ResponseField name="id" type="string">
+    This is the id of the line item.
+  </ResponseField>
+
+  <ResponseField name="bill_of_materials_number" type="string">
+    This is the number of the bill of materials to which the line item belongs.
+  </ResponseField>
+
+  <ResponseField name="line_type" type="string">
+    This is the type or category of the line item.
+  </ResponseField>
+
+  <ResponseField name="part_number" type="string">
+    This is the number or code associated with the part or item.
+  </ResponseField>
+
+  <ResponseField name="part_name" type="string">
+    This is the name of the part or item.
+  </ResponseField>
+
+  <ResponseField name="purchase_supply_type" type="string">
+    This is the type or category of the purchase/supply associated with the line item.
+  </ResponseField>
+
+  <ResponseField name="quantity" type="number">
+    This is the quantity of the part or item required in the bill of materials.
+  </ResponseField>
+
+  <ResponseField name="status" type="string">
+    This is the status or state of the line item.
+  </ResponseField>
+
+  </Expandable>
 
 </ResponseField>
+
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request GET 'https://api.stateset.com/api/bill_of_materials' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+    "id": "5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b"
 }'
+```
+
+```graphQL GraphQL
+
+query MyBillOfMaterials {
+  bill_of_materials {
+    created_at
+    description
+    groups
+    id
+    number
+    name
+    updated_at
+    valid
+    bill_of_material_line_items {
+      bill_of_materials_number
+      id
+      line_type
+      part_name
+      part_number
+      purchase_supply_type
+      quantity
+      status
+    }
+  }
+}
+```
+
+```js Node.js
+
+var billOfMaterials = stateset.billofmaterials.retrieve({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+});
+
+```
+
+```python Python
+
+bill_of_materials = stateset.billofmaterials.retrieve({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+})
+
+```
+
+```ruby Ruby
+
+bill_of_materials = Stateset::BillOfMaterials.retreive({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+})
+
+```
+
+```php PHP
+
+$bill_of_materials = $stateset->billofmaterials->retrieve({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+});
+
+```
+
+```go Go
+
+bill_of_materials, err := stateset.BillOfMaterials.Retrieve({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+})
+
+```
+
+```java Java
+
+BillOfMaterials billOfMaterials = stateset.billOfMaterials.retrieve({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+});
+
 ```
 
 </RequestExample>
@@ -99,3 +191,30 @@ curl --location --request GET 'https://api.stateset.com/api/bill_of_materials' \
 ```
 
 </ResponseExample>
+
+### Bill Of Materials
+
+| Name        | Type      | Description                                                   |
+| ----------- | --------- | ------------------------------------------------------------- |
+| created\_at | Date/Time | Date and time when the bill of materials was created          |
+| description | Text      | Description or additional details about the bill of materials |
+| groups      | Text      | Groups or categories associated with the bill of materials    |
+| id          | Text      | Unique identifier for the bill of materials                   |
+| number      | Text      | Number associated with the bill of materials                  |
+| name        | Text      | Name of the bill of materials                                 |
+| updated\_at | Date/Time | Date and time when the bill of materials was last updated     |
+| valid       | Boolean   | Indicates whether the bill of materials is valid or not       |
+
+
+### Bill Of Materials Line Item
+
+| Name                        | Type    | Description                                                                 |
+| --------------------------- | ------- | --------------------------------------------------------------------------- |
+| bill\_of\_materials\_number | Text    | Number associated with the bill of materials to which the line item belongs |
+| id                          | Text    | Unique identifier for the line item                                         |
+| line\_type                  | Text    | Type or category of the line item                                           |
+| part\_name                  | Text    | Name of the part or item included in the bill of materials                  |
+| part\_number                | Text    | Number or code associated with the part or item                             |
+| purchase\_supply\_type      | Text    | Type or category of the purchase/supply associated with the line item       |
+| quantity                    | Numeric | Quantity of the part or item required in the bill of materials              |
+| status                      | Text    | Status or state of the line item                                            |
