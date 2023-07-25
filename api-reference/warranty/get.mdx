@@ -145,6 +145,48 @@ description: "This endpoint gets or creates a new warranty."
   Date and time when the item was received in the warehouse.
 </ResponseField>
 
+<ResponseField name="warranty_line_items" type="object">
+  This is an array of warranty line items.
+
+<Expandable title="Show child attributes">
+
+<ResponseField name="amount" type="decimal">
+  The monetary amount associated with the warranty line item.
+</ResponseField>
+
+<ResponseField name="condition" type="string">
+  Describes the condition of the replaced item.
+</ResponseField>
+
+<ResponseField name="flat_rate_shipping" type="boolean">
+  Indicates whether the shipping rate is a flat rate.
+</ResponseField>
+
+<ResponseField name="id" type="integer">
+  Unique identifier for the warranty line item.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  Name or description of the warranty line item.
+</ResponseField>
+
+<ResponseField name="price" type="decimal">
+  The price of the warranty line item.
+</ResponseField>
+
+<ResponseField name="warranty_id" type="integer">
+  Unique identifier for the warranty associated with the line item.
+</ResponseField>
+
+<ResponseField name="serial_number" type="string">
+  Unique serial number associated with the warranty item.
+</ResponseField>
+
+<ResponseField name="sku" type="string">
+  Stock Keeping Unit (SKU) of the replaced item.
+</ResponseField>
+
+</Expandable>
 
 <RequestExample>
 
@@ -306,3 +348,17 @@ Content-Type: application/json
 | total\_refunded             | Decimal   | The total amount refunded for the warranty                           |
 | tracking\_number            | String    | Tracking number associated with the shipment for the warranty        |
 | warehouse\_received\_date   | Date/Time | Date and time when the item was received in the warehouse            |
+
+
+### Warranty Line Item
+| Name                 | Type    | Description                                                      |
+| -------------------- | ------- | ---------------------------------------------------------------- |
+| amount               | Decimal | The monetary amount associated with the warranty line item       |
+| condition            | String  | Describes the condition of the replaced item                     |
+| flat\_rate\_shipping | Boolean | Indicates whether the shipping rate is a flat rate               |
+| id                   | Integer | Unique identifier for the warranty line item                     |
+| name                 | String  | Name or description of the warranty line item                    |
+| price                | Decimal | The price of the warranty line item                              |
+| warranty\_id         | Integer | Unique identifier for the warranty associated with the line item |
+| serial\_number       | String  | Unique serial number associated with the warranty item           |
+| sku                  | String  | Stock Keeping Unit (SKU) of the replaced item                    |
