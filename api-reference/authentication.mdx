@@ -5,6 +5,22 @@ description: "Authenticating with the Stateset API"
 
 Stateset One provides a REST and GraphQL API.
 
+Authentication
+
+It’s important to note that all data is accessible only to authenticated users. There are two ways to access data:
+using JWTs
+
+JWTs can be generated from your frontend. Each token depicts a user who is authenticated to your Stateset platform instance. Tokens can only be generated for signed in users and each token is tied to a particular user.
+using static tokens that are set for each user and do not expire
+A request is considered “authenticated” when the backend can securely identify which user and which device is making the request. The reasons for making authenticated requests to the backend include:
+Associating the user with the action being performed
+Ensuring the user has permission to make the request
+Keeping an audit log of which device the user is performing actions from
+In order to authenticate the user on the backend using Clerk / Firebase / Okta, the short-lived session token needs to be passed to the server.
+
+The authentication service, which generates the JWT token, includes the relevant session variables in the token's payload. These session variables can include user-related information like the user's ID, role, or any other custom data.
+Example Claims using JWT
+
 ```bash
 'Authorization': 'Token <team_token>'
 ```
@@ -50,25 +66,6 @@ In Stateset, you can define your own user roles within the Hasura GraphQL Engine
 | anonymous | A user who is not logged-in                 | Only read from some restricted tables/views |
 | user      | A user who is logged in                     | CRUD on data that belongs to them           |
 | manager   | A user that has access to other users' data | CRUD on all users' data                     |
-
-#### Defining Permissions
-
-Once user roles are defined, you can assign specific permissions to each role. Permissions are defined at the table or view level and dictate what actions a user with a particular role can perform on that table or view. Actions can include querying data, inserting records, updating data, or deleting records.
-
-| Role            | Condition                                                                   | Permission expression                                                               |
-| --------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `user`          | `user_id` column is equal to the user id session variable in a request      | <pre><code>{
-  "user_id": {
-    "_eq": "X-Hasura-User-Id"
-  }
-}
-</code></pre>       |
-| `project-admin` | `project_id` column is equal to the project id session variable of the user | <pre><code>{
-  "project_id": {
-    "_eq": "X-Hasura-Project-Id"
-  }
-}
-</code></pre> |
 
 #### Incorporating Session Variables
 
