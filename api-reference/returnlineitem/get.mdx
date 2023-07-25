@@ -55,7 +55,7 @@ description: "This endpoint gets or creates a new return line item."
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request GET 'https://api.stateset.com/api/return_line_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
@@ -63,6 +63,55 @@ curl --location --request GET 'https://api.stateset.com/api/return_line_item' \
     "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
 }'
 ```
+
+```javascript Node.js
+
+var returnLineItem = await stateset.returnItem.retreive({
+  id: "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+});
+
+```
+
+```python Python
+
+return_line_item = stateset.return_line_item.retrieve(
+  id="0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+)
+
+```
+
+```ruby Ruby
+
+return_line_item = Stateset::ReturnLineItem.retrieve(
+  id: "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+)
+
+```
+
+```php PHP
+
+$return_line_item = Stateset\ReturnLineItem::retrieve(
+  "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+);
+
+```
+
+```go Go
+
+returnLineItem, err := stateset.ReturnLineItem.Retrieve(
+  "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+)
+
+```
+
+```java Java
+
+ReturnLineItem returnLineItem = stateset.returnLineItem.retrieve(
+  "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+);
+
+```
+
 
 </RequestExample>
 

@@ -6,23 +6,8 @@ description: "This endpoint updates an existing warranty."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
-</ParamField>
-
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
-</ParamField>
-
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user
-  group should be associated with or id of the datasource you provided when
-  creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will
-  be accessible through variables in the dashboards and SQL editor
+<ParamField body="id" type="string">
+  This is the id of the warranty.
 </ParamField>
 
 ### Response
@@ -294,15 +279,6 @@ $warranties = $stateset->warranties->update(
 
 ```
 
-```csharp C#
-
-var warranties = stateset.Warranties.Update(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
-);
-
-```
-
-
 </RequestExample>
 
 <ResponseExample>
@@ -334,7 +310,7 @@ var warranties = stateset.Warranties.Update(
             "total_refunded": null,
             "tracking_number": null,
             "warranty_line_items": []
-        },
+        }
     ]
 }   
 ```
