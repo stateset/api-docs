@@ -32,60 +32,6 @@ Returns describes the general data about the goods or services being returned by
   <ResponseField name="total_refunded" type="Decimal" required>The total amount refunded for the entry</ResponseField>
   <ResponseField name="tracking_number" type="String" required>Tracking number associated with the shipment for the entry</ResponseField>
 
-```graphql
-
-    query getMyReturnData($last_received_id: String, $last_received_ts: String, $first_received_date: date, $id: String) {
-            returns(where: {id: {_eq: $id}}) {
-              id
-              order_id
-              description
-              status
-              issue
-              tracking_number
-              action_needed
-              customerEmail
-              rma
-              serial_number
-              scanned_serial_number
-              zendesk_number
-              enteredBy
-              order_date
-              shipped_date
-              created_date
-              requested_date
-              reason_category
-              condition
-              reported_condition
-              scanned_serial_number
-              flat_rate_shipping
-              amount
-              tax_refunded
-              total_refunded
-              warehouse_condition_date
-              warehouse_received_date
-              refunded_date
-            }
-            return_line_items(where: {return_id: {_eq: $id}}) {
-              id
-              sku
-              name
-              price
-              condition
-              tax_refunded
-              flat_rate_shipping
-              return_id
-              serial_number
-              amount
-              image_1
-              image_2
-              image_3
-              match
-            }
-        }`;
-
-        ```
-
-
 ### Get Returns
 
   ```jsx
