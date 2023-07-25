@@ -71,6 +71,112 @@ const returnLineItem = await stateset.returnItem.create({
 });
 
 ```
+```graphQL GraphQL
+                 mutation addReturnLineItem($return_line_item: return_line_items_insert_input!) {
+                  insert_return_line_items(objects: [$return_line_item]) {
+                    returning {
+                        id
+                        sku
+                        name
+                        price
+                        condition
+                        serial_number
+                        amount
+                        return_id
+                  }
+                }
+                }
+```
+
+```python Python
+return_line_item = stateset.return_line_item.create(
+    {
+        "return_line_item": {
+            "sku": "123456789",
+            "name": "Example Item",
+            "price": 100,
+            "condition": "New",
+            "serial_number": "123456789",
+            "amount": 1,
+            "return_id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+        }
+    }
+)
+```
+
+```ruby Ruby
+return_line_item = stateset.return_line_item.create(
+    {
+        "return_line_item": {
+            "sku": "123456789",
+            "name": "Example Item",
+            "price": 100,
+            "condition": "New",
+            "serial_number": "123456789",
+            "amount": 1,
+            "return_id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+        }
+    }
+)
+```
+
+```php PHP
+$return_line_item = $stateset->return_line_item->create(
+    [
+        "return_line_item" => [
+            "sku" => "123456789",
+            "name" => "Example Item",
+            "price" => 100,
+            "condition" => "New",
+            "serial_number" => "123456789",
+            "amount" => 1,
+            "return_id" => "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+        ]
+    ]
+);
+```
+
+```go Golang
+
+ReturnLineItem , err := stateset.ReturnLineItem.Create(
+    "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+    "123456789",
+    "Example Item",
+    100,
+    "New",
+    "123456789",
+    1,
+    "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+)
+```
+
+```java Java
+
+ReturnLineItem returnLineItem = stateset.returnLineItem.create(
+    "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+    "123456789",
+    "Example Item",
+    100,
+    "New",
+    "123456789",
+    1,
+    "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+);
+```
+
+```csharp C#
+
+var returnLineItem = stateset.ReturnLineItem.Create(
+    "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+    "123456789",
+    "Example Item",
+    100,
+    "New",
+    "123456789",
+    1,
+    "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+);
+```
 
 </RequestExample>
 

@@ -41,6 +41,56 @@ const returnLineItem = await stateset.returnItem.del({
 
 ```
 
+```graphQL GraphQL
+               mutation deleteReturnLineItem ($return_line_item_id: uuid!) {
+                delete_return_line_items(where: {id: {_eq: $return_line_item_id}}) {
+                  affected_rows
+                }
+              }
+```
+
+```python Python
+return_line_item = stateset.return_line_item.del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+
+```
+
+```ruby Ruby
+return_line_item = Stateset::ReturnLineItem.del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+
+```
+
+```php PHP
+$return_line_item = Stateset\ReturnLineItem::del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+
+```
+
+```go Golang
+returnLineItem, err := stateset.ReturnLineItem.Delete(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+
+```
+
+```java Java
+ReturnLineItem returnLineItem = stateset.returnLineItem.del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+
+```
+
+```csharp C#
+var returnLineItem = await Stateset.ReturnLineItem.Delete(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+
+```
+
 </RequestExample>
 
 <ResponseExample>
