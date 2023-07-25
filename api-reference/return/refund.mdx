@@ -35,6 +35,33 @@ curl --location --request PUT 'https://api.stateset.com/api/return/:id/refund' \
 }'
 ```
 
+```graphQL GraphQL
+
+            mutation returnRefundMutation(
+                $returnLineItems: [ReturnRefundLineItemInput!]!, 
+                $refundShipping: RefundShippingInput,
+                $orderTransactions: [ReturnRefundOrderTransactionInput!]
+                ) {
+                returnRefund(
+                    returnRefundInput: {
+                        returnId: "${returnId}",
+                        returnRefundLineItems: $returnLineItems,
+                        refundShipping: $refundShipping,
+                        orderTransactions: $orderTransactions
+                    }
+                )
+                {
+                    refund {
+                    id
+                    }
+                    userErrors {
+                    field
+                    message
+                    }
+                }
+            }
+```
+
 ```js Node.js
 const returns = await stateset.returns.refund({
   '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
