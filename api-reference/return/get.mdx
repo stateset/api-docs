@@ -152,13 +152,54 @@ description: "This endpoint gets or creates a new return."
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request GET 'https://api.stateset.com/api/return' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
     "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
 }'
+```
+
+```graphQL GraphQL
+query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
+  returns(limit: $limit, offset: $offset, order_by: {created_date: $order_direction}) {
+    id
+    created_date
+    amount
+    action_needed
+    condition
+    customerEmail
+    customer_id
+    description
+    enteredBy
+    flat_rate_shipping
+    order_date
+    order_id
+    reason_category
+    reported_condition
+    requested_date
+    rma
+    serial_number
+    shipped_date
+    status
+    tax_refunded
+    total_refunded
+    tracking_number
+    return_line_items {
+      amount
+      condition
+      flat_rate_shipping
+      id
+      name
+      price
+      return_id
+      serial_number
+      sku
+      tax_refunded
+    }
+  }
+}
 ```
 
 ```js Node.js
