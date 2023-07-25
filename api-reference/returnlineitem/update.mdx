@@ -63,7 +63,7 @@ const returnLineItem = await stateset.returnItem.update({
 
 ```python Python
 
-return_line_item = stateset.return_line_item.update(
+return_line_item = stateset.ReturnItem.modify(
     id='0901f083-aa1c-43c5-af5c-0a9d2fc64e30',
     return_line_item={
         'sku': 'example_1',
@@ -80,7 +80,7 @@ return_line_item = stateset.return_line_item.update(
 
 ```ruby Ruby
 
-return_line_item = Stateset::ReturnLineItem.update(
+return_line_item = Stateset::ReturnItem.update(
     id: '0901f083-aa1c-43c5-af5c-0a9d2fc64e30',
     return_line_item: {
         sku: 'example_1',

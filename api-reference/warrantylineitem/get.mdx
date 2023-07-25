@@ -50,13 +50,84 @@ description: "This endpoint gets or creates a new warranty line item."
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request GET 'https://api.stateset.com/api/warranty_line_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
     "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
 }'
+```
+
+```graphQL GraphQL
+
+      query getMyWarrantyData($last_received_id: String, $last_received_ts: String, $first_received_date: date, $id: String) {
+              warranty_line_items(where: {warranty_id: {_eq: $id}}) {
+                id
+                sku
+                name
+                price
+                condition
+                tax_refunded
+                flat_rate_shipping
+                warranty_id
+                serial_number
+                amount
+                image_1
+                image_2
+                image_3
+                match
+              }
+          }`
+
+```
+
+```javascript Node.js
+
+const warranties = await stateset.warrantyItem.retrieve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+
+```
+
+```python Python
+
+warranties = stateset.warrantylineitem.retrieve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+
+```
+
+```ruby Ruby
+
+warranties = Stateset::WarrantyItem.retrieve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+
+```
+
+```php PHP
+
+$warranties = $stateset->warrantyitem->retrieve([
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+]);
+
+```
+
+```go Go
+
+WarrantyLineItem , err := stateset.WarrantyItem.Retrieve(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+
+```
+
+```java Java
+
+WarrantyItem[] warrantyitem = stateset.warrantyitem.retrieve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+
 ```
 
 </RequestExample>
