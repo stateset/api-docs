@@ -6,66 +6,145 @@ description: "This endpoint gets or creates a new warranty."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="id" type="string">
+  This is the id of the warranty.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
-</ParamField>
-
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user group should be
-  associated with or id of the datasource you provided when creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will be accessible through
-  variables in the dashboards and SQL editor
-</ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the id of the warranty.
 </ResponseField>
 
-<ResponseField name="new_user_group" type="boolean">
-  Indicates whether a new user group was created.
+<ResponseField name="action_needed" type="boolean">
+  Indicates whether any action is needed for the warranty.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this information, since
-  you will not need to use it.
+<ResponseField name="advanced_replacement" type="boolean">
+  Indicates if advanced replacement is available for the warranty.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be used to identify
-  which user group is viewing the dashboard. You should save this on your end to use when rendering
-  an embedded dashboard.
+<ResponseField name="amount" type="decimal">
+  The monetary amount associated with the warranty.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="condition" type="string">
+  Describes the condition of the item or situation.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="condition_date" type="datetime">
+  Date and time when the condition was recorded or observed.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON or null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="country" type="string">
+  Country associated with the warranty entry.
 </ResponseField>
 
-</Expandable>
-
+<ResponseField name="created_date" type="datetime">
+  Date and time when the warranty entry was created.
 </ResponseField>
+
+<ResponseField name="customerEmail" type="string">
+  Email address of the customer associated with the warranty.
+</ResponseField>
+
+<ResponseField name="customer_id" type="integer">
+  Unique identifier for the customer associated with the warranty.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  Brief description or additional details about the warranty.
+</ResponseField>
+
+<ResponseField name="enteredBy" type="string">
+  Name or identifier of the person who entered the warranty.
+</ResponseField>
+
+<ResponseField name="issue" type="string">
+  Issue or problem associated with the warranty.
+</ResponseField>
+
+<ResponseField name="match" type="boolean">
+  Indicates whether the warranty matches the specified conditions.
+</ResponseField>
+
+<ResponseField name="order_date" type="datetime">
+  Date and time when the order associated with the warranty was placed.
+</ResponseField>
+
+<ResponseField name="order_id" type="integer">
+  Unique identifier for the order associated with the warranty.
+</ResponseField>
+
+<ResponseField name="reason_category" type="string">
+  Category or reason associated with the warranty.
+</ResponseField>
+
+<ResponseField name="replacement_color" type="string">
+  Color of the replacement item for the warranty.
+</ResponseField>
+
+<ResponseField name="replacement_order_created" type="boolean">
+  Indicates if a replacement order has been created for the warranty.
+</ResponseField>
+
+<ResponseField name="reported_condition" type="string">
+  Condition as reported by the customer or user.
+</ResponseField>
+
+<ResponseField name="requested_date" type="datetime">
+  Date and time when a specific request was made for the warranty.
+</ResponseField>
+
+<ResponseField name="rma" type="string">
+  Return Merchandise Authorization (RMA) number for the warranty.
+</ResponseField>
+
+<ResponseField name="scanned_serial_number" type="string">
+  Serial number obtained through scanning for the warranty.
+</ResponseField>
+
+<ResponseField name="serial_number" type="string">
+  Unique serial number associated with the item in the warranty.
+</ResponseField>
+
+<ResponseField name="shipstation_order_id" type="string">
+  ShipStation order ID associated with the warranty.
+</ResponseField>
+
+<ResponseField name="shipped_date" type="datetime">
+  Date and time when the item was shipped or dispatched.
+</ResponseField>
+
+<ResponseField name="sso_id" type="string">
+  Single Sign-On (SSO) ID associated with the warranty.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Current status or state of the warranty.
+</ResponseField>
+
+<ResponseField name="stripe_invoice_id" type="string">
+  Stripe invoice ID associated with the warranty.
+</ResponseField>
+
+<ResponseField name="tax_refunded" type="decimal">
+  The amount of tax refunded for the warranty.
+</ResponseField>
+
+<ResponseField name="total_refunded" type="decimal">
+  The total amount refunded for the warranty.
+</ResponseField>
+
+<ResponseField name="tracking_number" type="string">
+  Tracking number associated with the shipment for the warranty.
+</ResponseField>
+
+<ResponseField name="warehouse_received_date" type="datetime">
+  Date and time when the item was received in the warehouse.
+</ResponseField>
+
 
 <RequestExample>
 
@@ -79,6 +158,95 @@ curl --location --request GET 'https://api.stateset.com/api/return' \
     "mapping": {"40": "213", "134": "386"},
     "properties": {"filterValue": "value"}
 }'
+```
+
+```graphQL GraphQL
+      query getMyWarrantyData($last_received_id: String, $last_received_ts: String, $first_received_date: date, $id: String) {
+              warranties(where: {id: {_eq: $id}}) {
+                id
+                order_id
+                description
+                status
+                issue
+                tracking_number
+                action_needed
+                customerEmail
+                rma
+                serial_number
+                scanned_serial_number
+                zendesk_number
+                enteredBy
+                order_date
+                shipped_date
+                requested_date
+                condition
+                reported_condition
+                amount
+                tax_refunded
+                total_refunded
+                created_date
+                reason_category
+                country
+                advanced_replacement
+                replacement_color
+                stripe_invoice_id
+                shipstation_order_id
+              }
+              warranty_line_items(where: {warranty_id: {_eq: $id}}) {
+                id
+                sku
+                name
+                price
+                condition
+                tax_refunded
+                flat_rate_shipping
+                warranty_id
+                serial_number
+                amount
+                image_1
+                image_2
+                image_3
+                match
+              }
+          }`;
+```
+
+```javascript Node.js
+
+const warranties = await stateset.warranties.retrieve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+
+```
+
+```python Python
+
+warranties = stateset.warranties.retrieve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+
+```
+
+```ruby Ruby
+
+warranties = Stateset::Warranty.retrieve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+
+```
+
+```php PHP
+
+$warranties = $stateset->warranties->retrieve([
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+]);
+
+```
+
+```http HTTP
+GET /api/warranty HTTP/1.1
+Host: api.stateset.com
+Content-Type: application/json
 ```
 
 </RequestExample>
@@ -99,3 +267,42 @@ curl --location --request GET 'https://api.stateset.com/api/return' \
 ```
 
 </ResponseExample>
+
+
+### Warranty 
+
+| Name                        | Type      | Description                                                          |
+| --------------------------- | --------- | -------------------------------------------------------------------- |
+| id                          | Integer   | Unique identifier for the warranty entry                             |
+| action\_needed              | Boolean   | Indicates whether any action is needed for the warranty              |
+| advanced\_replacement       | Boolean   | Indicates if advanced replacement is available for the warranty      |
+| amount                      | Decimal   | The monetary amount associated with the warranty                     |
+| condition                   | String    | Describes the condition of the item or situation                     |
+| condition\_date             | Date/Time | Date and time when the condition was recorded or observed            |
+| country                     | String    | Country associated with the warranty entry                           |
+| created\_date               | Date/Time | Date and time when the warranty entry was created                    |
+| customerEmail               | String    | Email address of the customer associated with the warranty           |
+| customer\_id                | Integer   | Unique identifier for the customer associated with the warranty      |
+| description                 | String    | Brief description or additional details about the warranty           |
+| enteredBy                   | String    | Name or identifier of the person who entered the warranty            |
+| issue                       | String    | Issue or problem associated with the warranty                        |
+| match                       | Boolean   | Indicates whether the warranty matches the specified conditions      |
+| order\_date                 | Date/Time | Date and time when the order associated with the warranty was placed |
+| order\_id                   | Integer   | Unique identifier for the order associated with the warranty         |
+| reason\_category            | String    | Category or reason associated with the warranty                      |
+| replacement\_color          | String    | Color of the replacement item for the warranty                       |
+| replacement\_order\_created | Boolean   | Indicates if a replacement order has been created for the warranty   |
+| reported\_condition         | String    | Condition as reported by the customer or user                        |
+| requested\_date             | Date/Time | Date and time when a specific request was made for the warranty      |
+| rma                         | String    | Return Merchandise Authorization (RMA) number for the warranty       |
+| scanned\_serial\_number     | String    | Serial number obtained through scanning for the warranty             |
+| serial\_number              | String    | Unique serial number associated with the item in the warranty        |
+| shipstation\_order\_id      | String    | ShipStation order ID associated with the warranty                    |
+| shipped\_date               | Date/Time | Date and time when the item was shipped or dispatched                |
+| sso\_id                     | String    | Single Sign-On (SSO) ID associated with the warranty                 |
+| status                      | String    | Current status or state of the warranty                              |
+| stripe\_invoice\_id         | String    | Stripe invoice ID associated with the warranty                       |
+| tax\_refunded               | Decimal   | The amount of tax refunded for the warranty                          |
+| total\_refunded             | Decimal   | The total amount refunded for the warranty                           |
+| tracking\_number            | String    | Tracking number associated with the shipment for the warranty        |
+| warehouse\_received\_date   | Date/Time | Date and time when the item was received in the warehouse            |

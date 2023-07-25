@@ -6,17 +6,19 @@ description: "This endpoint deletes an existing warranty."
 
 ### Body
 
-<ParamField body="data_source_provided_id" type="string">
-  The data source ID provided in the data tab may be used to identify the data
-  source for the user group
-</ParamField>
-
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group you want to
-  delete
+<ParamField body="warranty_id" type="string">
+  The ID provided in the data tab may be used to identify the warranty
 </ParamField>
 
 ### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the warranty
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
 
 <ResponseField name="success" type="number">
   Indicates whether the call was successful. 1 if successful, 0 if not.
@@ -24,15 +26,71 @@ description: "This endpoint deletes an existing warranty."
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request DELETE 'https://api.stateset.com/api/warranty' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-		"user_group_id": "example_1"
-		"current_token": "abcdef"
+		"id": "w_1NXWPnCo6bFb1KQto6C8OWvE"
 }'
 ```
+
+```graphQL GraphQL
+      mutation deleteWarranty ($id: String!) {
+        delete_warranties(where: {id: {_eq: $id}}) {
+          affected_rows
+        }
+      }
+```
+
+```javascript Node.js
+
+const deleted = await stateset.warranty.del(
+  'w_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+
+```python Python
+
+deleted = stateset.warranty.del(
+  'w_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+
+```
+
+```ruby Ruby
+
+deleted = Stateset::Warranty.del(
+  'w_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+
+```
+
+```php PHP
+
+$deleted = $stateset->warranty->del(
+  'w_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+
+```
+
+```go Go
+
+Warranty, err := stateset.Warranty.Delete(
+  'w_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+
+```
+
+```java Java
+
+Warranty warranties = stateset.warranties.del(
+  "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+);
+
+```
+
+
 
 </RequestExample>
 
@@ -40,8 +98,11 @@ curl --location --request DELETE 'https://api.stateset.com/api/warranty' \
 
 ```json Response
 {
-  "success": 1
+  "id": "w_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "warranty",
+  "deleted": true
 }
+
 ```
 
 </ResponseExample>

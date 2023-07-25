@@ -65,12 +65,6 @@ curl --location --request POST 'https://api.stateset.com/api/return_line_item' \
 }'
 ```
 
-```js Node.js
-const returnLineItem = await stateset.returnItem.create({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
-});
-
-```
 ```graphQL GraphQL
                  mutation addReturnLineItem($return_line_item: return_line_items_insert_input!) {
                   insert_return_line_items(objects: [$return_line_item]) {
@@ -86,6 +80,13 @@ const returnLineItem = await stateset.returnItem.create({
                   }
                 }
                 }
+```
+
+```js Node.js
+const returnLineItem = await stateset.returnItem.create({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+
 ```
 
 ```python Python
