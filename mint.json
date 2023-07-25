@@ -164,7 +164,8 @@
         "api-reference/billofmaterials/get",
         "api-reference/billofmaterials/create",
         "api-reference/billofmaterials/update",
-        "api-reference/billofmaterials/delete"
+        "api-reference/billofmaterials/delete",
+        "api-reference/billofmaterials/buildtostock"
       ]
     },
     {
