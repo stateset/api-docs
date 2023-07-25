@@ -147,7 +147,26 @@ WarrantyItems updated = stateset.warrantyItems.update(
 
 ```json Response
 {
-  "success": 1,
+  "data": {
+    "warranty_line_items": [
+      {
+        "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+        "sku": "123456789",
+        "name": "Warranty Item",
+        "price": "100.00",
+        "condition": "New",
+        "tax_refunded": false,
+        "flat_rate_shipping": "10.00",
+        "warranty_id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+        "serial_number": "123456789",
+        "amount": "110.00",
+        "image_1": "https://www.example.com/image1.jpg",
+        "image_2": "https://www.example.com/image2.jpg",
+        "image_3": "https://www.example.com/image3.jpg",
+        "match": "123456789"
+      }
+    ]
+  }
 }
 ```
 

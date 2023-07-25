@@ -189,6 +189,10 @@ description: "This endpoint updates an existing warranty."
   Stock Keeping Unit (SKU) of the replaced item.
 </ResponseField>
 
+</Expandable>
+
+</ResponseField>
+
 <RequestExample>
 
 ```bash cURL
@@ -313,9 +317,10 @@ $warranties = $stateset->warranties->update(
             "tax_refunded": null,
             "total_refunded": null,
             "tracking_number": null,
-        }
+            "warranty_line_items": []
+        },
     ]
-}   
+} 
 ```
 
 </ResponseExample>

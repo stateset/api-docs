@@ -13,9 +13,45 @@ description: "This endpoint creates a new return line item."
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
-</ResponseField>
+  <ResponseField name="id" type="string">
+    This is the id of the return line item.
+  </ResponseField>
+
+  <ResponseField name="amount" type="string">
+    This is the amount of the return line item.
+  </ResponseField>
+
+  <ResponseField name="condition" type="string">
+    This is the condition of the return line item.
+  </ResponseField>
+
+  <ResponseField name="flat_rate_shipping" type="string">
+    This is the flat rate shipping of the return line item.
+  </ResponseField>
+
+  <ResponseField name="name" type="string">
+    This is the name of the return line item.
+  </ResponseField>
+
+  <ResponseField name="price" type="string">
+    This is the price of the return line item.
+  </ResponseField>
+
+  <ResponseField name="return_id" type="string">
+    This is the id of the return associated with the line item.
+  </ResponseField>
+
+  <ResponseField name="serial_number" type="string">
+    This is the serial number of the return line item.
+  </ResponseField>
+
+  <ResponseField name="sku" type="string">
+    This is the sku of the return line item.
+  </ResponseField>
+
+  <ResponseField name="tax_refunded" type="string">
+    This is the tax refunded of the return line item.
+  </ResponseField>
 
 <RequestExample>
 
@@ -148,13 +184,22 @@ var returnLineItem = stateset.ReturnLineItem.Create(
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
-  }
+    "data": {
+        "insert_return_line_items": {
+            "returning": [
+                {
+                    "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+                    "sku": "123456789",
+                    "name": "Example Item",
+                    "price": 100,
+                    "condition": "New",
+                    "serial_number": "123456789",
+                    "amount": 1,
+                    "return_id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+                }
+            ]
+        }
+    }
 }
 ```
 

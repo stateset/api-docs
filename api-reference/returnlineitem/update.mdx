@@ -170,13 +170,22 @@ var returnLineItem = await stateset.ReturnLineItem.Update(
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 113,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "ok",
-    "provided_id": "6"
-  }
+    "data": {
+        "insert_return_line_items": {
+            "returning": [
+                {
+                    "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+                    "sku": "123456789",
+                    "name": "Example Item",
+                    "price": 100,
+                    "condition": "New",
+                    "serial_number": "123456789",
+                    "amount": 1,
+                    "return_id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+                }
+            ]
+        }
+    }
 }
 ```
 
