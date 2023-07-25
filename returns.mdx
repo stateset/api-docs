@@ -1,0 +1,95 @@
+---
+title: "Returns"
+"The returns object"
+icon: "arrows-rotate"
+---
+
+Returns describes the general data about the goods or services being returned by your customers. For example, you might have multiple line items on an order, each would be a separate Return Line Item. The Return is corresponding to the metadata regarding Returned Items.
+
+
+## Attributes
+
+  <ResponseField name="id" type="Integer" required>Unique identifier for the entry in the table</ResponseField>
+  <ResponseField name="created_date" type="Date/Time" required>Date and time when the entry was created</ResponseField>
+  <ResponseField name="amount" type="Decimal" required>The monetary amount associated with the entry</ResponseField>
+  <ResponseField name="action_needed" type="Boolean" required>Indicates whether any action is required for the entry</ResponseField>
+  <ResponseField name="condition" type="String" required>Describes the condition of the item or situation</ResponseField>
+  <ResponseField name="customerEmail" type="String" required>Email address of the customer associated with the entry</ResponseField>
+  <ResponseField name="customer_id" type="Integer" required>Unique identifier for the customer associated with the entry</ResponseField>
+  <ResponseField name="description" type="String" required>Brief description or additional details about the entry</ResponseField>
+  <ResponseField name="enteredBy" type="String" required>Name or identifier of the person who entered the entry</ResponseField>
+  <ResponseField name="flat_rate_shipping" type="Boolean" required>Indicates whether the shipping rate is a flat rate</ResponseField>
+  <ResponseField name="order_date" type="Date/Time" required>Date and time when the order was placed</ResponseField>
+  <ResponseField name="order_id" type="Integer" required>Unique identifier for the order associated with the entry</ResponseField>
+  <ResponseField name="reason_category" type="String" required>Category or reason associated with the entry</ResponseField>
+  <ResponseField name="reported_condition" type="String" required>Condition as reported by the customer or user</ResponseField>
+  <ResponseField name="requested_date" type="Date/Time" required>Date and time when a specific request was made for the entry</ResponseField>
+  <ResponseField name="rma" type="String" required>Return Merchandise Authorization (RMA) number for the entry</ResponseField>
+  <ResponseField name="serial_number" type="String" required>Unique serial number associated with the item in the entry</ResponseField>
+  <ResponseField name="shipped_date" type="Date/Time" required>Date and time when the item was shipped or dispatched</ResponseField>
+  <ResponseField name="status" type="String" required>Current status or state of the entry</ResponseField>
+  <ResponseField name="tax_refunded" type="Decimal" required>The amount of tax refunded for the entry</ResponseField>
+  <ResponseField name="total_refunded" type="Decimal" required>The total amount refunded for the entry</ResponseField>
+  <ResponseField name="tracking_number" type="String" required>Tracking number associated with the shipment for the entry</ResponseField>
+
+```graphql
+
+    query getMyReturnData($last_received_id: String, $last_received_ts: String, $first_received_date: date, $id: String) {
+            returns(where: {id: {_eq: $id}}) {
+              id
+              order_id
+              description
+              status
+              issue
+              tracking_number
+              action_needed
+              customerEmail
+              rma
+              serial_number
+              scanned_serial_number
+              zendesk_number
+              enteredBy
+              order_date
+              shipped_date
+              created_date
+              requested_date
+              reason_category
+              condition
+              reported_condition
+              scanned_serial_number
+              flat_rate_shipping
+              amount
+              tax_refunded
+              total_refunded
+              warehouse_condition_date
+              warehouse_received_date
+              refunded_date
+            }
+            return_line_items(where: {return_id: {_eq: $id}}) {
+              id
+              sku
+              name
+              price
+              condition
+              tax_refunded
+              flat_rate_shipping
+              return_id
+              serial_number
+              amount
+              image_1
+              image_2
+              image_3
+              match
+            }
+        }`;
+
+        ```
+
+
+### Get Returns
+
+  ```jsx
+  const returns = await stateset.returns.list({
+  limit: 3,
+});
+```
