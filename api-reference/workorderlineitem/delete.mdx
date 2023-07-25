@@ -1,19 +1,19 @@
 ---
 title: "Delete Work Order Line Item"
-api: "DELETE https://api.stateset.com/api/work_order_line_item"
+api: "DELETE https://api.return.com/api/work_order_line_item"
 description: "This endpoint deletes an existing work order line item."
 ---
 
-### Body 
+### Body
 
 <ParamField body="id" type="string">
-  The id of the bill of materials to delete.
+  The ID of the work order line item you want to delete
 </ParamField>
 
 ### Response
 
 <ResponseField name="id" type="string">
-  The ID provided in the data tab may be used to identify the return
+  The ID provided in the data tab may be used to identify the work order
 </ResponseField>
 
 <ResponseField name="object" type="string">
@@ -31,9 +31,65 @@ curl --location --request DELETE 'https://api.stateset.com/api/work_order_line_i
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-		"user_group_id": "example_1"
-		"current_token": "abcdef"
+		"id": "example_1"
 }'
+```
+
+```js Node.js
+const workOrderLineItem = await stateset.workOrderItem.del({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+
+```
+
+```graphQL GraphQL
+               mutation deleteWorkOrderLineItem ($work_order_line_item_id: uuid!) {
+                delete_work_order_line_items(where: {id: {_eq: $work_order_line_item_id}}) {
+                  affected_rows
+                }
+              }
+```
+
+```python Python
+work_order_line_item = stateset.work_order_line_item.del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+
+```
+
+```ruby Ruby
+work_order_line_item = Stateset::WorkOrderLineItem.del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+
+```
+
+```php PHP
+$work_order_line_item = Stateset\WorkOrderItem::del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+
+```
+
+```go Golang
+workOrderLineItem, err := stateset.ReturnLineItem.Delete(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+
+```
+
+```java Java
+WorkOrderLineItem workOrderLineItem = stateset.workOrderLineItem.del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+
+```
+
+```csharp C#
+var workOrderLineItem = await Stateset.WorkOrderLineItem.Delete(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+
 ```
 
 </RequestExample>
@@ -42,8 +98,11 @@ curl --location --request DELETE 'https://api.stateset.com/api/work_order_line_i
 
 ```json Response
 {
-  "success": 1
+  "id": "rli_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "return_line_item",
+  "deleted": true
 }
+
 ```
 
 </ResponseExample>
