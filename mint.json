@@ -166,11 +166,7 @@
         "api-reference/workorder/get",
         "api-reference/workorder/create",
         "api-reference/workorder/update",
-        "api-reference/workorder/delete",
-        "api-reference/workorderlineitem/get",
-        "api-reference/workorderlineitem/create",
-        "api-reference/workorderlineitem/update",
-        "api-reference/workorderlineitem/delete"
+        "api-reference/workorder/delete"
       ]
     },
     {
