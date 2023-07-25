@@ -1,0 +1,66 @@
+---
+title: 'Returns'
+description: 'The returns object'
+icon: '📦'
+---
+
+### Definition 
+
+Returns are used to track the return of an item or items to a merchant. Returns can be created for a variety of reasons, including:
+
+* Item is damaged
+* Item is defective
+* Item is incorrect
+* Item is missing
+* Item is no longer needed
+* Item is not as described
+* Item is not what was ordered
+* Item is unwanted
+* Item was not delivered
+* Item was not received
+* Item was not received on time
+* Item was not what was expected
+
+### Attributes
+
+### Return
+
+| Name                 | Type      | Description                                                  |
+| -------------------- | --------- | ------------------------------------------------------------ |
+| id                   | Integer   | Unique identifier for the entry in the table                 |
+| created\_date        | Date/Time | Date and time when the entry was created                     |
+| amount               | Decimal   | The monetary amount associated with the entry                |
+| action\_needed       | Boolean   | Indicates whether any action is required for the entry       |
+| condition            | String    | Describes the condition of the item or situation             |
+| customerEmail        | String    | Email address of the customer associated with the entry      |
+| customer\_id         | Integer   | Unique identifier for the customer associated with the entry |
+| description          | String    | Brief description or additional details about the entry      |
+| enteredBy            | String    | Name or identifier of the person who entered the entry       |
+| flat\_rate\_shipping | Boolean   | Indicates whether the shipping rate is a flat rate           |
+| order\_date          | Date/Time | Date and time when the order was placed                      |
+| order\_id            | Integer   | Unique identifier for the order associated with the entry    |
+| reason\_category     | String    | Category or reason associated with the entry                 |
+| reported\_condition  | String    | Condition as reported by the customer or user                |
+| requested\_date      | Date/Time | Date and time when a specific request was made for the entry |
+| rma                  | String    | Return Merchandise Authorization (RMA) number for the entry  |
+| serial\_number       | String    | Unique serial number associated with the item in the entry   |
+| shipped\_date        | Date/Time | Date and time when the item was shipped or dispatched        |
+| status               | String    | Current status or state of the entry                         |
+| tax\_refunded        | Decimal   | The amount of tax refunded for the entry                     |
+| total\_refunded      | Decimal   | The total amount refunded for the entry                      |
+| tracking\_number     | String    | Tracking number associated with the shipment for the entry   |
+
+### Return Line Item
+
+| Name                 | Type    | Description                                                    |
+| -------------------- | ------- | -------------------------------------------------------------- |
+| amount               | Decimal | The monetary amount associated with the return line item       |
+| condition            | String  | Describes the condition of the returned item                   |
+| flat\_rate\_shipping | Boolean | Indicates whether the shipping rate is a flat rate             |
+| id                   | Integer | Unique identifier for the return line item                     |
+| name                 | String  | Name or description of the return line item                    |
+| price                | Decimal | The price of the return line item                              |
+| return\_id           | Integer | Unique identifier for the return associated with the line item |
+| serial\_number       | String  | Unique serial number associated with the returned item         |
+| sku                  | String  | Stock Keeping Unit (SKU) of the returned item                  |
+| tax\_refunded        | Decimal | The amount of tax refunded for the return line item            |

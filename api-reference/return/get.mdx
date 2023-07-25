@@ -103,7 +103,7 @@ description: "This endpoint gets or creates a new return."
 <ResponseField name="return_line_items" type="object">
   This is the line items of the return.
 
-  <Expandable title="Toggle object">
+  <Expandable title="Show child attributes">
 
   <ResponseField name="id" type="string">
     This is the id of the return line item.
@@ -239,18 +239,3 @@ Content-Type: application/json
 ```
 
 </ResponseExample>
-
-
-return_line_items:
-| Name                 | Type    | Description                                                    |
-| -------------------- | ------- | -------------------------------------------------------------- |
-| amount               | Decimal | The monetary amount associated with the return line item       |
-| condition            | String  | Describes the condition of the returned item                   |
-| flat\_rate\_shipping | Boolean | Indicates whether the shipping rate is a flat rate             |
-| id                   | Integer | Unique identifier for the return line item                     |
-| name                 | String  | Name or description of the return line item                    |
-| price                | Decimal | The price of the return line item                              |
-| return\_id           | Integer | Unique identifier for the return associated with the line item |
-| serial\_number       | String  | Unique serial number associated with the returned item         |
-| sku                  | String  | Stock Keeping Unit (SKU) of the returned item                  |
-| tax\_refunded        | Decimal | The amount of tax refunded for the return line item            |
