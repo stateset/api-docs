@@ -54,15 +54,27 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": [
+        "introduction",
+        "quickstart",
+        "development"
+      ]
     },
     {
       "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
+      "pages": [
+        "essentials/markdown",
+        "essentials/code",
+        "essentials/images",
+        "essentials/settings",
+        "essentials/navigation"
+      ]
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
+      "pages": [
+        "api-reference/authentication"
+      ]
     },
     {
       "group": "Returns",
@@ -101,6 +113,33 @@
         "api-reference/warrantylineitem/create",
         "api-reference/warrantylineitem/update",
         "api-reference/warrantylineitem/delete"
+      ]
+    },
+    {
+      "group": "Inventory Items",
+      "pages": [
+        "api-reference/inventory/get",
+        "api-reference/inventory/create",
+        "api-reference/inventory/update",
+        "api-reference/inventory/delete"
+      ]
+    },
+    {
+      "group": "Packing List",
+      "pages": [
+        "api-reference/packinglist/get",
+        "api-reference/packinglist/create",
+        "api-reference/packinglist/update",
+        "api-reference/packinglist/delete"
+      ]
+    },
+    {
+      "group": "Packing List Items",
+      "pages": [
+        "api-reference/packinglistitem/get",
+        "api-reference/packinglistitem/create",
+        "api-reference/packinglistitem/update",
+        "api-reference/packinglistitem/delete"
       ]
     },
     {
