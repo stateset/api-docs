@@ -12,9 +12,38 @@ description: "This endpoint updates an existing work order line item."
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the unique identifier of the work order line item.
 </ResponseField>
+
+<ResponseField name="line_status" type="string">
+  This is the status or state of the work order line item.
+</ResponseField>
+
+<ResponseField name="line_type" type="string">
+  This is the type or category of the work order line item.
+</ResponseField>
+
+<ResponseField name="part_name" type="string">
+  This is the name of the part or item included in the work order line item.
+</ResponseField>
+
+<ResponseField name="part_number" type="string">
+  This is the number or code associated with the part or item included in the work order line item.
+</ResponseField>
+
+<ResponseField name="total_quantity" type="number">
+  This is the total quantity of the part or item required or used in the work order line item.
+</ResponseField>
+
+<ResponseField name="unit_quantity" type="number">
+  This is the quantity of the part or item required or used per unit in the work order line item.
+</ResponseField>
+
+<ResponseField name="work_order_number" type="string">
+  This is the number associated with the work order to which the line item belongs.
+</ResponseField>
+
 
 </Expandable>
 

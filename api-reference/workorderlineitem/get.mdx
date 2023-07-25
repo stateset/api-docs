@@ -6,78 +6,85 @@ description: "This endpoint gets or creates a new work order line item."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="id" type="string">
+  This is the id of the work order line item.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
+<ParamField body="line_status" type="string">
+  This is the status of the work order line item.
 </ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user group should be
-  associated with or id of the datasource you provided when creating it.
+<ParamField body="line_type" type="string">
+  This is the type of the work order line item.
 </ParamField>
 
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will be accessible through
-  variables in the dashboards and SQL editor
+<ParamField body="part_name" type="string">
+  This is the name of the part of the work order line item.
 </ParamField>
+
+<ParamField body="part_number" type="string">
+  This is the number of the part of the work order line item.
+</ParamField>
+
+<ParamField body="total_quantity" type="string">
+  This is the total quantity of the part of the work order line item.
+</ParamField>
+
+<ParamField body="unit_quantity" type="string">
+  This is the unit quantity of the part of the work order line item.
+</ParamField>
+
+<ParamField body="work_order_number" type="string">
+  This is the work order number of the work order line item.
+</ParamField>
+
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the id of the work order line item.
 </ResponseField>
 
-<ResponseField name="new_user_group" type="boolean">
-  Indicates whether a new user group was created.
+<ResponseField name="line_status" type="string">
+  This is the status of the work order line item.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this information, since
-  you will not need to use it.
+<ResponseField name="line_type" type="string">
+  This is the type of the work order line item.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be used to identify
-  which user group is viewing the dashboard. You should save this on your end to use when rendering
-  an embedded dashboard.
+<ResponseField name="part_name" type="string">
+  This is the name of the part of the work order line item.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="part_number" type="string">
+  This is the number of the part of the work order line item.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="total_quantity" type="string">
+  This is the total quantity of the part of the work order line item.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON or null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="unit_quantity" type="string">
+  This is the unit quantity of the part of the work order line item.
 </ResponseField>
 
-</Expandable>
-
+<ResponseField name="work_order_number" type="string">
+  This is the work order number of the work order line item.
 </ResponseField>
+
+
 
 <RequestExample>
+
+
 
 ```bash cURL
 curl --location --request GET 'https://api.stateset.com/api/work_order_line_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+    "id": "example_1",
 }'
 ```
 
@@ -87,15 +94,31 @@ curl --location --request GET 'https://api.stateset.com/api/work_order_line_item
 
 ```json Response
 {
-  "success": 1,
-  "new_user_group": true,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
+  {
+    "id": "example_1",
+    "line_status": "example_1",
+    "line_type": "example_1",
+    "part_name": "example_1",
+    "part_number": "example_1",
+    "total_quantity": "example_1",
+    "unit_quantity": "example_1",
+    "work_order_number": "example_1"
   }
 }
 ```
 
 </ResponseExample>
+
+
+## Work Order Line Items
+
+| Name                | Type    | Description                                                              |
+| ------------------- | ------- | ------------------------------------------------------------------------ |
+| id                  | Text    | Unique identifier for the line item                                      |
+| line\_status        | Text    | Status or state of the line item                                         |
+| line\_type          | Text    | Type or category of the line item                                        |
+| part\_name          | Text    | Name of the part or item included in the line item                       |
+| part\_number        | Text    | Number or code associated with the part or item                          |
+| total\_quantity     | Numeric | Total quantity of the part or item required or used in the work order    |
+| unit\_quantity      | Numeric | Quantity of the part or item required or used per unit in the work order |
+| work\_order\_number | Text    | Number associated with the work order to which the line item belongs     |

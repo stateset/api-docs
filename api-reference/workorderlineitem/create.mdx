@@ -171,7 +171,24 @@ var workOrderLineItem = stateset.WorkOrderLineItem.Create(
 
 ```json Response
 {
-  "success": 1,
+  {
+    "data": {
+      "insert_work_order_line_items": {
+        "returning": [
+          {
+            "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+            "line_status": "In Progress",
+            "line_type": "Part",
+            "part_name": "Part 1",
+            "part_number": "123456",
+            "total_quantity": 10,
+            "unit_quantity": 1,
+            "work_order_number": "WO-0001"
+          }
+        ]
+      }
+    }
+  }
 }
 ```
 
