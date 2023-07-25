@@ -31,7 +31,7 @@ curl --location --request PUT 'https://api.stateset.com/api/return/:id/reopen' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+    "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE"
 }'
 ```
 
@@ -54,43 +54,43 @@ curl --location --request PUT 'https://api.stateset.com/api/return/:id/reopen' \
 
 ```js Node.js
 const returns = await stateset.returns.reopen({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```python Python
 returns = stateset.returns.reopen({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 
 ```ruby Ruby
-returns = stateset.returns.reopen({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+returns = Stateset::Return.reopen({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 
 ```go Go
 returns, err := stateset.Returns.Reopen({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 
 ```java Java
 Return returns = stateset.Returns.reopen({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```php PHP
 $returns = $stateset->returns->reopen({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```csharp C#
 var returns = await stateset.Returns.Reopen({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
@@ -101,7 +101,7 @@ var returns = await stateset.Returns.Reopen({
 
 ```json Response
 {
-  "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+  "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
   "object": "return",
   "reopened": true
 }

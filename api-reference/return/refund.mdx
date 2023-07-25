@@ -31,7 +31,7 @@ curl --location --request PUT 'https://api.stateset.com/api/return/:id/refund' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+    "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE"
 }'
 ```
 
@@ -64,49 +64,49 @@ curl --location --request PUT 'https://api.stateset.com/api/return/:id/refund' \
 
 ```js Node.js
 const returns = await stateset.returns.refund({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```python Python
 returns = stateset.returns.refund({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 
 ```ruby Ruby
 returns = Stateset::Return.refund({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 
 ```go Go
 returns, err := stateset.Returns.Refund(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 )
 ```
 
 ```java Java
 Return returns = stateset.returns.refund(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 
 ```php PHP
 $returns = $stateset->returns->refund(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 
 ```csharp C#
 var returns = stateset.Returns.Refund(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 
 ```vb Visual Basic .NET
 Dim returns = stateset.Returns.Refund(
-  "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+  "rt_1NXWPnCo6bFb1KQto6C8OWvE"
 )
 ```
 
@@ -116,7 +116,7 @@ Dim returns = stateset.Returns.Refund(
 
 ```json Response
 {
-  "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+  "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
   "object": "return",
   "refunded": true
 }

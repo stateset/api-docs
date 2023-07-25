@@ -31,7 +31,7 @@ curl --location --request PUT 'https://api.stateset.com/api/return/:id/close' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+    "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE"
 }'
 ```
 
@@ -53,55 +53,55 @@ curl --location --request PUT 'https://api.stateset.com/api/return/:id/close' \
 
 ```js Node.js
 const returns = await stateset.returns.close({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```python Python
 returns = stateset.returns.close({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 
 ```ruby Ruby
 returns = Stateset::Return.close({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 
 ```go Go
 returns, err := stateset.Returns.Close({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 
 ```java Java
 Return returns = stateset.Returns.close({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```php PHP
 $returns = $stateset->returns->close({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```csharp C#
 var returns = await stateset.Returns.Close({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```cpp C++
 auto returns = stateset.returns.close({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```rust Rust
 let returns = stateset.returns.close({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
@@ -111,7 +111,7 @@ let returns = stateset.returns.close({
 
 ```json Response
 {
-  "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+  "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
   "object": "return",
   "closed": true
 }
