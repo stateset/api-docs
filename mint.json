@@ -41,6 +41,11 @@
       "url": "https://mintlify.com/docs"
     },
     {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/stateset"
+    },
+    {
       "name": "Community",
       "icon": "slack",
       "url": "https://stateset.io/community"
