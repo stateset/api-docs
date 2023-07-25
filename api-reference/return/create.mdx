@@ -6,16 +6,100 @@ description: "This endpoint creates a new return"
 
 ### Body
 
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+<ParamField body="id" type="string">
+  This is the unique identifier for the return.
+</ParamField>
+
+<ParamField body="order_id" type="string">
+  This is the unique identifier for the order.
+</ParamField>
+
+<ParamField body="serial_number" type="string">
+  This is the unique identifier for the serial number.
+</ParamField>
+
+<ParamField body="description" type="string">
+  This is the description of the return.
+</ParamField>
+
+<ParamField body="status" type="string">
+  This is the status of the return.
+</ParamField>
+
+<ParamField body="reported_condition" type="string">
+  This is the reported condition of the return.
+</ParamField>
+
+<ParamField body="tracking_number" type="string">
+  This is the tracking number of the return.
+</ParamField>
+
+<ParamField body="zendesk_number" type="string">
+  This is the zendesk number of the return.
+</ParamField>
+
+<ParamField body="action_needed" type="string">
+  This is the action needed of the return.
+</ParamField>
+
+<ParamField body="rma" type="string">
+  This is the rma of the return.
+</ParamField>
+
+<ParamField body="country" type="string">
+  This is the country of the return.
+</ParamField>
+
+<ParamField body="created_date" type="string">
+  This is the created date of the return.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the return
 </ResponseField>
+
+<ResponseField name="order_id" type="string">
+  The order ID provided in the data tab may be used to identify the order
+</ResponseField>
+
+<ResponseField name="serial_number" type="string">
+  The serial number provided in the data tab may be used to identify the serial number
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  The description provided in the data tab may be used to identify the description
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  The status provided in the data tab may be used to identify the status
+</ResponseField>
+
+<ResponseField name="reported_condition" type="string">
+  The reported condition provided in the data tab may be used to identify the reported condition
+</ResponseField>
+
+<ResponseField name="tracking_number" type="string">
+  The tracking number provided in the data tab may be used to identify the tracking number
+</ResponseField>
+
+<ResponseField name="zendesk_number" type="string">
+  The zendesk number provided in the data tab may be used to identify the zendesk number
+</ResponseField>
+
+<ResponseField name="action_needed" type="string">
+  The action needed provided in the data tab may be used to identify the action needed
+</ResponseField>
+
+<ResponseField name="rma" type="string">
+  The rma provided in the data tab may be used to identify the rma
+</ResponseField>
+
+<ResponseField name="country" type="string">
+  The country provided in the data tab may be used to identify the country
+</ResponseField>
+
 
 <RequestExample>
 

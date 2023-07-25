@@ -12,46 +12,90 @@ description: "This endpoint updates an existing return."
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  The ID of the return
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  Indicates whether a new user group was created.
+<ResponseField name="order_id" type="string">
+  The ID of the order
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField name="description" type="string">
+  The description of the return
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="issue" type="string">
+  The issue of the return
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="status" type="string">
+  The status of the return
 </ResponseField>
 
-<ResponseField name="properties" type="JSON | Null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="tracking_number" type="string">
+  The tracking number of the return
 </ResponseField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'
+<ResponseField name="action_needed" type="string">
+  The action needed of the return
 </ResponseField>
 
-</Expandable>
-
+<ResponseField name="customerEmail" type="string">
+  The customer email of the return
 </ResponseField>
+
+<ResponseField name="rma" type="string">
+  The RMA of the return
+</ResponseField>
+
+<ResponseField name="serial_number" type="string">
+  The serial number of the return
+</ResponseField>
+
+<ResponseField name="scanned_serial_number" type="string">
+  The scanned serial number of the return
+</ResponseField>
+
+<ResponseField name="zendesk_number" type="string">
+  The zendesk number of the return
+</ResponseField>
+
+<ResponseField name="enteredBy" type="string">
+  The entered by of the return
+</ResponseField>
+
+<ResponseField name="order_date" type="string">
+  The order date of the return
+</ResponseField>
+
+<ResponseField name="shipped_date" type="string">
+  The shipped date of the return
+</ResponseField>
+
+<ResponseField name="requested_date" type="string">
+  The requested date of the return
+</ResponseField>
+
+<ResponseField name="condition" type="string">
+  The condition of the return
+</ResponseField>
+
+<ResponseField name="reported_condition" type="string">
+  The reported condition of the return
+</ResponseField>
+
+<ResponseField name="created_date" type="string">
+  The created date of the return
+</ResponseField>
+
+<ResponseField name="amount" type="string">
+  The amount of the return
+</ResponseField>
+
+<ResponseField name="flat_rate_shipping" type="string">
+  The flat rate shipping of the return
+</ResponseField>
+
 
 <RequestExample>
 
@@ -180,7 +224,6 @@ var returns = stateset.Returns.Update(
             "tax_refunded": null,
             "total_refunded": null,
             "tracking_number": null,
-            "return_line_items": []
         },
     ]
 }   

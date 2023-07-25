@@ -19,7 +19,7 @@ description: "This endpoint creates a new warranty"
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request POST 'https://api.stateset.com/api/warranty' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
@@ -102,14 +102,34 @@ $warranty = Warranty::create([
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
-  }
-}
+    "warranties": [
+        {
+            "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+            "created_date": "2023-06-28T19:34:59.189838+00:00",
+            "amount": null,
+            "action_needed": null,
+            "condition": null,
+            "customerEmail": "customer@gmail.com",
+            "customer_id": null,
+            "description": null,
+            "enteredBy": null,
+            "flat_rate_shipping": null,
+            "order_date": null,
+            "order_id": "524213310335630636",
+            "reason_category": null,
+            "reported_condition": null,
+            "requested_date": null,
+            "rma": "#1014-R5",
+            "serial_number": null,
+            "shipped_date": null,
+            "status": "RCV",
+            "tax_refunded": null,
+            "total_refunded": null,
+            "tracking_number": null,
+            "warranty_line_items": []
+        },
+    ]
+} 
 ```
 
 </ResponseExample>
