@@ -6,71 +6,80 @@ description: "This endpoint updates an existing work order."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
-</ParamField>
-
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
-</ParamField>
-
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user
-  group should be associated with or id of the datasource you provided when
-  creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will
-  be accessible through variables in the dashboards and SQL editor
+<ParamField body="id" type="string">
+  This is the id of the work order you want to update.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField body="bill_of_materials_number" type="string">
+  Number associated with the bill of materials related to the work order
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  Indicates whether a new user group was created.
+<ResponseField body="created_at" type="string">
+  Date and time when the work order was created
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField body="created_by" type="string">
+  Name or identifier of the person who created the work order
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField body="expected_completion_date" type="string">
+  Expected completion date for the work order
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField body="id" type="string">
+  Unique identifier for the work order
 </ResponseField>
 
-<ResponseField name="properties" type="JSON | Null">
-  This is the properties object if it was provided in the request body
+<ResponseField body="issue_date" type="string">
+  Date when the work order was issued
 </ResponseField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'
+<ResponseField body="location" type="string">
+  Location or site where the work order is applicable
 </ResponseField>
 
-</Expandable>
-
+<ResponseField body="manufacture_order" type="string">
+  Identifier or reference to the manufacturing order associated with the work order
 </ResponseField>
+
+<ResponseField body="memo" type="string">
+  Memo or additional notes related to the work order
+</ResponseField>
+
+<ResponseField body="number" type="string">
+  Number associated with the work order
+</ResponseField>
+
+<ResponseField body="order_number" type="string">
+  Identifier or reference to the order associated with the work order
+</ResponseField>
+
+<ResponseField body="part" type="string">
+  Part or item associated with the work order
+</ResponseField>
+
+<ResponseField body="priority" type="string">
+  Priority level or urgency of the work order
+</ResponseField>
+
+<ResponseField body="site" type="string">
+  Site or location where the work order is being executed
+</ResponseField>
+
+<ResponseField body="status" type="string">
+  Current status or state of the work order
+</ResponseField>
+
+<ResponseField body="updated_at" type="string">
+  Date and time when the work order was last updated
+</ResponseField>
+
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request PUT 'https://api.stateset.com/api/work_order' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
@@ -81,6 +90,72 @@ curl --location --request PUT 'https://api.stateset.com/api/work_order' \
     "properties": {"filterValue": "value"}
 }'
 ```
+
+```graphQL GraphQL
+
+    mutation (
+      $id: String
+      $work_order: work_orders_set_input!
+    ) {
+      update_work_orders (
+        where: { id: { _eq: $id } }
+        _set: $work_order
+      ) {
+        returning {
+          id
+        }
+      }
+    }
+```
+
+```javascript Node.js
+
+const updated = await stateset.workorders.update(
+  'wo_ODkRWQtx9NVsRX'
+);
+
+```
+
+```python Python
+
+updated = stateset.workorders.modify(
+  'wo_ODkRWQtx9NVsRX'
+)
+
+```
+
+```ruby Ruby
+
+updated = Stateset::Workorders.update(
+  'wo_ODkRWQtx9NVsRX'
+)
+
+```
+
+```php PHP
+
+$updated = $stateset->workorders->update(
+  'wo_ODkRWQtx9NVsRX'
+);
+
+```
+
+```go Go
+
+WorkOrder, err := stateset.WorkOrders.Update(
+  "wo_ODkRWQtx9NVsRX"
+)
+
+```
+
+```java Java
+
+WorkOrder workOrder = stateset.workOrders.update(
+  "wo_ODkRWQtx9NVsRX"
+);
+
+```
+
 
 </RequestExample>
 

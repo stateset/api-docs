@@ -6,9 +6,68 @@ description: "This endpoint creates a new work order"
 
 ### Body
 
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+<ParamField body="bill_of_materials_number" type="string">
+  Number associated with the bill of materials related to the work order
+</ParamField>
+
+<ParamField body="created_at" type="string">
+  Date and time when the work order was created
+</ParamField>
+
+<ParamField body="created_by" type="string">
+  Name or identifier of the person who created the work order
+</ParamField>
+
+<ParamField body="expected_completion_date" type="string">
+  Expected completion date for the work order
+</ParamField>
+
+<ParamField body="id" type="string">
+  Unique identifier for the work order
+</ParamField>
+
+<ParamField body="issue_date" type="string">
+  Date when the work order was issued
+</ParamField>
+
+<ParamField body="location" type="string">
+  Location or site where the work order is applicable
+</ParamField>
+
+<ParamField body="manufacture_order" type="string">
+  Identifier or reference to the manufacturing order associated with the work order
+</ParamField>
+
+<ParamField body="memo" type="string">
+  Memo or additional notes related to the work order
+</ParamField>
+
+<ParamField body="number" type="string">
+  Number associated with the work order
+</ParamField>
+
+<ParamField body="order_number" type="string">
+  Identifier or reference to the order associated with the work order
+</ParamField>
+
+<ParamField body="part" type="string">
+  Part or item associated with the work order
+</ParamField>
+
+<ParamField body="priority" type="string">
+  Priority level or urgency of the work order
+</ParamField>
+
+<ParamField body="site" type="string">
+  Site or location where the work order is being executed
+</ParamField>
+
+<ParamField body="status" type="string">
+  Current status or state of the work order
+</ParamField>
+
+<ParamField body="updated_at" type="string">
+  Date and time when the work order was last updated
 </ParamField>
 
 ### Response
@@ -63,6 +122,63 @@ curl --location --request POST 'https://api.stateset.com/api/work_order' \
 --data-raw '{
     "current_token": ""
 }'
+```
+
+```graphQL GraphQL
+
+    mutation addWorkOrder($work_order: work_orders_insert_input!) {
+      insert_work_orders(objects: [$work_order]) {
+        returning {
+          id
+        }
+      }
+    }
+```
+
+```javascript Node.js
+
+var workOrder = await stateset.workorder.create({
+  
+})
+
+```
+
+```python Python
+
+workOrder = stateset.workorder.create({
+  
+})
+
+```
+
+```ruby Ruby
+
+workOrder = Stateset::WorkOrder.create({
+  
+})
+
+```
+
+```php PHP
+
+$workOrder = Stateset\WorkOrder::create([
+  
+])
+
+```
+
+```go Go
+
+workOrder := stateset.WorkOrder{
+  
+}
+
+```
+
+```java Java
+
+WorkOrder workOrder = new WorkOrder();
+
 ```
 
 </RequestExample>

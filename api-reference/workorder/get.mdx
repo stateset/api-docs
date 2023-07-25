@@ -6,66 +6,118 @@ description: "This endpoint gets or creates a new work order."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
-</ParamField>
-
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
-</ParamField>
-
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user group should be
-  associated with or id of the datasource you provided when creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will be accessible through
-  variables in the dashboards and SQL editor
+<ParamField body="id" type="string">
+  This is the id of the work order to get. If the id is not provided, a new work order will be created.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField body="bill_of_materials_number" type="string">
+  Number associated with the bill of materials related to the work order
 </ResponseField>
 
-<ResponseField name="new_user_group" type="boolean">
-  Indicates whether a new user group was created.
+<ResponseField body="created_at" type="string">
+  Date and time when the work order was created
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this information, since
-  you will not need to use it.
+<ResponseField body="created_by" type="string">
+  Name or identifier of the person who created the work order
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be used to identify
-  which user group is viewing the dashboard. You should save this on your end to use when rendering
-  an embedded dashboard.
+<ResponseField body="expected_completion_date" type="string">
+  Expected completion date for the work order
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField body="id" type="string">
+  Unique identifier for the work order
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField body="issue_date" type="string">
+  Date when the work order was issued
 </ResponseField>
 
-<ResponseField name="properties" type="JSON or null">
-  This is the properties object if it was provided in the request body
+<ResponseField body="location" type="string">
+  Location or site where the work order is applicable
 </ResponseField>
 
-</Expandable>
+<ResponseField body="manufacture_order" type="string">
+  Identifier or reference to the manufacturing order associated with the work order
+</ResponseField>
+
+<ResponseField body="memo" type="string">
+  Memo or additional notes related to the work order
+</ResponseField>
+
+<ResponseField body="number" type="string">
+  Number associated with the work order
+</ResponseField>
+
+<ResponseField body="order_number" type="string">
+  Identifier or reference to the order associated with the work order
+</ResponseField>
+
+<ResponseField body="part" type="string">
+  Part or item associated with the work order
+</ResponseField>
+
+<ResponseField body="priority" type="string">
+  Priority level or urgency of the work order
+</ResponseField>
+
+<ResponseField body="site" type="string">
+  Site or location where the work order is being executed
+</ResponseField>
+
+<ResponseField body="status" type="string">
+  Current status or state of the work order
+</ResponseField>
+
+<ResponseField body="updated_at" type="string">
+  Date and time when the work order was last updated
+</ResponseField>
+
+<ResponseField body="work_order_line_items" type="string">
+  
+
+  <Expandable title="Show child attributes">
+
+  <ResponseField body="id" type="string">
+    Unique identifier for the line item
+  </ResponseField>
+
+  <ResponseField body="line_status" type="string">
+    Status or state of the line item
+  </ResponseField>
+
+  <ResponseField body="line_type" type="string">
+    Type or category of the line item
+  </ResponseField>
+
+  <ResponseField body="part_name" type="string">
+    Name of the part or item included in the line Item
+  </ResponseField>
+
+  <ResponseField body="part_number" type="string">
+    Number or code associated with the part or Item
+  </ResponseField>
+
+  <ResponseField body="total_quantity" type="string">
+    Total quantity of the part or item required or used in the work order
+  </ResponseField>
+
+  <ResponseField body="unit_quantity" type="string">
+    Quantity of the part or item required or used per unit in the work order
+  </ResponseField>
+
+  <ResponseField body="work_order_number" type="string">
+    Number associated with the work order to which the line item belongs
+  </ResponseField>
+
+  </Expandable>
 
 </ResponseField>
+
+
 
 <RequestExample>
 
@@ -99,3 +151,38 @@ curl --location --request GET 'https://api.stateset.com/api/work_order' \
 ```
 
 </ResponseExample>
+
+## Work Order
+
+| Name                        | Type      | Description                                                                       |
+| --------------------------- | --------- | --------------------------------------------------------------------------------- |
+| bill\_of\_materials\_number | Text      | Number associated with the bill of materials related to the work order            |
+| created\_at                 | Date/Time | Date and time when the work order was created                                     |
+| created\_by                 | Text      | Name or identifier of the person who created the work order                       |
+| expected\_completion\_date  | Date      | Expected completion date for the work order                                       |
+| id                          | Text      | Unique identifier for the work order                                              |
+| issue\_date                 | Date      | Date when the work order was issued                                               |
+| location                    | Text      | Location or site where the work order is applicable                               |
+| manufacture\_order          | Text      | Identifier or reference to the manufacturing order associated with the work order |
+| memo                        | Text      | Memo or additional notes related to the work order                                |
+| number                      | Text      | Number associated with the work order                                             |
+| order\_number               | Text      | Identifier or reference to the order associated with the work order               |
+| part                        | Text      | Part or item associated with the work order                                       |
+| priority                    | Text      | Priority level or urgency of the work order                                       |
+| site                        | Text      | Site or location where the work order is being executed                           |
+| status                      | Text      | Current status or state of the work order                                         |
+| updated\_at                 | Date/Time | Date and time when the work order was last updated                                |
+
+
+## Work Order Line Items
+
+| Name                | Type    | Description                                                              |
+| ------------------- | ------- | ------------------------------------------------------------------------ |
+| id                  | Text    | Unique identifier for the line item                                      |
+| line\_status        | Text    | Status or state of the line item                                         |
+| line\_type          | Text    | Type or category of the line item                                        |
+| part\_name          | Text    | Name of the part or item included in the line item                       |
+| part\_number        | Text    | Number or code associated with the part or item                          |
+| total\_quantity     | Numeric | Total quantity of the part or item required or used in the work order    |
+| unit\_quantity      | Numeric | Quantity of the part or item required or used per unit in the work order |
+| work\_order\_number | Text    | Number associated with the work order to which the line item belongs     |
