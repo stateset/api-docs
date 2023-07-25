@@ -12,9 +12,38 @@ description: "This endpoint gets or creates a new customer."
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the id of the customer
 </ResponseField>
+
+<ResponseField name="email" type="string">
+  This is the email of the customer
+</ResponseField>
+
+<ResponseField name="firstName" type="string">
+  This is the first name of the customer
+</ResponseField>
+
+<ResponseField name="lastName" type="string">
+  This is the last name of the customer
+</ResponseField>
+
+<ResponseField name="phone" type="string">
+  This is the phone number of the customer
+</ResponseField>
+
+<ResponseField name="stripe_customer_id" type="string">
+  This is the stripe customer id of the customer
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  This is the timestamp of the customer
+</ResponseField>
+
+<ResponseField name="activationDate" type="string">
+  This is the activation date of the customer
+</ResponseField>
+
 
 <RequestExample>
 
