@@ -177,6 +177,24 @@
         "api-reference/workorderlineitem/update",
         "api-reference/workorderlineitem/delete"
       ]
+    },
+    {
+      "group": "Accounts",
+      "pages": [
+        "api-reference/accounts/get",
+        "api-reference/accounts/create",
+        "api-reference/accounts/update",
+        "api-reference/accounts/delete"
+      ]
+    },
+    {
+      "group": "Contacts",
+      "pages": [
+        "api-reference/contacts/get",
+        "api-reference/contacts/create",
+        "api-reference/contacts/update",
+        "api-reference/contacts/delete"
+      ]
     }
   ],
   "footerSocials": {
