@@ -10,10 +10,58 @@ description: "This endpoint creates a new bill of materials line item."
   This is the id of the bill of materials line item.
 </ParamField>
 
+<ParamField body="part_number" type="string">
+  This is the part number of the bill of materials line item.
+</ParamField>
+
+<ParamField body="part_name" type="string">
+  This is the part name of the bill of materials line item.
+</ParamField>
+
+<ParamField body="quantity" type="number">
+  This is the quantity of the bill of materials line item.
+</ParamField>
+
+<ParamField body="purchase_supply_type" type="string">
+  This is the purchase supply type of the bill of materials line item.
+</ParamField>
+
+<ParamField body="bill_of_materials_number" type="string">
+  This is the bill of materials number of the bill of materials line item.
+</ParamField>
+
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField body="id" type="string">
+  This is the id of the bill of materials line item.
+</ResponseField>
+
+<ResponseField body="bill_of_materials_number" type="string">
+  This is the number of the bill of materials to which the line item belongs.
+</ResponseField>
+
+<ResponseField body="line_type" type="string">
+  This is the type or category of the line item.
+</ResponseField>
+
+<ResponseField body="part_name" type="string">
+  This is the name of the part or item included in the bill of materials.
+</ResponseField>
+
+<ResponseField body="part_number" type="string">
+  This is the number or code associated with the part or item.
+</ResponseField> 
+
+<ResponseField body="purchase_supply_type" type="string">
+  This is the type or category of the purchase/supply associated with the line item.
+</ResponseField>
+
+<ResponseField body="quantity" type="number">
+  This is the quantity of the part or item required in the bill of materials.
+</ResponseField>
+
+<ResponseField body="status" type="string">
+  This is the status or state of the line item.
 </ResponseField>
 
 <RequestExample>
@@ -94,7 +142,24 @@ BillOfMaterialItems created = stateset.billOfMaterialItems.create(
 
 ```json Response
 {
-  "success": 1
+  {
+    "data": {
+      "insert_bill_of_material_line_items": {
+        "returning": [
+          {
+            "id": "bomli_1",
+            "bill_of_materials_number": "bom_1",
+            "line_type": "part",
+            "part_name": "Part 1",
+            "part_number": "P1",
+            "purchase_supply_type": "purchase",
+            "quantity": 1,
+            "status": "active"
+          }
+        ]
+      }
+    }
+  }
 }
 ```
 

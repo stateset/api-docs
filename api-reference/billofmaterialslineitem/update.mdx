@@ -6,67 +6,64 @@ description: "This endpoint updates an existing bill of materials line item."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="id" type="string">
+  This is the id of the bill of materials line item.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
+<ParamField body="part_number" type="string">
+  This is the part number of the bill of materials line item.
 </ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user
-  group should be associated with or id of the datasource you provided when
-  creating it.
+<ParamField body="part_name" type="string">
+  This is the part name of the bill of materials line item.
 </ParamField>
 
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will
-  be accessible through variables in the dashboards and SQL editor
+<ParamField body="quantity" type="number">
+  This is the quantity of the bill of materials line item.
+</ParamField>
+
+<ParamField body="purchase_supply_type" type="string">
+  This is the purchase supply type of the bill of materials line item.
+</ParamField>
+
+<ParamField body="bill_of_materials_number" type="string">
+  This is the bill of materials number of the bill of materials line item.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField body="id" type="string">
+  This is the id of the bill of materials line item.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  Indicates whether a new user group was created.
+<ResponseField body="bill_of_materials_number" type="string">
+  This is the number of the bill of materials to which the line item belongs.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField body="line_type" type="string">
+  This is the type or category of the line item.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField body="part_name" type="string">
+  This is the name of the part or item included in the bill of materials.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField body="part_number" type="string">
+  This is the number or code associated with the part or item.
+</ResponseField> 
+
+<ResponseField body="purchase_supply_type" type="string">
+  This is the type or category of the purchase/supply associated with the line item.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON | Null">
-  This is the properties object if it was provided in the request body
+<ResponseField body="quantity" type="number">
+  This is the quantity of the part or item required in the bill of materials.
 </ResponseField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'
+<ResponseField body="status" type="string">
+  This is the status or state of the line item.
 </ResponseField>
 
-</Expandable>
-
-</ResponseField>
 
 <RequestExample>
 
@@ -131,14 +128,17 @@ update = Stateset::BillofmaterialItems.update(
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 113,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "ok",
-    "provided_id": "6"
+  "data": {
+    "update_bill_of_material_line_items": {
+      "returning": [
+        {
+          "id": "bomi_ODkRWQtx9NVsRX"
+        }
+      ]
+    }
   }
 }
+
 ```
 
 </ResponseExample>
