@@ -65,6 +65,14 @@ curl --location --request POST 'https://api.stateset.com/api/packing_list_item' 
 }'
 ```
 
+```graphQL GraphQL
+
+const created = await stateset.packingItems.create(
+  'pi_ODkRWQtx9NVsRX'
+);
+
+```
+
 </RequestExample>
 
 <ResponseExample>
@@ -72,12 +80,6 @@ curl --location --request POST 'https://api.stateset.com/api/packing_list_item' 
 ```json Response
 {
   "success": 1,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
-  }
 }
 ```
 

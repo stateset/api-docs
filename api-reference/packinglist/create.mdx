@@ -6,15 +6,70 @@ description: "This endpoint creates a new packing_list"
 
 ### Body
 
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+<ParamField body="id" required="false" default="null">
+  The id of the packing_list to be created. If not provided, a new id will be generated.
+</ParamField>
+
+<ParamField body="number" required="false" default="null">
+  The number of the packing_list to be created. If not provided, a new number will be generated.
+</ParamField>
+
+<ParamField body="deliveryDate" required="false" default="null">
+  The deliveryDate of the packing_list to be created. If not provided, a new deliveryDate will be generated.
+</ParamField>
+
+<ParamField body="invoice_number" required="false" default="null">
+  The invoice_number of the packing_list to be created. If not provided, a new invoice_number will be generated.
+</ParamField>
+
+<ParamField body="arrivalDate" required="false" default="null">
+  The arrivalDate of the packing_list to be created. If not provided, a new arrivalDate will be generated.
+</ParamField>
+
+<ParamField body="purchase_order_number" required="false" default="null">
+  The purchase_order_number of the packing_list to be created. If not provided, a new purchase_order_number will be generated.
+</ParamField>
+
+<ParamField body="ship_per" required="false" default="null">
+  The ship_per of the packing_list to be created. If not provided, a new ship_per will be generated.
+</ParamField>
+
+<ParamField body="tracking_number" required="false" default="null">
+  The tracking_number of the packing_list to be created. If not provided, a new tracking_number will be generated.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField body="id" type="string">
+  This is the unique identifier for the packing list.
+</ResponseField>
+
+<ResponseField body="number" type="string">
+  This is the number associated with the packing list.
+</ResponseField>
+
+<ResponseField body="deliveryDate" type="string">
+  This is the date of delivery for the packing list.
+</ResponseField>
+
+<ResponseField body="invoice_number" type="string">
+  This is the invoice number associated with the packing list.
+</ResponseField>
+
+<ResponseField body="arrivalDate" type="string">
+  This is the date of arrival for the packing list.
+</ResponseField>
+
+<ResponseField body="purchase_order_number" type="string">
+  This is the purchase order number associated with the packing list.
+</ResponseField>
+
+<ResponseField body="ship_per" type="string">
+  This is the shipping information or carrier for the packing list.
+</ResponseField>
+
+<ResponseField body="tracking_number" type="string">
+  This is the tracking number associated with the shipment for the packing list.
 </ResponseField>
 
 <RequestExample>

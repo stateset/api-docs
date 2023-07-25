@@ -56,6 +56,70 @@ curl --location --request GET 'https://api.stateset.com/api/packing_list' \
 }'
 ```
 
+```graphQL GraphQL
+
+mutation addPackingList($packing_list: packing_list_insert_input!) {
+  insert_packing_list(objects: [$packing_list]) {
+    returning {
+      id
+      number
+      deliveryDate
+      arrivalDate
+      ship_per
+      tracking_number
+    }
+  }
+}
+
+```
+
+```javascript Node.js
+
+var packinglists = await stateset.packinglists.retreive({
+    id: "1"
+});
+
+```
+
+```python Python
+
+packinglists = stateset.packinglists.retreive({
+    "id": "1"
+})
+
+```
+
+```ruby Ruby
+
+packinglists = Stateset::PackingLists.retreive({
+    "id": "1"
+})
+
+```
+
+```php PHP
+
+$packinglists = $stateset->packinglists->retreive([
+    "id" => "1"
+]);
+
+```
+
+```go Go
+
+packinglists, err := stateset.PackingLists.Retreive("1")
+
+```
+
+```java Java
+
+PackingLists packinglists = stateset.packinglists.retreive({
+    "id": "1"
+});
+
+```
+
+
 </RequestExample>
 
 <ResponseExample>
@@ -81,3 +145,15 @@ curl --location --request GET 'https://api.stateset.com/api/packing_list' \
 | purchase\_order\_number | Text (Nullable)            | Purchase order number associated with the packing list            |
 | ship\_per               | Text (Nullable)            | Shipping information or carrier for the packing list              |
 | tracking\_number        | Text (Nullable)            | Tracking number associated with the shipment for the packing list |
+
+
+## Packing List Item
+
+| Name          | Type                       | Description                                        |
+| ------------- | -------------------------- | -------------------------------------------------- |
+| id            | Text (Primary Key, Unique) | Unique identifier for the packing list item        |
+| sku           | Text                       | Stock Keeping Unit (SKU) for the packing list item |
+| description   | Text                       | Description or additional details about the item   |
+| quantity      | Integer                    | Quantity of the item in the packing list item      |
+| packing\_list | Text                       | Identifier for the associated packing list         |
+| arrived       | Boolen                     | Whether or not the packing list item has arrived   |

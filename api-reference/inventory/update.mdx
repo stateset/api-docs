@@ -95,10 +95,7 @@ curl --location --request PUT 'https://api.stateset.com/api/inventory_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+    "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
 }'
 ```
 
@@ -133,7 +130,7 @@ curl --location --request PUT 'https://api.stateset.com/api/inventory_item' \
 var updated = await stateset.inventoryItem.update({
   id: "example_1",
   inventory_item: {
-    name: "Example 1",
+    name: "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
   }
 })
 
@@ -144,7 +141,7 @@ var updated = await stateset.inventoryItem.update({
 updated = stateset.inventory_item.modify(
   id="example_1",
   inventory_item={
-    "name": "Example 1",
+    "name": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
   }
 )
 
@@ -155,7 +152,7 @@ updated = stateset.inventory_item.modify(
 updated = Stateset::InventoryItem.update(
   id: "example_1",
   inventory_item: {
-    name: "Example 1",
+    name: "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
   }
 )
 
@@ -166,7 +163,7 @@ updated = Stateset::InventoryItem.update(
 $updated = $stateset->inventoryItem->update([
   "id" => "example_1",
   "inventory_item" => [
-    "name" => "Example 1",
+    "name" => "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
   ]
 ]);
 
@@ -175,7 +172,7 @@ $updated = $stateset->inventoryItem->update([
 ```go Golang
 
 inventory_item := stateset.InventoryItem{
-  Name: "Example 1",
+  Name: "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
 }
 
 updated, err := stateset.InventoryItem.Update(
@@ -189,7 +186,7 @@ updated, err := stateset.InventoryItem.Update(
 
 InventoryItem inventory_item = new InventoryItem();
 
-inventory_item.setName("Example 1");
+inventory_item.setName("0901f083-aa1c-43c5-af5c-0a9d2fc64e30");
 
 InventoryItem updated = stateset.inventoryItem.update(
   "example_1",

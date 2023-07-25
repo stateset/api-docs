@@ -13,9 +13,18 @@ description: "This endpoint deletes an existing packing_list."
 
 ### Response
 
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the return
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
 <ResponseField name="success" type="number">
   Indicates whether the call was successful. 1 if successful, 0 if not.
 </ResponseField>
+
 
 <RequestExample>
 
@@ -29,14 +38,76 @@ curl --location --request DELETE 'https://api.stateset.com/api/packing_list' \
 }'
 ```
 
+```javascript Node.js
+
+const deleted = await stateset.packinglists.del(
+  'pl_ODkRWQtx9NVsRX'
+);
+
+```
+
+```graphQL GraphQL
+
+               mutation deletePackingList ($packing_list_id: String!) {
+                delete_packing_list(where: {id: {_eq: $packing_list_id}}) {
+                  affected_rows
+                }
+              }
+```
+
+```python Python
+
+deleted = stateset.packinglists.del(
+  'pl_ODkRWQtx9NVsRX'
+)
+
+```
+
+```ruby Ruby
+
+deleted = Stateset::PackingLists.del(
+  'pl_ODkRWQtx9NVsRX'
+)
+
+```
+
+```php PHP
+
+$deleted = $stateset->packinglists->del(
+  'pl_ODkRWQtx9NVsRX'
+);
+
+```
+
+```go Go
+
+deleted, err := stateset.PackingLists.Del(
+  'pl_ODkRWQtx9NVsRX'
+)
+
+```
+
+```java Java
+
+PackingLists deleted = stateset.packinglists.del(
+  'pl_ODkRWQtx9NVsRX'
+);
+
+```
+
+
+
 </RequestExample>
 
 <ResponseExample>
 
 ```json Response
 {
-  "success": 1
+  "id": "pl_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "packinglist",
+  "deleted": true
 }
+
 ```
 
 </ResponseExample>

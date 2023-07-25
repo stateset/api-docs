@@ -6,52 +6,70 @@ description: "This endpoint updates an existing packing_list."
 
 ### Body
 
-<ParamField body="id" type="string">
-  This is the id of the packing_list to update.
+<ParamField body="id" required="false" default="null">
+  The id of the packing_list to be created. If not provided, a new id will be generated.
 </ParamField>
 
+<ParamField body="number" required="false" default="null">
+  The number of the packing_list to be created. If not provided, a new number will be generated.
+</ParamField>
+
+<ParamField body="deliveryDate" required="false" default="null">
+  The deliveryDate of the packing_list to be created. If not provided, a new deliveryDate will be generated.
+</ParamField>
+
+<ParamField body="invoice_number" required="false" default="null">
+  The invoice_number of the packing_list to be created. If not provided, a new invoice_number will be generated.
+</ParamField>
+
+<ParamField body="arrivalDate" required="false" default="null">
+  The arrivalDate of the packing_list to be created. If not provided, a new arrivalDate will be generated.
+</ParamField>
+
+<ParamField body="purchase_order_number" required="false" default="null">
+  The purchase_order_number of the packing_list to be created. If not provided, a new purchase_order_number will be generated.
+</ParamField>
+
+<ParamField body="ship_per" required="false" default="null">
+  The ship_per of the packing_list to be created. If not provided, a new ship_per will be generated.
+</ParamField>
+
+<ParamField body="tracking_number" required="false" default="null">
+  The tracking_number of the packing_list to be created. If not provided, a new tracking_number will be generated.
+</ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField body="id" type="string">
+  This is the unique identifier for the packing list.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  Indicates whether a new user group was created.
+<ResponseField body="number" type="string">
+  This is the number associated with the packing list.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField body="deliveryDate" type="string">
+  This is the date of delivery for the packing list.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField body="invoice_number" type="string">
+  This is the invoice number associated with the packing list.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField body="arrivalDate" type="string">
+  This is the date of arrival for the packing list.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON | Null">
-  This is the properties object if it was provided in the request body
+<ResponseField body="purchase_order_number" type="string">
+  This is the purchase order number associated with the packing list.
 </ResponseField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'
+<ResponseField body="ship_per" type="string">
+  This is the shipping information or carrier for the packing list.
 </ResponseField>
 
-</Expandable>
-
+<ResponseField body="tracking_number" type="string">
+  This is the tracking number associated with the shipment for the packing list.
 </ResponseField>
 
 <RequestExample>
@@ -68,20 +86,59 @@ curl --location --request PUT 'https://api.stateset.com/api/packing_list' \
 }'
 ```
 
+```graphQL GraphQL
+
+               mutation (
+                $id: String
+                $packing_list: packing_list_set_input!
+              ) {
+                update_packing_list (
+                where: { id : { _eq: $id }}
+                _set: $packing_list
+                ) {
+                  returning {
+                    id
+                    number
+                    arrivalDate
+                    deliveryDate
+                    ship_per
+                    shipment_type
+                    invoice_number
+                    purchase_order_number
+                    tracking_number
+                    status
+                    source
+                    destination
+                    units
+                  }
+                }
+              }
+
+
+```
+
+```javascript Node.js
+
+const updated = await stateset.packinglists.update(
+  'pi_ODkRWQtx9NVsRX'
+);
+
+```
+
+
+
+
 </RequestExample>
+
+
 
 <ResponseExample>
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 113,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "ok",
-    "provided_id": "6"
-  }
+  "success": 1
 }
+
 ```
 
 </ResponseExample>
