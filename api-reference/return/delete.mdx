@@ -31,7 +31,7 @@ curl --location --request DELETE 'https://api.stateset.com/api/return' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-		"id": "re_1NXWPnCo6bFb1KQto6C8OWvE"
+		"id": "rt_1NXWPnCo6bFb1KQto6C8OWvE"
 }'
 ```
 
@@ -45,43 +45,43 @@ mutation deleteReturn ($id: String!) {
 
 ```js Node.js
 const returns = await stateset.returns.del({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```py Python
 returns = stateset.returns.del({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 
 ```go Go
 returns, err := stateset.Returns.Del(
-  "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+  "rt_1NXWPnCo6bFb1KQto6C8OWvE"
 )
 ```
 
 ```java Java
 Return returns = stateset.returns.del(
-  "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+  "rt_1NXWPnCo6bFb1KQto6C8OWvE"
 );
 ```
 
 ```js Javascript
 const returns = await stateset.returns.del({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 
 ```ruby Ruby
 returns = Stateset::Return.del({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 
 ```php PHP
 $returns = $stateset->returns->del(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 
@@ -97,7 +97,7 @@ Content-Type: application/json
 
 ```json Response
 {
-  "id": "re_1NXWPnCo6bFb1KQto6C8OWvE",
+  "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
   "object": "return",
   "deleted": true
 }

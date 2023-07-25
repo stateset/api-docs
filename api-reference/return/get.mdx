@@ -157,7 +157,7 @@ curl --location --request GET 'https://api.stateset.com/api/return' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+    "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
 }'
 ```
 
@@ -204,37 +204,37 @@ query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
 
 ```js Node.js
 const returns = await stateset.returns.retrieve({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 ```py Python
 returns = stateset.returns.retrieve({
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 ```go Golang 
 returns, err := stateset.Returns.Retrieve(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 )
 ```
 ```ruby Ruby
 returns = Stateset::Returns.retrieve(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 )
 ```
 ```java Java
 Returns returns = Stateset.Returns.retrieve(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 ```csharp C#
 Returns returns = Stateset.Returns.Retrieve(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 ```php PHP
 $returns = Stateset\Returns::retrieve(
-  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 ```http HTTP
@@ -251,7 +251,7 @@ Content-Type: application/json
 {
     "returns": [
         {
-            "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+            "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
             "created_date": "2023-06-28T19:34:59.189838+00:00",
             "amount": null,
             "action_needed": null,
