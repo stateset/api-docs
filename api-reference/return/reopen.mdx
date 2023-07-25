@@ -35,6 +35,23 @@ curl --location --request PUT 'https://api.stateset.com/api/return/:id/reopen' \
 }'
 ```
 
+```graphQL GraphQL
+    mutation returnReopenMutation {
+        returnReopen(id: "${returnId}") {
+          return {
+            id,
+            status
+          }
+          userErrors {
+            field
+            message
+          }
+        }
+      }
+    `;
+```
+    
+
 ```js Node.js
 const returns = await stateset.returns.reopen({
   '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'

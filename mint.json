@@ -100,7 +100,8 @@
         "api-reference/return/delete",
         "api-reference/return/close",
         "api-reference/return/reopen",
-        "api-reference/return/refund"
+        "api-reference/return/refund",
+        "api-reference/return/cancel"
       ]
     },
     {
