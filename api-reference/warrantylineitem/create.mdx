@@ -56,13 +56,86 @@ The contents of the user group
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request POST 'https://api.stateset.com/api/warranty_line_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
     "current_token": ""
 }'
+```
+
+```graphQL GraphQL
+               mutation addWarrantyLineItem($warranty_line_item: warranty_line_items_insert_input!) {
+                insert_warranty_line_items(objects: [$warranty_line_item]) {
+                  returning {
+                    id
+                    sku
+                    name
+                    price
+                    condition
+                    serial_number
+                    amount
+                    warranty_id
+                }
+              }
+          }
+```
+
+```js Node.js
+
+const created = await stateset.warrantyItems.create(
+  'wi_ODkRWQtx9NVsRX'
+);
+
+```
+
+```python Python
+
+created = stateset.warrantyItems.create(
+  'wi_ODkRWQtx9NVsRX'
+)
+
+```
+
+```ruby Ruby
+
+created = Stateset::WarrantyItems.create(
+  'wi_ODkRWQtx9NVsRX'
+)
+
+```
+
+```php PHP
+
+$created = $stateset->warrantyItems->create(
+  'wi_ODkRWQtx9NVsRX'
+);
+
+```
+
+```go Go
+
+WarrantyItems , err := stateset.WarrantyItems.Create(
+  'wi_ODkRWQtx9NVsRX'
+)
+
+```
+
+```java Java
+
+WarrantyItems created = stateset.warrantyItems.create(
+  'wi_ODkRWQtx9NVsRX'
+);
+
+```
+
+```cs C#
+
+var created = stateset.WarrantyItems.Create(
+  'wi_ODkRWQtx9NVsRX'
+);
+
 ```
 
 </RequestExample>

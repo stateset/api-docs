@@ -6,14 +6,8 @@ description: "This endpoint deletes an existing warranty line item."
 
 ### Body
 
-<ParamField body="data_source_provided_id" type="string">
-  The data source ID provided in the data tab may be used to identify the data
-  source for the user group
-</ParamField>
-
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group you want to
-  delete
+<ParamField body="id" type="string">
+  The id of the warranty line item to delete.
 </ParamField>
 
 ### Response
@@ -29,9 +23,65 @@ curl --location --request DELETE 'https://api.stateset.com/api/warranty_line_ite
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-		"user_group_id": "example_1"
-		"current_token": "abcdef"
+		"id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
 }'
+```
+
+```js Node.js
+const warrantyLineItem = await stateset.warrantyItem.del({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+
+```
+
+```graphQL GraphQL
+               mutation deleteWarrantyLineItem ($warranty_line_item_id: uuid!) {
+                delete_warranty_line_items(where: {id: {_eq: $warranty_line_item_id}}) {
+                  affected_rows
+                }
+              }
+```
+
+```python Python
+warranty_line_item = stateset.warranty_line_item.del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+
+```
+
+```ruby Ruby
+warranty_line_item = Stateset::WarrantyLineItem.del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+
+```
+
+```php PHP
+$warranty_line_item = Stateset\WarrantyLineItem::del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+
+```
+
+```go Golang
+warrantyLineItem, err := stateset.WarrantyLineItem.Delete(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+
+```
+
+```java Java
+WarrantyLineItem warrantyLineItem = stateset.warrantyLineItem.del(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+
+```
+
+```csharp C#
+var warrantyLineItem = await Stateset.WarrantyLineItem.Delete(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+
 ```
 
 </RequestExample>
