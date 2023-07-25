@@ -143,20 +143,39 @@
       ]
     },
     {
-      "group": "Manufacturing and Production",
+      "group": "Bill of Materials",
       "pages": [
         "api-reference/billofmaterials/get",
         "api-reference/billofmaterials/create",
         "api-reference/billofmaterials/update",
-        "api-reference/billofmaterials/delete",
+        "api-reference/billofmaterials/delete"
+      ]
+    },
+    {
+      "group": "Bill of Materials Line Item",
+      "pages": [
         "api-reference/billofmaterialslineitem/get",
         "api-reference/billofmaterialslineitem/create",
         "api-reference/billofmaterialslineitem/update",
-        "api-reference/billofmaterialslineitem/delete",
+        "api-reference/billofmaterialslineitem/delete"
+      ]
+    },
+    {
+      "group": "Work Orders",
+      "pages": [
         "api-reference/workorder/get",
         "api-reference/workorder/create",
         "api-reference/workorder/update",
         "api-reference/workorder/delete",
+        "api-reference/workorderlineitem/get",
+        "api-reference/workorderlineitem/create",
+        "api-reference/workorderlineitem/update",
+        "api-reference/workorderlineitem/delete"
+      ]
+    },
+    {
+      "group": "Work Order Line Items",
+      "pages": [
         "api-reference/workorderlineitem/get",
         "api-reference/workorderlineitem/create",
         "api-reference/workorderlineitem/update",
