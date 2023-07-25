@@ -202,8 +202,21 @@ InventoryItem updated = stateset.inventoryItem.update(
 
 ```json Response
 {
-  "success": 1,
-}
+    "inventory_items": [
+        {
+            "id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+            "sku": "SKU-123",
+            "description": "This is a description",
+            "size": "Large",
+            "incoming": 10,
+            "color": "Red",
+            "warehouse": 1,
+            "available": 10,
+            "arriving": "2021-01-01",
+            "purchase_order_id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+        },
+    ]
+}  
 ```
 
 </ResponseExample>
