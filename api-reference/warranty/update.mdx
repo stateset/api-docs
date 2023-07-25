@@ -6,9 +6,13 @@ description: "This endpoint updates an existing warranty."
 
 ### Body
 
-<ParamField body="id" type="string">
+<ParamField body="warranty_id" type="string">
   This is the id of the warranty.
-</ParamField>
+  </ParamField>
+
+  <ParamField body="warranty" type="object">
+  The warranty object
+  </ParamField>
 
 ### Response
 
@@ -255,7 +259,7 @@ warranties = Stateset::Warranties.update(
 
 ```
 
-```go Golang
+```go Go
 
 warranties, err := stateset.Warranties.Update(
   '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
@@ -272,12 +276,12 @@ Warranties warranties = stateset.warranties.update(
 ```
 
 ```php PHP
-
 $warranties = $stateset->warranties->update(
   '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
 );
 
 ```
+
 
 </RequestExample>
 
@@ -309,7 +313,6 @@ $warranties = $stateset->warranties->update(
             "tax_refunded": null,
             "total_refunded": null,
             "tracking_number": null,
-            "warranty_line_items": []
         }
     ]
 }   
