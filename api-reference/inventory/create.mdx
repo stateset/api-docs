@@ -28,6 +28,49 @@ curl --location --request POST 'https://api.stateset.com/api/inventory_items' \
 }'
 ```
 
+```graphQL GraphQL
+
+mutation InsertNewInventoryItem(
+      $inventory_item: inventory_items_insert_input!
+      ) {
+        insert_inventory_items (
+        objects: [$inventory_item]
+        ) {    
+        returning {
+          id
+          sku
+          upc
+          description
+          size
+          color
+          incoming
+          available
+          warehouse
+          arrivalDate
+          deliveryDate
+        }
+      }
+    }
+
+```
+
+```javascript Node.js
+
+var created = await stateset.inventoryItems.create({
+  sku: "SKU-123",
+  upc: "UPC-123",
+  description: "This is a description",
+  size: "Large",
+  color: "Red",
+  incoming: 10,
+  available: 10,
+  warehouse: 1,
+  arrivalDate: "2021-01-01",
+  deliveryDate: "2021-01-01",
+});
+
+```
+
 </RequestExample>
 
 <ResponseExample>

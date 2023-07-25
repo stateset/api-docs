@@ -101,6 +101,73 @@ curl --location --request GET 'https://api.stateset.com/api/inventory_item' \
 }'
 ```
 
+```graphQL GraphQL
+
+query {
+    inventory_item {
+      id
+      sku
+      upc
+      description
+      size
+      color
+      incoming
+      available
+      warehouse
+      arrivalDate
+      deliveryDate
+    }
+  }
+```
+
+```javascript Node.js
+
+var inventoryItems = await stateset.inventoryItems.retreive({
+    id: "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+});
+
+```
+
+```python Python
+
+inventoryItems = stateset.inventoryItems.retreive({
+    id: "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+})
+
+```
+
+```ruby Ruby
+
+inventoryItems = Stateset::InventoryItems.retreive({
+    id: "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+})
+
+```
+
+```php PHP
+
+$inventoryItems = $stateset->inventoryItems->retreive([
+    "id" => "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+]);
+
+```
+
+```go Go
+
+inventoryItems, err := stateset.InventoryItems.Retreive(
+    "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+)
+
+```
+
+```java Java
+
+InventoryItems inventoryItems = stateset.inventoryItems.retreive(
+    "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+);
+
+```
+
 </RequestExample>
 
 <ResponseExample>
