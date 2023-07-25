@@ -99,3 +99,45 @@ In webhook mode, session variables are returned as a JSON object in the body of 
 With the session variables obtained from either JWT mode or webhook mode, Stateset evaluates the permissions associated with the user's role. It checks if the user has the necessary permissions to perform the requested action on the specific table or view. If the user's role has the required permissions, the action is allowed; otherwise, it is denied.
 
 By utilizing Hasura Session Variables, Stateset ensures that permissions are properly enforced based on the user's role and the associated rules defined for each table or view. This approach provides a flexible and secure way to control data access within the Stateset platform.
+
+Example useStatesetQuery Hook using JWT based Authentication and SWR:
+
+```jsx
+/**
+ * Make authenticated GraphQL query request to Stateset
+ * @param {string} query GraphQL query or mutation
+ * @param {Object} variables GraphQL Document variables
+ * @param {boolean} blockRequest Request blocked if true
+ * @returns useSWR object (data, error, isValidating, mutate)
+ */
+
+export const useStatesetQuery = (query, variables, blockRequest) => {
+
+  const { isLoaded, organization } = useOrganization();
+
+  if (!query) {
+    throw Error("No query provided to `useStatesetQuery`");
+  }
+
+  const { getToken, isSignedIn } = useAuth();
+
+  if (!isLoaded || !isSignedIn) {
+
+    return null;
+
+  } else {
+
+    const nodeName = organization.publicMetadata.nodeName;
+
+    const endpoint = `https://${nodeName}.stateset.app/v1/graphql`;
+
+    const fetcher = async () =>
+      request(endpoint, query, variables, {
+        authorization: `Bearer ${await getToken({ template: `hasura` })}`,
+      });
+
+    return useSWR(query, blockRequest ? () => { } : fetcher);
+  }
+
+};
+```

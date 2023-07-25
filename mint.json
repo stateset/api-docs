@@ -9,7 +9,7 @@
   "colors": {
     "primary": "#2563eb",
     "light": "#AE87FF",
-    "dark": "#0D001D",
+    "dark": "#556cd6",
     "background": {
       "dark": "#1A1F36"
     },
@@ -38,7 +38,7 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.stateset.io"
     },
     {
       "name": "GitHub",
@@ -51,9 +51,9 @@
       "url": "https://stateset.io/community"
     },
     {
-      "name": "Blog",
+      "name": "Newsletter",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://stateofmind.beehiiv.com/"
     }
   ],
   "navigation": [
