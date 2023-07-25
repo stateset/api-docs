@@ -35,6 +35,12 @@ curl --location --request PUT 'https://api.stateset.com/api/return/:id/close' \
 }'
 ```
 
+```js Node.js
+const returns = await stateset.returns.close({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
 </RequestExample>
 
 <ResponseExample>
