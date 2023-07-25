@@ -202,6 +202,24 @@
       ]
     },
     {
+      "group": "Vendors",
+      "pages": [
+        "api-reference/vendors/get",
+        "api-reference/vendors/create",
+        "api-reference/vendors/update",
+        "api-reference/vendors/delete"
+      ]
+    },
+    {
+      "group": "Suppliers",
+      "pages": [
+        "api-reference/suppliers/get",
+        "api-reference/suppliers/create",
+        "api-reference/suppliers/update",
+        "api-reference/suppliers/delete"
+      ]
+    },
+    {
       "group": "Contacts",
       "pages": [
         "api-reference/contacts/get",
