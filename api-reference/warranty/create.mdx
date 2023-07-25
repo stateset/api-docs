@@ -28,6 +28,36 @@ curl --location --request POST 'https://api.stateset.com/api/warranty' \
 }'
 ```
 
+```graphQL GraphQL
+
+mutation InsertNewWarranty(
+      $warranty: warranties_insert_input!
+      ) {
+        insert_warranties (
+        objects: [$warranty]
+        ) {    
+        returning {
+          id
+          order_id
+          serial_number
+          customer_id
+          description
+          status
+          tracking_number
+          zendesk_number
+          action_needed
+          issue
+          shipped_date
+          requested_date
+          enteredBy
+          customerEmail
+          rma
+          country
+        }
+      }
+    }
+```
+
 ```js Node.js
 
 const warranty = await stateset.warranties.create({

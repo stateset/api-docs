@@ -12,112 +12,110 @@ description: "This endpoint gets or creates a new work order."
 
 ### Response
 
-<ResponseField body="bill_of_materials_number" type="string">
+<ResponseField name="bill_of_materials_number" type="string">
   Number associated with the bill of materials related to the work order
 </ResponseField>
 
-<ResponseField body="created_at" type="string">
+<ResponseField name="created_at" type="string">
   Date and time when the work order was created
 </ResponseField>
 
-<ResponseField body="created_by" type="string">
+<ResponseField name="created_by" type="string">
   Name or identifier of the person who created the work order
 </ResponseField>
 
-<ResponseField body="expected_completion_date" type="string">
+<ResponseField name="expected_completion_date" type="string">
   Expected completion date for the work order
 </ResponseField>
 
-<ResponseField body="id" type="string">
+<ResponseField name="id" type="string">
   Unique identifier for the work order
 </ResponseField>
 
-<ResponseField body="issue_date" type="string">
+<ResponseField name="issue_date" type="string">
   Date when the work order was issued
 </ResponseField>
 
-<ResponseField body="location" type="string">
+<ResponseField name="location" type="string">
   Location or site where the work order is applicable
 </ResponseField>
 
-<ResponseField body="manufacture_order" type="string">
+<ResponseField name="manufacture_order" type="string">
   Identifier or reference to the manufacturing order associated with the work order
 </ResponseField>
 
-<ResponseField body="memo" type="string">
+<ResponseField name="memo" type="string">
   Memo or additional notes related to the work order
 </ResponseField>
 
-<ResponseField body="number" type="string">
+<ResponseField name="number" type="string">
   Number associated with the work order
 </ResponseField>
 
-<ResponseField body="order_number" type="string">
+<ResponseField name="order_number" type="string">
   Identifier or reference to the order associated with the work order
 </ResponseField>
 
-<ResponseField body="part" type="string">
+<ResponseField name="part" type="string">
   Part or item associated with the work order
 </ResponseField>
 
-<ResponseField body="priority" type="string">
+<ResponseField name="priority" type="string">
   Priority level or urgency of the work order
 </ResponseField>
 
-<ResponseField body="site" type="string">
+<ResponseField name="site" type="string">
   Site or location where the work order is being executed
 </ResponseField>
 
-<ResponseField body="status" type="string">
+<ResponseField name="status" type="string">
   Current status or state of the work order
 </ResponseField>
 
-<ResponseField body="updated_at" type="string">
+<ResponseField name="updated_at" type="string">
   Date and time when the work order was last updated
 </ResponseField>
 
-<ResponseField body="work_order_line_items" type="string">
+<ResponseField name="work_order_line_items" type="string">
   
 
   <Expandable title="Show child attributes">
 
-  <ResponseField body="id" type="string">
+  <ResponseField name="id" type="string">
     Unique identifier for the line item
   </ResponseField>
 
-  <ResponseField body="line_status" type="string">
+  <ResponseField name="line_status" type="string">
     Status or state of the line item
   </ResponseField>
 
-  <ResponseField body="line_type" type="string">
+  <ResponseField name="line_type" type="string">
     Type or category of the line item
   </ResponseField>
 
-  <ResponseField body="part_name" type="string">
+  <ResponseField name="part_name" type="string">
     Name of the part or item included in the line Item
   </ResponseField>
 
-  <ResponseField body="part_number" type="string">
+  <ResponseField name="part_number" type="string">
     Number or code associated with the part or Item
   </ResponseField>
 
-  <ResponseField body="total_quantity" type="string">
+  <ResponseField name="total_quantity" type="string">
     Total quantity of the part or item required or used in the work order
   </ResponseField>
 
-  <ResponseField body="unit_quantity" type="string">
+  <ResponseField name="unit_quantity" type="string">
     Quantity of the part or item required or used per unit in the work order
   </ResponseField>
 
-  <ResponseField body="work_order_number" type="string">
+  <ResponseField name="work_order_number" type="string">
     Number associated with the work order to which the line item belongs
   </ResponseField>
 
   </Expandable>
 
 </ResponseField>
-
-
 
 <RequestExample>
 
