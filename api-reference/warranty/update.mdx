@@ -27,45 +27,177 @@ description: "This endpoint updates an existing warranty."
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the id of the warranty.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  Indicates whether a new user group was created.
+<ResponseField name="action_needed" type="boolean">
+  Indicates whether any action is needed for the warranty.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField name="advanced_replacement" type="boolean">
+  Indicates if advanced replacement is available for the warranty.
+</ResponseField>
+
+<ResponseField name="amount" type="decimal">
+  The monetary amount associated with the warranty.
+</ResponseField>
+
+<ResponseField name="condition" type="string">
+  Describes the condition of the item or situation.
+</ResponseField>
+
+<ResponseField name="condition_date" type="datetime">
+  Date and time when the condition was recorded or observed.
+</ResponseField>
+
+<ResponseField name="country" type="string">
+  Country associated with the warranty entry.
+</ResponseField>
+
+<ResponseField name="created_date" type="datetime">
+  Date and time when the warranty entry was created.
+</ResponseField>
+
+<ResponseField name="customerEmail" type="string">
+  Email address of the customer associated with the warranty.
+</ResponseField>
+
+<ResponseField name="customer_id" type="integer">
+  Unique identifier for the customer associated with the warranty.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  Brief description or additional details about the warranty.
+</ResponseField>
+
+<ResponseField name="enteredBy" type="string">
+  Name or identifier of the person who entered the warranty.
+</ResponseField>
+
+<ResponseField name="issue" type="string">
+  Issue or problem associated with the warranty.
+</ResponseField>
+
+<ResponseField name="match" type="boolean">
+  Indicates whether the warranty matches the specified conditions.
+</ResponseField>
+
+<ResponseField name="order_date" type="datetime">
+  Date and time when the order associated with the warranty was placed.
+</ResponseField>
+
+<ResponseField name="order_id" type="integer">
+  Unique identifier for the order associated with the warranty.
+</ResponseField>
+
+<ResponseField name="reason_category" type="string">
+  Category or reason associated with the warranty.
+</ResponseField>
+
+<ResponseField name="replacement_color" type="string">
+  Color of the replacement item for the warranty.
+</ResponseField>
+
+<ResponseField name="replacement_order_created" type="boolean">
+  Indicates if a replacement order has been created for the warranty.
+</ResponseField>
+
+<ResponseField name="reported_condition" type="string">
+  Condition as reported by the customer or user.
+</ResponseField>
+
+<ResponseField name="requested_date" type="datetime">
+  Date and time when a specific request was made for the warranty.
+</ResponseField>
+
+<ResponseField name="rma" type="string">
+  Return Merchandise Authorization (RMA) number for the warranty.
+</ResponseField>
+
+<ResponseField name="scanned_serial_number" type="string">
+  Serial number obtained through scanning for the warranty.
+</ResponseField>
+
+<ResponseField name="serial_number" type="string">
+  Unique serial number associated with the item in the warranty.
+</ResponseField>
+
+<ResponseField name="shipstation_order_id" type="string">
+  ShipStation order ID associated with the warranty.
+</ResponseField>
+
+<ResponseField name="shipped_date" type="datetime">
+  Date and time when the item was shipped or dispatched.
+</ResponseField>
+
+<ResponseField name="sso_id" type="string">
+  Single Sign-On (SSO) ID associated with the warranty.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Current status or state of the warranty.
+</ResponseField>
+
+<ResponseField name="stripe_invoice_id" type="string">
+  Stripe invoice ID associated with the warranty.
+</ResponseField>
+
+<ResponseField name="tax_refunded" type="decimal">
+  The amount of tax refunded for the warranty.
+</ResponseField>
+
+<ResponseField name="total_refunded" type="decimal">
+  The total amount refunded for the warranty.
+</ResponseField>
+
+<ResponseField name="tracking_number" type="string">
+  Tracking number associated with the shipment for the warranty.
+</ResponseField>
+
+<ResponseField name="warehouse_received_date" type="datetime">
+  Date and time when the item was received in the warehouse.
+</ResponseField>
+
+<ResponseField name="warranty_line_items" type="object">
+  This is an array of warranty line items.
+
+<Expandable title="Show child attributes">
+
+<ResponseField name="amount" type="decimal">
+  The monetary amount associated with the warranty line item.
+</ResponseField>
+
+<ResponseField name="condition" type="string">
+  Describes the condition of the replaced item.
+</ResponseField>
+
+<ResponseField name="flat_rate_shipping" type="boolean">
+  Indicates whether the shipping rate is a flat rate.
+</ResponseField>
+
+<ResponseField name="id" type="integer">
+  Unique identifier for the warranty line item.
 </ResponseField>
 
 <ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+  Name or description of the warranty line item.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="price" type="decimal">
+  The price of the warranty line item.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON | Null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="warranty_id" type="integer">
+  Unique identifier for the warranty associated with the line item.
 </ResponseField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'
+<ResponseField name="serial_number" type="string">
+  Unique serial number associated with the warranty item.
 </ResponseField>
 
-</Expandable>
-
+<ResponseField name="sku" type="string">
+  Stock Keeping Unit (SKU) of the replaced item.
 </ResponseField>
 
 <RequestExample>

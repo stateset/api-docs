@@ -70,7 +70,7 @@ The contents of the user group
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request PUT 'https://api.stateset.com/api/bill_of_materials_line_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
@@ -81,6 +81,49 @@ curl --location --request PUT 'https://api.stateset.com/api/bill_of_materials_li
     "properties": {"filterValue": "value"}
 }'
 ```
+
+```graphQL GraphQL
+
+    mutation (
+      $id: uuid
+      $bill_of_material_line_item: bill_of_material_line_items_set_input!
+    ) {
+      update_bill_of_material_line_items(
+        where: { id: { _eq: $id } }
+        _set: $bill_of_material_line_item
+      ) {
+        returning {
+          id
+        }
+      }
+    }
+```
+
+
+```javascript Node.js
+
+const update = await stateset.billofmaterialItems.update(
+  'bomi_ODkRWQtx9NVsRX'
+);
+
+```
+
+```python Python
+
+update = stateset.billofmaterialItems.update(
+  'bomi_ODkRWQtx9NVsRX'
+)
+
+```
+
+```ruby Ruby
+
+update = Stateset::BillofmaterialItems.update(
+  'bomi_ODkRWQtx9NVsRX'
+)
+
+```
+
 
 </RequestExample>
 
