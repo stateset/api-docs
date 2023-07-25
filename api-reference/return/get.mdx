@@ -32,6 +32,41 @@ const returns = await stateset.returns.retrieve({
   '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
 });
 ```
+```py Python
+returns = stateset.returns.retrieve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+```
+```go Golang 
+returns, err := stateset.Returns.Retrieve(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+```
+```ruby Ruby
+returns = Stateset::Returns.retrieve(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+)
+```
+```java Java
+Returns returns = Stateset.Returns.retrieve(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+```
+```csharp C#
+Returns returns = Stateset.Returns.Retrieve(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+```
+```php PHP
+$returns = Stateset\Returns::retrieve(
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+);
+```
+```http HTTP
+GET /api/return HTTP/1.1
+Host: api.stateset.com
+Content-Type: application/json
+```
 
 </RequestExample>
 
