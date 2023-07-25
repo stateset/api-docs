@@ -77,7 +77,7 @@ description: "This endpoint creates a new work order line item."
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request POST 'https://api.stateset.com/api/work_order_line_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
@@ -115,7 +115,7 @@ const workOrderLineItem = await stateset.workOrderItem.create({
 work_order_line_item = stateset.work_order_line_item.create(
     {
         "work_order_line_item": {
-          
+
         
         }
     }
