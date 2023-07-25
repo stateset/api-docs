@@ -6,23 +6,12 @@ description: "This endpoint updates an existing customer."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="sso_id" type="string">
+  This is the sso_id of the customer
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
-</ParamField>
-
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user
-  group should be associated with or id of the datasource you provided when
-  creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will
-  be accessible through variables in the dashboards and SQL editor
+<ParamField body="customer" type="object">
+  This is the customer object.
 </ParamField>
 
 ### Response
