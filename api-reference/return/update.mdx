@@ -65,27 +65,39 @@ curl --location --request PUT 'https://api.stateset.com/api/return' \
 ```
 
 ```graphQL GraphQL
-mutation InsertNewReturn(
-        $return_x: returns_insert_input!
-        ) {
-          insert_returns (
-          objects: [$return_x]
-          ) {    
-          returning {
-            id
-            order_id
-            serial_number
-            description
-            status
-            reported_condition
-            tracking_number
-            zendesk_number
-            action_needed
-            rma
-            country
-          }
-        }
-      }`;
+               mutation (
+                $return_id: String
+                $return_x: returns_set_input!
+              ) {
+                update_returns (
+                where: { id : { _eq: $return_id }}
+                _set: $return_x
+                ) {
+                  returning {
+                    id
+                    order_id
+                    description
+                    issue
+                    status
+                    tracking_number
+                    action_needed
+                    customerEmail
+                    rma
+                    serial_number
+                    scanned_serial_number
+                    zendesk_number
+                    enteredBy
+                    order_date
+                    shipped_date
+                    requested_date
+                    condition
+                    reported_condition
+                    created_date
+                    amount
+                    flat_rate_shipping
+                  }
+                }
+              }`;
 ```
 
 ```js Node.js

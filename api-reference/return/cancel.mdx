@@ -1,0 +1,110 @@
+---
+title: "Cancel Return"
+api: "POST https://api.stateset.com/api/return/:id/cancel"
+description: "This endpoint updates an existing return."
+---
+
+### Body
+
+<ParamField body="return_id" type="string">
+  The ID provided in the data tab may be used to identify the return
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the return
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. true if successful, false if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request PUT 'https://api.stateset.com/api/return/:id/cancel' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+}'
+```
+
+```graphQL GraphQL
+      mutation returnCancelMutation {
+        returnCancel(id: "${returnId}") {
+          return {
+            id,
+            status
+          }
+          userErrors {
+            field
+            message
+          }
+        }
+      }
+    `;
+```
+    
+
+```js Node.js
+const returns = await stateset.returns.cancel({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+```python Python
+returns = stateset.returns.cancel({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+```
+
+```ruby Ruby
+returns = stateset.returns.cancel({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+```
+
+```go Go
+returns, err := stateset.Returns.Cancel({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+```
+
+```java Java
+Return returns = stateset.Returns.cancel({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+```php PHP
+$returns = $stateset->returns->cancel({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+```csharp C#
+var returns = await stateset.Returns.Cancel({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+  "object": "return",
+  "cancelled": true
+}
+```
+
+</ResponseExample>

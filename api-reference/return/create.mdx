@@ -65,6 +65,30 @@ curl --location --request POST 'https://api.stateset.com/api/return' \
 }'
 ```
 
+```graphQL GraphQL
+mutation InsertNewReturn(
+        $return_x: returns_insert_input!
+        ) {
+          insert_returns (
+          objects: [$return_x]
+          ) {    
+          returning {
+            id
+            order_id
+            serial_number
+            description
+            status
+            reported_condition
+            tracking_number
+            zendesk_number
+            action_needed
+            rma
+            country
+          }
+        }
+      }`;
+```
+
 ```js Node.js
 const returns = await stateset.returns.create({
   'id': '0901f083-aa1c-43c5-af5c-0a9d2fc64e30',

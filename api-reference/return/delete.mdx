@@ -35,6 +35,14 @@ curl --location --request DELETE 'https://api.stateset.com/api/return' \
 }'
 ```
 
+```graphQL GraphQL
+mutation deleteReturn ($id: String!) {
+    delete_returns(where: {id: {_eq: $id}}) {
+          affected_rows
+        }
+      }
+```
+
 ```js Node.js
 const returns = await stateset.returns.del({
   '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
