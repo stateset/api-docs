@@ -77,6 +77,66 @@ description: "This endpoint creates a new message"
 
 ### Response
 
+<ResponseField name="id" type="string">
+  This is the id of the message.
+</ResponseField>
+
+<ResponseField name="body" type="string">
+  This is the body of the message.
+</ResponseField>
+
+<ResponseField name="created_at" type="datetime">
+  This is the date and time when the message was created.
+</ResponseField>
+
+<ResponseField name="date" type="date">
+  This is the date when the message was sent.
+</ResponseField>
+
+<ResponseField name="deliveredReceipt" type="boolean">
+  This indicates if the message has been delivered.
+</ResponseField>
+
+<ResponseField name="from" type="string">
+  This is the sender of the message.
+</ResponseField>
+
+<ResponseField name="fromMe" type="boolean">
+  This indicates if the message was sent by the user.
+</ResponseField>
+
+<ResponseField name="is_public" type="boolean">
+  This indicates if the message is public or private.
+</ResponseField>
+
+<ResponseField name="messageNumber" type="integer">
+  This is the unique number assigned to the message.
+</ResponseField>
+
+<ResponseField name="sentReceipt" type="boolean">
+  This indicates if the message has been sent.
+</ResponseField>
+
+<ResponseField name="time" type="time">
+  This is the time when the message was sent.
+</ResponseField>
+
+<ResponseField name="timestamp" type="datetime">
+  This is the timestamp of the message.
+</ResponseField>
+
+<ResponseField name="to" type="string">
+  This is the recipient of the message.
+</ResponseField>
+
+<ResponseField name="user_id" type="string">
+  This is the unique identifier for the user associated with the message.
+</ResponseField>
+
+<ResponseField name="username" type="string">
+  This is the username of the user associated with the message.
+</ResponseField>
+
 
 
 <RequestExample>
