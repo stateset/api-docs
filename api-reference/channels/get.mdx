@@ -1,0 +1,116 @@
+---
+title: "Get Channel Threads"
+api: "GET https://api.stateset.com/api/channel_threads"
+description: "This endpoint gets a channel threads."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the id of the channel thread.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the id of the channel_thread
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/api/channelthread' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
+}'
+```
+
+```graphQL GraphQL
+
+query MyChannelThreads {
+  channel_thread {
+    id
+    name
+    uuid
+    user_id
+  }
+}
+
+
+```
+
+```js Node.js
+const channel_threads = await stateset.channel_threads.retrieve({
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+```py Python
+channel_threads = stateset.channel_threads.retrieve({
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+```go Golang 
+channel_threads, err := stateset.Messages.Retrieve(
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```ruby Ruby
+channel_threads = Stateset::Messages.retrieve(
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```java Java
+ChannelThread channel_threads = Stateset.ChannelThreads.retrieve(
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```csharp C#
+ChannelThread channel_threads = Stateset.ChannelThreads.Retrieve(
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```php PHP
+$channel_threads = Stateset\ChannelThreads::retrieve(
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```http HTTP
+GET /api/channel_threads HTTP/1.1
+Host: api.stateset.com
+Content-Type: application/json
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+
+{
+    "data": {
+        "message": {
+            "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
+            "body": "Hello World",
+            "created_at": "2021-01-01T00:00:00.000000Z",
+            "date": "2021-01-01",
+            "deliveredReceipt": true,
+            "from": "user1",
+            "fromMe": true,
+            "is_public": true,
+            "messageNumber": 1,
+            "sentReceipt": true,
+            "time": "00:00:00",
+            "timestamp": "2021-01-01T00:00:00.000000Z",
+            "to": "user2",
+            "user_id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
+            "username": "user1"
+        }
+    }
+}
+
+
+```
+
+</ResponseExample>

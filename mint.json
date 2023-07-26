@@ -207,6 +207,15 @@
       ]
     },
     {
+      "group": "Cases",
+      "pages": [
+        "api-reference/cases/get",
+        "api-reference/cases/create",
+        "api-reference/cases/update",
+        "api-reference/cases/delete"
+      ]
+    },
+    {
       "group": "Vendors",
       "pages": [
         "api-reference/vendors/get",
@@ -240,6 +249,24 @@
         "api-reference/users/create",
         "api-reference/users/update",
         "api-reference/users/delete"
+      ]
+    },
+    {
+      "group": "Messages",
+      "pages": [
+        "api-reference/messages/get",
+        "api-reference/messages/create",
+        "api-reference/messages/update",
+        "api-reference/messages/delete"
+      ]
+    },
+    {
+      "group": "Channels",
+      "pages": [
+        "api-reference/channels/get",
+        "api-reference/channels/create",
+        "api-reference/channels/update",
+        "api-reference/channels/delete"
       ]
     }
   ],

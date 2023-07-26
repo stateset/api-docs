@@ -1,0 +1,83 @@
+---
+title: "Create Case"
+api: "POST https://api.stateset.com/api/case"
+description: "This endpoint creates a new case"
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the current user group token you have for the user group that you want
+  to rotate.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request POST 'https://api.stateset.com/api/case' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": ""
+}'
+```
+
+```graphQL GraphQL
+
+               mutation addCase($casex: cases_insert_input!) {
+                insert_cases(objects: [$casex]) {
+                  returning {
+                    id
+                    caseName
+                    caseNumber
+                    description
+                    caseStatus
+                    priority
+                    submitter
+                    resolver
+                }
+              }
+              }
+```
+
+```javascript Node.js
+
+const created = await stateset.case.create({
+  id: "",
+});
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+    "data": {
+        "insert_cases": {
+        "returning": [
+            {
+            "id": "0x0",
+            "caseName": "Case Name",
+            "caseNumber": "Case Number",
+            "description": "Case Description",
+            "caseStatus": "Case Status",
+            "priority": "Case Priority",
+            "submitter": "Submitter",
+            "resolver": "Resolver"
+            }
+        ]
+        }
+    }
+
+}
+```
+
+</ResponseExample>

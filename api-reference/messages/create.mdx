@@ -1,0 +1,158 @@
+---
+title: "Create Message"
+api: "POST https://api.stateset.com/api/message"
+description: "This endpoint creates a new message"
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the ID of the message to be created.
+</ParamField>
+
+<ParamField body="time" type="string">
+  This is the time of the message to be created.
+</ParamField>
+
+<ParamField body="body" type="string">
+  This is the body of the message to be created.
+</ParamField>
+
+<ParamField body="username" type="string">
+  This is the username of the message to be created.
+</ParamField>
+
+<ParamField body="channel_id" type="string">
+  This is the channel_id of the message to be created.
+</ParamField>
+
+<ParamField body="user_id" type="string">
+  This is the user_id of the message to be created.
+</ParamField>
+
+<ParamField body="is_public" type="boolean">
+  This is the is_public of the message to be created.
+</ParamField>
+
+<ParamField body="from" type="string">
+  This is the from of the message to be created.
+</ParamField>
+
+<ParamField body="to" type="string">
+  This is the to of the message to be created.
+</ParamField>
+
+<ParamField body="from_me" type="boolean">
+  This is the from_me of the message to be created.
+</ParamField>
+
+<ParamField body="sent_receipt" type="boolean">
+  This is the sent_receipt of the message to be created.
+</ParamField>
+
+<ParamField body="delivered_receipt" type="boolean">
+  This is the delivered_receipt of the message to be created.
+</ParamField>
+
+<ParamField body="message_number" type="number">
+  This is the message_number of the message to be created.
+</ParamField>
+
+<ParamField body="date" type="string">
+  This is the date of the message to be created.
+</ParamField>
+
+<ParamField body="timestamp" type="string">
+  This is the timestamp of the message to be created.
+</ParamField>
+
+<ParamField body="created_at" type="string">
+  This is the created_at of the message to be created.
+</ParamField>
+
+<ParamField body="updated_at" type="string">
+  This is the updated_at of the message to be created.
+</ParamField>
+
+
+### Response
+
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request POST 'https://api.stateset.com/api/message' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": ""
+}'
+```
+
+```graphQL GraphQL
+
+mutation insert_message ($message: message_insert_input! ){
+  insert_message (
+    objects: [$message]
+  ) {
+    returning {
+      id
+      time
+      body
+      username
+    }
+  }
+}
+```
+
+```javascript Node.js
+
+const created = await stateset.message.create({
+  id: "",
+});
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+    "data": {
+        "insert_message": {
+        "returning": [
+            {
+            "id": "",
+            }
+        ]
+        }
+    }
+
+}
+```
+
+</ResponseExample>
+
+
+### Messages
+
+
+| Field            | Type     | Description                                                |
+| ---------------- | -------- | ---------------------------------------------------------- |
+| id               | String   | Unique identifier for the message                          |
+| body             | String   | The content or text of the message                         |
+| created\_at      | DateTime | The date and time when the message was created             |
+| date             | Date     | The date when the message was sent                         |
+| deliveredReceipt | Boolean  | Indicates if the message has been delivered                |
+| from             | String   | Sender of the message                                      |
+| fromMe           | Boolean  | Indicates if the message was sent by the user              |
+| is\_public       | Boolean  | Indicates if the message is public or private              |
+| messageNumber    | Integer  | Unique number assigned to the message                      |
+| sentReceipt      | Boolean  | Indicates if the message has been sent                     |
+| time             | Time     | The time when the message was sent                         |
+| timestamp        | DateTime | The timestamp of the message                               |
+| to               | String   | Recipient of the message                                   |
+| user\_id         | String   | Unique identifier for the user associated with the message |
+| username         | String   | Username of the user associated with the message           |

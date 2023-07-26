@@ -1,0 +1,107 @@
+---
+title: "Delete Case"
+api: "DELETE https://api.stateset.com/api/case"
+description: "This endpoint deletes an existing case."
+---
+
+### Body
+
+<ParamField body="case_id" type="string">
+  The ID provided in the data tab may be used to identify the case
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the case
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request DELETE 'https://api.stateset.com/api/case' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+		"id": "rt_1NXWPnCo6bFb1KQto6C8OWvE"
+}'
+```
+
+```graphQL GraphQL
+mutation deleteCase ($id: String!) {
+    delete_cases(where: {id: {_eq: $id}}) {
+          affected_rows
+        }
+      }
+```
+
+```js Node.js
+const cases = await stateset.cases.del({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```py Python
+cases = stateset.cases.del({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```go Go
+cases, err := stateset.Cases.Del(
+  "rt_1NXWPnCo6bFb1KQto6C8OWvE"
+)
+```
+
+```java Java
+Case cases = stateset.cases.del(
+  "rt_1NXWPnCo6bFb1KQto6C8OWvE"
+);
+```
+
+```js Javascript
+const cases = await stateset.cases.del({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```ruby Ruby
+cases = Stateset::Return.del({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```php PHP
+$cases = $stateset->cases->del(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+
+```http HTTP
+DELETE /api/case HTTP/1.1
+Host: api.stateset.com 
+Content-Type: application/json
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "ca_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "case",
+  "deleted": true
+}
+
+```
+
+</ResponseExample>

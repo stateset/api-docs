@@ -1,0 +1,87 @@
+---
+title: "Update Case"
+api: "POST https://api.stateset.com/api/case"
+description: "This endpoint updates a case"
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the ID of the case to update.
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request PUT 'https://api.stateset.com/api/case' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": ""
+}'
+```
+
+```graphQL GraphQL
+
+               mutation (
+                $id: String
+                $casex: cases_set_input!
+              ) {
+                update_cases (
+                where: { id : { _eq: $id }}
+                _set: $casex
+                ) {
+                  returning {
+                      id
+                      caseName
+                      caseNumber
+                      caseStatus
+                      description
+                      priority
+                      resolver
+                      submitter
+                  }
+                }
+              }
+```
+
+```javascript Node.js
+
+const created = await stateset.case.update({
+  id: "",
+});
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+    "data": {
+        "update_cases": {
+        "returning": [
+            {
+            "id": "0x0",
+            "caseName": "Case Name",
+            "caseNumber": "Case Number",
+            "description": "Case Description",
+            "caseStatus": "Case Status",
+            "priority": "Case Priority",
+            "submitter": "Submitter",
+            "resolver": "Resolver"
+            }
+        ]
+        }
+    }
+
+}
+```
+
+</ResponseExample>
