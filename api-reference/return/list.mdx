@@ -1,0 +1,291 @@
+---
+title: "List Returns"
+api: "GET https://api.stateset.com/api/return/list"
+description: "This endpoint list returns."
+---
+
+### Body
+
+<ParamField body="limit" required="false" type="string">
+  This is the limit of the returns.
+</ParamField>
+
+<ParamField body="offset" required="false" type="string">
+  This is the offset of the returns.
+</ParamField>
+
+<ParamField body="order_direction" required="false" type="string">
+  This is the order direction of the returns.
+</ParamField>
+
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the id of the return.
+</ResponseField>
+
+<ResponseField name="created_date" type="string">
+  This is the date the return was created.
+</ResponseField>
+
+<ResponseField name="amount" type="string">
+  This is the amount of the return.
+</ResponseField>
+
+<ResponseField name="action_needed" type="string">
+  This is the action needed for the return.
+</ResponseField>
+
+<ResponseField name="condition" type="string">
+  This is the condition of the return.
+</ResponseField>
+
+<ResponseField name="customerEmail" type="string">
+  This is the email of the customer.
+</ResponseField>
+
+<ResponseField name="customer_id" type="string">
+  This is the id of the customer.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  This is the description of the return.
+</ResponseField>
+
+<ResponseField name="enteredBy" type="string">
+  This is the id of the user who entered the return.
+</ResponseField>
+
+<ResponseField name="flat_rate_shipping" type="string">
+  This is the flat rate shipping of the return.
+</ResponseField>
+
+<ResponseField name="order_date" type="string">
+  This is the date of the order.
+</ResponseField>
+
+<ResponseField name="order_id" type="string">
+  This is the id of the order.
+</ResponseField>
+
+<ResponseField name="reason_category" type="string">
+  This is the reason category of the return.
+</ResponseField>
+
+<ResponseField name="reported_condition" type="string">
+  This is the reported condition of the return.
+</ResponseField>
+
+<ResponseField name="requested_date" type="string">
+  This is the requested date of the return.
+</ResponseField>
+
+<ResponseField name="rma" type="string">
+  This is the rma of the return.
+</ResponseField>
+
+<ResponseField name="serial_number" type="string">
+  This is the serial number of the return.
+</ResponseField>
+
+<ResponseField name="shipped_date" type="string">
+  This is the shipped date of the return.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  This is the status of the return.
+</ResponseField>
+
+<ResponseField name="tax_refunded" type="string">
+  This is the tax refunded of the return.
+</ResponseField>
+
+<ResponseField name="total_refunded" type="string">
+  This is the total refunded of the return.
+</ResponseField>
+
+<ResponseField name="tracking_number" type="string">
+  This is the tracking number of the return.
+</ResponseField>
+
+<ResponseField name="return_line_items" type="object">
+  This is the line items of the return.
+
+  <Expandable title="Show child attributes">
+
+  <ResponseField name="id" type="string">
+    This is the id of the return line item.
+  </ResponseField>
+
+  <ResponseField name="amount" type="string">
+    This is the amount of the return line item.
+  </ResponseField>
+
+  <ResponseField name="condition" type="string">
+    This is the condition of the return line item.
+  </ResponseField>
+
+  <ResponseField name="flat_rate_shipping" type="string">
+    This is the flat rate shipping of the return line item.
+  </ResponseField>
+
+  <ResponseField name="name" type="string">
+    This is the name of the return line item.
+  </ResponseField>
+
+  <ResponseField name="price" type="string">
+    This is the price of the return line item.
+  </ResponseField>
+
+  <ResponseField name="return_id" type="string">
+    This is the id of the return associated with the line item.
+  </ResponseField>
+
+  <ResponseField name="serial_number" type="string">
+    This is the serial number of the return line item.
+  </ResponseField>
+
+  <ResponseField name="sku" type="string">
+    This is the sku of the return line item.
+  </ResponseField>
+
+  <ResponseField name="tax_refunded" type="string">
+    This is the tax refunded of the return line item.
+  </ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/api/return/retrieve' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
+}'
+```
+
+```graphQL GraphQL
+query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
+  returns(limit: $limit, offset: $offset, order_by: {created_date: $order_direction}) {
+    id
+    created_date
+    amount
+    action_needed
+    condition
+    customerEmail
+    customer_id
+    description
+    enteredBy
+    flat_rate_shipping
+    order_date
+    order_id
+    reason_category
+    reported_condition
+    requested_date
+    rma
+    serial_number
+    shipped_date
+    status
+    tax_refunded
+    total_refunded
+    tracking_number
+    return_line_items {
+      amount
+      condition
+      flat_rate_shipping
+      id
+      name
+      price
+      return_id
+      serial_number
+      sku
+      tax_refunded
+    }
+  }
+}
+```
+
+```js Node.js
+const returns = await stateset.returns.retrieve({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+```py Python
+returns = stateset.returns.retrieve({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+```go Golang 
+returns, err := stateset.Returns.Retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```ruby Ruby
+returns = Stateset::Returns.retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```java Java
+Returns returns = Stateset.Returns.retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```csharp C#
+Returns returns = Stateset.Returns.Retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```php PHP
+$returns = Stateset\Returns::retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```http HTTP
+GET /api/return HTTP/1.1
+Host: api.stateset.com
+Content-Type: application/json
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+    "returns": [
+        {
+            "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
+            "created_date": "2023-06-28T19:34:59.189838+00:00",
+            "amount": null,
+            "action_needed": null,
+            "condition": null,
+            "customerEmail": "customer@gmail.com",
+            "customer_id": null,
+            "description": null,
+            "enteredBy": null,
+            "flat_rate_shipping": null,
+            "order_date": null,
+            "order_id": "524213310335630636",
+            "reason_category": null,
+            "reported_condition": null,
+            "requested_date": null,
+            "rma": "#1014-R5",
+            "serial_number": null,
+            "shipped_date": null,
+            "status": "RCV",
+            "tax_refunded": null,
+            "total_refunded": null,
+            "tracking_number": null,
+            "return_line_items": []
+        },
+    ]
+}   
+```
+
+</ResponseExample>
