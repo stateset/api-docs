@@ -1,6 +1,6 @@
 ---
 title: "List Returns"
-api: "GET https://api.stateset.com/api/return/list"
+api: "GET https://api.stateset.com/api/returns"
 description: "This endpoint list returns."
 ---
 
@@ -162,7 +162,7 @@ description: "This endpoint list returns."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/return/retrieve' \
+curl --location --request GET 'https://api.stateset.com/api/returns' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -212,37 +212,37 @@ query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
 ```
 
 ```js Node.js
-const returns = await stateset.returns.retrieve({
+const returns = await stateset.returns.list({
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 ```py Python
-returns = stateset.returns.retrieve({
+returns = stateset.returns.list({
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 ```go Golang 
-returns, err := stateset.Returns.Retrieve(
+returns, err := stateset.Returns.List(
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 )
 ```
 ```ruby Ruby
-returns = Stateset::Returns.retrieve(
+returns = Stateset::Returns.list(
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 )
 ```
 ```java Java
-Returns returns = Stateset.Returns.retrieve(
+Returns returns = Stateset.Returns.list(
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 ```csharp C#
-Returns returns = Stateset.Returns.Retrieve(
+Returns returns = Stateset.Returns.List(
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 ```php PHP
-$returns = Stateset\Returns::retrieve(
+$returns = Stateset\Returns::list(
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
