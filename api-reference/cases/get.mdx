@@ -1,0 +1,115 @@
+---
+title: "Get Cases"
+api: "GET https://api.stateset.com/api/cases"
+description: "This endpoint gets a case."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the id of the case
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the id of the case
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/api/case' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
+}'
+```
+
+```graphQL GraphQL
+
+query getMyCases {
+  cases(order_by: {createdDate: desc}) {
+    id
+    caseName
+    description
+    caseNumber
+    caseStatus
+    priority
+    submitter
+    resolver
+    createdDate
+  }
+}
+
+
+```
+
+```js Node.js
+const cases= await stateset.channel_threads.retrieve({
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+```py Python
+cases= stateset.channel_threads.retrieve({
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+```go Golang 
+channel_threads, err := stateset.Messages.Retrieve(
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```ruby Ruby
+cases= Stateset::Messages.retrieve(
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```java Java
+Cases cases= Stateset.Cases.retrieve(
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```csharp C#
+Cases cases= Stateset.Cases.Retrieve(
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```php PHP
+$cases= Stateset\Cases::retrieve(
+  'ct_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```http HTTP
+GET /api/cases HTTP/1.1
+Host: api.stateset.com
+Content-Type: application/json
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+
+{
+    "data": {
+        "case": {
+            "id": "ca_1NXWPnCo6bFb1KQto6C8OWvE",
+            "caseName": "Case Name",
+            "description": "Case Description",
+            "caseNumber": "Case Number",
+            "caseStatus": "Case Status",
+            "priority": "Priority",
+            "submitter": "Submitter",
+            "resolver": "Resolver",
+            "createdDate": "2021-01-01T00:00:00.000Z"
+        }
+    }
+}
+
+
+```
+
+</ResponseExample>
