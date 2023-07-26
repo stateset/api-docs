@@ -1,0 +1,107 @@
+---
+title: "Cancel Purchase Order"
+api: "POST https://api.stateset.com/api/purchaseorder/:id/cancel"
+description: "This endpoint cancels an existing purchase order."
+---
+
+### Body
+
+<ParamField body="purchase_order_id" type="string">
+  The ID provided in the data tab may be used to identify the purchase order
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the purchase order
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request POST 'https://api.stateset.com/api/purchase_order/:id/cancel' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+		"id": "po_1NXWPnCo6bFb1KQto6C8OWvE"
+}'
+```
+
+```graphQL GraphQL
+mutation cancelPurchaseOrder ($id: String!) {
+    cance_purchaseorder(where: {id: {_eq: $id}}) {
+          affected_rows
+        }
+      }
+```
+
+```js Node.js
+const purchaseorders = await stateset.purchaseorders.cancel({
+  'po_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```py Python
+purchaseorders = stateset.purchaseorders.cancel({
+  'po_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```go Go
+purchaseorders, err := stateset.purchaseorders.cancel.(
+  "po_1NXWPnCo6bFb1KQto6C8OWvE"
+)
+```
+
+```java Java
+Return purchaseorders = stateset.purchaseorders.cancel(
+  "po_1NXWPnCo6bFb1KQto6C8OWvE"
+);
+```
+
+```js Javascript
+const purchaseorders = await stateset.purchaseorders.cancel({
+  'po_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```ruby Ruby
+purchaseorders = Stateset::PurchaseOrder.cancel({
+  'po_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```php PHP
+$purchaseorders = $stateset->purchaseorders->cancel(
+  'po_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+
+```http HTTP
+POST /api/purchaseorder/:id/cancel HTTP/1.1
+Host: api.stateset.com 
+Content-Type: application/json
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "po_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "purchaseorder",
+  "cancelled": true
+}
+
+```
+
+</ResponseExample>

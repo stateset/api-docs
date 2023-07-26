@@ -1,0 +1,195 @@
+---
+title: "Get Purchase Order"
+api: "GET https://api.stateset.com/api/purchase_order"
+description: "This endpoint gets or creates a new purchase order."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the id of the purchase order.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the id of the purchase order.
+</ResponseField>
+
+<ResponseField name="createdat" type="string">
+  This is the date the purchase order was created.
+</ResponseField>
+
+<ResponseField name="delivery_date" type="string">
+  This is the date the purchase order was delivered.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  This is the description of the purchase order.
+</ResponseField>
+
+<ResponseField name="external_id" type="string">
+  This is the external id of the purchase order.
+</ResponseField>
+
+<ResponseField name="financer" type="string">
+  This is the financer of the purchase order.
+</ResponseField>
+
+<ResponseField name="fulfiller" type="string">
+  This is the fulfiller of the purchase order.
+</ResponseField>
+
+<ResponseField name="lastupdated" type="string">
+  This is the date the purchase order was last updated.
+</ResponseField>
+
+<ResponseField name="purchase_date" type="string">
+  This is the date the purchase order was purchased.
+</ResponseField>
+
+<ResponseField name="purchase_order_hash" type="string">
+  This is the hash of the purchase order.
+</ResponseField>
+
+<ResponseField name="purchase_order_name" type="string">
+  This is the name of the purchase order.
+</ResponseField>
+
+<ResponseField name="purchase_order_number" type="string">
+  This is the number of the purchase order.
+</ResponseField>
+
+<ResponseField name="purchase_order_status" type="string">
+  This is the status of the purchase order.
+</ResponseField>
+
+<ResponseField name="purchaser" type="string">
+  This is the purchaser of the purchase order.
+</ResponseField>
+
+<ResponseField name="subtotal" type="string">
+  This is the subtotal of the purchase order.
+</ResponseField>
+
+<ResponseField name="total" type="string">
+  This is the total of the purchase order.
+</ResponseField>
+
+<ResponseField name="vendor" type="string">
+  This is the vendor of the purchase order.
+</ResponseField>
+
+<ResponseField name="transaction_id" type="string">
+  This is the transaction id of the purchase order.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/api/return' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
+}'
+```
+
+```graphQL GraphQL
+query {
+  purchaseorder {
+    id
+    createdat
+    delivery_date
+    description
+    external_id
+    financer
+    fulfiller
+    lastupdated
+    purchase_date
+    purchase_order_hash
+    purchase_order_name
+    purchase_order_number
+    purchase_order_status
+    purchaser
+    subtotal
+    total
+    vendor
+    transaction_id
+  }
+}
+```
+
+```js Node.js
+const purchaseorders = await stateset.purchaseorders.retrieve({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+```py Python
+purchaseorders = stateset.purchaseorders.retrieve({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+```go Golang 
+purchaseorders, err := stateset.purchaseorders.Retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```ruby Ruby
+purchaseorders = Stateset::purchaseorders.retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```java Java
+purchaseorders = Stateset.purchaseorders.retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```csharp C#
+purchaseorders s = Stateset.purchaseorders.Retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```php PHP
+$purchaseorders = Stateset\purchaseorders::retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+
+```http HTTP
+GET /api/purchaseorder HTTP/1.1
+Host: api.stateset.com
+Content-Type: application/json
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+    {
+    "id": "po_1NXWPnCo6bFb1KQto6C8OWvE",
+    "createdat": "2021-04-20T20:00:00.000Z",
+    "delivery_date": "2021-04-20T20:00:00.000Z",
+    "description": "This is a purchase order.",
+    "external_id": "po_1NXWPnCo6bFb1KQto6C8OWvE",
+    "financer": "0x00000000",
+    "fulfiller": "0x00000000",
+    "lastupdated": "2021-04-20T20:00:00.000Z",
+    "purchase_date": "2021-04-20T20:00:00.000Z",
+    "purchase_order_hash": "0x00000000",
+    "purchase_order_name": "Purchase Order",
+    "purchase_order_number": "po_1NXWPnCo6bFb1KQto6C8OWvE",
+    "purchase_order_status": "0x00000000",
+    "purchaser": "0x00000000",
+    "subtotal": "0.00",
+    "total": "0.00",
+    "vendor": "0x00000000",
+    "transaction_id": "0x00000000"
+
+    }
+}   
+```
+
+</ResponseExample>

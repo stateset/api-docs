@@ -148,6 +148,20 @@
       ]
     },
     {
+      "group": "Purchase Orders",
+      "pages": [
+        "api-reference/purchaseorders/get",
+        "api-reference/purchaseorders/create",
+        "api-reference/purchaseorders/update",
+        "api-reference/purchaseorders/delete",
+        "api-reference/purchaseorders/complete",
+        "api-reference/purchaseorders/cancel",
+        "api-reference/purchaseorders/finance",
+        "api-reference/purchaseorders/receive"
+
+      ]
+    },
+    {
       "group": "Bill of Materials",
       "pages": [
         "api-reference/billofmaterials/get",
