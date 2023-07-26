@@ -158,7 +158,6 @@
         "api-reference/purchaseorders/cancel",
         "api-reference/purchaseorders/finance",
         "api-reference/purchaseorders/receive"
-
       ]
     },
     {
@@ -232,6 +231,15 @@
         "api-reference/contacts/create",
         "api-reference/contacts/update",
         "api-reference/contacts/delete"
+      ]
+    },
+    {
+      "group": "Users",
+      "pages": [
+        "api-reference/users/get",
+        "api-reference/users/create",
+        "api-reference/users/update",
+        "api-reference/users/delete"
       ]
     }
   ],
