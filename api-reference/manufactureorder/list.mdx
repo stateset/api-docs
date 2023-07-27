@@ -131,10 +131,9 @@ curl --location --request GET 'https://api.stateset.com/api/manufacture_order' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+  "limit": 10,
+  "offset": 0,
+  "order_direction": "ASC"
 }'
 ```
 
@@ -144,13 +143,43 @@ curl --location --request GET 'https://api.stateset.com/api/manufacture_order' \
 
 ```json Response
 {
-  "success": 1,
-  "new_user_group": true,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
+  {
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": "b1b1b1b1-b1b1-b1b1-b1b1-b1b1b1b1b1b1",
+            "memo": "This is a manufacture order",
+            "number": "MO-0001",
+            "priority": "High",
+            "site": "Site 1",
+            "yield_location": "Location 1",
+            "created_on": "2021-01-01T00:00:00.000000Z",
+            "expected_completion_date": "2021-01-01",
+            "issued_on": "2021-01-01",
+            "manufacture_order_line_items": [
+                {
+                    "bom_name": "BOM 1",
+                    "bom_number": "BOM-0001",
+                    "id": "b1b1b1b1-b1b1-b1b1-b1b1-b1b1b1b1b1b1",
+                    "expected_date": "2021-01-01",
+                    "line_status": "In Progress",
+                    "line_type": "Manufacture",
+                    "manufacture_order_number": "MO-0001",
+                    "output_type": "Product",
+                    "part_name": "Part 1",
+                    "part_number": "PART-0001",
+                    "priority": "High",
+                    "quantity": 100,
+                    "site": "Site 1",
+                    "work_order_number": "WO-0001",
+                    "yield_location": "Location 1"
+                }
+            ]
+        }
+    ]
+
   }
 }
 ```
