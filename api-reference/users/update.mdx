@@ -6,67 +6,154 @@ description: "This endpoint updates an existing user."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="id" type="string">
+  This is the id of the user. It is used to identify the user.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
+<ParamField body="active" type="boolean">
+  Indicates if the user is currently active
 </ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user
-  group should be associated with or id of the datasource you provided when
-  creating it.
+<ParamField body="avatar" type="string">
+  URL or path to the user's avatar image
 </ParamField>
 
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will
-  be accessible through variables in the dashboards and SQL editor
+<ParamField body="bio" type="string">
+  Biography or description of the user
 </ParamField>
+
+<ParamField body="birthday" type="date">
+  Date of birth of the user
+</ParamField>
+
+<ParamField body="country" type="string">
+  Country of residence of the user
+</ParamField>
+
+<ParamField body="email" type="string">
+  Email address of the user
+</ParamField>
+
+<ParamField body="firstName" type="string">
+  First name of the user
+</ParamField>
+
+<ParamField body="lastName" type="string">
+  Last name of the user
+</ParamField>
+
+<ParamField body="last_seen" type="date">
+  Date and time when the user was last seen
+</ParamField>
+
+<ParamField body="last_typed" type="date">
+  Date and time when the user last typed a message
+</ParamField>
+
+<ParamField body="location" type="string">
+  Location or address of the user
+</ParamField>
+
+<ParamField body="organization" type="string">
+  Organization or company the user belongs to
+</ParamField>
+
+<ParamField body="phone" type="string">
+  Phone number of the user
+</ParamField>
+
+<ParamField body="regions" type="string">
+  Regions or areas associated with the user
+</ParamField>
+
+<ParamField body="title" type="string">
+  Title or job position of the user
+</ParamField>
+
+<ParamField body="twitter" type="string">
+  Twitter handle or username of the user
+</ParamField>
+
+<ParamField body="username" type="string">
+  Unique username of the user
+</ParamField>
+
+
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the id of the user. It is used to identify the user.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  Indicates whether a new user group was created.
+<ResponseField name="active" type="boolean">
+  Indicates if the user is currently active
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField name="avatar" type="string">
+  URL or path to the user's avatar image
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="bio" type="string">
+  Biography or description of the user
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="birthday" type="date">
+  Date of birth of the user
 </ResponseField>
 
-<ResponseField name="properties" type="JSON | Null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="country" type="string">
+  Country of residence of the user
 </ResponseField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'
+<ResponseField name="email" type="string">
+  Email address of the user
 </ResponseField>
 
-</Expandable>
-
+<ResponseField name="firstName" type="string">
+  First name of the user
 </ResponseField>
+
+<ResponseField name="lastName" type="string">
+  Last name of the user
+</ResponseField>
+
+<ResponseField name="last_seen" type="date">
+  Date and time when the user was last seen
+</ResponseField>
+
+<ResponseField name="last_typed" type="date">
+  Date and time when the user last typed a message
+</ResponseField>
+
+<ResponseField name="location" type="string">
+  Location or address of the user
+</ResponseField>
+
+<ResponseField name="organization" type="string">
+  Organization or company the user belongs to
+</ResponseField>
+
+<ResponseField name="phone" type="string">
+  Phone number of the user
+</ResponseField>
+
+<ResponseField name="regions" type="string">
+  Regions or areas associated with the user
+</ResponseField>
+
+<ResponseField name="title" type="string">
+  Title or job position of the user
+</ResponseField>
+
+<ResponseField name="twitter" type="string">
+  Twitter handle or username of the user
+</ResponseField>
+
+<ResponseField name="username" type="string">
+  Unique username of the user
+</ResponseField>
+
 
 <RequestExample>
 

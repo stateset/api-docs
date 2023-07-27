@@ -6,62 +6,163 @@ description: "This endpoint creates a new user"
 
 ### Body
 
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+<ParamField body="id" type="string">
+  This is the id of the user. It is used to identify the user.
 </ParamField>
+
+<ParamField body="active" type="boolean">
+  Indicates if the user is currently active
+</ParamField>
+
+<ParamField body="avatar" type="string">
+  URL or path to the user's avatar image
+</ParamField>
+
+<ParamField body="bio" type="string">
+  Biography or description of the user
+</ParamField>
+
+<ParamField body="birthday" type="date">
+  Date of birth of the user
+</ParamField>
+
+<ParamField body="country" type="string">
+  Country of residence of the user
+</ParamField>
+
+<ParamField body="email" type="string">
+  Email address of the user
+</ParamField>
+
+<ParamField body="firstName" type="string">
+  First name of the user
+</ParamField>
+
+<ParamField body="lastName" type="string">
+  Last name of the user
+</ParamField>
+
+<ParamField body="last_seen" type="date">
+  Date and time when the user was last seen
+</ParamField>
+
+<ParamField body="last_typed" type="date">
+  Date and time when the user last typed a message
+</ParamField>
+
+<ParamField body="location" type="string">
+  Location or address of the user
+</ParamField>
+
+<ParamField body="organization" type="string">
+  Organization or company the user belongs to
+</ParamField>
+
+<ParamField body="phone" type="string">
+  Phone number of the user
+</ParamField>
+
+<ParamField body="regions" type="string">
+  Regions or areas associated with the user
+</ParamField>
+
+<ParamField body="title" type="string">
+  Title or job position of the user
+</ParamField>
+
+<ParamField body="twitter" type="string">
+  Twitter handle or username of the user
+</ParamField>
+
+<ParamField body="username" type="string">
+  Unique username of the user
+</ParamField>
+
+
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the id of the user. It is used to identify the user.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this
-  information, since you will not need to use it.
+<ResponseField name="active" type="boolean">
+  Indicates if the user is currently active
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField name="avatar" type="string">
+  URL or path to the user's avatar image
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="bio" type="string">
+  Biography or description of the user
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="birthday" type="date">
+  Date of birth of the user
 </ResponseField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'. User group id's must be unique to each environment, so you can
-  not create multiple user groups with with same id. If you have a production
-  customer and a test user group with the same id, you will be required to label
-  one as 'Customer' and another as 'Testing'
+<ResponseField name="country" type="string">
+  Country of residence of the user
 </ResponseField>
 
-</Expandable>
-
+<ResponseField name="email" type="string">
+  Email address of the user
 </ResponseField>
+
+<ResponseField name="firstName" type="string">
+  First name of the user
+</ResponseField>
+
+<ResponseField name="lastName" type="string">
+  Last name of the user
+</ResponseField>
+
+<ResponseField name="last_seen" type="date">
+  Date and time when the user was last seen
+</ResponseField>
+
+<ResponseField name="last_typed" type="date">
+  Date and time when the user last typed a message
+</ResponseField>
+
+<ResponseField name="location" type="string">
+  Location or address of the user
+</ResponseField>
+
+<ResponseField name="organization" type="string">
+  Organization or company the user belongs to
+</ResponseField>
+
+<ResponseField name="phone" type="string">
+  Phone number of the user
+</ResponseField>
+
+<ResponseField name="regions" type="string">
+  Regions or areas associated with the user
+</ResponseField>
+
+<ResponseField name="title" type="string">
+  Title or job position of the user
+</ResponseField>
+
+<ResponseField name="twitter" type="string">
+  Twitter handle or username of the user
+</ResponseField>
+
+<ResponseField name="username" type="string">
+  Unique username of the user
+</ResponseField>
+
 
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.mintlify.com/api/user' \
+curl --location --request POST 'https://api.stateset.com/api/user' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "current_token": ""
+    "id": "8"
 }'
 ```
 
@@ -71,13 +172,7 @@ curl --location --request POST 'https://api.mintlify.com/api/user' \
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
-  }
+    "id": "8"
 }
 ```
 
