@@ -91,10 +91,7 @@ curl --location --request GET 'https://api.mintlify.com/api/user' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+    "id": 1
 }'
 ```
 
@@ -104,14 +101,13 @@ curl --location --request GET 'https://api.mintlify.com/api/user' \
 
 ```json Response
 {
-  "success": 1,
-  "new_user_group": true,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
-  }
+  "id": 1,
+  "active": true,
+  "avatar": "",
+  "bio": "This is the bio of the user.",
+  "birthday": "2020-01-01",
+  "country": "US",
+  "email": "someone@there.com",
 }
 ```
 
