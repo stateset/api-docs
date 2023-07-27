@@ -6,65 +6,84 @@ description: "This endpoint gets or creates a new user."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="id" type="string">
+  This is the id of the user.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
-</ParamField>
-
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user group should be
-  associated with or id of the datasource you provided when creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will be accessible through
-  variables in the dashboards and SQL editor
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="number">
+  This is the id of the user.
 </ResponseField>
 
-<ResponseField name="new_user_group" type="boolean">
-  Indicates whether a new user group was created.
+<ResponseField name="active" type="boolean">
+  This is the active of the user.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this information, since
-  you will not need to use it.
+<ResponseField name="avatar" type="string">
+  This is the avatar of the user.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be used to identify
-  which user group is viewing the dashboard. You should save this on your end to use when rendering
-  an embedded dashboard.
+<ResponseField name="bio" type="string">
+  This is the bio of the user.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="birthday" type="string">
+  This is the birthday of the user.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="country" type="string">
+  This is the country of the user.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON or null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="email" type="string">
+  This is the email of the user.
 </ResponseField>
 
-</Expandable>
+<ResponseField name="firstName" type="string">
+  This is the firstName of the user.
+</ResponseField>
 
+<ResponseField name="lastName" type="string">
+  This is the lastName of the user.
+</ResponseField>
+
+<ResponseField name="last_seen" type="string">
+  This is the last_seen of the user.
+</ResponseField>
+
+<ResponseField name="last_typed" type="string">
+  This is the last_typed of the user.
+</ResponseField>
+
+<ResponseField name="location" type="string">
+  This is the location of the user.
+</ResponseField>
+
+<ResponseField name="organization" type="string">
+  This is the organization of the user.
+</ResponseField>
+
+<ResponseField name="phone" type="string">
+  This is the phone of the user.
+</ResponseField>
+
+<ResponseField name="regions" type="string">
+  This is the regions of the user.
+</ResponseField>
+
+<ResponseField name="title" type="string">
+  This is the title of the user.
+</ResponseField>
+
+<ResponseField name="twitter" type="string">
+  This is the twitter of the user.
+</ResponseField>
+
+<ResponseField name="username" type="string">
+  This is the username of the user.
 </ResponseField>
 
 <RequestExample>
