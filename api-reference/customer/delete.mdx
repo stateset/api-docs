@@ -6,17 +6,19 @@ description: "This endpoint deletes an existing customer."
 
 ### Body
 
-<ParamField body="data_source_provided_id" type="string">
-  The data source ID provided in the data tab may be used to identify the data
-  source for the user group
-</ParamField>
-
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group you want to
-  delete
+<ParamField body="id" type="string">
+  The ID of the customer to delete.
 </ParamField>
 
 ### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the manufacture order
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
 
 <ResponseField name="success" type="number">
   Indicates whether the call was successful. 1 if successful, 0 if not.
@@ -34,13 +36,80 @@ curl --location --request DELETE 'https://api.stateset.com/api/customer' \
 }'
 ```
 
+```graphQL GraphQL
+
+mutation {
+  deleteCustomer(
+    input: {
+      id: "example_1"
+    }
+  ) {
+    id
+    object
+    deleted
+  }
+}
+
+```
+
+```js Node.js
+
+var deleted = await stateset.customers.del({
+  id: "example_1"
+});
+
+```
+
+```python Python
+
+deleted = stateset.customers.del({
+  "id": "example_1"
+})
+
+```
+
+```ruby Ruby
+
+deleted = stateset.customers.del({
+  "id": "example_1"
+})
+
+```
+
+```go Go
+
+deleted, err := stateset.Customers.Delete(
+  "example_1"
+)
+
+```
+
+```java Java
+
+Customer deleted = stateset.customers.delete(
+  "example_1"
+);
+
+```
+
+```php PHP
+
+$deleted = $stateset->customers->delete([
+  "id" => "example_1"
+]);
+
+```
+
+
 </RequestExample>
 
 <ResponseExample>
 
 ```json Response
 {
-  "success": 1
+  "id": "cu_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "customer",
+  "deleted": true
 }
 ```
 
