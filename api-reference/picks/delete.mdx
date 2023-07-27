@@ -1,0 +1,111 @@
+---
+title: "Delete Pick"
+api: "DELETE https://api.stateset.com/api/pick"
+description: "This endpoint deletes an existing pick."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  The id of the pick to delete.
+</ParamField>
+
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the return
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request DELETE 'https://api.stateset.com/api/pick' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+		"id": "pl_ODkRWQtx9NVsRX"
+}'
+```
+
+```javascript Node.js
+
+const deleted = await stateset.picks.del(
+  'pl_ODkRWQtx9NVsRX'
+);
+
+```
+
+```graphQL GraphQL
+
+               mutation deletePicks ($pick_id: String!) {
+                delete_picks(where: {id: {_eq: $pick_id}}) {
+                  affected_rows
+                }
+              }
+```
+
+```python Python
+
+deleted = stateset.picks.del(
+  'pl_ODkRWQtx9NVsRX'
+)
+
+```
+
+```ruby Ruby
+
+deleted = Stateset::picks.del(
+  'pl_ODkRWQtx9NVsRX'
+)
+
+```
+
+```php PHP
+
+$deleted = $stateset->picks->del(
+  'pl_ODkRWQtx9NVsRX'
+);
+
+```
+
+```go Go
+
+deleted, err := stateset.picks.Del(
+  'pl_ODkRWQtx9NVsRX'
+)
+
+```
+
+```java Java
+
+picks deleted = stateset.picks.del(
+  'pl_ODkRWQtx9NVsRX'
+);
+
+```
+
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "pi_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "picks",
+  "deleted": true
+}
+
+```
+
+</ResponseExample>

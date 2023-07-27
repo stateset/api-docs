@@ -1,0 +1,210 @@
+---
+title: "Get Pick"
+api: "GET https://api.stateset.com/api/pick"
+description: "This endpoint gets a pick"
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the unique identifier for the pick.
+</ParamField>
+
+
+### Response
+
+<ResponseField body="id" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="date_created" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="bill_of_materials_number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="location" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="pick_method" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="site" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="status" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="work_order_number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="pick_line_items" type="string">
+  This is the unique identifier for the pick
+
+<Expandable title="Show child attributes">
+
+<ResponseField body="id" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="part_name" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="part_number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="pick_number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="pick_plan" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="quantity_picked" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="quantity_to_pick" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="status" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/api/pick' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "1",
+}'
+```
+
+```graphQL GraphQL
+
+query MyPicks {
+  picks {
+    id
+    number
+    date_created
+    bill_of_materials_number
+    location
+    pick_method
+    site
+    status
+    work_order_number
+    pick_line_items {
+      id
+      part_name
+      part_number
+      pick_number
+      pick_plan
+      quantity_picked
+      quantity_to_pick
+      status
+        }
+    }
+}
+
+```
+
+```javascript Node.js
+
+var picks = await stateset.picks.retreive({
+    id: "1"
+});
+
+```
+
+```python Python
+
+pickss = stateset.picks.retreive({
+    "id": "1"
+})
+
+```
+
+```ruby Ruby
+
+picks = Stateset::Picks.retreive({
+    "id": "1"
+})
+
+```
+
+```php PHP
+
+$picks = $stateset->picks->retreive([
+    "id" => "1"
+]);
+
+```
+
+```go Go
+
+picks, err := stateset.Picks.Retreive("1")
+
+```
+
+```java Java
+
+Picks picks = stateset.picks.retreive({
+    "id": "1"
+});
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+    "id": "1",
+    "number": "1",
+    "date_created": "2021-01-01T00:00:00Z",
+    "bill_of_materials_number": "1",
+    "location": "1",
+    "pick_method": "1",
+    "site": "1",
+    "status": "1",
+    "work_order_number": "1",
+    "pick_line_items": [
+        {
+            "id": "1",
+            "part_name": "1",
+            "part_number": "1",
+            "pick_number": "1",
+            "pick_plan": "1",
+            "quantity_picked": "1",
+            "quantity_to_pick": "1",
+            "status": "1"
+        }
+    ]
+}
+```
+
+</ResponseExample>
+
+## Picks

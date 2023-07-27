@@ -1,0 +1,161 @@
+---
+title: "Create Pick"
+api: "POST https://api.stateset.com/api/picks"
+description: "This endpoint creates a new picks"
+---
+
+### Body
+
+<ParamField body="id" required="false" default="null">
+  The id of the packing_list to be created. If not provided, a new id will be generated.
+</ParamField>
+
+<ParamField body="number" required="false" default="null">
+  The number of the packing_list to be created. If not provided, a new number will be generated.
+</ParamField>
+
+<ParamField body="date_created" required="false" default="null">
+  The date_created of the packing_list to be created. If not provided, a new date_created will be generated.
+</ParamField>
+
+<ParamField body="bill_of_materials_number" required="false" default="null">
+  The bill_of_materials_number of the packing_list to be created. If not provided, a new bill_of_materials_number will be generated.
+</ParamField>
+
+<ParamField body="location" required="false" default="null">
+  The location of the packing_list to be created. If not provided, a new location will be generated.
+</ParamField>
+
+<ParamField body="pick_method" required="false" default="null">
+  The pick_method of the packing_list to be created. If not provided, a new pick_method will be generated.
+</ParamField>
+
+<ParamField body="site" required="false" default="null">
+  The site of the packing_list to be created. If not provided, a new site will be generated.
+</ParamField>
+
+<ParamField body="status" required="false" default="null">
+  The status of the packing_list to be created. If not provided, a new status will be generated.
+</ParamField>
+
+<ParamField body="work_order_number" required="false" default="null">
+  The work_order_number of the packing_list to be created. If not provided, a new work_order_number will be generated.
+</ParamField>
+
+
+### Response
+
+<ResponseField body="id" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="date_created" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="bill_of_materials_number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="location" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="pick_method" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="site" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="status" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="work_order_number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="pick_line_items" type="string">
+  This is the unique identifier for the pick
+
+<Expandable title="Show child attributes">
+
+<ResponseField body="id" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="part_name" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="part_number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="pick_number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="pick_plan" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="quantity_picked" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="quantity_to_pick" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField body="status" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request POST 'https://api.stateset.com/api/packing_list' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "current_token": ""
+}'
+```
+
+```javascript Node.js
+
+var created = await stateset.packinglist.create({
+  id: ''
+});
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "1",
+  "number": "1",
+  "deliveryDate": "2020-01-01",
+  "arrivalDate": "2020-01-01",
+  "ship_per": "John Doe",
+  "tracking_number": "1234567890"
+}
+
+```
+
+</ResponseExample>
