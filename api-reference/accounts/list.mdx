@@ -1,83 +1,221 @@
 ---
 title: "Get Account"
-api: "GET https://api.stateset.com/api/account"
+api: "GET https://api.stateset.com/api/accounts"
 description: "This endpoint gets or creates a new account."
 ---
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="limit" required="false" type="string">
+  This is the limit of the cases.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
+<ParamField body="offset" required="false" type="string">
+  This is the offset of the cases.
 </ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user group should be
-  associated with or id of the datasource you provided when creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will be accessible through
-  variables in the dashboards and SQL editor
+<ParamField body="order_direction" required="false" type="string">
+  This is the order direction of the cases.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" required="true" type="string">
+  This is the id of the account.
 </ResponseField>
 
-<ResponseField name="new_user_group" type="boolean">
-  Indicates whether a new user group was created.
+<ResponseField name="accountName" required="true" type="string">
+  This is the account name of the account.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this information, since
-  you will not need to use it.
+<ResponseField name="accountNotes" required="true" type="string">
+  This is the account notes of the account.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be used to identify
-  which user group is viewing the dashboard. You should save this on your end to use when rendering
-  an embedded dashboard.
+<ResponseField name="accountSubtype" required="true" type="string">
+  This is the account subtype of the account.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="accountType" required="true" type="string">
+  This is the account type of the account.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="account_owner" required="true" type="string">
+  This is the account owner of the account.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON or null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="account_source" required="true" type="string">
+  This is the account source of the account.
 </ResponseField>
 
-</Expandable>
+<ResponseField name="annualRevenue" required="true" type="string">
+  This is the annual revenue of the account.
+</ResponseField>
+
+<ResponseField name="avatar" required="true" type="string">
+  This is the avatar of the account.
+</ResponseField>
+
+<ResponseField name="billingCity" required="true" type="string">
+  This is the billing city of the account.
+</ResponseField>
+
+<ResponseField name="billingCountry" required="true" type="string">
+  This is the billing country of the account.
+</ResponseField>
+
+<ResponseField name="billingLatitude" required="true" type="string">
+  This is the billing latitude of the account.
+</ResponseField>
+
+<ResponseField name="billingLongitude" required="true" type="string">
+  This is the billing longitude of the account.
+</ResponseField>
+
+<ResponseField name="billingState" required="true" type="string">
+  This is the billing state of the account.
+</ResponseField>
+
+<ResponseField name="billingStreet" required="true" type="string">
+  This is the billing street of the account.
+</ResponseField>
+
+<ResponseField name="created_at" required="true" type="string">
+  This is the created at of the account.
 
 </ResponseField>
+
+<ResponseField name="description" required="true" type="string">
+  This is the description of the account.
+
+</ResponseField>
+
+<ResponseField name="employees" required="true" type="string">
+  This is the employees of the account.
+
+</ResponseField>
+
+<ResponseField name="fax" required="true" type="string">
+  This is the fax of the account.
+
+</ResponseField>
+
+<ResponseField name="industry" required="true" type="string">
+  This is the industry of the account.
+    
+</ResponseField>
+
+<ResponseField name="is_active" required="true" type="string">
+  This is the is active of the account.
+
+</ResponseField>
+
+<ResponseField name="is_public" required="true" type="string">
+  This is the is public of the account.
+
+</ResponseField>
+
+<ResponseField name="last_modified_by" required="true" type="string">
+  This is the last modified by of the account.
+
+</ResponseField>
+
+<ResponseField name="numberOfEmployees" required="true" type="string">
+  This is the number of employees of the account.
+
+</ResponseField>
+
+<ResponseField name="ownership" required="true" type="string">
+  This is the ownership of the account.
+
+</ResponseField>
+
+<ResponseField name="phone" required="true" type="string">
+  This is the phone of the account.
+
+</ResponseField>
+
+<ResponseField name="rating" required="true" type="string">
+  This is the rating of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingCity" required="true" type="string">
+  This is the shipping city of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingCountry" required="true" type="string">
+  This is the shipping country of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingLatitude" required="true" type="string">
+  This is the shipping latitude of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingLongitude" required="true" type="string">
+  This is the shipping longitude of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingState" required="true" type="string">
+  This is the shipping state of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingStreet" required="true" type="string">
+  This is the shipping street of the account.
+
+</ResponseField>
+
+<ResponseField name="sicCode" required="true" type="string">
+  This is the sic code of the account.
+
+</ResponseField>
+
+<ResponseField name="tickerSymbol" required="true" type="string">
+  This is the ticker symbol of the account.
+
+</ResponseField>
+
+<ResponseField name="website" required="true" type="string">
+  This is the website of the account.
+
+</ResponseField>
+
+<ResponseField name="yearStarted" required="true" type="string">
+  This is the year started of the account.
+
+</ResponseField>
+
+<ResponseField name="zipCode" required="true" type="string">
+  This is the zip code of the account.
+
+</ResponseField>
+
+<ResponseField name="created_by" required="true" type="string">
+  This is the created by of the account.
+
+</ResponseField>
+
+<ResponseField name="updated_by" required="true" type="string">
+  This is the updated by of the account.
+
+</ResponseField>
+
 
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/customer' \
+curl --location --request GET 'https://api.stateset.com/api/accounts' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+    "limit": 10,
+    "offset": 0,
+    "order_direction": "desc"
 }'
 ```
 
@@ -87,15 +225,57 @@ curl --location --request GET 'https://api.stateset.com/api/customer' \
 
 ```json Response
 {
-  "success": 1,
-  "new_user_group": true,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
-  }
+
 }
 ```
 
 </ResponseExample>
+
+
+# Accounts
+
+Accounts describes the general data about the accounts in Stateset.
+
+## The account object
+
+#### Attributes
+
+| Name               | Type      | Description                                              |
+| ------------------ | --------- | -------------------------------------------------------- |
+| id                 | Text      | Unique identifier for the account                        |
+| accountName        | Text      | Name of the account                                      |
+| accountNotes       | Text      | Notes or additional information about the account        |
+| accountSubtype     | Text      | Subtype or specific category of the account              |
+| accountType        | Text      | Type or general category of the account                  |
+| account\_owner     | Text      | Owner or responsible person for the account              |
+| account\_source    | Text      | Source or origin of the account                          |
+| annualRevenue      | Text      | Annual revenue associated with the account               |
+| avatar             | Text      | URL or path to the account's avatar image                |
+| billingCity        | Text      | City of the billing address                              |
+| billingCountry     | Text      | Country of the billing address                           |
+| billingLatitude    | Text      | Latitude coordinate of the billing address               |
+| billingLongitude   | Text      | Longitude coordinate of the billing address              |
+| billingState       | Text      | State or province of the billing address                 |
+| billingStreet      | Text      | Street address of the billing address                    |
+| created\_at        | Date/Time | Date and time when the account was created               |
+| description        | Text      | Description or additional details about the account      |
+| employees          | Text      | Number or range of employees associated with the account |
+| fax                | Text      | Fax number of the account                                |
+| industry           | Text      | Industry or sector of the account                        |
+| is\_active         | Boolean   | Indicates whether the account is currently active        |
+| is\_public         | Boolean   | Indicates whether the account is public or private       |
+| last\_modified\_by | Text      | Last person who modified the account                     |
+| numberOfEmployees  | Text      | Number of employees associated with the account          |
+| ownership          | Text      | Ownership type or structure of the account               |
+| parentAccount      | Text      | Parent account associated with the account               |
+| phone              | Text      | Phone number of the account                              |
+| rating             | Text      | Rating or evaluation of the account                      |
+| shippingCity       | Text      | City of the shipping address                             |
+| shippingCountry    | Text      | Country of the shipping address                          |
+| shippingLatitude   | Text      | Latitude coordinate of the shipping address              |
+| shippingLongitude  | Text      | Longitude coordinate of the shipping address             |
+| shippingState      | Text      | State or province of the shipping address                |
+| shippingStreet     | Text      | Street address of the shipping address                   |
+| stockTicker        | Text      | Stock ticker symbol associated with the account          |
+| website            | Text      | Website URL of the account                               |
+| yearStarted        | Text      | Year the account was started or established              |
