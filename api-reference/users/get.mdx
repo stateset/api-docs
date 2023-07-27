@@ -95,6 +95,82 @@ curl --location --request GET 'https://api.mintlify.com/api/user' \
 }'
 ```
 
+```graphQL GraphQL
+
+query {
+  user {
+    id
+    active
+    avatar
+    bio
+    birthday
+    country
+    email
+    firstName
+    lastName
+    last_seen
+    last_typed
+    location
+    organization
+    phone
+    regions
+    title
+    twitter
+    username
+  }
+}
+```
+
+```javascript Node.js
+
+var user = await stateset.users.get({
+  "id"
+})
+
+```
+
+```python Python
+
+user = stateset.users.get(
+ "id"
+)
+
+```
+
+```ruby Ruby
+
+user = Stateset::Users.get(
+  "id"
+)
+
+```
+
+```php PHP
+
+$user = Stateset\Users::get([
+ "id" => "1"
+]);
+
+```
+
+```go Go
+
+user, err := stateset.Users.get(
+  "id"
+)
+
+```
+```
+
+```java Java
+
+User user = stateset.users.get(
+
+  "id"
+);
+
+```
+
 </RequestExample>
 
 <ResponseExample>

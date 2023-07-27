@@ -29,10 +29,70 @@ curl --location --request DELETE 'https://api.mintlify.com/api/user' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-		"user_group_id": "example_1"
-		"current_token": "abcdef"
+		"id: "1234",
 }'
 ```
+
+```graphQL GraphQL
+
+mutation {
+  deleteUser(
+    input: {
+      id: "1234"
+    }
+  ) {
+    success
+  }
+}
+
+```javascript Node.js
+
+var deleted = await stateset.users.del({
+  id: "1234"
+});
+
+```
+
+```python Python
+
+deleted = stateset.users.del({
+  "id": "1234"
+})
+
+```
+
+```ruby Ruby
+
+deleted = Stateset::Users.del({
+  "id": "1234"
+})
+
+```
+
+```php PHP
+
+$deleted = $stateset->users->del([
+  "id" => "1234"
+]);
+
+```
+
+```go Go
+
+deleted, err := stateset.Users.Del(
+  "1234"
+)
+
+```
+
+```java Java
+
+Stateset.Users.del(
+  "1234"
+);
+
+```
+
 
 </RequestExample>
 

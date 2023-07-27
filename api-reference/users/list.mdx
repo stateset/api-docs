@@ -107,6 +107,92 @@ curl --location --request GET 'https://api.mintlify.com/api/user' \
 }'
 ```
 
+```graphQL GraphQL
+
+query {
+  user {
+    id
+    active
+    avatar
+    bio
+    birthday
+    country
+    email
+    firstName
+    lastName
+    last_seen
+    last_typed
+    location
+    organization
+    phone
+    regions
+    title
+    twitter
+    username
+  }
+}
+```
+
+```javascript Node.js
+
+var user = await stateset.users.list({
+  limit: 10,
+  offset: 0,
+  order_direction: "asc"
+})
+
+```
+
+```python Python
+
+user = stateset.users.list(
+  limit=10,
+  offset=0,
+  order_direction="asc"
+)
+
+```
+
+```ruby Ruby
+
+user = Stateset::Users.list(
+  limit: 10,
+  offset: 0,
+  order_direction: "asc"
+)
+
+```
+
+```php PHP
+
+$user = Stateset\Users::list([
+  "limit" => 10,
+  "offset" => 0,
+  "order_direction" => "asc"
+]);
+
+```
+
+```go Go
+
+user, err := stateset.Users.List(
+  10,
+  0,
+  "asc"
+)
+
+```
+
+```java Java
+
+User user = stateset.users.list(
+  10,
+  0,
+  "asc"
+);
+
+```
+
 </RequestExample>
 
 <ResponseExample>
