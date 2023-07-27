@@ -6,39 +6,39 @@ description: "This endpoint creates a new manufacture order"
 
 ### Body
 
-<ParamField body="required" name="id" type="string">
+<ParamField required="false" body="id" type="string">
   Unique identifier for the manufacture order
 </ParamField>
 
-<ParamField body="required" name="memo" type="string">
+<ParamField required="false" body="memo" type="string">
   Additional notes or information about the manufacture order
 </ParamField>
 
-<ParamField body="required" name="number" type="string">
+<ParamField required="false" body="number" type="string">
   Number assigned to the manufacture order
 </ParamField>
 
-<ParamField body="required" name="priority" type="string">
+<ParamField required="false" body="priority" type="string">
   Priority level of the manufacture order
 </ParamField>
 
-<ParamField body="required" name="site" type="string">
+<ParamField required="false" body="site" type="string">
   Site or location associated with the manufacture order
 </ParamField>
 
-<ParamField body="required" name="yield_location" type="string">
+<ParamField required="false" body="yield_location" type="string">
   Location where the manufactured product will be stored
 </ParamField>
 
-<ParamField body="required" name="created_on" type="datetime">
+<ParamField required="false" body="created_on" type="datetime">
   Date and time when the manufacture order was created
 </ParamField>
 
-<ParamField body="required" name="expected_completion_date" type="date">
+<ParamField required="false" body="expected_completion_date" type="date">
   Expected date of completion for the manufacture order
 </ParamField>
 
-<ParamField body="required" name="issued_on" type="date">
+<ParamField required="false" body="issued_on" type="date">
   Date when the manufacture order was issued
 </ParamField>
 
