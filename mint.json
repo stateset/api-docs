@@ -5,7 +5,7 @@
     "dark": "/logo/statesetwhitelogo.svg",
     "light": "/logo/statesetbluelogo.svg"
   },
-  "favicon": "/favicon.ico",
+  "favicon": "/stateset.png",
   "colors": {
     "primary": "#2563eb",
     "light": "#6c8eef",
