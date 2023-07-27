@@ -218,14 +218,55 @@ curl --location --request GET 'https://api.stateset.com/api/customer' \
 
 ```json Response
 {
-  "success": 1,
-  "new_user_group": true,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
-  }
+
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": "1",
+            "accountName": "Test Account",
+            "accountNotes": "Test Account Notes",
+            "accountSubtype": "Test Account Subtype",
+            "accountType": "Test Account Type",
+            "account_owner": "Test Account Owner",
+            "account_source": "Test Account Source",
+            "annualRevenue": "Test Annual Revenue",
+            "avatar": "Test Avatar",
+            "billingCity": "Test Billing City",
+            "billingCountry": "Test Billing Country",
+            "billingLatitude": "Test Billing Latitude",
+            "billingLongitude": "Test Billing Longitude",
+            "billingState": "Test Billing State",
+            "billingStreet": "Test Billing Street",
+            "created_at": "2021-04-27T15:00:00.000000Z",
+            "description": "Test Description",
+            "employees": "Test Employees",
+            "fax": "Test Fax",
+            "industry": "Test Industry",
+            "is_active": true,
+            "is_public": true,
+            "last_modified_by": "Test Last Modified By",
+            "numberOfEmployees": "Test Number Of Employees",
+            "ownership": "Test Ownership",
+            "phone": "Test Phone",
+            "rating": "Test Rating",
+            "shippingCity": "Test Shipping City",
+            "shippingCountry": "Test Shipping Country",
+            "shippingLatitude": "Test Shipping Latitude",
+            "shippingLongitude": "Test Shipping Longitude",
+            "shippingState": "Test Shipping State",
+            "shippingStreet": "Test Shipping Street",
+            "sicCode": "Test Sic Code",
+            "tickerSymbol": "Test Ticker Symbol",
+            "website": "Test Website",
+            "yearStarted": "Test Year Started",
+            "zipCode": "Test Zip Code",
+            "created_by": "Test Created By",
+            "updated_by": "Test Updated By"
+        }
+    ]
+
 }
 ```
 
