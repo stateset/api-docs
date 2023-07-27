@@ -6,9 +6,40 @@ description: "This endpoint creates a new manufacture order"
 
 ### Body
 
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+<ParamField body="required" name="id" type="string">
+  Unique identifier for the manufacture order
+</ParamField>
+
+<ParamField body="required" name="memo" type="string">
+  Additional notes or information about the manufacture order
+</ParamField>
+
+<ParamField body="required" name="number" type="string">
+  Number assigned to the manufacture order
+</ParamField>
+
+<ParamField body="required" name="priority" type="string">
+  Priority level of the manufacture order
+</ParamField>
+
+<ParamField body="required" name="site" type="string">
+  Site or location associated with the manufacture order
+</ParamField>
+
+<ParamField body="required" name="yield_location" type="string">
+  Location where the manufactured product will be stored
+</ParamField>
+
+<ParamField body="required" name="created_on" type="datetime">
+  Date and time when the manufacture order was created
+</ParamField>
+
+<ParamField body="required" name="expected_completion_date" type="date">
+  Expected date of completion for the manufacture order
+</ParamField>
+
+<ParamField body="required" name="issued_on" type="date">
+  Date when the manufacture order was issued
 </ParamField>
 
 ### Response
@@ -131,8 +162,8 @@ curl --location --request POST 'https://api.stateset.com/api/manufacture_order' 
 
 ```js Node.js
 
-const created = await stateset.manufactureorderItems.create(
-  'moi_ODkRWQtx9NVsRX'
+const created = await stateset.manufactureorder.create(
+  'mo_ODkRWQtx9NVsRX'
 );
 
 ```

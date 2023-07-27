@@ -1,22 +1,24 @@
 ---
 title: "Delete Manufacture Order"
-api: "DELETE https://api.stateset.com/api/manufacture_order"
-description: "This endpoint deletes an existing manufacture order."
+api: "DELETE https://api.stateset.com/api/manufactureorder"
+description: "This endpoint deletes an existing manufacturer order."
 ---
 
 ### Body
 
-<ParamField body="data_source_provided_id" type="string">
-  The data source ID provided in the data tab may be used to identify the data
-  source for the user group
-</ParamField>
-
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group you want to
-  delete
+<ParamField body="manufacture_order_id" type="string">
+  The ID provided in the data tab may be used to identify the manufacture order
 </ParamField>
 
 ### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the manufacture order
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
 
 <ResponseField name="success" type="number">
   Indicates whether the call was successful. 1 if successful, 0 if not.
@@ -25,13 +27,68 @@ description: "This endpoint deletes an existing manufacture order."
 <RequestExample>
 
 ```bash cURL
-curl --location --request DELETE 'https://api.stateset.com/api/manufacture_order' \
+curl --location --request DELETE 'https://api.stateset.com/api/manufactureorder' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-		"user_group_id": "example_1"
-		"current_token": "abcdef"
+		"id": "mo_1NXWPnCo6bFb1KQto6C8OWvE"
 }'
+```
+
+```graphQL GraphQL
+mutation deleteManufactureOrder ($id: String!) {
+    delete_manufacture_orders(where: {id: {_eq: $id}}) {
+          affected_rows
+        }
+      }
+```
+
+```js Node.js
+const manufactureorders = await stateset.manufactureorders.del({
+  'mo_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```py Python
+manufactureorders = stateset.manufactureorders.del({
+  'mo_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```go Go
+manufactureorders, err := stateset.manufactureorders.Del(
+  "mo_1NXWPnCo6bFb1KQto6C8OWvE"
+)
+```
+
+```java Java
+Return manufactureorders = stateset.manufactureorders.del(
+  "mo_1NXWPnCo6bFb1KQto6C8OWvE"
+);
+```
+
+```js Javascript
+const manufactureorders = await stateset.manufactureorders.del({
+  'mo_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```ruby Ruby
+manufactureorders = Stateset::Return.del({
+  'mo_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```php PHP
+$manufactureorder = $stateset->manufactureorder->del(
+  'mo_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+
+```http HTTP
+DELETE /api/manufacture_orders HTTP/1.1
+Host: api.stateset.com 
+Content-Type: application/json
 ```
 
 </RequestExample>
@@ -40,8 +97,11 @@ curl --location --request DELETE 'https://api.stateset.com/api/manufacture_order
 
 ```json Response
 {
-  "success": 1
+  "id": "mo_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "return",
+  "deleted": true
 }
+
 ```
 
 </ResponseExample>
