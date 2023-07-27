@@ -1,0 +1,141 @@
+---
+title: "List Customers"
+api: "GET https://api.stateset.com/api/customer/list"
+description: "This endpoint list customers."
+---
+
+### Body
+
+<ParamField body="limit" required="false" type="string">
+  This is the limit of the returns.
+</ParamField>
+
+<ParamField body="offset" required="false" type="string">
+  This is the offset of the returns.
+</ParamField>
+
+<ParamField body="order_direction" required="false" type="string">
+  This is the order direction of the returns.
+</ParamField>
+
+### Response
+
+<ResponseField name="sso_id" type="string">
+  This is the sso_id of the customer
+</ResponseField>
+
+<ResponseField name="email" type="string">
+  This is the email of the customer
+</ResponseField>
+
+<ResponseField name="firstName" type="string">
+  This is the first name of the customer
+</ResponseField>
+
+<ResponseField name="lastName" type="string">
+  This is the last name of the customer
+</ResponseField>
+
+<ResponseField name="phone" type="string">
+  This is the phone number of the customer
+</ResponseField>
+
+<ResponseField name="stripe_customer_id" type="string">
+  This is the stripe customer id of the customer
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  This is the timestamp of the customer
+</ResponseField>
+
+<ResponseField name="activationDate" type="string">
+  This is the activation date of the customer
+</ResponseField>
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/api/customer' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "sso_id": "1234-5678-9012-3456"
+}'
+```
+
+```graphQL GraphQL
+
+query getCustomer($sso_id: uuid!) {
+   customers: customers_by_pk(sso_id: $sso_id) {
+     sso_id
+     activationDate
+     email
+     firstName
+     lastName
+     phone
+     stripe_customer_id
+     timestamp
+   }
+ }
+
+```
+
+```javascript Node.js
+
+var customer = await stateset.customers.list({
+  'sso_id': '1234-5678-9012-3456'
+});
+
+```
+
+```python Python
+
+customer = stateset.customers.list({
+  'sso_id': '1234-5678-9012-3456'
+})
+
+```
+
+```ruby Ruby
+
+customer = Stateset::Customers.list({
+  'sso_id': '1234-5678-9012-3456'
+})
+
+```
+
+```php PHP
+
+$customer = $stateset->customers->list([
+  'sso_id': '1234-5678-9012-3456'
+]);
+
+```
+
+```go Golang
+
+
+```
+
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "customers": {
+    "sso_id": "1234-5678-9012-3456",
+    "activationDate": "2020-01-01T00:00:00.000Z",
+    "email": "customer@customer.com",
+    "firstName": "Customer",
+    "lastName": "Customer",
+    "phone": "123-456-7890",
+    "stripe_customer_id": "cus_1234567890",
+    "timestamp": "2020-01-01T00:00:00.000Z"
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,169 @@
+---
+title: "List Packing List"
+api: "GET https://api.stateset.com/api/packing_list/list"
+description: "This endpoint list packing lists."
+---
+
+### Body
+
+<ParamField body="limit" required="false" type="string">
+  This is the limit of the returns.
+</ParamField>
+
+<ParamField body="offset" required="false" type="string">
+  This is the offset of the returns.
+</ParamField>
+
+<ParamField body="order_direction" required="false" type="string">
+  This is the order direction of the returns.
+</ParamField>
+
+
+### Response
+
+<ResponseField body="id" type="string">
+  This is the unique identifier for the packing list.
+</ResponseField>
+
+<ResponseField body="number" type="string">
+  This is the number associated with the packing list.
+</ResponseField>
+
+<ResponseField body="deliveryDate" type="string">
+  This is the date of delivery for the packing list.
+</ResponseField>
+
+<ResponseField body="invoice_number" type="string">
+  This is the invoice number associated with the packing list.
+</ResponseField>
+
+<ResponseField body="arrivalDate" type="string">
+  This is the date of arrival for the packing list.
+</ResponseField>
+
+<ResponseField body="purchase_order_number" type="string">
+  This is the purchase order number associated with the packing list.
+</ResponseField>
+
+<ResponseField body="ship_per" type="string">
+  This is the shipping information or carrier for the packing list.
+</ResponseField>
+
+<ResponseField body="tracking_number" type="string">
+  This is the tracking number associated with the shipment for the packing list.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/api/packing_list' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "1",
+}'
+```
+
+```graphQL GraphQL
+
+ query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
+  packing_lists(limit: $limit, offset: $offset, order_by: {createdDate: $order_direction}) {
+      id
+      number
+      deliveryDate
+      arrivalDate
+      ship_per
+      tracking_number
+    }
+  }
+
+```
+
+```javascript Node.js
+
+var packinglists = await stateset.packinglists.retreive({
+    id: "1"
+});
+
+```
+
+```python Python
+
+packinglists = stateset.packinglists.retreive({
+    "id": "1"
+})
+
+```
+
+```ruby Ruby
+
+packinglists = Stateset::PackingLists.retreive({
+    "id": "1"
+})
+
+```
+
+```php PHP
+
+$packinglists = $stateset->packinglists->retreive([
+    "id" => "1"
+]);
+
+```
+
+```go Go
+
+packinglists, err := stateset.PackingLists.Retreive("1")
+
+```
+
+```java Java
+
+PackingLists packinglists = stateset.packinglists.retreive({
+    "id": "1"
+});
+
+```
+
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "1",
+  "number": "1",
+  "deliveryDate": "2020-01-01",
+  "arrivalDate": "2020-01-01",
+  "ship_per": "John Doe",
+  "tracking_number": "1234567890"
+}
+```
+
+</ResponseExample>
+
+## Packing List
+
+| Name                    | Type                       | Description                                                       |
+| ----------------------- | -------------------------- | ----------------------------------------------------------------- |
+| id                      | Text (Primary Key, Unique) | Unique identifier for the packing list                            |
+| number                  | Text (Nullable)            | Number associated with the packing list                           |
+| deliveryDate            | Date (Nullable)            | Date of delivery for the packing list                             |
+| invoice\_number         | Text (Nullable)            | Invoice number associated with the packing list                   |
+| arrivalDate             | Date (Nullable)            | Date of arrival for the packing list                              |
+| purchase\_order\_number | Text (Nullable)            | Purchase order number associated with the packing list            |
+| ship\_per               | Text (Nullable)            | Shipping information or carrier for the packing list              |
+| tracking\_number        | Text (Nullable)            | Tracking number associated with the shipment for the packing list |
+
+
+## Packing List Item
+
+| Name          | Type                       | Description                                        |
+| ------------- | -------------------------- | -------------------------------------------------- |
+| id            | Text (Primary Key, Unique) | Unique identifier for the packing list item        |
+| sku           | Text                       | Stock Keeping Unit (SKU) for the packing list item |
+| description   | Text                       | Description or additional details about the item   |
+| quantity      | Integer                    | Quantity of the item in the packing list item      |
+| packing\_list | Text                       | Identifier for the associated packing list         |
+| arrived       | Boolen                     | Whether or not the packing list item has arrived   |

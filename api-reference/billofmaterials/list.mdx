@@ -1,0 +1,240 @@
+---
+title: "List Bill Of Materials"
+api: "GET https://api.stateset.com/api/bill_of_materials/list"
+description: "This endpoint lists the bill of materials."
+---
+
+### Body
+
+<ParamField body="limit" required="false" type="string">
+  This is the limit of the returns.
+</ParamField>
+
+<ParamField body="offset" required="false" type="string">
+  This is the offset of the returns.
+</ParamField>
+
+<ParamField body="order_direction" required="false" type="string">
+  This is the order direction of the returns.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the id of the bill of materials.
+</ResponseField>
+
+<ResponseField name="number" type="string">
+  This is the number of the bill of materials.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  This is the name of the bill of materials.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  This is the description of the bill of materials.
+</ResponseField>
+
+<ResponseField name="groups" type="string">
+  This is the groups of the bill of materials.
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  This is the date and time when the bill of materials was created.
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  This is the date and time when the bill of materials was last updated.
+</ResponseField>
+
+<ResponseField name="valid" type="boolean">
+  This indicates whether the bill of materials is valid or not.
+</ResponseField>
+
+<ResponseField name="line_items" type="object ">
+  This is an array of line items associated with the bill of materials.
+
+  <Expandable title="Show child attributes">
+
+  <ResponseField name="id" type="string">
+    This is the id of the line item.
+  </ResponseField>
+
+  <ResponseField name="bill_of_materials_number" type="string">
+    This is the number of the bill of materials to which the line item belongs.
+  </ResponseField>
+
+  <ResponseField name="line_type" type="string">
+    This is the type or category of the line item.
+  </ResponseField>
+
+  <ResponseField name="part_number" type="string">
+    This is the number or code associated with the part or item.
+  </ResponseField>
+
+  <ResponseField name="part_name" type="string">
+    This is the name of the part or item.
+  </ResponseField>
+
+  <ResponseField name="purchase_supply_type" type="string">
+    This is the type or category of the purchase/supply associated with the line item.
+  </ResponseField>
+
+  <ResponseField name="quantity" type="number">
+    This is the quantity of the part or item required in the bill of materials.
+  </ResponseField>
+
+  <ResponseField name="status" type="string">
+    This is the status or state of the line item.
+  </ResponseField>
+
+  </Expandable>
+
+</ResponseField>
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/api/bill_of_materials' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b"
+}'
+```
+
+```graphQL GraphQL
+
+ query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
+  bill_of_materials(limit: $limit, offset: $offset, order_by: {created_at: $order_direction}) {
+    created_at
+    description
+    groups
+    id
+    number
+    name
+    updated_at
+    valid
+    bill_of_material_line_items {
+      bill_of_materials_number
+      id
+      line_type
+      part_name
+      part_number
+      purchase_supply_type
+      quantity
+      status
+    }
+  }
+}
+```
+
+```js Node.js
+
+var billOfMaterials = stateset.billofmaterials.list({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+});
+
+```
+
+```python Python
+
+bill_of_materials = stateset.billofmaterials.list({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+})
+
+```
+
+```ruby Ruby
+
+bill_of_materials = Stateset::BillOfMaterials.retreive({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+})
+
+```
+
+```php PHP
+
+$bill_of_materials = $stateset->billofmaterials->list({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+});
+
+```
+
+```go Go
+
+bill_of_materials, err := stateset.BillOfMaterials.list({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+})
+
+```
+
+```java Java
+
+BillOfMaterials billOfMaterials = stateset.billOfMaterials.list({
+  '5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b'
+});
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  {
+    "id": "5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b",
+    "number": "5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b",
+    "name": "Bill of Materials",
+    "description": "Bill of Materials",
+    "groups": "Bill of Materials",
+    "created_at": "2021-01-01T00:00:00.000Z",
+    "updated_at": "2021-01-01T00:00:00.000Z",
+    "valid": true,
+    "line_items": [
+      {
+        "id": "5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b",
+        "bill_of_materials_number": "5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b",
+        "line_type": "Bill of Materials",
+        "part_number": "5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b",
+        "part_name": "Bill of Materials",
+        "purchase_supply_type": "Bill of Materials",
+        "quantity": 1,
+        "status": "Bill of Materials"
+      }
+    ]
+  }
+}
+```
+
+</ResponseExample>
+
+### Bill Of Materials
+
+| Name        | Type      | Description                                                   |
+| ----------- | --------- | ------------------------------------------------------------- |
+| created\_at | Date/Time | Date and time when the bill of materials was created          |
+| description | Text      | Description or additional details about the bill of materials |
+| groups      | Text      | Groups or categories associated with the bill of materials    |
+| id          | Text      | Unique identifier for the bill of materials                   |
+| number      | Text      | Number associated with the bill of materials                  |
+| name        | Text      | Name of the bill of materials                                 |
+| updated\_at | Date/Time | Date and time when the bill of materials was last updated     |
+| valid       | Boolean   | Indicates whether the bill of materials is valid or not       |
+
+
+### Bill Of Materials Line Item
+
+| Name                        | Type    | Description                                                                 |
+| --------------------------- | ------- | --------------------------------------------------------------------------- |
+| bill\_of\_materials\_number | Text    | Number associated with the bill of materials to which the line item belongs |
+| id                          | Text    | Unique identifier for the line item                                         |
+| line\_type                  | Text    | Type or category of the line item                                           |
+| part\_name                  | Text    | Name of the part or item included in the bill of materials                  |
+| part\_number                | Text    | Number or code associated with the part or item                             |
+| purchase\_supply\_type      | Text    | Type or category of the purchase/supply associated with the line item       |
+| quantity                    | Numeric | Quantity of the part or item required in the bill of materials              |
+| status                      | Text    | Status or state of the line item                                            |
