@@ -225,6 +225,7 @@
     {
       "group": "Accounts",
       "pages": [
+        "api-reference/accounts/list",
         "api-reference/accounts/get",
         "api-reference/accounts/create",
         "api-reference/accounts/update",
@@ -234,15 +235,19 @@
     {
       "group": "Cases",
       "pages": [
+        "api-reference/cases/list",
         "api-reference/cases/get",
         "api-reference/cases/create",
         "api-reference/cases/update",
-        "api-reference/cases/delete"
+        "api-reference/cases/delete",
+        "api-reference/cases/close",
+        "api-reference/cases/escalate"
       ]
     },
     {
       "group": "Vendors",
       "pages": [
+        "api-reference/vendors/list",
         "api-reference/vendors/get",
         "api-reference/vendors/create",
         "api-reference/vendors/update",
@@ -252,6 +257,7 @@
     {
       "group": "Suppliers",
       "pages": [
+        "api-reference/suppliers/list",
         "api-reference/suppliers/get",
         "api-reference/suppliers/create",
         "api-reference/suppliers/update",
@@ -261,6 +267,7 @@
     {
       "group": "Contacts",
       "pages": [
+        "api-reference/contacts/list",
         "api-reference/contacts/get",
         "api-reference/contacts/create",
         "api-reference/contacts/update",
@@ -270,6 +277,7 @@
     {
       "group": "Users",
       "pages": [
+        "api-reference/users/list",
         "api-reference/users/get",
         "api-reference/users/create",
         "api-reference/users/update",
@@ -279,6 +287,7 @@
     {
       "group": "Messages",
       "pages": [
+        "api-reference/messages/list",
         "api-reference/messages/get",
         "api-reference/messages/create",
         "api-reference/messages/update",
@@ -288,6 +297,7 @@
     {
       "group": "Channels",
       "pages": [
+        "api-reference/channels/list",
         "api-reference/channels/get",
         "api-reference/channels/create",
         "api-reference/channels/update",
