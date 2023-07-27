@@ -30,7 +30,7 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
+      "name": "Stateset One API Reference",
       "url": "api-reference"
     }
   ],
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Stateset One API Documentation",
       "pages": [
         "api-reference/authentication"
       ]
