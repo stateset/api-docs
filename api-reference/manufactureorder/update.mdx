@@ -6,23 +6,40 @@ description: "This endpoint updates an existing manufacture order."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField required="false" body="id" type="string">
+  Unique identifier for the manufacture order
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
+<ParamField required="false" body="memo" type="string">
+  Additional notes or information about the manufacture order
 </ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user
-  group should be associated with or id of the datasource you provided when
-  creating it.
+<ParamField required="false" body="number" type="string">
+  Number assigned to the manufacture order
 </ParamField>
 
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will
-  be accessible through variables in the dashboards and SQL editor
+<ParamField required="false" body="priority" type="string">
+  Priority level of the manufacture order
+</ParamField>
+
+<ParamField required="false" body="site" type="string">
+  Site or location associated with the manufacture order
+</ParamField>
+
+<ParamField required="false" body="yield_location" type="string">
+  Location where the manufactured product will be stored
+</ParamField>
+
+<ParamField required="false" body="created_on" type="datetime">
+  Date and time when the manufacture order was created
+</ParamField>
+
+<ParamField required="false" body="expected_completion_date" type="date">
+  Expected date of completion for the manufacture order
+</ParamField>
+
+<ParamField required="false" body="issued_on" type="date">
+  Date when the manufacture order was issued
 </ParamField>
 
 ### Response
