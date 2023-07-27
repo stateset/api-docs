@@ -73,6 +73,7 @@
     {
       "group": "Customers",
       "pages": [
+        "api-reference/customer/list",
         "api-reference/customer/get",
         "api-reference/customer/create",
         "api-reference/customer/update",
@@ -105,6 +106,7 @@
     {
       "group": "Warranties",
       "pages": [
+        "api-reference/warranty/list",
         "api-reference/warranty/get",
         "api-reference/warranty/create",
         "api-reference/warranty/update",
@@ -132,6 +134,7 @@
     {
       "group": "Packing List",
       "pages": [
+        "api-reference/packinglist/list",
         "api-reference/packinglist/get",
         "api-reference/packinglist/create",
         "api-reference/packinglist/update",
@@ -163,6 +166,7 @@
     {
       "group": "Bill of Materials",
       "pages": [
+        "api-reference/billofmaterials/list",
         "api-reference/billofmaterials/get",
         "api-reference/billofmaterials/create",
         "api-reference/billofmaterials/update",
@@ -182,6 +186,7 @@
     {
       "group": "Work Orders",
       "pages": [
+        "api-reference/workorder/list",
         "api-reference/workorder/get",
         "api-reference/workorder/create",
         "api-reference/workorder/update",
