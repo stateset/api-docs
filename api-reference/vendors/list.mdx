@@ -6,65 +6,110 @@ description: "This endpoint gets or creates a new vendor."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="limit" required="false" type="string">
+  This is the limit of the bill of materials.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
+<ParamField body="offset" required="false" type="string">
+  This is the offset of the bill of materials.
 </ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user group should be
-  associated with or id of the datasource you provided when creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will be accessible through
-  variables in the dashboards and SQL editor
+<ParamField body="order_direction" required="false" type="string">
+  This is the order direction of the bill of materials.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="number">
+    This is the id of the vendor.
 </ResponseField>
 
-<ResponseField name="new_user_group" type="boolean">
-  Indicates whether a new user group was created.
+<ResponseField name="vendorName" type="string">
+    This is the name of the vendor.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this information, since
-  you will not need to use it.
+<ResponseField name="vendorNotes" type="string">
+    This is the notes of the vendor.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be used to identify
-  which user group is viewing the dashboard. You should save this on your end to use when rendering
-  an embedded dashboard.
+<ResponseField name="vendorSubtype" type="string">
+    This is the subtype of the vendor.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="vendorType" type="string">
+    This is the type of the vendor.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="vendor_owner" type="string">
+    This is the owner of the vendor.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON or null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="vendor_source" type="string">
+    This is the source of the vendor.
 </ResponseField>
 
-</Expandable>
+<ResponseField name="annualRevenue" type="string">
+    This is the annual revenue of the vendor.
+</ResponseField>
 
+<ResponseField name="avatar" type="string">
+    This is the avatar of the vendor.
+</ResponseField>
+
+<ResponseField name="billingCity" type="string">
+    This is the billing city of the vendor.
+</ResponseField>
+
+<ResponseField name="billingCountry" type="string">
+    This is the billing country of the vendor.
+</ResponseField>
+
+<ResponseField name="billingLatitude" type="string">
+    This is the billing latitude of the vendor.
+</ResponseField>
+
+<ResponseField name="billingLongitude" type="string">
+    This is the billing longitude of the vendor.
+</ResponseField>
+
+<ResponseField name="billingState" type="string">
+    This is the billing state of the vendor.
+</ResponseField>
+
+<ResponseField name="billingStreet" type="string">
+    This is the billing street of the vendor.
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+    This is the created at of the vendor.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+    This is the description of the vendor.
+</ResponseField>
+
+<ResponseField name="employees" type="string">
+    This is the employees of the vendor.
+</ResponseField>
+
+<ResponseField name="fax" type="string">
+    This is the fax of the vendor.
+</ResponseField>
+
+<ResponseField name="industry" type="string">
+    This is the industry of the vendor.
+</ResponseField>
+
+<ResponseField name="is_active" type="string">
+    This is the is active of the vendor.
+</ResponseField>
+
+<ResponseField name="is_public" type="string">
+    This is the is public of the vendor.
+</ResponseField>
+
+<ResponseField name="last_modified_by" type="string">
+    This is the last modified by of the vendor.
 </ResponseField>
 
 <RequestExample>
@@ -99,3 +144,52 @@ curl --location --request GET 'https://api.stateset.com/api/vendor' \
 ```
 
 </ResponseExample>
+
+
+# Vendors
+
+Vendors describes the general data about the vendor in Stateset.
+
+## The vendor object
+
+#### Attributes
+
+| Name               | Type      | Description                                             |
+| ------------------ | --------- | ------------------------------------------------------- |
+| id                 | Text      | Unique identifier for the vendor                        |
+| vendorName         | Text      | Name of the vendor                                      |
+| vendorNotes        | Text      | Notes or additional information about the vendor        |
+| vendorSubtype      | Text      | Subtype or specific category of the vendor              |
+| vendorType         | Text      | Type or general category of the vendor                  |
+| vendor\_owner      | Text      | Owner or responsible person for the vendor              |
+| vendor\_source     | Text      | Source or origin of the vendor                          |
+| annualRevenue      | Text      | Annual revenue associated with the vendor               |
+| avatar             | Text      | URL or path to the vendor's avatar image                |
+| billingCity        | Text      | City of the billing address                             |
+| billingCountry     | Text      | Country of the billing address                          |
+| billingLatitude    | Text      | Latitude coordinate of the billing address              |
+| billingLongitude   | Text      | Longitude coordinate of the billing address             |
+| billingState       | Text      | State or province of the billing address                |
+| billingStreet      | Text      | Street address of the billing address                   |
+| created\_at        | Date/Time | Date and time when the vendor was created               |
+| description        | Text      | Description or additional details about the vendor      |
+| employees          | Text      | Number or range of employees associated with the vendor |
+| fax                | Text      | Fax number of the vendor                                |
+| industry           | Text      | Industry or sector of the vendor                        |
+| is\_active         | Boolean   | Indicates whether the vendor is currently active        |
+| is\_public         | Boolean   | Indicates whether the vendor is public or private       |
+| last\_modified\_by | Text      | Last person who modified the vendor                     |
+| numberOfEmployees  | Text      | Number of employees associated with the vendor          |
+| ownership          | Text      | Ownership type or structure of the vendor               |
+| parentVendor       | Text      | Parent vendor associated with the vendor                |
+| phone              | Text      | Phone number of the vendor                              |
+| rating             | Text      | Rating or evaluation of the vendor                      |
+| shippingCity       | Text      | City of the shipping address                            |
+| shippingCountry    | Text      | Country of the shipping address                         |
+| shippingLatitude   | Text      | Latitude coordinate of the shipping address             |
+| shippingLongitude  | Text      | Longitude coordinate of the shipping address            |
+| shippingState      | Text      | State or province of the shipping address               |
+| shippingStreet     | Text      | Street address of the shipping address                  |
+| stockTicker        | Text      | Stock ticker symbol associated with the vendor          |
+| website            | Text      | Website URL of the vendor                               |
+| yearStarted        | Text      | Year the vendor started or established                  |
