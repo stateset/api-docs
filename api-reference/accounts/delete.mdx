@@ -6,15 +6,10 @@ description: "This endpoint deletes an existing account."
 
 ### Body
 
-<ParamField body="data_source_provided_id" type="string">
-  The data source ID provided in the data tab may be used to identify the data
-  source for the user group
+<ParamField body="id" type="string">
+  The ID of the account to delete.
 </ParamField>
 
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group you want to
-  delete
-</ParamField>
 
 ### Response
 
@@ -29,9 +24,28 @@ curl --location --request DELETE 'https://api.stateset.com/api/account' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-		"user_group_id": "example_1"
-		"current_token": "abcdef"
+		"id": ""
 }'
+```
+
+```graphQL GraphQL
+
+mutation {
+  delete_accounts(
+    where: { id: { _eq: "" } }
+  ) {
+    affected_rows
+  }
+}
+
+```
+
+```javascript Node.js
+
+var deleted = await stateset.accounts.del({
+  "1"
+});
+
 ```
 
 </RequestExample>
@@ -40,7 +54,13 @@ curl --location --request DELETE 'https://api.stateset.com/api/account' \
 
 ```json Response
 {
-  "success": 1
+  {
+    "data": {
+        "delete_accounts": {
+            "affected_rows": 1
+        }
+    }
+}
 }
 ```
 
