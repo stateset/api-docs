@@ -153,6 +153,7 @@
     {
       "group": "Purchase Orders",
       "pages": [
+        "api-reference/purchaseorders/list",
         "api-reference/purchaseorders/get",
         "api-reference/purchaseorders/create",
         "api-reference/purchaseorders/update",
@@ -200,6 +201,25 @@
         "api-reference/workorderlineitem/create",
         "api-reference/workorderlineitem/update",
         "api-reference/workorderlineitem/delete"
+      ]
+    },
+    {
+      "group": "Manufacture Orders",
+      "pages": [
+        "api-reference/manufactureorder/list",
+        "api-reference/manufactureorder/get",
+        "api-reference/manufactureorder/create",
+        "api-reference/manufactureorder/update",
+        "api-reference/manufactureorder/delete"
+      ]
+    },
+    {
+      "group": "Manufacture Order Line Items",
+      "pages": [
+        "api-reference/manufactureorderlineitem/get",
+        "api-reference/manufactureorderlineitem/create",
+        "api-reference/manufactureorderlineitem/update",
+        "api-reference/manufactureorderlineitem/delete"
       ]
     },
     {

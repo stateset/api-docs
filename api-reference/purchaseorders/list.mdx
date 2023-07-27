@@ -1,13 +1,21 @@
 ---
-title: "Get Purchase Order"
-api: "GET https://api.stateset.com/api/purchase_order"
-description: "This endpoint gets or creates a new purchase order."
+title: "List Purchase Orders"
+api: "GET https://api.stateset.com/api/purchase_order/list"
+description: "This lists purchase orders."
 ---
 
 ### Body
 
-<ParamField body="id" type="string">
-  This is the id of the purchase order.
+<ParamField body="limit" required="false" type="string">
+  This is the limit of the purchase orders.
+</ParamField>
+
+<ParamField body="offset" required="false" type="string">
+  This is the offset of the purchase orders.
+</ParamField>
+
+<ParamField body="order_direction" required="false" type="string">
+  This is the order direction of the purchase orders.
 </ParamField>
 
 ### Response
@@ -87,7 +95,7 @@ description: "This endpoint gets or creates a new purchase order."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/purchaseorder' \
+curl --location --request GET 'https://api.stateset.com/api/purchase_order/list' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -96,8 +104,8 @@ curl --location --request GET 'https://api.stateset.com/api/purchaseorder' \
 ```
 
 ```graphQL GraphQL
-query {
-  purchaseorder {
+ query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
+  purchasorder(limit: $limit, offset: $offset, order_by: {createdDate: $order_direction}) {
     id
     createdat
     delivery_date
@@ -121,37 +129,37 @@ query {
 ```
 
 ```js Node.js
-const purchaseorders = await stateset.purchaseorders.retrieve({
+const purchaseorders = await stateset.purchaseorders.list({
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 });
 ```
 ```py Python
-purchaseorders = stateset.purchaseorders.retrieve({
+purchaseorders = stateset.purchaseorders.list({
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 })
 ```
 ```go Golang 
-purchaseorders, err := stateset.purchaseorders.Retrieve(
+purchaseorders, err := stateset.purchaseorders.list(
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 )
 ```
 ```ruby Ruby
-purchaseorders = Stateset::purchaseorders.retrieve(
+purchaseorders = Stateset::purchaseorders.List(
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 )
 ```
 ```java Java
-purchaseorders = Stateset.purchaseorders.retrieve(
+purchaseorders = Stateset.purchaseorders.list(
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 ```csharp C#
-purchaseorders s = Stateset.purchaseorders.Retrieve(
+purchaseorders s = Stateset.purchaseorders.list(
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```
 ```php PHP
-$purchaseorders = Stateset\purchaseorders::retrieve(
+$purchaseorders = Stateset\purchaseorders::List(
   'rt_1NXWPnCo6bFb1KQto6C8OWvE'
 );
 ```

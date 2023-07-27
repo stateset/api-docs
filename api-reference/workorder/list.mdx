@@ -1,0 +1,301 @@
+---
+title: "List Work Orders"
+api: "GET https://api.stateset.com/api/work_order/list"
+description: "This endpoint list work orders."
+---
+
+### Body
+
+<ParamField body="limit" required="false" type="string">
+  This is the limit of the work orders.
+</ParamField>
+
+<ParamField body="offset" required="false" type="string">
+  This is the offset of the work orders.
+</ParamField>
+
+<ParamField body="order_direction" required="false" type="string">
+  This is the order direction of the work orders.
+</ParamField>
+
+
+### Response
+
+<ResponseField name="bill_of_materials_number" type="string">
+  Number associated with the bill of materials related to the work order
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  Date and time when the work order was created
+</ResponseField>
+
+<ResponseField name="created_by" type="string">
+  Name or identifier of the person who created the work order
+</ResponseField>
+
+<ResponseField name="expected_completion_date" type="string">
+  Expected completion date for the work order
+</ResponseField>
+
+<ResponseField name="id" type="string">
+  Unique identifier for the work order
+</ResponseField>
+
+<ResponseField name="issue_date" type="string">
+  Date when the work order was issued
+</ResponseField>
+
+<ResponseField name="location" type="string">
+  Location or site where the work order is applicable
+</ResponseField>
+
+<ResponseField name="manufacture_order" type="string">
+  Identifier or reference to the manufacturing order associated with the work order
+</ResponseField>
+
+<ResponseField name="memo" type="string">
+  Memo or additional notes related to the work order
+</ResponseField>
+
+<ResponseField name="number" type="string">
+  Number associated with the work order
+</ResponseField>
+
+<ResponseField name="order_number" type="string">
+  Identifier or reference to the order associated with the work order
+</ResponseField>
+
+<ResponseField name="part" type="string">
+  Part or item associated with the work order
+</ResponseField>
+
+<ResponseField name="priority" type="string">
+  Priority level or urgency of the work order
+</ResponseField>
+
+<ResponseField name="site" type="string">
+  Site or location where the work order is being executed
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Current status or state of the work order
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  Date and time when the work order was last updated
+</ResponseField>
+
+<ResponseField name="work_order_line_items" type="string">
+  
+
+  <Expandable title="Show child attributes">
+
+  <ResponseField name="id" type="string">
+    Unique identifier for the line item
+  </ResponseField>
+
+  <ResponseField name="line_status" type="string">
+    Status or state of the line item
+  </ResponseField>
+
+  <ResponseField name="line_type" type="string">
+    Type or category of the line item
+  </ResponseField>
+
+  <ResponseField name="part_name" type="string">
+    Name of the part or item included in the line Item
+  </ResponseField>
+
+  <ResponseField name="part_number" type="string">
+    Number or code associated with the part or Item
+  </ResponseField>
+
+  <ResponseField name="total_quantity" type="string">
+    Total quantity of the part or item required or used in the work order
+  </ResponseField>
+
+  <ResponseField name="unit_quantity" type="string">
+    Quantity of the part or item required or used per unit in the work order
+  </ResponseField>
+
+  <ResponseField name="work_order_number" type="string">
+    Number associated with the work order to which the line item belongs
+  </ResponseField>
+
+  </Expandable>
+
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/api/work_order' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "user_group_id": "example_1",
+    "name": "Example 1",
+    "mapping": {"40": "213", "134": "386"},
+    "properties": {"filterValue": "value"}
+}'
+
+```
+
+```graphQL GraphQL
+
+ query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
+  work_orders(limit: $limit, offset: $offset, order_by: {createdDate: $order_direction}) {
+    bill_of_materials_number
+    created_at
+    created_by
+    expected_completion_date
+    id
+    issue_date
+    location
+    manufacture_order
+    memo
+    number
+    order_number
+    part
+    priority
+    site
+    status
+    updated_at
+    work_order_line_items {
+      id
+      line_status
+      line_type
+      part_name
+      part_number
+      total_quantity
+      unit_quantity
+      work_order_number
+    }
+  }
+}
+
+```
+
+```javascript Node.js
+
+var workOrders = await stateset.workOrders.list({
+  'wo_2331232131232121'
+});
+
+```
+  
+```python Python
+
+workOrders = stateset.workOrders.list({
+  'wo_2331232131232121'
+})
+
+```
+
+```ruby Ruby
+
+workOrders = Stateset::WorkOrders.list({
+  'wo_2331232131232121'
+})
+
+```
+
+```php PHP
+
+$workOrders = $stateset->workOrders->list([
+  'wo_2331232131232121'
+]);
+
+```
+
+```go Go
+
+workOrders, err := stateset.WorkOrders.list(
+  []string{"wo_2331232131232121"}
+)
+
+```
+
+```java Java
+
+WorkOrder[] workOrders = stateset.workOrders.list(
+  new String[]{"wo_2331232131232121"}
+);
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  {
+    "bill_of_materials_number": "123",
+    "created_at": "2021-01-01T00:00:00.000Z",
+    "created_by": "John Doe",
+    "expected_completion_date": "2021-01-01T00:00:00.000Z",
+    "id": "wo_123",
+    "issue_date": "2021-01-01T00:00:00.000Z",
+    "location": "123",
+    "manufacture_order": "123",
+    "memo": "123",
+    "number": "123",
+    "order_number": "123",
+    "part": "123",
+    "priority": "123",
+    "site": "123",
+    "status": "123",
+    "updated_at": "2021-01-01T00:00:00.000Z",
+    "work_order_line_items": [
+      {
+        "id": "wo_123",
+        "line_status": "123",
+        "line_type": "123",
+        "part_name": "123",
+        "part_number": "123",
+        "total_quantity": "123",
+        "unit_quantity": "123",
+        "work_order_number": "123"
+      }
+    ]
+  }
+}
+```
+
+</ResponseExample>
+
+## Work Order
+
+| Name                        | Type      | Description                                                                       |
+| --------------------------- | --------- | --------------------------------------------------------------------------------- |
+| bill\_of\_materials\_number | Text      | Number associated with the bill of materials related to the work order            |
+| created\_at                 | Date/Time | Date and time when the work order was created                                     |
+| created\_by                 | Text      | Name or identifier of the person who created the work order                       |
+| expected\_completion\_date  | Date      | Expected completion date for the work order                                       |
+| id                          | Text      | Unique identifier for the work order                                              |
+| issue\_date                 | Date      | Date when the work order was issued                                               |
+| location                    | Text      | Location or site where the work order is applicable                               |
+| manufacture\_order          | Text      | Identifier or reference to the manufacturing order associated with the work order |
+| memo                        | Text      | Memo or additional notes related to the work order                                |
+| number                      | Text      | Number associated with the work order                                             |
+| order\_number               | Text      | Identifier or reference to the order associated with the work order               |
+| part                        | Text      | Part or item associated with the work order                                       |
+| priority                    | Text      | Priority level or urgency of the work order                                       |
+| site                        | Text      | Site or location where the work order is being executed                           |
+| status                      | Text      | Current status or state of the work order                                         |
+| updated\_at                 | Date/Time | Date and time when the work order was last updated                                |
+
+
+## Work Order Line Items
+
+| Name                | Type    | Description                                                              |
+| ------------------- | ------- | ------------------------------------------------------------------------ |
+| id                  | Text    | Unique identifier for the line item                                      |
+| line\_status        | Text    | Status or state of the line item                                         |
+| line\_type          | Text    | Type or category of the line item                                        |
+| part\_name          | Text    | Name of the part or item included in the line item                       |
+| part\_number        | Text    | Number or code associated with the part or item                          |
+| total\_quantity     | Numeric | Total quantity of the part or item required or used in the work order    |
+| unit\_quantity      | Numeric | Quantity of the part or item required or used per unit in the work order |
+| work\_order\_number | Text    | Number associated with the work order to which the line item belongs     |
