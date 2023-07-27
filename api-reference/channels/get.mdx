@@ -42,12 +42,30 @@ curl --location --request GET 'https://api.stateset.com/api/channelthread' \
 
 ```graphQL GraphQL
 
-query MyChannelThreads {
+query MyChannelThread {
   channel_thread {
     id
+    created_at
     name
-    uuid
+    system_prompt
     user_id
+    messages {
+      id
+      body
+      channel_id
+      chat_id
+      created_at
+      date
+      deliveredReceipt
+      from
+      fromMe
+      likes
+      messageNumber
+      points
+      sentReceipt
+      timestamp
+      to
+    }
   }
 }
 
