@@ -7,10 +7,39 @@ description: "This endpoint updates an existing bill of materials."
 ### Body
 
 <ParamField body="id" type="string">
-  This is the id of the bill of materials to update.
+  This is the id of the bill of materials
+</ParamField>
+
+<ParamField body="number" type="string">
+  This is the number of the bill of materials
+</ParamField>
+
+<ParamField body="name" type="string">
+  This is the name of the bill of materials
+</ParamField>
+
+<ParamField body="description" type="string">
+  This is the description of the bill of materials
+</ParamField>
+
+<ParamField body="groups" type="string">
+  This is the groups of the bill of materials
+</ParamField>
+
+<ParamField body="created_at" type="string">
+  This is the date and time when the bill of materials was created
+</ParamField>
+
+<ParamField body="updated_at" type="string">
+  This is the date and time when the bill of materials was last updated
+</ParamField>
+
+<ParamField body="valid" type="boolean">
+  This indicates whether the bill of materials is valid or not
 </ParamField>
 
 ### Response
+
 
 <ResponseField name="id" type="string">
   This is the id of the bill of materials.
@@ -42,6 +71,47 @@ description: "This endpoint updates an existing bill of materials."
 
 <ResponseField name="valid" type="boolean">
   This indicates whether the bill of materials is valid or not.
+</ResponseField>
+
+<ResponseField name="line_items" type="object ">
+  This is an array of line items associated with the bill of materials.
+
+  <Expandable title="Show child attributes">
+
+  <ResponseField name="id" type="string">
+    This is the id of the line item.
+  </ResponseField>
+
+  <ResponseField name="bill_of_materials_number" type="string">
+    This is the number of the bill of materials to which the line item belongs.
+  </ResponseField>
+
+  <ResponseField name="line_type" type="string">
+    This is the type or category of the line item.
+  </ResponseField>
+
+  <ResponseField name="part_number" type="string">
+    This is the number or code associated with the part or item.
+  </ResponseField>
+
+  <ResponseField name="part_name" type="string">
+    This is the name of the part or item.
+  </ResponseField>
+
+  <ResponseField name="purchase_supply_type" type="string">
+    This is the type or category of the purchase/supply associated with the line item.
+  </ResponseField>
+
+  <ResponseField name="quantity" type="number">
+    This is the quantity of the part or item required in the bill of materials.
+  </ResponseField>
+
+  <ResponseField name="status" type="string">
+    This is the status or state of the line item.
+  </ResponseField>
+
+  </Expandable>
+
 </ResponseField>
 
 <RequestExample>
