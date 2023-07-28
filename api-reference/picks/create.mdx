@@ -6,9 +6,30 @@ description: "This endpoint creates a new picks"
 
 ### Body
 
-<ParamField body="id" required="false" default="null">
+<ParamField body="id" required="false">
   The id of the packing_list to be created. If not provided, a new id will be generated.
 </ParamField>
+
+<ParamField body="number" required="false">
+  The number of the packing_list to be created. If not provided, a new number will be generated.
+</ParamField>
+
+<ParamField body="deliveryDate" required="false">
+  The delivery date of the packing_list to be created. If not provided, a new delivery date will be generated.
+</ParamField>
+
+<ParamField body="arrivalDate" required="false">
+  The arrival date of the packing_list to be created. If not provided, a new arrival date will be generated.
+</ParamField>
+
+<ParamField body="ship_per" required="false">
+  The ship per of the packing_list to be created. If not provided, a new ship per will be generated.
+</ParamField>
+
+<ParamField body="tracking_number" required="false">
+  The tracking number of the packing_list to be created. If not provided, a new tracking number will be generated.
+</ParamField>
+
 
 ### Response
 

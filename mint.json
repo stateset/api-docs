@@ -195,6 +195,15 @@
       ]
     },
     {
+      "group": "Work Order Line Items",
+      "pages": [
+        "api-reference/workorderlineitem/get",
+        "api-reference/workorderlineitem/create",
+        "api-reference/workorderlineitem/update",
+        "api-reference/workorderlineitem/delete"
+      ]
+    },
+    {
       "group": "Picks",
       "pages": [
         "api-reference/picks/list",
@@ -202,15 +211,6 @@
         "api-reference/picks/create",
         "api-reference/picks/update",
         "api-reference/picks/delete"
-      ]
-    },
-    {
-      "group": "Work Order Line Items",
-      "pages": [
-        "api-reference/workorderlineitem/get",
-        "api-reference/workorderlineitem/create",
-        "api-reference/workorderlineitem/update",
-        "api-reference/workorderlineitem/delete"
       ]
     },
     {
