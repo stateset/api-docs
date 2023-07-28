@@ -204,10 +204,9 @@ curl --location --request GET 'https://api.stateset.com/api/return' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+    "limit": 10,
+    "offset": 0,
+    "order_direction": "desc"
 }'
 ```
 
