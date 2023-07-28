@@ -6,66 +6,127 @@ description: "This endpoint updates an existing manufacture order line item."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="id" type="string">
+  This is the id of the manufacture order line item.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
+<ParamField body="bom_name" type="string">
+  This is the name of the bill of materials (BOM) associated with the line item.
 </ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user
-  group should be associated with or id of the datasource you provided when
-  creating it.
+<ParamField body="bom_number" type="string">
+  This is the number assigned to the bill of materials (BOM).
 </ParamField>
 
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will
-  be accessible through variables in the dashboards and SQL editor
+<ParamField body="expected_date" type="date">
+  This is the expected date for the completion of the line item.
 </ParamField>
+
+<ParamField body="line_status" type="string">
+  This is the status of the line item (e.g., in progress, completed, etc.).
+</ParamField>
+
+<ParamField body="line_type" type="string">
+  This is the type or category of the line item.
+</ParamField>
+
+<ParamField body="manufacture_order_number" type="string">
+  This is the number of the associated manufacture order.
+</ParamField>
+
+<ParamField body="output_type" type="string">
+  This is the type of output produced by the line item (e.g., product, component).
+</ParamField>
+
+<ParamField body="part_name" type="string">
+  This is the name of the part associated with the line item.
+</ParamField>
+
+<ParamField body="part_number" type="string">
+  This is the number assigned to the part associated with the line item.
+</ParamField>
+
+<ParamField body="priority" type="string">
+  This is the priority level of the line item.
+</ParamField>
+
+<ParamField body="quantity" type="integer">
+  This is the quantity of the part to be manufactured or processed.
+</ParamField>
+
+<ParamField body="site" type="string">
+  This is the site or location associated with the line item.
+</ParamField>
+
+<ParamField body="work_order_number" type="string">
+  This is the number of the associated work order.
+</ParamField>
+
+<ParamField body="yield_location" type="string">
+  This is the location where the manufactured product will be stored.
+</ParamField>
+
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the id of the manufacture order line item.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  Indicates whether a new user group was created.
+<ResponseField name="bom_name" type="string">
+  This is the name of the bill of materials (BOM) associated with the line item.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField name="bom_number" type="string">
+  This is the number assigned to the bill of materials (BOM).
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="expected_date" type="date">
+  This is the expected date for the completion of the line item.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="line_status" type="string">
+  This is the status of the line item (e.g., in progress, completed, etc.).
 </ResponseField>
 
-<ResponseField name="properties" type="JSON | Null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="line_type" type="string">
+  This is the type or category of the line item.
 </ResponseField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'
+<ResponseField name="manufacture_order_number" type="string">
+  This is the number of the associated manufacture order.
 </ResponseField>
 
-</Expandable>
+<ResponseField name="output_type" type="string">
+  This is the type of output produced by the line item (e.g., product, component).
+</ResponseField>
 
+<ResponseField name="part_name" type="string">
+  This is the name of the part associated with the line item.
+</ResponseField>
+
+<ResponseField name="part_number" type="string">
+  This is the number assigned to the part associated with the line item.
+</ResponseField>
+
+<ResponseField name="priority" type="string">
+  This is the priority level of the line item.
+</ResponseField>
+
+<ResponseField name="quantity" type="integer">
+  This is the quantity of the part to be manufactured or processed.
+</ResponseField>
+
+<ResponseField name="site" type="string">
+  This is the site or location associated with the line item.
+</ResponseField>
+
+<ResponseField name="work_order_number" type="string">
+  This is the number of the associated work order.
+</ResponseField>
+
+<ResponseField name="yield_location" type="string">
+  This is the location where the manufactured product will be stored.
 </ResponseField>
 
 <RequestExample>

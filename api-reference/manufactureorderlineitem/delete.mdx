@@ -6,19 +6,21 @@ description: "This endpoint deletes an existing manufacture order line item."
 
 ### Body
 
-<ParamField body="data_source_provided_id" type="string">
-  The data source ID provided in the data tab may be used to identify the data
-  source for the user group
-</ParamField>
-
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group you want to
-  delete
+<ParamField body="id" type="string">
+  The ID of the packing list item to delete.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the return
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="deleted" type="number">
   Indicates whether the call was successful. 1 if successful, 0 if not.
 </ResponseField>
 
@@ -29,8 +31,7 @@ curl --location --request DELETE 'https://api.stateset.com/api/manufacture_order
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-		"user_group_id": "example_1"
-		"current_token": "abcdef"
+		"id": "example_1"
 }'
 ```
 
@@ -40,7 +41,9 @@ curl --location --request DELETE 'https://api.stateset.com/api/manufacture_order
 
 ```json Response
 {
-  "success": 1
+  "id": "example_1",
+  "object": "manufacture_order_line_item",
+  "deleted": true,
 }
 ```
 
