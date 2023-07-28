@@ -155,10 +155,14 @@ curl --location --request PUT 'https://api.stateset.com/api/manufacture_order' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+    "id": "1",
+    "memo": "test",
+    "number": "1",
+    "priority": "1",
+    "site": "1",
+    "yield_location": "1",
+    "created_on": "2021-01-01T00:00:00Z",
+    "expected_completion_date": "2021-01-01"
 }'
 ```
 
@@ -168,13 +172,14 @@ curl --location --request PUT 'https://api.stateset.com/api/manufacture_order' \
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 113,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "ok",
-    "provided_id": "6"
-  }
+    "id": "1",
+    "memo": "test",
+    "number": "1",
+    "priority": "1",
+    "site": "1",
+    "yield_location": "1",
+    "created_on": "2021-01-01T00:00:00Z",
+    "expected_completion_date": "2021-01-01"
 }
 ```
 
