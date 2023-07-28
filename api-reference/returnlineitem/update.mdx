@@ -6,15 +6,88 @@ description: "This endpoint updates an existing return line item."
 
 ### Body
 
-<ParamField body="id" type="string">
-  This is the id of the return line item to update.
+<ParamField body="id" name="id" type="string">
+  This is the id of the return line item.
+</ParamField>
+
+<ParamField body="amount" name="amount" type="string">
+  This is the amount of the return line item.
+</ParamField>
+
+<ParamField body="condition" name="condition" type="string">
+  This is the condition of the return line item.
+</ParamField>
+
+<ParamField body="flat_rate_shipping" name="flat_rate_shipping" type="string">
+  This is the flat rate shipping of the return line item.
+</ParamField>
+
+<ParamField body="name" name="name" type="string">
+  This is the name of the return line item.
+</ParamField>
+
+<ParamField body="price" name="price" type="string">
+  This is the price of the return line item.
+</ParamField>
+
+<ParamField body="return_id" name="return_id" type="string">
+  This is the id of the return associated with the line item.
+</ParamField>
+
+<ParamField body="serial_number" name="serial_number" type="string">
+  This is the serial number of the return line item.
+</ParamField>
+
+<ParamField body="sku" name="sku" type="string">
+  This is the sku of the return line item.
+</ParamField>
+
+<ParamField body="tax_refunded" name="tax_refunded" type="string">
+  This is the tax refunded of the return line item.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
-</ResponseField>
+  <ResponseField name="id" type="string">
+    This is the id of the return line item.
+  </ResponseField>
+
+  <ResponseField name="amount" type="string">
+    This is the amount of the return line item.
+  </ResponseField>
+
+  <ResponseField name="condition" type="string">
+    This is the condition of the return line item.
+  </ResponseField>
+
+  <ResponseField name="flat_rate_shipping" type="string">
+    This is the flat rate shipping of the return line item.
+  </ResponseField>
+
+  <ResponseField name="name" type="string">
+    This is the name of the return line item.
+  </ResponseField>
+
+  <ResponseField name="price" type="string">
+    This is the price of the return line item.
+  </ResponseField>
+
+  <ResponseField name="return_id" type="string">
+    This is the id of the return associated with the line item.
+  </ResponseField>
+
+  <ResponseField name="serial_number" type="string">
+    This is the serial number of the return line item.
+  </ResponseField>
+
+  <ResponseField name="sku" type="string">
+    This is the sku of the return line item.
+  </ResponseField>
+
+  <ResponseField name="tax_refunded" type="string">
+    This is the tax refunded of the return line item.
+  </ResponseField>
+
 
 <RequestExample>
 

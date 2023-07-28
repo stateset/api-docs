@@ -64,10 +64,14 @@ curl --location --request PUT 'https://api.stateset.com/api/customer' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+    "id": "string",
+    "email": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "phone": "string",
+    "stripe_customer_id": "string",
+    "timestamp": "string",
+    "activationDate": "string"
 }'
 ```
 
@@ -77,13 +81,14 @@ curl --location --request PUT 'https://api.stateset.com/api/customer' \
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 113,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "ok",
-    "provided_id": "6"
-  }
+    "id": "string",
+    "email": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "phone": "string",
+    "stripe_customer_id": "string",
+    "timestamp": "string",
+    "activationDate": "string"
 }
 ```
 
