@@ -6,15 +6,279 @@ description: "This endpoint creates a new account"
 
 ### Body
 
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+<ParamField body="id" required="true" type="string">
+  This is the id of the account.
+</ParamField>
+
+<ParamField body="accountName" required="true" type="string">
+  This is the account name of the account.
+</ParamField>
+
+<ParamField body="accountNotes" required="true" type="string">
+  This is the account notes of the account.
+</ParamField>
+
+<ParamField body="accountSubtype" required="true" type="string">
+  This is the account subtype of the account.
+</ParamField>
+
+<ParamField body="accountType" required="true" type="string">
+  This is the account type of the account.
+</ParamField>
+
+<ParamField body="account_owner" required="true" type="string">
+  This is the account owner of the account.
+</ParamField>
+
+<ParamField body="account_source" required="true" type="string">
+  This is the account source of the account.
+</ParamField>
+
+<ParamField body="annualRevenue" required="true" type="string">
+  This is the annual revenue of the account.
+</ParamField>
+
+<ParamField body="avatar" required="true" type="string">
+  This is the avatar of the account.
+</ParamField>
+
+<ParamField body="billingCity" required="true" type="string">
+  This is the billing city of the account.
+</ParamField>
+
+<ParamField body="billingCountry" required="true" type="string">
+  This is the billing country of the account.
+</ParamField>
+
+<ParamField body="billingLatitude" required="true" type="string">
+  This is the billing latitude of the account.
+</ParamField>
+
+<ParamField body="billingLongitude" required="true" type="string">
+  This is the billing longitude of the account.
+</ParamField>
+
+<ParamField body="billingState" required="true" type="string">
+  This is the billing state of the account.
+</ParamField>
+
+<ParamField body="billingStreet" required="true" type="string">
+  This is the billing street of the account.
+</ParamField>
+
+<ParamField body="created_at" required="true" type="string">
+  This is the created at of the account.
+</ParamField>
+
+<ParamField body="description" required="true" type="string">
+  This is the description of the account.
+</ParamField>
+
+<ParamField body="employees" required="true" type="string">
+  This is the employees of the account.
+</ParamField>
+
+<ParamField body="fax" required="true" type="string">
+  This is the fax of the account.
+</ParamField>
+
+<ParamField body="industry" required="true" type="string">
+  This is the industry of the account.
+</ParamField>
+
+<ParamField body="is_active" required="true" type="string">
+  This is the is active of the account.
+</ParamField>
+
+<ParamField body="is_public" required="true" type="string">
+  This is the is public of the account.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" required="true" type="string">
+  This is the id of the account.
+</ResponseField>
+
+<ResponseField name="accountName" required="true" type="string">
+  This is the account name of the account.
+</ResponseField>
+
+<ResponseField name="accountNotes" required="true" type="string">
+  This is the account notes of the account.
+</ResponseField>
+
+<ResponseField name="accountSubtype" required="true" type="string">
+  This is the account subtype of the account.
+</ResponseField>
+
+<ResponseField name="accountType" required="true" type="string">
+  This is the account type of the account.
+</ResponseField>
+
+<ResponseField name="account_owner" required="true" type="string">
+  This is the account owner of the account.
+</ResponseField>
+
+<ResponseField name="account_source" required="true" type="string">
+  This is the account source of the account.
+</ResponseField>
+
+<ResponseField name="annualRevenue" required="true" type="string">
+  This is the annual revenue of the account.
+</ResponseField>
+
+<ResponseField name="avatar" required="true" type="string">
+  This is the avatar of the account.
+</ResponseField>
+
+<ResponseField name="billingCity" required="true" type="string">
+  This is the billing city of the account.
+</ResponseField>
+
+<ResponseField name="billingCountry" required="true" type="string">
+  This is the billing country of the account.
+</ResponseField>
+
+<ResponseField name="billingLatitude" required="true" type="string">
+  This is the billing latitude of the account.
+</ResponseField>
+
+<ResponseField name="billingLongitude" required="true" type="string">
+  This is the billing longitude of the account.
+</ResponseField>
+
+<ResponseField name="billingState" required="true" type="string">
+  This is the billing state of the account.
+</ResponseField>
+
+<ResponseField name="billingStreet" required="true" type="string">
+  This is the billing street of the account.
+</ResponseField>
+
+<ResponseField name="created_at" required="true" type="string">
+  This is the created at of the account.
+
+</ResponseField>
+
+<ResponseField name="description" required="true" type="string">
+  This is the description of the account.
+
+</ResponseField>
+
+<ResponseField name="employees" required="true" type="string">
+  This is the employees of the account.
+
+</ResponseField>
+
+<ResponseField name="fax" required="true" type="string">
+  This is the fax of the account.
+
+</ResponseField>
+
+<ResponseField name="industry" required="true" type="string">
+  This is the industry of the account.
+    
+</ResponseField>
+
+<ResponseField name="is_active" required="true" type="string">
+  This is the is active of the account.
+
+</ResponseField>
+
+<ResponseField name="is_public" required="true" type="string">
+  This is the is public of the account.
+
+</ResponseField>
+
+<ResponseField name="last_modified_by" required="true" type="string">
+  This is the last modified by of the account.
+
+</ResponseField>
+
+<ResponseField name="numberOfEmployees" required="true" type="string">
+  This is the number of employees of the account.
+
+</ResponseField>
+
+<ResponseField name="ownership" required="true" type="string">
+  This is the ownership of the account.
+
+</ResponseField>
+
+<ResponseField name="phone" required="true" type="string">
+  This is the phone of the account.
+
+</ResponseField>
+
+<ResponseField name="rating" required="true" type="string">
+  This is the rating of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingCity" required="true" type="string">
+  This is the shipping city of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingCountry" required="true" type="string">
+  This is the shipping country of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingLatitude" required="true" type="string">
+  This is the shipping latitude of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingLongitude" required="true" type="string">
+  This is the shipping longitude of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingState" required="true" type="string">
+  This is the shipping state of the account.
+
+</ResponseField>
+
+<ResponseField name="shippingStreet" required="true" type="string">
+  This is the shipping street of the account.
+
+</ResponseField>
+
+<ResponseField name="sicCode" required="true" type="string">
+  This is the sic code of the account.
+
+</ResponseField>
+
+<ResponseField name="tickerSymbol" required="true" type="string">
+  This is the ticker symbol of the account.
+
+</ResponseField>
+
+<ResponseField name="website" required="true" type="string">
+  This is the website of the account.
+
+</ResponseField>
+
+<ResponseField name="yearStarted" required="true" type="string">
+  This is the year started of the account.
+
+</ResponseField>
+
+<ResponseField name="zipCode" required="true" type="string">
+  This is the zip code of the account.
+
+</ResponseField>
+
+<ResponseField name="created_by" required="true" type="string">
+  This is the created by of the account.
+
+</ResponseField>
+
+<ResponseField name="updated_by" required="true" type="string">
+  This is the updated by of the account.
+
 </ResponseField>
 
 <ResponseField name="user_group" type="object">

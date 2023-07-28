@@ -7,11 +7,18 @@ description: "This endpoint deletes an existing account."
 ### Body
 
 <ParamField body="id" type="string">
-  The ID of the account to delete.
+  The ID provided in the data tab may be used to identify the account
 </ParamField>
 
-
 ### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the account
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
 
 <ResponseField name="success" type="number">
   Indicates whether the call was successful. 1 if successful, 0 if not.
