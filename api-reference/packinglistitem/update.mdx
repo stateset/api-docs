@@ -4,19 +4,60 @@ api: "PUT https://api.stateset.com/api/packing_list_item"
 description: "This endpoint updates an existing packing list item."
 ---
 
+
 ### Body
 
-<ParamField body="id" type="string">
-  This is the id of the packing list item to update.
+<ParamField body="id" required="true" type="string">
+  The ID of the packing list item to update.
 </ParamField>
 
+<ParamField body="sku" required="true" type="string">
+  The SKU of the packing list item to update.
 </ParamField>
+
+<ParamField body="description" required="true" type="string">
+  The description of the packing list item to update.
+</ParamField>
+
+<ParamField body="quantity" required="true" type="number">
+  The quantity of the packing list item to update.
+</ParamField>
+
+<ParamField body="packing_list" required="true" type="string">
+  The packing list of the packing list item to update.
+</ParamField>
+
+<ParamField body="arrived" required="true" type="boolean">
+  The arrived of the packing list item to update.
+</ParamField>
+
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" required="true" type="string">
+  The ID of the packing list item to update.
 </ResponseField>
+
+<ResponseField name="sku" required="true" type="string">
+  The SKU of the packing list item to update.
+</ResponseField>
+
+<ResponseField name="description" required="true" type="string">
+  The description of the packing list item to update.
+</ResponseField>
+
+<ResponseField name="quantity" required="true" type="number">
+  The quantity of the packing list item to update.
+</ResponseField>
+
+<ResponseField name="packing_list" required="true" type="string">
+  The packing list of the packing list item to update.
+</ResponseField>
+
+<ResponseField name="arrived" required="true" type="boolean">
+  The arrived of the packing list item to update.
+</ResponseField>
+
 
 <RequestExample>
 
@@ -25,10 +66,12 @@ curl --location --request PUT 'https://api.stateset.com/api/packing_list_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+    "id": "1",
+    "sku": "1",
+    "description": "1",
+    "quantity": 1,
+    "packing_list": "1",
+    "arrived": true
 }'
 ```
 
@@ -38,13 +81,12 @@ curl --location --request PUT 'https://api.stateset.com/api/packing_list_item' \
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 113,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "ok",
-    "provided_id": "6"
-  }
+    "id": "1",
+    "sku": "1",
+    "description": "1",
+    "quantity": 1,
+    "packing_list": "1",
+    "arrived": true
 }
 ```
 

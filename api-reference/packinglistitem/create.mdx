@@ -6,53 +6,57 @@ description: "This endpoint creates a new packing list item"
 
 ### Body
 
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+<ParamField body="id" required="true" type="string">
+  The ID of the packing list item to create.
 </ParamField>
+
+<ParamField body="sku" required="true" type="string">
+  The SKU of the packing list item to create.
+</ParamField>
+
+<ParamField body="description" required="true" type="string">
+  The description of the packing list item to create.
+</ParamField>
+
+<ParamField body="quantity" required="true" type="number">
+  The quantity of the packing list item to create.
+</ParamField>
+
+<ParamField body="packing_list" required="true" type="string">
+  The packing list of the packing list item to create.
+</ParamField>
+
+<ParamField body="arrived" required="true" type="boolean">
+  The arrived of the packing list item to create.
+</ParamField>
+
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" required="true" type="string">
+  The ID of the packing list item to create.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this
-  information, since you will not need to use it.
+<ResponseField name="sku" required="true" type="string">
+  The SKU of the packing list item to create.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField name="description" required="true" type="string">
+  The description of the packing list item to create.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="quantity" required="true" type="number">
+  The quantity of the packing list item to create.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="packing_list" required="true" type="string">
+  The packing list of the packing list item to create.
 </ResponseField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'. User group id's must be unique to each environment, so you can
-  not create multiple user groups with with same id. If you have a production
-  customer and a test user group with the same id, you will be required to label
-  one as 'Customer' and another as 'Testing'
+<ResponseField name="arrived" required="true" type="boolean">
+  The arrived of the packing list item to create.
 </ResponseField>
 
-</Expandable>
-
-</ResponseField>
 
 <RequestExample>
 
@@ -61,11 +65,16 @@ curl --location --request POST 'https://api.stateset.com/api/packing_list_item' 
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "current_token": ""
+    "id": "pi_ODkRWQtx9NVsRX",
+    "sku": "sku_1",
+    "description": "description_1",
+    "quantity": 1,
+    "packing_list": "pl_1",
+    "arrived": true
 }'
 ```
 
-```graphQL GraphQL
+```js Node.js
 
 const created = await stateset.packingItems.create(
   'pi_ODkRWQtx9NVsRX'
@@ -79,8 +88,26 @@ const created = await stateset.packingItems.create(
 
 ```json Response
 {
-  "success": 1,
+    "id": "pi_ODkRWQtx9NVsRX",
+    "sku": "sku_1",
+    "description": "description_1",
+    "quantity": 1,
+    "packing_list": "pl_1",
+    "arrived": true
+ 
 }
 ```
 
 </ResponseExample>
+
+
+## Packing List Item
+
+| Name          | Type                       | Description                                        |
+| ------------- | -------------------------- | -------------------------------------------------- |
+| id            | Text (Primary Key, Unique) | Unique identifier for the packing list item        |
+| sku           | Text                       | Stock Keeping Unit (SKU) for the packing list item |
+| description   | Text                       | Description or additional details about the item   |
+| quantity      | Integer                    | Quantity of the item in the packing list item      |
+| packing\_list | Text                       | Identifier for the associated packing list         |
+| arrived       | Boolen                     | Whether or not the packing list item has arrived   |

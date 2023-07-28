@@ -7,15 +7,120 @@ description: "This endpoint creates a new inventory item"
 ### Body
 
 <ParamField body="id" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+  This is the ID of the inventory item.
 </ParamField>
+
+<ParamField body="sku" type="string">
+  This is the SKU of the inventory item.
+</ParamField>
+
+<ParamField body="upc" type="string">
+  This is the UPC of the inventory item.
+</ParamField>
+
+<ParamField body="description" type="string">
+  This is the description of the inventory item.
+</ParamField>
+
+<ParamField body="size" type="string">
+  This is the size of the inventory item.
+</ParamField>
+
+<ParamField body="color" type="string">
+  This is the color of the inventory item.
+</ParamField>
+
+<ParamField body="incoming" type="number">
+  This is the incoming quantity of the inventory item.
+</ParamField>
+
+<ParamField body="available" type="number">
+  This is the available quantity of the inventory item.
+</ParamField>
+
+<ParamField body="warehouse" type="number">
+  This is the warehouse ID of the inventory item.
+</ParamField>
+
+<ParamField body="arrivalDate" type="string">
+  This is the arrival date of the inventory item.
+</ParamField>
+
+<ParamField body="deliveryDate" type="string">
+  This is the delivery date of the inventory item.
+</ParamField>
+
+<ParamField body="purchase_order_id" type="string">
+  This is the purchase order ID of the inventory item.
+</ParamField>
+
+<ParamField body="created_at" type="string">
+  This is the created date of the inventory item.
+</ParamField>
+
+<ParamField body="updated_at" type="string">
+  This is the updated date of the inventory item.
+</ParamField>
+
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="id" type="string">
+  This is the ID of the inventory item.
 </ResponseField>
+
+<ResponseField name="sku" type="string">
+  This is the SKU of the inventory item.
+</ResponseField>
+
+<ResponseField name="upc" type="string">
+  This is the UPC of the inventory item.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  This is the description of the inventory item.
+</ResponseField>
+
+<ResponseField name="size" type="string">
+  This is the size of the inventory item.
+</ResponseField>
+
+<ResponseField name="color" type="string">
+  This is the color of the inventory item.
+</ResponseField>
+
+<ResponseField name="incoming" type="number">
+  This is the incoming quantity of the inventory item.
+</ResponseField>
+
+<ResponseField name="available" type="number">
+  This is the available quantity of the inventory item.
+</ResponseField>
+
+<ResponseField name="warehouse" type="number">
+  This is the warehouse ID of the inventory item.
+</ResponseField>
+
+<ResponseField name="arrivalDate" type="string">
+  This is the arrival date of the inventory item.
+</ResponseField>
+
+<ResponseField name="deliveryDate" type="string">
+  This is the delivery date of the inventory item.
+</ResponseField>
+
+<ResponseField name="purchase_order_id" type="string">
+  This is the purchase order ID of the inventory item.
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  This is the created date of the inventory item.
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  This is the updated date of the inventory item.
+</ResponseField>
+
 
 <RequestExample>
 
@@ -68,6 +173,93 @@ var created = await stateset.inventoryItems.create({
   arrivalDate: "2021-01-01",
   deliveryDate: "2021-01-01",
 });
+
+```
+
+```python Python
+
+created = stateset.inventory_items.create(
+  sku="SKU-123",
+  upc="UPC-123",
+  description="This is a description",
+  size="Large",
+  color="Red",
+  incoming=10,
+  available=10,
+  warehouse=1,
+  arrivalDate="2021-01-01",
+  deliveryDate="2021-01-01",
+)
+
+```
+
+```ruby Ruby
+
+created = Stateset::InventoryItem.create(
+  sku: "SKU-123",
+  upc: "UPC-123",
+  description: "This is a description",
+  size: "Large",
+  color: "Red",
+  incoming: 10,
+  available: 10,
+  warehouse: 1,
+  arrivalDate: "2021-01-01",
+  deliveryDate: "2021-01-01",
+)
+
+```
+
+```php PHP
+
+$created = $stateset->inventoryItems->create(
+  array(
+    "sku" => "SKU-123",
+    "upc" => "UPC-123",
+    "description" => "This is a description",
+    "size" => "Large",
+    "color" => "Red",
+    "incoming" => 10,
+    "available" => 10,
+    "warehouse" => 1,
+    "arrivalDate" => "2021-01-01",
+    "deliveryDate" => "2021-01-01",
+  )
+);
+
+```
+
+```go Go
+
+created, err := stateset.InventoryItems.Create(
+  "SKU-123",
+  "UPC-123",
+  "This is a description",
+  "Large",
+  "Red",
+  10,
+  10,
+  1,
+  "2021-01-01",
+  "2021-01-01",
+)
+
+```
+
+```java Java
+
+InventoryItem created = stateset.inventoryItems.create(
+  "SKU-123",
+  "UPC-123",
+  "This is a description",
+  "Large",
+  "Red",
+  10,
+  10,
+  1,
+  "2021-01-01",
+  "2021-01-01",
+);
 
 ```
 
