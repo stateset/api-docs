@@ -5,6 +5,11 @@
     "dark": "/logo/statesetwhitelogo.svg",
     "light": "/logo/statesetbluelogo.svg"
   },
+  "api": {
+    "auth": {
+      "method": "bearer"
+    }
+  },
   "favicon": "/stateset.png",
   "colors": {
     "primary": "#2563eb",
