@@ -101,7 +101,9 @@ curl --location --request GET 'https://api.stateset.com/api/bill_of_materials' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "id": "5f7b1b4a-5b0b-4b0a-8b0b-4b0a5b0b4a5b"
+    "limit": 10,
+    "offset": 0,
+    "order_direction": "asc"
 }'
 ```
 

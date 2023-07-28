@@ -68,7 +68,9 @@ curl --location --request GET 'https://api.stateset.com/api/case' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
+    "limit": 10,
+    "offset": 0,
+    "order_direction": "asc"
 }'
 ```
 

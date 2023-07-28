@@ -13,45 +13,134 @@ description: "This endpoint creates a new contact"
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+### Response
+
+<ResponseField name="id" type="text">
+  The ID of the contact.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this
-  information, since you will not need to use it.
+<ResponseField name="assistant" type="text">
+  Name or details of the assistant associated with the contact.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField name="assistant_phone" type="text">
+  Phone number of the assistant.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+<ResponseField name="avatar" type="text">
+  URL or path to the contact's avatar image.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="birthdate" type="text">
+  Date of birth of the contact.
 </ResponseField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'. User group id's must be unique to each environment, so you can
-  not create multiple user groups with with same id. If you have a production
-  customer and a test user group with the same id, you will be required to label
-  one as 'Customer' and another as 'Testing'
+<ResponseField name="controller" type="text">
+  Name or details of the controller associated with the contact.
 </ResponseField>
 
-</Expandable>
+<ResponseField name="created_at" type="datetime">
+  Date and time when the contact was created.
+</ResponseField>
 
+<ResponseField name="created_by" type="text">
+  Name or details of the person who created the contact.
+</ResponseField>
+
+<ResponseField name="department" type="text">
+  Department or division associated with the contact.
+</ResponseField>
+
+<ResponseField name="description" type="text">
+  Description or additional details about the contact.
+</ResponseField>
+
+<ResponseField name="do_not_call" type="boolean">
+  Indicates whether the contact should not be called.
+</ResponseField>
+
+<ResponseField name="email" type="text">
+  Email address of the contact.
+</ResponseField>
+
+<ResponseField name="email_opt_out" type="boolean">
+  Indicates whether the contact has opted out of email communication.
+</ResponseField>
+
+<ResponseField name="fax" type="text">
+  Fax number of the contact.
+</ResponseField>
+
+<ResponseField name="fax_opt_out" type="boolean">
+  Indicates whether the contact has opted out of fax communication.
+</ResponseField>
+
+<ResponseField name="firstName" type="text">
+  First name of the contact.
+</ResponseField>
+
+<ResponseField name="handle" type="text">
+  Handle or username associated with the contact.
+</ResponseField>
+
+<ResponseField name="invalid_contact" type="boolean">
+  Indicates whether the contact is marked as invalid.
+</ResponseField>
+
+<ResponseField name="languages" type="text">
+  Languages known or spoken by the contact.
+</ResponseField>
+
+<ResponseField name="lastName" type="text">
+  Last name of the contact.
+</ResponseField>
+
+<ResponseField name="last_modified_by" type="text">
+  Last person who modified the contact.
+</ResponseField>
+
+<ResponseField name="leadSource" type="text">
+  Source or origin of the lead/contact.
+</ResponseField>
+
+<ResponseField name="mailingCity" type="text">
+  City of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingCountry" type="text">
+  Country of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingGeocodeAccuracy" type="text">
+  Geocoding accuracy of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingState" type="text">
+  State or province of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingStreet" type="text">
+  Street of the mailing address.
+</ResponseField>
+
+<ResponseField name="owner" type="text">
+  Name or details of the owner of the contact.
+</ResponseField>
+
+<ResponseField name="phone" type="text">
+  Phone number of the contact.
+</ResponseField>
+
+<ResponseField name="photoUrl" type="text">
+  URL or path to the contact's photo.
+</ResponseField>
+
+<ResponseField name="processor" type="text">
+  Name or details of the processor associated with the contact.
+</ResponseField>
+
+<ResponseField name="title" type="text">
+  Title or position of the contact.
 </ResponseField>
 
 <RequestExample>
