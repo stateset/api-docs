@@ -92,7 +92,15 @@ curl --location --request POST 'https://api.stateset.com/api/warranty_line_item'
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "current_token": ""
+    "warranty_line_item": {
+        "sku": "123456789",
+        "name": "Warranty Item",
+        "price": "100.00",
+        "condition": "New",
+        "serial_number": "123456789",
+        "amount": "110.00",
+        "warranty_id": "0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+    }
 }'
 ```
 
