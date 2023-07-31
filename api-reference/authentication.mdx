@@ -7,22 +7,28 @@ Stateset One provides a REST and GraphQL API.
 
 #### Authentication
 
-It’s important to note that all data is accessible only to authenticated users. There are two ways to access data:
-using JWTs
+It’s important to note that all data in Stateset is private by default. This means that you must authenticate with the Stateset API in order to read or write data. Stateset uses a token-based authentication system. This means that you must include your API token with every request that you make to the API.
+Each token depicts a user who is authenticated to your Stateset platform instance. Tokens can only be generated for signed in users and each token is tied to a particular user.
 
-JWTs can be generated from your frontend. Each token depicts a user who is authenticated to your Stateset platform instance. Tokens can only be generated for signed in users and each token is tied to a particular user.
-using static tokens that are set for each user and do not expire
+
+Tokens can also be generated from your Stateset Cloud Account, using tokens that are set for each user and have a variable expiry date.
+
+
 A request is considered “authenticated” when the backend can securely identify which user and which device is making the request. The reasons for making authenticated requests to the backend include:
-Associating the user with the action being performed
-Ensuring the user has permission to make the request
-Keeping an audit log of which device the user is performing actions from
-In order to authenticate the user on the backend using Clerk / Firebase / Okta, the short-lived session token needs to be passed to the server.
+
+- Associating the user with the action being performed
+- Ensuring the user has permission to make the request
+- Keeping an audit log of which device the user is performing actions from
+
+In order to authenticate the user on the backend using Clerk / Firebase / Stateset the short-lived session token needs to be passed to the server.
 
 The authentication service, which generates the JWT token, includes the relevant session variables in the token's payload. These session variables can include user-related information like the user's ID, role, or any other custom data.
+
 Example Claims using JWT
 
 ```bash
-'Authorization': 'Token <team_token>'
+'Authorization': '<token>'
+
 ```
 
 ## GraphQL API
