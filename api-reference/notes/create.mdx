@@ -69,15 +69,17 @@ curl --location --request GET 'https://api.stateset.com/api/note/retrieve' \
 ```
 
 ```graphQL GraphQL
-query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
-  notes(limit: $limit, offset: $offset, order_by: {created_date: $order_direction}) {
-        id
-        title
-        body
-        createdDate
-        lastModifiedDate
-    }
-}
+               mutation addNote($note: notes_insert_input!) {
+                insert_notes(objects: [$note]) {
+                  returning {
+                    id
+                    title
+                    body
+                    createdDate
+                    lastModifiedDate
+                }
+              }
+              }
 ```
 
 ```js Node.js
