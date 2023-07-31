@@ -1,0 +1,138 @@
+---
+title: "Create Note"
+api: "GET https://api.stateset.com/api/notes/create"
+description: "This endpoint creates a note."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the id of the note.
+</ParamField>
+
+<ParamField body="title" type="string">
+  This is the title of the note.
+</ParamField>
+
+<ParamField body="body" type="string">
+  This is the body of the note.
+</ParamField>
+
+<ParamField body="created_date" type="string">
+  This is the created date of the note.
+</ParamField>
+
+<ParamField body="last_modified_date" type="string">
+  This is the last modified date of the note.
+</ParamField>
+
+<ParamField body="created_by" type="string">
+  This is the user that created the note.
+</ParamField>
+
+<ParamField body="last_modified_by" type="string">
+  This is the user that last modified the note. 
+</ParamField>
+
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the id of the note
+</ResponseField>
+
+<ResponseField name="title" type="string">
+  This is the title of the note
+</ResponseField>
+
+<ResponseField name="body" type="string">
+  This is the body of the note
+</ResponseField>
+
+<ResponseField name="created_date" type="string">
+  This is the created date of the note
+</ResponseField>
+
+<ResponseField name="last_modified_date" type="string">
+  This is the last modified date of the note
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/api/note/retrieve' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "nt_1NXWPnCo6bFb1KQto6C8OWvE",
+}'
+```
+
+```graphQL GraphQL
+query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
+  notes(limit: $limit, offset: $offset, order_by: {created_date: $order_direction}) {
+        id
+        title
+        body
+        createdDate
+        lastModifiedDate
+    }
+}
+```
+
+```js Node.js
+const notes = await stateset.notes.retrieve({
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+```py Python
+notes = stateset.notes.retrieve({
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+```go Golang 
+notes, err := stateset.notes.Retrieve(
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```ruby Ruby
+notes = Stateset::Notes.retrieve(
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```java Java
+notes notes = Stateset.notes.retrieve(
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```csharp C#
+notes notes = Stateset.notes.Retrieve(
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```php PHP
+$notes = Stateset\notes::retrieve(
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```http HTTP
+GET /api/note HTTP/1.1
+Host: api.stateset.com
+Content-Type: application/json
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+    "notes": [
+        {
+            "id": "nt_1NXWPnCo6bFb1KQto6C8OWvE",
+        },
+    ]
+}   
+```
+
+</ResponseExample>

@@ -1,0 +1,107 @@
+---
+title: "Delete Note"
+api: "DELETE https://api.stateset.com/api/note"
+description: "This endpoint deletes an existing note."
+---
+
+### Body
+
+<ParamField body="note_id" type="string">
+  The ID provided in the data tab may be used to identify the note
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the return
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request DELETE 'https://api.stateset.com/api/note' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+		"id": "nt_1NXWPnCo6bFb1KQto6C8OWvE"
+}'
+```
+
+```graphQL GraphQL
+mutation deleteNote($id: String!) {
+    delete_notes(where: {id: {_eq: $id}}) {
+          affected_rows
+        }
+      }
+```
+
+```js Node.js
+const notes = await stateset.notes.del({
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```py Python
+notes = stateset.notes.del({
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```go Go
+notes, err := stateset.notes.Del(
+  "nt_1NXWPnCo6bFb1KQto6C8OWvE"
+)
+```
+
+```java Java
+Note notes = stateset.notes.del(
+  "nt_1NXWPnCo6bFb1KQto6C8OWvE"
+);
+```
+
+```js Javascript
+const notes = await stateset.notes.del({
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```ruby Ruby
+notes = Stateset::Note.del({
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```php PHP
+$notes = $stateset->notes->del(
+  'nt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+
+```http HTTP
+DELETE /api/note HTTP/1.1
+Host: api.stateset.com 
+Content-Type: application/json
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "nt_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "note",
+  "deleted": true
+}
+
+```
+
+</ResponseExample>

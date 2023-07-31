@@ -290,6 +290,16 @@
       ]
     },
     {
+      "group": "Notes",
+      "pages": [
+        "api-reference/notes/list",
+        "api-reference/notes/get",
+        "api-reference/notes/create",
+        "api-reference/notes/update",
+        "api-reference/notes/delete"
+      ]
+    },
+    {
       "group": "Users",
       "pages": [
         "api-reference/users/list",
