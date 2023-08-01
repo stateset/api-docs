@@ -1,0 +1,110 @@
+---
+title: "Convert Lead"
+api: "POST https://api.stateset.com/v1/leads/:id/convert"
+description: "This endpoint converts an existing lead."
+---
+
+### Body
+
+<ParamField body="lead_id" type="string">
+  The ID provided in the data tab may be used to identify the lead
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the lead
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. true if successful, false if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request POST 'https://api.stateset.com/v1/leads/:id/convert' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+}'
+```
+
+```graphQL GraphQL
+      mutation leadConvertMutation {
+        leadConvert (id: "${leadId}") {
+          leads {
+            id,
+            status
+          }
+          userErrors {
+            field
+            message
+          }
+        }
+      }
+    `;
+```
+    
+
+```js Node.js
+const leads = await stateset.leads.convert({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+```python Python
+leads = stateset.leads.convert({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+```
+
+```ruby Ruby
+leads = Stateset::Lead.convert({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+```
+
+```go Go
+leads, err := stateset.leads.convert({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+```
+
+```java Java
+Lead leads = stateset.leads.convert({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+```php PHP
+$leads = $stateset->leads->convert({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+```csharp C#
+var leads = await stateset.leads.convert({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+  "object": "lead",
+  "converted": true
+}
+```
+
+</ResponseExample>

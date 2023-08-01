@@ -1,0 +1,203 @@
+---
+title: "Retrieve Lead"
+api: "GET https://api.stateset.com/v1/leads/:id/retrieve"
+description: "This endpoint retrieves a lead"
+---
+
+### Body
+
+<ParamField body="id" name="user_group_id" type="text" required="true">
+  The ID of the user group to which the lead belongs.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="text">
+  The ID of the lead.
+</ResponseField>
+
+<ResponseField name="assistant" type="text">
+  Name or details of the assistant associated with the lead.
+</ResponseField>
+
+<ResponseField name="assistant_phone" type="text">
+  Phone number of the assistant.
+</ResponseField>
+
+<ResponseField name="avatar" type="text">
+  URL or path to the lead's avatar image.
+</ResponseField>
+
+<ResponseField name="birthdate" type="text">
+  Date of birth of the lead.
+</ResponseField>
+
+<ResponseField name="controller" type="text">
+  Name or details of the controller associated with the lead.
+</ResponseField>
+
+<ResponseField name="created_at" type="datetime">
+  Date and time when the lead was created.
+</ResponseField>
+
+<ResponseField name="created_by" type="text">
+  Name or details of the person who created the lead.
+</ResponseField>
+
+<ResponseField name="department" type="text">
+  Department or division associated with the lead.
+</ResponseField>
+
+<ResponseField name="description" type="text">
+  Description or additional details about the lead.
+</ResponseField>
+
+<ResponseField name="do_not_call" type="boolean">
+  Indicates whether the lead should not be called.
+</ResponseField>
+
+<ResponseField name="email" type="text">
+  Email address of the lead.
+</ResponseField>
+
+<ResponseField name="email_opt_out" type="boolean">
+  Indicates whether the lead has opted out of email communication.
+</ResponseField>
+
+<ResponseField name="fax" type="text">
+  Fax number of the lead.
+</ResponseField>
+
+<ResponseField name="fax_opt_out" type="boolean">
+  Indicates whether the lead has opted out of fax communication.
+</ResponseField>
+
+<ResponseField name="firstName" type="text">
+  First name of the lead.
+</ResponseField>
+
+<ResponseField name="handle" type="text">
+  Handle or username associated with the lead.
+</ResponseField>
+
+<ResponseField name="invalid_lead" type="boolean">
+  Indicates whether the lead is marked as invalid.
+</ResponseField>
+
+<ResponseField name="languages" type="text">
+  Languages known or spoken by the lead.
+</ResponseField>
+
+<ResponseField name="lastName" type="text">
+  Last name of the lead.
+</ResponseField>
+
+<ResponseField name="last_modified_by" type="text">
+  Last person who modified the lead.
+</ResponseField>
+
+<ResponseField name="leadSource" type="text">
+  Source or origin of the lead/lead.
+</ResponseField>
+
+<ResponseField name="mailingCity" type="text">
+  City of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingCountry" type="text">
+  Country of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingGeocodeAccuracy" type="text">
+  Geocoding accuracy of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingState" type="text">
+  State or province of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingStreet" type="text">
+  Street of the mailing address.
+</ResponseField>
+
+<ResponseField name="owner" type="text">
+  Name or details of the owner of the lead.
+</ResponseField>
+
+<ResponseField name="phone" type="text">
+  Phone number of the lead.
+</ResponseField>
+
+<ResponseField name="photoUrl" type="text">
+  URL or path to the lead's photo.
+</ResponseField>
+
+<ResponseField name="processor" type="text">
+  Name or details of the processor associated with the lead.
+</ResponseField>
+
+<ResponseField name="title" type="text">
+  Title or position of the lead.
+</ResponseField>
+
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/v1/leads/retrieve' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "rt_1NXWPnCo6bFb1KQto6C8OWvE",
+}'
+```
+
+```graphQL GraphQL
+query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
+  leads(limit: $limit, offset: $offset, order_by: {created_date: $order_direction}) {
+
+```
+
+```js Node.js
+const leads = await stateset.leads.retrieve({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+```py Python
+leads = stateset.leads.retrieve({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+```go Golang 
+leads, err := stateset.leads.Retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```ruby Ruby
+leads = Stateset::leads.retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+)
+```
+```java Java
+leads leads = Stateset.leads.retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```csharp C#
+leads leads = Stateset.leads.Retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```php PHP
+$leads = Stateset\leads::retrieve(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+```http HTTP
+GET /v1/return HTTP/1.1
+Host: api.stateset.com
+Content-Type: application/json
+```
+
+</RequestExample>
