@@ -1,6 +1,6 @@
 ---
 title: "Get Manufacture Order"
-api: "GET https://api.stateset.com/v1/manufacture_order"
+api: "GET https://api.stateset.com/v1/manufacture_orders/:id"
 description: "This endpoint gets or creates a new manufacture order."
 ---
 
@@ -119,7 +119,7 @@ description: "This endpoint gets or creates a new manufacture order."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/v1/manufacture_order' \
+curl --location --request GET 'https://api.stateset.com/v1/manufacture_orders/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

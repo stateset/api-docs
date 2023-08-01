@@ -1,6 +1,6 @@
 ---
 title: "Get Packing List Item"
-api: "GET https://api.stateset.com/v1/packing_list_item"
+api: "GET https://api.stateset.com/v1/packing_list_items/:id"
 description: "This endpoint gets or creates a new packing list item."
 ---
 
@@ -40,7 +40,7 @@ description: "This endpoint gets or creates a new packing list item."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/v1/packing_list_item' \
+curl --location --request GET 'https://api.stateset.com/v1/packing_list_items/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

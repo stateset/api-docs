@@ -1,6 +1,6 @@
 ---
 title: "Update User"
-api: "PUT https://api.mintlify.com/v1/user"
+api: "PUT https://api.mintlify.com/v1/users/:id"
 description: "This endpoint updates an existing user."
 ---
 
@@ -158,7 +158,7 @@ description: "This endpoint updates an existing user."
 <RequestExample>
 
 ```bash cURL
-curl --location --request PUT 'https://api.mintlify.com/v1/user' \
+curl --location --request PUT 'https://api.mintlify.com/v1/users/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

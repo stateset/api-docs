@@ -1,6 +1,6 @@
 ---
 title: "Delete Note"
-api: "DELETE https://api.stateset.com/v1/note"
+api: "DELETE https://api.stateset.com/v1/notes/:id"
 description: "This endpoint deletes an existing note."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint deletes an existing note."
 <RequestExample>
 
 ```bash cURL
-curl --location --request DELETE 'https://api.stateset.com/v1/note' \
+curl --location --request DELETE 'https://api.stateset.com/v1/notes/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

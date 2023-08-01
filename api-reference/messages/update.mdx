@@ -1,6 +1,6 @@
 ---
 title: "Update Message"
-api: "POST https://api.stateset.com/v1/message"
+api: "POST https://api.stateset.com/v1/messages/:id"
 description: "This endpoint updates a message"
 ---
 
@@ -82,7 +82,7 @@ description: "This endpoint updates a message"
 <RequestExample>
 
 ```bash cURL
-curl --location --request PUT 'https://api.stateset.com/v1/message' \
+curl --location --request PUT 'https://api.stateset.com/v1/messages/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

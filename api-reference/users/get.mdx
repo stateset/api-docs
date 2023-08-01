@@ -1,6 +1,6 @@
 ---
 title: "Get User"
-api: "GET https://api.mintlify.com/v1/user"
+api: "GET https://api.mintlify.com/v1/users/:id"
 description: "This endpoint gets or creates a new user."
 ---
 
@@ -87,7 +87,7 @@ description: "This endpoint gets or creates a new user."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.mintlify.com/v1/user' \
+curl --location --request GET 'https://api.mintlify.com/v1/users/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

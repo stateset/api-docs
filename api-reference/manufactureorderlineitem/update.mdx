@@ -1,6 +1,6 @@
 ---
 title: "Update Manufacture Order Line Item"
-api: "PUT https://api.stateset.com/v1/manufacture_order_line_item"
+api: "PUT https://api.stateset.com/v1/manufacture_order_line_items/:id"
 description: "This endpoint updates an existing manufacture order line item."
 ---
 
@@ -132,7 +132,7 @@ description: "This endpoint updates an existing manufacture order line item."
 <RequestExample>
 
 ```bash cURL
-curl --location --request PUT 'https://api.stateset.com/v1/manufacture_order_line_item' \
+curl --location --request PUT 'https://api.stateset.com/v1/manufacture_order_line_items/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

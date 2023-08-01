@@ -1,6 +1,6 @@
 ---
-title: "Get Message"
-api: "GET https://api.stateset.com/v1/message"
+title: "Get Messages"
+api: "GET https://api.stateset.com/v1/messages/:id"
 description: "This endpoint gets a message."
 ---
 
@@ -76,7 +76,7 @@ description: "This endpoint gets a message."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/v1/message' \
+curl --location --request GET 'https://api.stateset.com/v1/messages/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

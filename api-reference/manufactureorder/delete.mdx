@@ -1,6 +1,6 @@
 ---
 title: "Delete Manufacture Order"
-api: "DELETE https://api.stateset.com/v1/manufactureorder"
+api: "DELETE https://api.stateset.com/v1/manufacture_orders/:id"
 description: "This endpoint deletes an existing manufacturer order."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint deletes an existing manufacturer order."
 <RequestExample>
 
 ```bash cURL
-curl --location --request DELETE 'https://api.stateset.com/v1/manufactureorder' \
+curl --location --request DELETE 'https://api.stateset.com/v1/manufacture_orders/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

@@ -1,6 +1,6 @@
 ---
 title: "Update Packing List"
-api: "PUT https://api.stateset.com/v1/packing_list"
+api: "PUT https://api.stateset.com/v1/packing_lists/:id"
 description: "This endpoint updates an existing packing_list."
 ---
 
@@ -75,7 +75,7 @@ description: "This endpoint updates an existing packing_list."
 <RequestExample>
 
 ```bash cURL
-curl --location --request PUT 'https://api.stateset.com/v1/packing_list' \
+curl --location --request PUT 'https://api.stateset.com/v1/packing_list/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

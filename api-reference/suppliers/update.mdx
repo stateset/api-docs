@@ -1,6 +1,6 @@
 ---
 title: "Update Supplier"
-api: "PUT https://api.stateset.com/v1/supplier"
+api: "PUT https://api.stateset.com/v1/suppliers/:id"
 description: "This endpoint updates an existing supplier."
 ---
 
@@ -71,7 +71,7 @@ The contents of the user group
 <RequestExample>
 
 ```bash cURL
-curl --location --request PUT 'https://api.stateset.com/v1/supplier' \
+curl --location --request PUT 'https://api.stateset.com/v1/suppliers/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

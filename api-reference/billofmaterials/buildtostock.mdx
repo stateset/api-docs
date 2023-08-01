@@ -1,6 +1,6 @@
 ---
 title: "Build to Stock"
-api: "POST https://api.stateset.com/v1/billofmaterials/:id/buildtostock"
+api: "POST https://api.stateset.com/v1/bill_of_materials/:id/buildtostock"
 description: "This endpoint updates the status of a bill of materials to build to stock."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint updates the status of a bill of materials to build t
 <RequestExample>
 
 ```bash cURL
-curl --location --request PUT 'https://api.stateset.com/v1/billofmaterials/:id/buildtostock' \
+curl --location --request PUT 'https://api.stateset.com/v1/bill_of_materials/:id/buildtostock' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

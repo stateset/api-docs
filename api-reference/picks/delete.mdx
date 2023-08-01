@@ -1,6 +1,6 @@
 ---
 title: "Delete Pick"
-api: "DELETE https://api.stateset.com/v1/pick"
+api: "DELETE https://api.stateset.com/v1/picks/:id"
 description: "This endpoint deletes an existing pick."
 ---
 
@@ -29,7 +29,7 @@ description: "This endpoint deletes an existing pick."
 <RequestExample>
 
 ```bash cURL
-curl --location --request DELETE 'https://api.stateset.com/v1/pick' \
+curl --location --request DELETE 'https://api.stateset.com/v1/picks/:id' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
