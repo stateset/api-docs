@@ -1,0 +1,135 @@
+---
+title: "Get Cycle Count"
+api: "GET https://api.stateset.com/v1/cycle_counts"
+description: "This endpoint creates a new cycle count"
+---
+
+### Body
+
+<ParamField body="limit" required="true" type="string">
+  This is the limit of the picks.
+</ParamField>
+
+<ParamField body="offset" required="true"  type="string">
+  This is the offset of the picks.
+</ParamField>
+
+<ParamField body="order_direction" required="true" type="string">
+  This is the order direction of the picks.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="cycle_count_number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="part" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="standard_tracking" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="serialized_tracking" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="quantity_expected" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="quantity_counted" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="variance_quantity" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="variance_cost" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="explanation" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="site" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="location" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="bin" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="lot" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="scheduled_start_date" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="scheduled_end_date" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="completed_date" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="assigned_user" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="method" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/v1/cycle_counts' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": ""
+}'
+```
+
+```javascript Node.js
+
+var created = await stateset.cyclecounts.list({
+  id: ''
+});
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+
+
+```
+
+</ResponseExample>

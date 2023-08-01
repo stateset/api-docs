@@ -1,0 +1,111 @@
+---
+title: "Delete Cycle Count"
+api: "DELETE https://api.stateset.com/v1/cycle_counts/:id"
+description: "This endpoint deletes an existing cycle count."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  The id of the cycle count to delete.
+</ParamField>
+
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the return
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request DELETE 'https://api.stateset.com/v1/cycle_counts/:id' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+		"id": "pl_ODkRWQtx9NVsRX"
+}'
+```
+
+```javascript Node.js
+
+const deleted = await stateset.cyclecounts.del(
+  'cc_ODkRWQtx9NVsRX'
+);
+
+```
+
+```graphQL GraphQL
+
+               mutation deleteCycleCounts ($pick_id: String!) {
+                delete_cycle_counts(where: {id: {_eq: $cycle_count_id}}) {
+                  affected_rows
+                }
+              }
+```
+
+```python Python
+
+deleted = stateset.cyclecounts.del(
+  'pl_ODkRWQtx9NVsRX'
+)
+
+```
+
+```ruby Ruby
+
+deleted = Stateset::cyclecounts.del(
+  'pl_ODkRWQtx9NVsRX'
+)
+
+```
+
+```php PHP
+
+$deleted = $stateset->cyclecounts->del(
+  'pl_ODkRWQtx9NVsRX'
+);
+
+```
+
+```go Go
+
+deleted, err := stateset.cyclecounts.Del(
+  'pl_ODkRWQtx9NVsRX'
+)
+
+```
+
+```java Java
+
+cyclecounts deleted = stateset.cyclecounts.del(
+  'pl_ODkRWQtx9NVsRX'
+);
+
+```
+
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "pi_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "cyclecounts",
+  "deleted": true
+}
+
+```
+
+</ResponseExample>

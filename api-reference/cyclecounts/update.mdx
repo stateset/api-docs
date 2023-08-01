@@ -1,0 +1,207 @@
+---
+title: "Update Cycle Count"
+api: "POST https://api.stateset.com/v1/cycle_counts"
+description: "This endpoint creates a new cycle count"
+---
+
+### Body
+
+<ParamField body="id" required="false">
+  The id of the cycle count to be created. If not provided, a new id will be generated.
+</ParamField>
+
+<ParamField body="cycle_count_number" required="false">
+  The number of the cycle count to be created. If not provided, a new number will be generated.
+</ParamField>
+
+<ParamField body="status" required="false">
+  The status of the cycle count to be created. If not provided, the status will be set to "open".
+</ParamField>
+
+<ParamField body="part" required="false">
+  The part associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="standard_tracking" required="false">
+  The standard tracking information associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="serialized_tracking" required="false">
+  The serialized tracking information associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="quantity_expected" required="false">
+  The expected quantity of the part associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="quantity_counted" required="false">
+  The actual quantity of the part counted during the cycle count to be created.
+</ParamField>
+
+<ParamField body="variance_quantity" required="false">
+  The difference between the expected and actual quantity of the part.
+</ParamField>
+
+<ParamField body="variance_cost" required="false">
+  The difference in cost between the expected and actual quantity of the part.
+</ParamField>
+
+<ParamField body="explanation" required="false">
+  An explanation for any variances in the cycle count to be created.
+</ParamField>
+
+<ParamField body="site" required="false">
+  The site associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="location" required="false">
+  The location associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="bin" required="false">
+  The bin associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="lot" required="false">
+  The lot associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="scheduled_start_date" required="false">
+  The start date associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="scheduled_end_date" required="false">
+  The end date associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="completed_date" required="false">
+  The completion date associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="assigned_user" required="false">
+  The user assigned to the cycle count to be created.
+</ParamField>
+
+<ParamField body="method" required="false">
+  The method used to count the part associated with the cycle count to be created.
+</ParamField>
+
+<ParamField body="status" required="false">
+  The status of the cycle count to be created.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="cycle_count_number" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="part" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="standard_tracking" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="serialized_tracking" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="quantity_expected" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="quantity_counted" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="variance_quantity" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="variance_cost" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="explanation" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="site" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="location" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="bin" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="lot" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="scheduled_start_date" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="scheduled_end_date" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="completed_date" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="assigned_user" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="method" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  This is the unique identifier for the pick
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request POST 'https://api.stateset.com/v1/cycle_counts' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "current_token": ""
+}'
+```
+
+```javascript Node.js
+
+var created = await stateset.cyclecounts.create({
+  id: ''
+});
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+
+
+```
+
+</ResponseExample>

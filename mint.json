@@ -219,6 +219,16 @@
       ]
     },
     {
+      "group": "Cycle Counts",
+      "pages": [
+        "api-reference/cyclecounts/list",
+        "api-reference/cyclecounts/get",
+        "api-reference/cyclecounts/create",
+        "api-reference/cyclecounts/update",
+        "api-reference/cyclecounts/delete"
+      ]
+    },
+    {
       "group": "Manufacture Orders",
       "pages": [
         "api-reference/manufactureorder/list",
