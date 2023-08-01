@@ -1,6 +1,6 @@
 ---
 title: "Create Bill of Materials Line Item"
-api: "POST https://api.stateset.com/api/bill_of_materials_line_item"
+api: "POST https://api.stateset.com/v1/bill_of_materials_line_item"
 description: "This endpoint creates a new bill of materials line item."
 ---
 
@@ -67,7 +67,7 @@ description: "This endpoint creates a new bill of materials line item."
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.stateset.com/api/bill_of_materials_line_item' \
+curl --location --request POST 'https://api.stateset.com/v1/bill_of_materials_line_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

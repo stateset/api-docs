@@ -1,6 +1,6 @@
 ---
 title: "Get Bill Of Materials"
-api: "GET https://api.stateset.com/api/bill_of_materials"
+api: "GET https://api.stateset.com/v1/bill_of_materials"
 description: "This endpoint gets or creates a new bill of materials."
 ---
 
@@ -89,7 +89,7 @@ description: "This endpoint gets or creates a new bill of materials."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/bill_of_materials' \
+curl --location --request GET 'https://api.stateset.com/v1/bill_of_materials' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

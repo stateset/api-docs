@@ -1,6 +1,6 @@
 ---
 title: "Delete Return"
-api: "DELETE https://api.return.com/api/return"
+api: "DELETE https://api.return.com/v1/return"
 description: "This endpoint deletes an existing return."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint deletes an existing return."
 <RequestExample>
 
 ```bash cURL
-curl --location --request DELETE 'https://api.stateset.com/api/return' \
+curl --location --request DELETE 'https://api.stateset.com/v1/return' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -86,7 +86,7 @@ $returns = $stateset->returns->del(
 ```
 
 ```http HTTP
-DELETE /api/return HTTP/1.1
+DELETE /v1/return HTTP/1.1
 Host: api.stateset.com 
 Content-Type: application/json
 ```

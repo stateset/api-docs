@@ -1,6 +1,6 @@
 ---
 title: "Get Cases"
-api: "GET https://api.stateset.com/api/cases"
+api: "GET https://api.stateset.com/v1/cases"
 description: "This endpoint gets a case."
 ---
 
@@ -56,7 +56,7 @@ description: "This endpoint gets a case."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/case' \
+curl --location --request GET 'https://api.stateset.com/v1/case' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -119,7 +119,7 @@ $cases= Stateset\Cases::retrieve(
 );
 ```
 ```http HTTP
-GET /api/cases HTTP/1.1
+GET /v1/cases HTTP/1.1
 Host: api.stateset.com
 Content-Type: application/json
 ```

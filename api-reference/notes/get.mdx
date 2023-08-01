@@ -1,6 +1,6 @@
 ---
 title: "Retrieve Note"
-api: "GET https://api.stateset.com/api/notes/retrieve"
+api: "GET https://api.stateset.com/v1/notes/retrieve"
 description: "This endpoint retrieves a note."
 ---
 
@@ -35,7 +35,7 @@ description: "This endpoint retrieves a note."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/note/retrieve' \
+curl --location --request GET 'https://api.stateset.com/v1/note/retrieve' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -91,7 +91,7 @@ $notes = Stateset\notes::retrieve(
 );
 ```
 ```http HTTP
-GET /api/note HTTP/1.1
+GET /v1/note HTTP/1.1
 Host: api.stateset.com
 Content-Type: application/json
 ```

@@ -1,6 +1,6 @@
 ---
 title: "Delete Return Line Item"
-api: "DELETE https://api.return.com/api/return_line_item"
+api: "DELETE https://api.return.com/v1/return_line_item"
 description: "This endpoint deletes an existing return line item."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint deletes an existing return line item."
 <RequestExample>
 
 ```bash cURL
-curl --location --request DELETE 'https://api.return.com/api/return_line_item' \
+curl --location --request DELETE 'https://api.return.com/v1/return_line_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

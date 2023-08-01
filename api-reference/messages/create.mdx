@@ -1,6 +1,6 @@
 ---
 title: "Create Message"
-api: "POST https://api.stateset.com/api/message"
+api: "POST https://api.stateset.com/v1/message"
 description: "This endpoint creates a new message"
 ---
 
@@ -142,7 +142,7 @@ npm i -g stateset
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.stateset.com/api/message' \
+curl --location --request POST 'https://api.stateset.com/v1/message' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

@@ -1,6 +1,6 @@
 ---
 title: "Delete Channel Thread"
-api: "DELETE https://api.stateset.com/api/channel_thread"
+api: "DELETE https://api.stateset.com/v1/channel_thread"
 description: "This endpoint deletes an existing thread."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint deletes an existing thread."
 <RequestExample>
 
 ```bash cURL
-curl --location --request DELETE 'https://api.stateset.com/api/channel_thread' \
+curl --location --request DELETE 'https://api.stateset.com/v1/channel_thread' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -86,7 +86,7 @@ $channelthead = $stateset->channelthead->del(
 ```
 
 ```http HTTP
-DELETE /api/channelthread HTTP/1.1
+DELETE /v1/channelthread HTTP/1.1
 Host: api.stateset.com 
 Content-Type: application/json
 ```

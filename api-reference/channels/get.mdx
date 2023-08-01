@@ -1,6 +1,6 @@
 ---
 title: "Get Channel Threads"
-api: "GET https://api.stateset.com/api/channel_threads"
+api: "GET https://api.stateset.com/v1/channel_threads"
 description: "This endpoint gets a channel threads."
 ---
 
@@ -32,7 +32,7 @@ description: "This endpoint gets a channel threads."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/channelthread' \
+curl --location --request GET 'https://api.stateset.com/v1/channelthread' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -108,7 +108,7 @@ $channel_threads = Stateset\ChannelThreads::retrieve(
 );
 ```
 ```http HTTP
-GET /api/channel_threads HTTP/1.1
+GET /v1/channel_threads HTTP/1.1
 Host: api.stateset.com
 Content-Type: application/json
 ```

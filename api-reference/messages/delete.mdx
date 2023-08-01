@@ -1,6 +1,6 @@
 ---
 title: "Delete Message"
-api: "DELETE https://api.stateset.com/api/message"
+api: "DELETE https://api.stateset.com/v1/message"
 description: "This endpoint deletes an existing message."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint deletes an existing message."
 <RequestExample>
 
 ```bash cURL
-curl --location --request DELETE 'https://api.stateset.com/api/message' \
+curl --location --request DELETE 'https://api.stateset.com/v1/message' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -86,7 +86,7 @@ $message = $stateset->message->del(
 ```
 
 ```http HTTP
-DELETE /api/channelthread HTTP/1.1
+DELETE /v1/channelthread HTTP/1.1
 Host: api.stateset.com 
 Content-Type: application/json
 ```

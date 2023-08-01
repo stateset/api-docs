@@ -1,6 +1,6 @@
 ---
 title: "Delete Warranty"
-api: "DELETE https://api.stateset.com/api/warranty"
+api: "DELETE https://api.stateset.com/v1/warranty"
 description: "This endpoint deletes an existing warranty."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint deletes an existing warranty."
 <RequestExample>
 
 ```bash cURL
-curl --location --request DELETE 'https://api.stateset.com/api/warranty' \
+curl --location --request DELETE 'https://api.stateset.com/v1/warranty' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

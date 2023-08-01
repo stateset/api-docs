@@ -1,6 +1,6 @@
 ---
 title: "Create Inventory"
-api: "POST https://api.stateset.com/api/inventory_item"
+api: "POST https://api.stateset.com/v1/inventory_item"
 description: "This endpoint creates a new inventory item"
 ---
 
@@ -125,7 +125,7 @@ description: "This endpoint creates a new inventory item"
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.stateset.com/api/inventory_items' \
+curl --location --request POST 'https://api.stateset.com/v1/inventory_items' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

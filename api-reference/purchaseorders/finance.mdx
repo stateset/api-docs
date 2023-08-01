@@ -1,6 +1,6 @@
 ---
 title: "Finance Purchase Order"
-api: "POST https://api.stateset.com/api/purchaseorder/:id/finance"
+api: "POST https://api.stateset.com/v1/purchaseorder/:id/finance"
 description: "This endpoint finances an existing purchase order."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint finances an existing purchase order."
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.stateset.com/api/purchase_order/:id/finance' \
+curl --location --request POST 'https://api.stateset.com/v1/purchase_order/:id/finance' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -86,7 +86,7 @@ $purchaseorders = $stateset->purchaseorders->finance(
 ```
 
 ```http HTTP
-POST /api/purchaseorder/:id/finance HTTP/1.1
+POST /v1/purchaseorder/:id/finance HTTP/1.1
 Host: api.stateset.com 
 Content-Type: application/json
 ```

@@ -1,6 +1,6 @@
 ---
 title: "Refund Return"
-api: "POST https://api.stateset.com/api/return/:id/refund"
+api: "POST https://api.stateset.com/v1/return/:id/refund"
 description: "This endpoint refunds an existing return."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint refunds an existing return."
 <RequestExample>
 
 ```bash cURL
-curl --location --request PUT 'https://api.stateset.com/api/return/:id/refund' \
+curl --location --request PUT 'https://api.stateset.com/v1/return/:id/refund' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

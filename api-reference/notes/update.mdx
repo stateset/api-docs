@@ -1,6 +1,6 @@
 ---
 title: "Update Note"
-api: "POST https://api.stateset.com/api/notes/update"
+api: "POST https://api.stateset.com/v1/notes/update"
 description: "This endpoint updates a note."
 ---
 
@@ -59,7 +59,7 @@ description: "This endpoint updates a note."
 <RequestExample>
 
 ```bash cURL
-curl --location --request PUT 'https://api.stateset.com/api/note' \
+curl --location --request PUT 'https://api.stateset.com/v1/note' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -120,7 +120,7 @@ $notes = Stateset\notes::update(
 );
 ```
 ```http HTTP
-GET /api/note HTTP/1.1
+GET /v1/note HTTP/1.1
 Host: api.stateset.com
 Content-Type: application/json
 ```

@@ -1,6 +1,6 @@
 ---
 title: "List Accounts"
-api: "GET https://api.stateset.com/api/accounts/list"
+api: "GET https://api.stateset.com/v1/accounts/list"
 description: "This endpoint gets or creates a new account."
 ---
 
@@ -209,7 +209,7 @@ description: "This endpoint gets or creates a new account."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/accounts' \
+curl --location --request GET 'https://api.stateset.com/v1/accounts' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

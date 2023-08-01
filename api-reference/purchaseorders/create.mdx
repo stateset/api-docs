@@ -1,6 +1,6 @@
 ---
 title: "Create Purchase Order"
-api: "POST https://api.stateset.com/api/purchaseorder"
+api: "POST https://api.stateset.com/v1/purchaseorder"
 description: "This endpoint creates a new purchase order"
 ---
 
@@ -155,7 +155,7 @@ description: "This endpoint creates a new purchase order"
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.stateset.com/api/purchaseorder' \
+curl --location --request POST 'https://api.stateset.com/v1/purchaseorder' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

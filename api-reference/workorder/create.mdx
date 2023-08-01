@@ -1,6 +1,6 @@
 ---
 title: "Create Work Order"
-api: "POST https://api.stateset.com/api/work_order"
+api: "POST https://api.stateset.com/v1/work_order"
 description: "This endpoint creates a new work order"
 ---
 
@@ -116,7 +116,7 @@ The contents of the user group
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.stateset.com/api/work_order' \
+curl --location --request POST 'https://api.stateset.com/v1/work_order' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

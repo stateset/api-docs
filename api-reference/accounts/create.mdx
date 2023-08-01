@@ -1,6 +1,6 @@
 ---
 title: "Create Account"
-api: "POST https://api.stateset.com/api/account"
+api: "POST https://api.stateset.com/v1/account"
 description: "This endpoint creates a new account"
 ---
 
@@ -284,7 +284,7 @@ description: "This endpoint creates a new account"
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.stateset.com/api/account' \
+curl --location --request POST 'https://api.stateset.com/v1/account' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

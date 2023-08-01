@@ -1,6 +1,6 @@
 ---
 title: "Delete Case"
-api: "DELETE https://api.stateset.com/api/case"
+api: "DELETE https://api.stateset.com/v1/case"
 description: "This endpoint deletes an existing case."
 ---
 
@@ -27,7 +27,7 @@ description: "This endpoint deletes an existing case."
 <RequestExample>
 
 ```bash cURL
-curl --location --request DELETE 'https://api.stateset.com/api/case' \
+curl --location --request DELETE 'https://api.stateset.com/v1/case' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -86,7 +86,7 @@ $cases = $stateset->cases->del(
 ```
 
 ```http HTTP
-DELETE /api/case HTTP/1.1
+DELETE /v1/case HTTP/1.1
 Host: api.stateset.com 
 Content-Type: application/json
 ```

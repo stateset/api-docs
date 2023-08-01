@@ -1,6 +1,6 @@
 ---
 title: "List Purchase Orders"
-api: "GET https://api.stateset.com/api/purchase_order/list"
+api: "GET https://api.stateset.com/v1/purchase_order/list"
 description: "This lists purchase orders."
 ---
 
@@ -95,7 +95,7 @@ description: "This lists purchase orders."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/purchase_order/list' \
+curl --location --request GET 'https://api.stateset.com/v1/purchase_order/list' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -165,7 +165,7 @@ $purchaseorders = Stateset\purchaseorders::List(
 ```
 
 ```http HTTP
-GET /api/purchaseorder HTTP/1.1
+GET /v1/purchaseorder HTTP/1.1
 Host: api.stateset.com
 Content-Type: application/json
 ```

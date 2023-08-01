@@ -1,6 +1,6 @@
 ---
 title: "List Messages"
-api: "GET https://api.stateset.com/api/message"
+api: "GET https://api.stateset.com/v1/message"
 description: "This endpoint lists messages."
 ---
 
@@ -84,7 +84,7 @@ description: "This endpoint lists messages."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/message' \
+curl --location --request GET 'https://api.stateset.com/v1/message' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -153,7 +153,7 @@ $messages = Stateset\Messages::retrieve(
 );
 ```
 ```http HTTP
-GET /api/messages HTTP/1.1
+GET /v1/messages HTTP/1.1
 Host: api.stateset.com
 Content-Type: application/json
 ```

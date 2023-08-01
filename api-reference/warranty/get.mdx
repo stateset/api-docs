@@ -1,6 +1,6 @@
 ---
 title: "Get Warranty"
-api: "GET https://api.stateset.com/api/warranty"
+api: "GET https://api.stateset.com/v1/warranty"
 description: "This endpoint gets or creates a new warranty."
 ---
 
@@ -193,7 +193,7 @@ description: "This endpoint gets or creates a new warranty."
 <RequestExample>
 
 ```bash cURL
-curl --location --request GET 'https://api.stateset.com/api/return' \
+curl --location --request GET 'https://api.stateset.com/v1/return' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
@@ -285,7 +285,7 @@ $warranties = $stateset->warranties->retrieve([
 ```
 
 ```http HTTP
-GET /api/warranty HTTP/1.1
+GET /v1/warranty HTTP/1.1
 Host: api.stateset.com
 Content-Type: application/json
 ```

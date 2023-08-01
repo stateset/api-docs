@@ -1,6 +1,6 @@
 ---
 title: "Create Warranty Line Item"
-api: "POST https://api.stateset.com/api/warranty_line_item"
+api: "POST https://api.stateset.com/v1/warranty_line_item"
 description: "This endpoint creates a new warranty line item."
 ---
 
@@ -88,7 +88,7 @@ description: "This endpoint creates a new warranty line item."
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.stateset.com/api/warranty_line_item' \
+curl --location --request POST 'https://api.stateset.com/v1/warranty_line_item' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
