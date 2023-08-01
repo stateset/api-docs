@@ -1,0 +1,173 @@
+---
+title: "Create Lead"
+api: "POST https://api.stateset.com/v1/leads"
+description: "This endpoint creates a new lead"
+---
+
+### Body
+
+<ParamField body="current_token" type="string">
+  This is the current user group token you have for the user group that you want
+  to rotate.
+</ParamField>
+
+### Response
+
+### Response
+
+<ResponseField name="id" type="text">
+  The ID of the lead.
+</ResponseField>
+
+<ResponseField name="assistant" type="text">
+  Name or details of the assistant associated with the lead.
+</ResponseField>
+
+<ResponseField name="assistant_phone" type="text">
+  Phone number of the assistant.
+</ResponseField>
+
+<ResponseField name="avatar" type="text">
+  URL or path to the lead's avatar image.
+</ResponseField>
+
+<ResponseField name="birthdate" type="text">
+  Date of birth of the lead.
+</ResponseField>
+
+<ResponseField name="controller" type="text">
+  Name or details of the controller associated with the lead.
+</ResponseField>
+
+<ResponseField name="created_at" type="datetime">
+  Date and time when the lead was created.
+</ResponseField>
+
+<ResponseField name="created_by" type="text">
+  Name or details of the person who created the lead.
+</ResponseField>
+
+<ResponseField name="department" type="text">
+  Department or division associated with the lead.
+</ResponseField>
+
+<ResponseField name="description" type="text">
+  Description or additional details about the lead.
+</ResponseField>
+
+<ResponseField name="do_not_call" type="boolean">
+  Indicates whether the lead should not be called.
+</ResponseField>
+
+<ResponseField name="email" type="text">
+  Email address of the lead.
+</ResponseField>
+
+<ResponseField name="email_opt_out" type="boolean">
+  Indicates whether the lead has opted out of email communication.
+</ResponseField>
+
+<ResponseField name="fax" type="text">
+  Fax number of the lead.
+</ResponseField>
+
+<ResponseField name="fax_opt_out" type="boolean">
+  Indicates whether the lead has opted out of fax communication.
+</ResponseField>
+
+<ResponseField name="firstName" type="text">
+  First name of the lead.
+</ResponseField>
+
+<ResponseField name="handle" type="text">
+  Handle or username associated with the lead.
+</ResponseField>
+
+<ResponseField name="invalid_lead" type="boolean">
+  Indicates whether the lead is marked as invalid.
+</ResponseField>
+
+<ResponseField name="languages" type="text">
+  Languages known or spoken by the lead.
+</ResponseField>
+
+<ResponseField name="lastName" type="text">
+  Last name of the lead.
+</ResponseField>
+
+<ResponseField name="last_modified_by" type="text">
+  Last person who modified the lead.
+</ResponseField>
+
+<ResponseField name="leadSource" type="text">
+  Source or origin of the lead/lead.
+</ResponseField>
+
+<ResponseField name="mailingCity" type="text">
+  City of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingCountry" type="text">
+  Country of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingGeocodeAccuracy" type="text">
+  Geocoding accuracy of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingState" type="text">
+  State or province of the mailing address.
+</ResponseField>
+
+<ResponseField name="mailingStreet" type="text">
+  Street of the mailing address.
+</ResponseField>
+
+<ResponseField name="owner" type="text">
+  Name or details of the owner of the lead.
+</ResponseField>
+
+<ResponseField name="phone" type="text">
+  Phone number of the lead.
+</ResponseField>
+
+<ResponseField name="photoUrl" type="text">
+  URL or path to the lead's photo.
+</ResponseField>
+
+<ResponseField name="processor" type="text">
+  Name or details of the processor associated with the lead.
+</ResponseField>
+
+<ResponseField name="title" type="text">
+  Title or position of the lead.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request POST 'https://api.stateset.com/v1/lead' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "current_token": ""
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "success": 1,
+  "user_group": {
+    "team_id": 3,
+    "token": "<user_group_token_to_auth_dashboard>",
+    "name": "Example 1",
+    "provided_id": "example_1"
+  }
+}
+```
+
+</ResponseExample>

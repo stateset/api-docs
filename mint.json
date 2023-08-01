@@ -238,6 +238,20 @@
       ]
     },
     {
+      "group": "Leads",
+      "pages": [
+        "api-reference/leads/list",
+        "api-reference/leads/get",
+        "api-reference/laeds/create",
+        "api-reference/leads/delete",
+        "api-reference/leads/convert",
+        "api-reference/leads/unconvert",
+        "api-reference/leads/engage",
+        "api-reference/leads/accept",
+        "api-reference/leads/reject"
+      ]
+    },
+    {
       "group": "Accounts",
       "pages": [
         "api-reference/accounts/list",
