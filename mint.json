@@ -10,7 +10,7 @@
       "method": "bearer"
     }
   },
-  "favicon": "/stateset.png",
+  "favicon": "stateset.png",
   "colors": {
     "primary": "#2563eb",
     "light": "#6c8eef",
