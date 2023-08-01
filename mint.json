@@ -88,7 +88,6 @@
     {
       "group": "Returns",
       "pages": [
-        "object-reference/returns/object",
         "api-reference/return/list",
         "api-reference/return/get",
         "api-reference/return/create",
