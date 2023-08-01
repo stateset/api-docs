@@ -1,0 +1,110 @@
+---
+title: "Resolve Case"
+api: "POST https://api.stateset.com/v1/cases/:id/resolve"
+description: "This endpoint resolves an existing case."
+---
+
+### Body
+
+<ParamField body="case_id" type="string">
+  The ID provided in the data tab may be used to identify the case
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the case
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. true if successful, false if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request PUT 'https://api.stateset.com/v1/cases/:id/resolve' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30"
+}'
+```
+
+```graphQL GraphQL
+      mutation caseResolveMutation {
+        caseResolve (id: "${caseId}") {
+          case {
+            id,
+            status
+          }
+          userErrors {
+            field
+            message
+          }
+        }
+      }
+    `;
+```
+    
+
+```js Node.js
+const cases = await stateset.cases.resolve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+```python Python
+cases = stateset.cases.resolve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+```
+
+```ruby Ruby
+cases = Stateset::Return.resolve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+```
+
+```go Go
+cases, err := stateset.cases.resolve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+})
+```
+
+```java Java
+Return cases = stateset.cases.resolve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+```php PHP
+$cases = $stateset->cases->resolve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+```csharp C#
+var cases = await stateset.cases.resolve({
+  '0901f083-aa1c-43c5-af5c-0a9d2fc64e30'
+});
+```
+
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "e0901f083-aa1c-43c5-af5c-0a9d2fc64e30",
+  "object": "case",
+  "resolved": true
+}
+```
+
+</ResponseExample>
