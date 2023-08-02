@@ -292,6 +292,45 @@ curl --location --request POST 'https://api.stateset.com/v1/account' \
 }'
 ```
 
+```graphQL graphQL
+
+               mutation (
+                $account: accounts_insert_input!
+              ) {
+                insert_accounts (
+                objects: [$account]
+                ) {
+                  returning {
+                    id{
+                    accountName
+                    accountType
+                    rating
+                    industry
+                    contacts {
+                      id
+                      firstName
+                      lastName
+                      email
+                      phone
+                      controller
+                      processor
+                      account_id
+                    }
+                  }
+                }
+              }
+```
+
+```javascript Node.js
+
+const acccount = await stateset.account.create({
+  accountName: 'Example 1',
+  accountType: 'Example 1',
+  rating: 'Example 1',
+  industry: 'Example 1',
+});
+
+```
 </RequestExample>
 
 <ResponseExample>
