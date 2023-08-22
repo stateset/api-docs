@@ -70,6 +70,12 @@
       ]
     },
     {
+      "group": "Authentication",
+      "pages": [
+      "api-reference/authentication"
+      ]
+    },
+    {
       "group": "Accounts",
       "pages": [
         "stateset-api-reference/accounts/get-account-by-account-name",
