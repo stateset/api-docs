@@ -26,9 +26,9 @@ The Manufacturing & Production module in Stateset includes various objects that 
 npm install stateset-node
 ```
 
-4) Create a new Stateset Client
+4) Create a new Bill of Materials
 
-```jsx
+```jsx javascript   
 
 import { stateset } from 'stateset-node'('API_KEY');
 
@@ -37,6 +37,33 @@ const created = await stateset.billofmaterials.create(
 );
 
 ```
+
+
+5) Create a Work Order
+
+Work Orders serve as instructions for the production team, providing guidance on the specific tasks, operations, and steps needed to manufacture a product. Stateset enables the creation, tracking, and management of work orders, ensuring efficient production execution.
+
+```jsx javascript
+
+import { stateset } from 'stateset-node'('API_KEY');
+
+const created = await stateset.workorder.create(
+        "work_order_and_work_order_line_items": {
+        "id": id,
+        "type": type,
+        "status": status,
+        "priority": priority,
+        "number": number,
+        "site": site,
+        "bill_of_material_number": bill_of_materials_number,
+        "work_order_line_items": {
+          "data": JSON.parse(bill_of_material_line_item_data)
+        }
+    }
+);
+
+```
+
 ### Manufacturing and Production Support
 
 If you have any questions or need help, please contact us at: <a href="mailTo:support@stateset.io">support@stateset.io</a>
