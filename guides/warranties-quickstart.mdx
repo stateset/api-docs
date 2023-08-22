@@ -1,0 +1,116 @@
+---
+title: "Warranties Quickstart"
+description: "Getting started with the Stateset Warranty API"
+---
+
+Stateset One provides a REST and GraphQL API for Warranty Management.
+
+### Warranty Management Overview
+
+Warranty Management is a process that helps businesses manage their warranties. It involves tracking the status of warranties, processing claims, and providing customer support. Stateset's Warranty Management solution automates the entire warranty process, from generating warranty labels to processing claims. This helps in streamlining the process and reducing the time and effort required to manage warranties. The solution leverages the Temporal workflow orchestration framework to automate the various steps involved in warranty management. This includes generating and emailing warranty labels, creating warranties in Stateset, providing search capabilities for efficient record retrieval, updating customer support platforms with tracking information, and processing instant refunds. By automating the warranty process, Stateset enables businesses to effectively manage and track warranties, thereby enhancing customer experience and improving operational efficiency.
+
+#### Challenges with Warranties Management
+
+Warranty Management is a complex process that involves multiple steps and stakeholders. This makes it difficult for businesses to effectively manage and track warranties. Some of the key challenges include:
+
+#### Stateset's Warranty Management Solution
+
+Stateset's Warranty Management solution automates the entire warranty process, from generating warranty labels to processing claims. This helps in streamlining the process and reducing the time and effort required to manage warranties. The solution leverages the Temporal workflow orchestration framework to automate the various steps involved in warranty management. This includes generating and emailing warranty labels, creating warranties in Stateset, providing search capabilities for efficient record retrieval, updating customer support platforms with tracking information, and processing instant refunds. By automating the warranty process, Stateset enables businesses to effectively manage and track warranties, thereby enhancing customer experience and improving operational efficiency.
+
+### Quickstart Guide
+
+1) Setup your company's Stateset One instance by signing up at <a href="https://stateset.io/signup">stateset.io/signup</a>
+
+2) Create a new API Key in the Stateset Cloud Console <a href="https://cloud.stateset.com/api-keys">cloud.stateset.com/api-keys</a>
+
+3) Install the stateset-node SDK in your project:
+
+```jsx
+npm install stateset-node
+```
+
+4) Create a new Warranty
+
+```jsx
+
+import { stateset } from 'stateset-node'('API_KEY');
+
+const warranty = await stateset.warranties.create({
+  id: 'W-123313',
+  order_id: 'O-12332312',
+  serial_number: 'st123976879tm',
+  'description:' 'Warranty Replacement for different type',
+  'status': 'NEW'
+  'reported_condition': 'A',
+  'tracking_number': '132908231098120921',
+  'zendesk_number': '123313',
+  'action_needed': 'Replacement'
+  'rma': 'W-123312',
+  'country': 'US'
+});
+
+```
+
+5) Approve Warranty
+
+```jsx
+
+import { stateset } from 'stateset-node'('API_KEY');
+
+const warranty = await stateset.warranties.approve(
+ 'W-123313'
+);
+
+```
+
+### Advanced Warranty Automation using Temporal
+
+```jsx javascript
+
+import { condition, proxyActivities } from '@temporalio/workflow';
+import * as wf from '@temporalio/workflow';
+
+const { userReturnedProduct, createZendeskComment, voidInvoice, updateWarranty, updateWorkflowId } = proxyActivities({
+    startToCloseTimeout: '1 minute',
+});
+
+/** A workflow that simply calls an activity */
+export async function warrantyConditionUpdatedWorkflow(body, zendesk_number) {
+
+    let workflow_state = [];
+    var condition = _condition;
+    var replacement_order_created = _replacement_order_created;
+    var ticket_id_int = zendesk_number;
+
+    if ((replacement_order_created == true && condition == "A") || (replacement_order_created == true && condition == "B") || (replacement_order_created == true && condition == "C")) {
+
+        // Void Invoice
+        await voidInvoice(customer_email);
+
+        // Create Zendesk Comment
+        await createZendeskComment(ticket_id_int);
+
+    } else if ((replacement_order_created == true && condition == "F")) {
+
+        // Create Zendesk Comment
+        await createZendeskComment(ticket_id_int);
+    }
+    
+    await userReturnedProduct(customer_email);
+
+    // Update Warranty
+    var warranty_id = await updateWarranty();
+
+    // Update Workflow Id
+    await updateWorkflowId(warranty_id, wf.workflowInfo().workflowId);
+
+
+    return 'updated'
+
+}
+
+```
+
+### Warranties Support
+
+If you have any questions or need help, please contact us at: <a href="mailTo:support@stateset.io">support@stateset.io</a>
