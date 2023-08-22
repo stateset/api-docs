@@ -81,7 +81,8 @@
     {
       "group": "Stateset Network Guides",
       "pages": [
-        "guides/stateset-network"
+        "guides/stateset-network",
+        "guides/stateset-contracts"
       ]
     },
     {
