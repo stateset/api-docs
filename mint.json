@@ -70,6 +70,12 @@
       ]
     },
     {
+      "group": "Guides",
+      "pages": [
+        "guides/returns-quickstart"
+      ]
+    },
+    {
       "group": "Stateset One API Documentation",
       "pages": [
         "api-reference/authentication"
