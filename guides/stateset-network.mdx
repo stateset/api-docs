@@ -34,11 +34,11 @@ latest-8e35a4d3
 
 You need to ensure your gopath configuration is correct. If the following **'make'** step does not work then you might have to add these lines to your .profile or .zshrc in the users home folder:
 
-```sh
+```bash
 nano ~/.profile
 ```
 
-```
+```bash
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export GO111MODULE=on
@@ -47,11 +47,11 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
 Source update .profile
 
-```sh
+```bash
 source .profile
 ```
 
-```sh
+```bash
 git clone https://github.com/stateset/stateset
 cd stateset
 make build && make install
@@ -61,7 +61,7 @@ This will build and install `statesetd` binary into `$GOBIN`.
 
 Note: When building from source, it is important to have your `$GOPATH` set correctly. When in doubt, the following should do:
 
-```sh
+```bash
 mkdir ~/go
 export GOPATH=~/go
 ```
@@ -86,8 +86,8 @@ Below are the instructions to generate & submit your genesis transaction
 
 2. Create a local key pair:
 
-   ```sh
-   > statesetd keys add <key-name>
+   ```bash
+   statesetd keys add <key-name>
    ```
 
 3. Add your account to your local genesis file with a given amount and the key you just created.
@@ -120,7 +120,7 @@ Below are the instructions to generate & submit your genesis transaction
 
 - Copy the generated gentx json file to `<repo_path>/networks/stateset-1/gentx/`
 
-  ```sh
+  ```bash
   > cd testnets
   > cp ~/.stateset/config/gentx/gentx*.json ./stateset-1t/gentx/
   ```
