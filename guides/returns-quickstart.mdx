@@ -67,6 +67,8 @@ Simultaneously, the workflow creates a new return in Stateset, associating it wi
 #### Stateset Workflow using Temporal
 
 Temporal is an open source programming model that can simplify your code, make your applications more reliable, and help you deliver more features faster. The temporal framework allows activities to be defined and workflows to execute them based on the state or specific signals. Temporal provides the workflow management engine to combine the power of serverless API calls with a deterministic scheduler for execution.
+By leveraging the Temporal workflow orchestration framework, Stateset automates the entire Returns Management (RMA) process. This includes generating and emailing return labels, creating returns in Stateset, providing search capabilities for efficient record retrieval, updating customer support platforms with tracking information, and processing instant refunds. This automation streamlines the return process, enhances customer experience, and enables businesses to effectively manage and track returns.
+
 Here is an example of Stateset's Return API using Temporal Worker & Workflow:
 
 ```jsx javascript
@@ -178,7 +180,6 @@ The Returns Management workflow in Stateset incorporates search functionality po
 
 #### Instant Refunds Processing
 For eligible returns, the Returns Management workflow includes instant refund processing. Once the returned item is received and inspected, the workflow automatically initiates the refund process, facilitating timely and efficient reimbursement to the customer. This eliminates delays and enhances customer satisfaction by ensuring prompt resolution of return requests.
-By leveraging the Temporal workflow orchestration framework, Stateset automates the entire Returns Management (RMA) process. This includes generating and emailing return labels, creating returns in Stateset, providing search capabilities for efficient record retrieval, updating customer support platforms with tracking information, and processing instant refunds. This automation streamlines the return process, enhances customer experience, and enables businesses to effectively manage and track returns.
 
 #### Integration with Zendesk or Gorgias
 The workflow integrates with customer support platforms like Zendesk or Gorgias to streamline communication and updates. Upon generating the return label and initiating the return process, the workflow updates the respective ticketing system with tracking information. This ensures that customer support representatives have real-time visibility into the status of returns and can provide accurate updates to customers when needed.
@@ -242,6 +243,156 @@ export default async function (req, res) {
 ```
 
 #### Refunds
+
+Refunds describes the general data about the goods or services being refunded to your customers. For example, you might have multiple line items on an order, each would be a separate Refund Line Item. The Refund is corresponding to the metadata regarding Refunde Items.
+The Refund resource has two major components:
+
+- Transaction records of money returned to the customer
+- The line items included in the refund, along with restocking instructions
+
+Before you create a refund, use the calculate endpoint to generate accurate refund transactions. Specify the line items that are being refunded, their quantity and restock instructions, and whether you're refunding shipping costs. You can then use the response of the calculate endpoint to create the actual refund. When you create a refund using the response from the calculate endpoint, you can set additional options, such as whether to notify the customer of the refund. You can refund less than the calculated amount for either shipping or the line items by setting a custom value for the amount property.
+
+#### Shopify Refund API
+
+```jsx javascript
+
+    try {
+        const suggestedRefund = await getSuggestedRefund(
+            returnId,
+            returnLineItems,
+            shop,
+            accessToken
+        );
+
+        const returnQuery = gql`
+            mutation returnRefundMutation(
+                $returnLineItems: [ReturnRefundLineItemInput!]!, 
+                $refundShipping: RefundShippingInput,
+                $orderTransactions: [ReturnRefundOrderTransactionInput!]
+                ) {
+                returnRefund(
+                    returnRefundInput: {
+                        returnId: "${returnId}",
+                        returnRefundLineItems: $returnLineItems,
+                        refundShipping: $refundShipping,
+                        orderTransactions: $orderTransactions
+                    }
+                )
+                {
+                    refund {
+                    id
+                    }
+                    userErrors {
+                    field
+                    message
+                    }
+                }
+            }`;
+
+        const returnResponseJson: any = await ShopifyClient(
+            shop,
+            accessToken,
+            returnQuery,
+            {
+                returnLineItems,
+                refundShipping: {
+                    fullRefund: true,
+                    shippingRefundAmount: {
+                        amount:
+                            suggestedRefund?.shipping?.maximumRefundableSet
+                                ?.shopMoney?.amount || 0,
+                        currencyCode:
+                            suggestedRefund?.shipping?.maximumRefundableSet
+                                ?.shopMoney?.currencyCode || 'USD'
+                    }
+                },
+                orderTransactions:
+                    suggestedRefund?.suggestedTransactions?.map((item: any) => {
+                        return {
+                            transactionAmount: {
+                                amount: item.amountSet?.shopMoney?.amount || 0,
+                                currencyCode:
+                                    item.amountSet?.shopMoney?.currencyCode ||
+                                    'USD'
+                            },
+                            parentId: item.parentTransaction.id
+                        };
+                    }) || []
+            }
+        );
+
+        console.log(
+            returnResponseJson.returnRefund.userErrors,
+            returnResponseJson.returnRefund
+        );
+
+        if (returnResponseJson.returnRefund.userErrors?.length) {
+            const message =
+                returnResponseJson.returnRefund.userErrors[0].message;
+
+            res.status(500).send(message);
+            return;
+        }
+
+        if (returnResponseJson?.returnRefund?.refund) {
+            await updateReturn(id, {
+                status: 'REFUNDED'
+            });
+
+            return res.status(200).json({
+                ...returnResponseJson.returnRefund.refund,
+                msg: 'Successful Refund Return'
+            });
+        }
+
+        res.status(500).send('There is no refund Transaction');
+    } catch (error: any) {
+        console.log(error);
+        res.status(500).send(error.message);
+    }
+});
+
+```
+
+If a refund includes shipping costs, or if you choose to refund line items for less than their calculated amount, then an order adjustment is created automatically to account for the discrepancy in the store's financial reports.
+
+#### WooCommerce Refunds
+
 The return record in Stateset will include customer information such as the order id which is used to query the total order amount and tax amount.
 These values are used to calculate the total refund amount depending on the restocking fee. A refund can be placed via the Return record which will trigger a refund in WooCommerce and then Stripe. It may take a few days for the refund to appear on the customers debit card. The refund can be verified in Stateset by going to the Stripe returns list view.
-The condition and rationale from the return record can also be sent back to Zendesk from Stateset as a private message for the CSR
+The condition and rationale from the return record can also be sent back to Zendesk from Stateset as a private message for the CSR.
+
+```jsx javascript
+
+// refund for the item being returned
+var refund_line_item = {
+   "id": item_id,
+   "quantity": 1,
+   "refund_total": item_total - restocking_fee,
+   "refund_tax": refund_tax_line_item_items
+ };
+ 
+// Process Refund Automatically
+// Automated Refund Data
+const data = {
+    "api_refund": true,
+    "reason": reason_category,
+    "line_items": refund_line_items
+};
+
+
+// POST Request Options
+var requestOptions = {
+    method: 'POST',
+    headers: {
+            'Content-Type': 'application/json'
+        },
+    body: JSON.stringify(data)
+};
+
+// Process Refund
+await fetch(`https://ecommerce.com/wp-json/wc/v3/orders/${order_id_int}/refunds`, requestOptions)
+        .then(response => response.json())
+        .then(json => {})
+```
+
