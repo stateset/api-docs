@@ -5,18 +5,112 @@ description: "Getting started with the Stateset Returns API"
 
 Stateset One provides a REST and GraphQL API for Returns Management.
 
-#### Returns Mangement
+### Returns Mangement
 
-##### Return Initiation
+#### Return Initiation
 When a customer requests a return, the Returns Management workflow in Stateset is triggered. The workflow captures the necessary information from the customer, such as order details, reason for return, and any supporting documentation.
 
-##### Return Label Generation and Emailing
+#### Return Label Generation and Emailing
 Using the captured information, the workflow generates a return label that includes the shipping address and other relevant details. The label is then emailed to the customer, providing clear instructions on how to return the item.
 
-##### Creation of Return in Stateset
+#### Creation of Return in Stateset
 Simultaneously, the workflow creates a new return in Stateset, associating it with the corresponding order and customer information. This allows for streamlined tracking and management of the return process within the Stateset platform.
 
-##### Search and Lookup Capabilities
+#### Stateset Workflow using Temporal
+
+Temporal is an open source programming model that can simplify your code, make your applications more reliable, and help you deliver more features faster. The temporal framework allows activities to be defined and workflows to execute them based on the state or specific signals. Temporal provides the workflow management engine to combine the power of serverless API calls with a deterministic scheduler for execution.
+Here is an example of Stateset's Return API using Temporal Worker & Workflow:
+
+```jsx javascript
+
+import { Worker } from '@temporalio/worker';
+import { URL } from 'url';
+import * as activities from './activities.js';
+
+async function run() {
+
+  const worker = await Worker.create({
+    workflowsPath: new URL('./workflows/return-ticket-approved.js', import.meta.url).pathname,
+    activities,
+    taskQueue: 'stateset-returns-automation',
+    namespace: 'stateset'
+  });
+
+  await worker.run();
+
+}
+
+run().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+```
+
+```jsx javascript
+import { proxyActivities } from '@temporalio/workflow';
+import * as wf from '@temporalio/workflow';
+
+// Proxy Activities
+const { generateResponse, createZendeskComment, createReturnRecord, generateUSLabel, generateCALabel, updateWorkflowId, updateMatch, cancelSubscription } = proxyActivities({
+    startToCloseTimeout: '1 minute',
+});
+
+/** A workflow that simply calls an activity */
+export async function returnApprovedWorkflow(body, ticket_id_int) {
+    
+    let workflow_state = [];
+    var cancel_subscription = body.cancel_subscription;
+    var condition = body.condition;
+    var match = body.match;
+    var country = body.country;
+
+    // Generate Response
+    await generateResponse(body);
+
+    // Generate Label
+    if (country = "US") {
+
+        await generateUSLabel(ticket_id_int);
+
+    } else {
+
+        await generateCALabel(ticket_id_int);
+    }
+
+    // Create Return
+    var return_id = await createReturnRecord(ticket_id_int);
+
+    // Update Workflow Id
+    await updateWorkflowId(return_id, wf.workflowInfo().workflowId);
+
+    // Cance Subscription
+    if (cancel_subscription) {
+
+        await cancelSubscription(customer_email, ticket_id_int);
+
+    };
+
+    // Sleep
+    await wf.sleep('3 days');
+
+    // If Instant Refund and Conditon = A
+    if (condition == "A" && match == true) {
+
+        const matched_return = await updateMatch(return_id, wf.workflowInfo().workflowId);
+
+        await refundOrder(order_id);
+        
+        await createZendeskComment(ticket_id_int, condition);
+
+        return 'return_and_refund_processed';
+
+    }
+
+}
+```
+
+#### Search and Lookup Capabilities
 The Returns Management workflow in Stateset incorporates search functionality powered by Algolia that enables easy retrieval of return information. Users can search for returns based on various criteria, such as serial number, RMA number, or order ID. This helps in quickly locating specific return records and accessing relevant details.
     
 ```jsx javascript    
@@ -34,17 +128,72 @@ The Returns Management workflow in Stateset incorporates search functionality po
     })
 ``` 
 
-##### Instant Refunds Processing
+#### Instant Refunds Processing
 For eligible returns, the Returns Management workflow includes instant refund processing. Once the returned item is received and inspected, the workflow automatically initiates the refund process, facilitating timely and efficient reimbursement to the customer. This eliminates delays and enhances customer satisfaction by ensuring prompt resolution of return requests.
 By leveraging the Temporal workflow orchestration framework, Stateset automates the entire Returns Management (RMA) process. This includes generating and emailing return labels, creating returns in Stateset, providing search capabilities for efficient record retrieval, updating customer support platforms with tracking information, and processing instant refunds. This automation streamlines the return process, enhances customer experience, and enables businesses to effectively manage and track returns.
-Stateset and Temporal
-Temporal is an open source programming model that can simplify your code, make your applications more reliable, and help you deliver more features faster. The temporal framework allows activities to be defined and workflows to execute them based on the state or specific signals. Temporal provides the workflow management engine to combine the power of serverless API calls with a deterministic scheduler for execution.
-Here is an example of Stateset's Return API using Temporal Worker & Workflow:
 
-##### Integration with Zendesk or Gorgias
+#### Integration with Zendesk or Gorgias
 The workflow integrates with customer support platforms like Zendesk or Gorgias to streamline communication and updates. Upon generating the return label and initiating the return process, the workflow updates the respective ticketing system with tracking information. This ensures that customer support representatives have real-time visibility into the status of returns and can provide accurate updates to customers when needed.
 
-##### Refunds
+#### Aftership Tracking
+
+```jsx javascript
+
+export default async function (req, res) {
+
+  var newReturn = req.body.event.data.new;
+  var timestamp = req.body.created_at;
+  var event_id = newReturn.id;
+  var order_id = newReturn.order_id;
+  var serial_number = newReturn.serial_number;
+  var rma = newReturn.rma;
+  var email = newReturn.customerEmail;
+  var tracking_number = newReturn.tracking_number;
+  var token = process.env.AFTERSHIP_TOKEN
+
+    try {
+
+      // Notification
+      let aftership_tracking_response = await fetch('https://api.aftership.com/v4/trackings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'aftership-api-key': token
+        },
+        body: JSON.stringify({
+          "tracking" : {
+              "tracking_number": tracking_number,
+              "slug": "fedex",
+              "title": rma,
+              "emails": [
+                  "customer@gmail.com"
+              ],
+              "order_id": order_id,
+              "custom_fields": {
+                  "label_created_date": timestamp,
+                  "customer_email": email,
+                  "serial_number": serial_number,
+                  "workflow_event_id": event_id,
+              }
+          }
+      })
+    })
+
+      console.log(aftership_tracking_response);
+
+      return res.status(200).json({ status: "AfterShip Tracking API Event Successfully Executed" });
+
+  } catch (error) {
+    return res.status(500).json({
+      "error_code": "internal_error",
+      "error_message": error.toString ? error.toString() : error
+    })
+  };
+};
+
+```
+
+#### Refunds
 The return record in Stateset will include customer information such as the order id which is used to query the total order amount and tax amount.
 These values are used to calculate the total refund amount depending on the restocking fee. A refund can be placed via the Return record which will trigger a refund in WooCommerce and then Stripe. It may take a few days for the refund to appear on the customers debit card. The refund can be verified in Stateset by going to the Stripe returns list view.
 The condition and rationale from the return record can also be sent back to Zendesk from Stateset as a private message for the CSR
