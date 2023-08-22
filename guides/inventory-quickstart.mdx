@@ -1,0 +1,101 @@
+---
+title: "Inventory Quickstart"
+description: "Getting started with the Stateset Inventory  API"
+---
+
+Stateset One provides a REST and GraphQL API for Inventory Management. The Inventory module in Stateset includes various objects that facilitate inventory management processes. These objects typically encompass:
+
+- Inventory Items
+- Packing Lists
+- Packing List Items
+- Shipments
+- Orders
+
+### Quickstart Guide
+
+1) Setup your company's Stateset One instance by signing up at <a href="https://stateset.io/signup">stateset.io/signup</a>
+
+2) Create a new API Key in the Stateset Cloud Console <a href="https://cloud.stateset.com/api-keys">cloud.stateset.com/api-keys</a>
+
+3) Install the stateset-node SDK in your project:
+
+```jsx
+npm install stateset-node
+```
+
+4) Create a new Inventory Item
+
+```jsx javascript   
+
+import { stateset } from 'stateset-node'('API_KEY');
+
+const created = await stateset.inventoryitem.create(
+  'ii_ODkRWQtx9NVsRX'
+);
+
+```
+
+5) Create a Packing List and Packing List Item
+
+```jsx javascript
+
+import { stateset } from 'stateset-node'('API_KEY');
+
+const created = await stateset.packinglists.create(
+  'pl_ODkRWQtx9NVsRX'
+);
+
+const created = await stateset.packinglistitems.create(
+  'pl_ODkRWQtx9NVsRX',
+  'item_ODkRWQtx9NVsRX'
+);
+
+```
+
+There are three inventory counts by UPC or SKU:
+
+- Incoming - Packing List Item by UPC / SKU
+- Available - Available Inventory Count by UPC / SKU
+- Warehouse Counts - Warehouse Inventory Count by UPC / SKU
+
+6) Track Inventory Counts
+
+```jsx javascript
+
+const dataGetInventoryCount = await stateset.packinglistitems.get({
+  packing_list_item_id
+});
+
+const item = dataGetInventoryCount.packing_list_item_by_pk.item;
+
+const { incoming, available, warehouse } = item;
+
+const new_incoming_quantity = incoming - packing_list_item_quantity;
+const new_available_quantity = available + packing_list_item_quantity;
+const new_warehouse_quantity = warehouse + packing_list_item_quantity;
+
+const inventory_item_data = {
+  incoming: new_incoming_quantity,
+  available: new_available_quantity,
+  warehouse: new_warehouse_quantity
+};
+
+const updatedInventory = await stateset.inventoryitems.update({
+  upc,
+  inventory_item: inventory_item_data
+});
+
+const packing_list_item_data = {
+  arrived: true
+};
+
+const updatedPackingListItem = await stateset.packinglistitems.update({
+  packing_list_item_id,
+  packing_list_item: packing_list_item_data
+});
+
+```
+
+### Inventory Support
+
+If you have any questions or need help, please contact us at: <a href="mailTo:support@stateset.io">support@stateset.io</a>
