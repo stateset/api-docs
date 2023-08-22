@@ -70,12 +70,18 @@
       ]
     },
     {
-      "group": "Guides",
+      "group": "Stateset One Guides",
       "pages": [
         "guides/returns-quickstart",
         "guides/warranties-quickstart",
         "guides/manufacturing-quickstart",
         "guides/inventory-quickstart"
+      ]
+    },
+    {
+      "group": "Stateset Network Guides",
+      "pages": [
+        "guides/stateset-network"
       ]
     },
     {
