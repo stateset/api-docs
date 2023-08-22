@@ -71,7 +71,7 @@ sudo docker run --rm -v "$(pwd)":/code \
 ### Instantiate
 
 ```jsx bash
-statesetd tx wasm inst 1 '{"name":"Dom Coin","symbol":"TOKEN","decimals":6,"initial_balances":[{"address":"stateset1mz337yp22zxje75f5gw2mfupems5cx3p2p2pax","amount":"2800000000"}]}' --label "token" --from dom --chain-id stateset --gas auto --gas-adjustment 1.3 -b block -y
+statesetd tx wasm inst 1 '{"name":"Token","symbol":"TOKEN","decimals":6,"initial_balances":[{"address":"stateset1mz337yp22zxje75f5gw2mfupems5cx3p2p2pax","amount":"2800000000"}]}' --label "token" --from dom --chain-id stateset --gas auto --gas-adjustment 1.3 -b block -y
 ```
 
 ### Query - Query Balances
