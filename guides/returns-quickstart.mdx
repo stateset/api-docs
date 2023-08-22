@@ -252,7 +252,11 @@ The Refund resource has two major components:
 
 Before you create a refund, use the calculate endpoint to generate accurate refund transactions. Specify the line items that are being refunded, their quantity and restock instructions, and whether you're refunding shipping costs. You can then use the response of the calculate endpoint to create the actual refund. When you create a refund using the response from the calculate endpoint, you can set additional options, such as whether to notify the customer of the refund. You can refund less than the calculated amount for either shipping or the line items by setting a custom value for the amount property.
 
-#### Shopify Refund API
+#### Shopify refunds
+
+Stateset Returns Automation integrates with Shopify's native Return APIs. For more information see the Stateset Returns Automation App on the Shopify App Store: https://apps.shopify.com/stateset-returns-automation
+
+Here is an example of how to process a Refund using the Shopify Returns API:
 
 ```jsx javascript
 
