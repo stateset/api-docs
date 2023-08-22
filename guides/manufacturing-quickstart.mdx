@@ -66,6 +66,32 @@ const created = await stateset.workorder.create(
 
 ![Work Order Record](/images/manufacturing/workorder.png)
 
+
+6) Create a Manufacturing Order
+
+Manufacturing Orders are created from Work Orders and are used to track the production of a product. Stateset enables the creation, tracking, and management of manufacturing orders, ensuring efficient production execution.
+
+```jsx javascript
+
+import { stateset } from 'stateset-node'('API_KEY');
+
+const created = await stateset.manufacturingorder.create(
+        "manufacturing_order_and_manufacturing_order_line_items": {
+        "id": id,
+        "type": type,
+        "status": status,
+        "priority": priority,
+        "number": number,
+        "site": site,
+        "work_order_number": work_order_number,
+        "manufacturing_order_line_items": {
+          "data": JSON.parse(work_order_line_item_data)
+        }
+    }
+);
+
+```
+
 ### Manufacturing and Production Support
 
 If you have any questions or need help, please contact us at: <a href="mailTo:support@stateset.io">support@stateset.io</a>
