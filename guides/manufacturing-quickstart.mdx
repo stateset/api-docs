@@ -1,0 +1,42 @@
+---
+title: "Manufacturing Quickstart"
+description: "Getting started with the Stateset Manufacturing and Production API"
+---
+
+Stateset One provides a REST and GraphQL API for Manufacting and Production
+
+The Manufacturing & Production module in Stateset includes various objects that facilitate manufacturing and production processes. These objects typically encompass:
+
+- Bill of Materials (BOM)
+- Work Orders
+- Manufacturing Orders
+- Picks
+- Cycle Counts
+- Inventory
+
+### Quickstart Guide
+
+1) Setup your company's Stateset One instance by signing up at <a href="https://stateset.io/signup">stateset.io/signup</a>
+
+2) Create a new API Key in the Stateset Cloud Console <a href="https://cloud.stateset.com/api-keys">cloud.stateset.com/api-keys</a>
+
+3) Install the stateset-node SDK in your project:
+
+```jsx
+npm install stateset-node
+```
+
+4) Create a new Stateset Client
+
+```jsx
+
+import { stateset } from 'stateset-node'('API_KEY');
+
+const created = await stateset.billofmaterials.create(
+  'bom_ODkRWQtx9NVsRX'
+);
+
+```
+### Manufacturing and Production Support
+
+If you have any questions or need help, please contact us at: <a href="mailTo:support@stateset.io">support@stateset.io</a>

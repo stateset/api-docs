@@ -72,7 +72,8 @@
     {
       "group": "Guides",
       "pages": [
-        "guides/returns-quickstart"
+        "guides/returns-quickstart",
+        "guides/manufacturing-quickstart"
       ]
     },
     {
