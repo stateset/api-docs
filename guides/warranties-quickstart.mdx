@@ -46,12 +46,17 @@ const warranty = await stateset.warranties.create({
   'zendesk_number': '123313',
   'action_needed': 'Replacement'
   'rma': 'W-123312',
-  'country': 'US'
+  'country': 'US',
+   warranty_line_items: [
+    {id: 'WI-232133223'},
+  ],
 });
 
 ```
 
 5) Approve Warranty
+
+Once a Warranty is approved a replacement order will be created in your store.
 
 ```jsx
 
