@@ -5,7 +5,55 @@ description: "Getting started with the Stateset Returns API"
 
 Stateset One provides a REST and GraphQL API for Returns Management.
 
-### Returns Mangement
+
+### Returns Management Overview
+
+Returns are an inevitable part of the eCommerce business. Customers may request returns for a variety of reasons, such as receiving a damaged or defective item, or simply changing their mind about a purchase. Regardless of the reason, it is important for businesses to have a streamlined process in place to manage returns efficiently and effectively. This helps in enhancing customer experience and building brand loyalty.
+
+#### Challenges with Returns Management
+
+Returns management can be a complex and time-consuming process. It involves multiple steps, such as generating return labels, creating returns in the system, and processing refunds. These steps are often manual and require significant time and effort. This can lead to delays in processing returns, resulting in customer dissatisfaction and loss of revenue.
+
+#### Stateset's Returns Management Solution
+
+Stateset's Returns Management solution automates the entire returns process, from generating return labels to processing refunds. This helps in streamlining the process and reducing the time and effort required to manage returns. The solution leverages the Temporal workflow orchestration framework to automate the various steps involved in returns management. This includes generating and emailing return labels, creating returns in Stateset, providing search capabilities for efficient record retrieval, updating customer support platforms with tracking information, and processing instant refunds. By automating the returns process, Stateset enables businesses to effectively manage and track returns, thereby enhancing customer experience and improving operational efficiency.
+
+### Quickstart Guide
+
+1) Setup your company's Stateset One instance by signing up at statset.io/signup
+
+2) Create a new API Key in the Stateset One Admin Panel
+
+3) Install the stateset-node SDK in your project
+
+```jsx
+
+npm install stateset-node
+
+```
+
+4) Create a new Stateset Client
+
+```jsx
+
+import { StatesetClient } from 'stateset-node';
+
+const return = await stateset.returns.create({
+  id: 'R-123313',
+  order_id: 'O-12332312',
+  serial_number: 'st123976879tm',
+  'description:' 'Return for different type',
+  'status': 'NEW'
+  'reported_condition': 'A',
+  'tracking_number': '132908231098120921',
+  'zendesk_number': '123313',
+  'action_needed': 'Replacement'
+  'rma': 'R-123312',
+  'country': 'US'
+});
+
+```
+
 
 #### Return Initiation
 When a customer requests a return, the Returns Management workflow in Stateset is triggered. The workflow captures the necessary information from the customer, such as order details, reason for return, and any supporting documentation.
@@ -13,7 +61,7 @@ When a customer requests a return, the Returns Management workflow in Stateset i
 #### Return Label Generation and Emailing
 Using the captured information, the workflow generates a return label that includes the shipping address and other relevant details. The label is then emailed to the customer, providing clear instructions on how to return the item.
 
-#### Creation of Return in Stateset
+#### Creation of a Return in Stateset
 Simultaneously, the workflow creates a new return in Stateset, associating it with the corresponding order and customer information. This allows for streamlined tracking and management of the return process within the Stateset platform.
 
 #### Stateset Workflow using Temporal
