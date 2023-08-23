@@ -1,0 +1,189 @@
+---
+title: "Stateset Customers Quickstart"
+description: "Getting started with the Stateset Network"
+---
+
+Stateset One provides a REST and GraphQL API for Customer Management. These objects typically encompass:
+
+- Customers
+- Subscription
+- Subscription Items
+
+### Customer Management Overview
+
+The Customer Management API provides a set of endpoints for managing customers. These endpoints allow you to create, update, and delete customers. You can also retrieve information about customers and their subscriptions.
+
+### Customer Management Challenges
+
+Customer Management is a complex process that requires a lot of time and effort. It involves managing customer data, subscriptions, and payments. The process is often manual and error-prone, which can lead to customer dissatisfaction and lost revenue.
+
+### Stateset's Customer Management Solutions
+
+Stateset's Customer Management solutions are designed to help you manage your customers more efficiently. Our solutions include:
+
+- Customer Data Management
+- Subscription Lifecycle Management
+- Recurring Billing Processing
+
+### Quickstart Guide
+
+1) Setup your company's Stateset One instance by signing up at <a href="https://stateset.io/signup">stateset.io/signup</a>
+
+2) Create a new API Key in the Stateset Cloud Console <a href="https://cloud.stateset.com/api-keys">cloud.stateset.com/api-keys</a>
+
+3) Install the stateset-node SDK in your project:
+
+```jsx
+npm install stateset-node
+```
+
+4) Create a new Customer
+
+```jsx javascript
+
+import { stateset } from 'stateset-node'('API_KEY');
+
+const customer = await stateset.customers.create({
+  customer: {
+    email: 'customer@gmail.com'
+    first_name: 'John',
+    last_name: 'Doe',
+    phone: '555-555-5555',
+    stripe_customer_id: null,
+    address: {
+      line1: '123 Main St',
+      city: 'San Francisco',
+      state: 'CA',
+      postal_code: '94111',
+      country: 'US'
+    }
+    }
+});
+
+```
+
+5) Create a new Subscription in Stripe and Update the Stateset Customer Record with the Stripe Customer Id
+
+```jsx javascript
+
+import { stripe } from 'stripe-node'('API_KEY');
+import { stateset } from 'stateset-node'('API_KEY');
+
+const subscription = await stripe.subscriptions.create({
+  subscription: {
+    customer_id: customer.id,
+    plan_id: 'plan_123',
+    payment_method_id: 'pm_123'
+  }
+});
+
+  // If the User doesn't already Exist in Stripe
+  if (!existing_customer) {
+
+      // Create the Stripe Customer
+      var name = '';
+
+      if (customer.firstName != null) {
+        name = customer.firstName;
+      };
+
+      if (customer.lastName != null) {
+        if (name != '') {
+          name = name + ' ' + customer.lastName;
+        } else {
+          name = customer.lastName;
+        }
+      };
+
+      if (name.trim() == '') {
+        name = '-';
+      };
+
+      const stripe_customer = await stripe.customers.create({
+        name: name,
+        email: customer.email,
+        metadata: { "sso": sso_id } // Adding sso to metadata
+      });
+
+
+      // Update Customer
+      const stateset_customer = await stateset.customers.update({
+        sso_id: sso_id,
+        customer: {
+          stripe_customer_id: stripe_customer.id,
+          temporary_subscription_plan: null
+        }
+      });
+  }
+```
+
+### UCP
+
+The Unified Customer Profile (UCP) is a powerful system developed by Stateset that allows Direct-to-Consumer (DTC) brands to manage customer data and integrate it with various systems of record, including Stripe. By leveraging customer records and Stripe customer IDs, Stateset enables seamless integration and synchronization between systems using Remote Data Joins.
+UCP provides functionality to create unique customer profiles, eliminate duplicate profiles, and update customer information. This documentation provides an overview of the key features and capabilities of UCP, along with instructions on how to use it effectively.
+
+1. Customer Profile Management
+UCP enables the creation and management of unique customer profiles across multiple systems of record. By utilizing a single UUID, Stateset ensures that customer data remains consistent and synchronized throughout different platforms.
+
+2. Stripe Integration
+UCP integrates with Stripe, a popular payment processing platform, allowing brands to leverage its capabilities for subscription management. The integration is achieved through Remote Data Joins, enabling seamless data exchange and synchronization between Stateset and Stripe.
+
+3. Duplicate Profile Detection and Elimination
+Stateset's UCP includes built-in functionality to identify and eliminate duplicate customer profiles. This feature ensures data integrity and prevents redundant records within the system.
+
+4. Automated Actions Based on User Existence
+UCP has the ability to check for the existence of users in other systems of record and perform automated actions based on the results. For instance, if a user does not exist in the system, UCP can create the user in Stripe, assign a Stripe Customer ID, and use the Stateset SDK to update the user's information.
+
+### Stateset and Stripe
+
+```jsx graphql
+
+    query getCustomer($sso_id: uuid!) {
+        customers: customers_by_pk(sso_id: $sso_id) {
+          sso_id
+          firstName
+          lastName
+          email
+          stripe_customer_id
+          activationDate
+          delinquency_date
+          stripe_data {
+            id
+            metadata
+            subscriptions {
+              data {
+                id
+                created
+                status
+                currentPeriodStart
+                currentPeriodEnd
+                plan {
+                  id
+                  metadata
+                  nickname
+                  created
+                  interval
+                  intervalCount
+                }
+                items {
+                  data {
+                    id
+                    price {
+                      nickname
+                      unitAmount
+                      recurring {
+                        aggregateUsage
+                        usageType
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+```
+
+UCP empowers DTC brands by providing a unified and streamlined approach to managing customer profiles. Through integration with Stripe and the use of Remote Data Joins, UCP ensures data consistency, eliminates duplicate profiles, and enables efficient customer data management.
+By following the documentation and guidelines provided by Stateset, you can effectively leverage UCP's features.
