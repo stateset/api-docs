@@ -1,9 +1,9 @@
 ---
-title: "Customers Quickstart"
+title: "Subscriptions Quickstart"
 description: "Getting started with the Customers and Subscriptions API"
 ---
 
-Stateset One provides a REST and GraphQL API for Customer Management. These objects typically encompass:
+Stateset One provides a REST and GraphQL API for Subscription Lifecycle Management. These objects typically encompass:
 
 - Customers
 - Subscription
@@ -24,6 +24,7 @@ Stateset's Customer Management solutions are designed to help you manage your cu
 - Customer Data Management
 - Subscription Lifecycle Management
 - Recurring Billing Processing via Stripe
+
 
 ### Quickstart Guide
 
@@ -135,6 +136,8 @@ Stateset's UCP includes built-in functionality to identify and eliminate duplica
 UCP has the ability to check for the existence of users in other systems of record and perform automated actions based on the results. For instance, if a user does not exist in the system, UCP can create the user in Stripe, assign a Stripe Customer ID, and use the Stateset SDK to update the user's information.
 
 ### Stateset and Stripe
+
+Stateset provides a Stripe GraphQL server for remote data joins with hasura. This allows you to query Stripe data directly from your GraphQL API.
 
 ```jsx graphql
 
