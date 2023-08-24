@@ -137,56 +137,84 @@ UCP has the ability to check for the existence of users in other systems of reco
 
 ### Stateset and Stripe
 
-Stateset provides a Stripe GraphQL server for remote data joins with hasura. This allows you to query Stripe data directly from your GraphQL API.
+Stateset provides a Stripe GraphQL server for remote data joins with Hasura. This allows you to query Stripe data directly from your GraphQL API.
 
 ```jsx graphql
 
-    query getCustomer($sso_id: uuid!) {
-        customers: customers_by_pk(sso_id: $sso_id) {
-          sso_id
-          firstName
-          lastName
-          email
-          stripe_customer_id
-          activationDate
-          delinquency_date
-          stripe_data {
+query getCustomer($sso_id: uuid!) {
+  customers: customers_by_pk(sso_id: $sso_id) {
+    sso_id
+    firstName
+    lastName
+    email
+    stripe_customer_id
+    activationDate
+    delinquency_date
+    plan_change_date
+    returns {
+      id
+      action_needed
+      amount
+      condition
+      created_date
+      description
+      issue
+      reason_category
+      refunded_date
+    }
+    warranties {
+      id
+      action_needed
+      amount
+      condition
+      created_date
+      description
+      issue
+      reason_category
+    }
+    stripe_data {
+      id
+      metadata
+      subscriptions {
+        data {
+          id
+          metadata
+          status
+          created
+          cancelAt
+          currentPeriodStart
+          currentPeriodEnd
+          plan {
             id
             metadata
-            subscriptions {
-              data {
+            nickname
+            created
+          }
+          items {
+            data {
+              id
+              metadata
+              price {
                 id
-                created
-                status
-                currentPeriodStart
-                currentPeriodEnd
-                plan {
-                  id
-                  metadata
-                  nickname
-                  created
-                  interval
-                  intervalCount
-                }
-                items {
-                  data {
-                    id
-                    price {
-                      nickname
-                      unitAmount
-                      recurring {
-                        aggregateUsage
-                        usageType
-                      }
-                    }
-                  }
+                nickname
+                unitAmount
+                recurring {
+                  aggregateUsage
+                  usageType
                 }
               }
             }
           }
         }
       }
+    }
+  }
+}
+
 ```
+
+### Unified Customer Profile
 
 UCP empowers DTC brands by providing a unified and streamlined approach to managing customer profiles. Through integration with Stripe and the use of Remote Data Joins, UCP ensures data consistency, eliminates duplicate profiles, and enables efficient customer data management.
 By following the documentation and guidelines provided by Stateset, you can effectively leverage UCP's features.
+
