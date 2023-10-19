@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Stateset API Docs",
   "logo": {
-    "dark": "/logo/StateSetBlue.png",
+    "dark": "/logo/statesetBlue.png",
     "light": "/logo/StateSet.png"
   },
   "api": {
