@@ -35,8 +35,12 @@
   },
   "tabs": [
     {
-      "name": "Stateset One API Reference",
+      "name": "StateSet One API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "StateSet ReSponse API Reference",
+      "url": "response-api-reference"
     }
   ],
   "anchors": [

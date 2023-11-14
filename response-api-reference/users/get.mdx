@@ -1,0 +1,190 @@
+---
+title: "Get User"
+api: "GET https://api.mintlify.com/v1/users/:id"
+description: "This endpoint gets or creates a new user."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the id of the user.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="number">
+  This is the id of the user.
+</ResponseField>
+
+<ResponseField name="active" type="boolean">
+  This is the active of the user.
+</ResponseField>
+
+<ResponseField name="avatar" type="string">
+  This is the avatar of the user.
+</ResponseField>
+
+<ResponseField name="bio" type="string">
+  This is the bio of the user.
+</ResponseField>
+
+<ResponseField name="birthday" type="string">
+  This is the birthday of the user.
+</ResponseField>
+
+<ResponseField name="country" type="string">
+  This is the country of the user.
+</ResponseField>
+
+<ResponseField name="email" type="string">
+  This is the email of the user.
+</ResponseField>
+
+<ResponseField name="firstName" type="string">
+  This is the firstName of the user.
+</ResponseField>
+
+<ResponseField name="lastName" type="string">
+  This is the lastName of the user.
+</ResponseField>
+
+<ResponseField name="last_seen" type="string">
+  This is the last_seen of the user.
+</ResponseField>
+
+<ResponseField name="last_typed" type="string">
+  This is the last_typed of the user.
+</ResponseField>
+
+<ResponseField name="location" type="string">
+  This is the location of the user.
+</ResponseField>
+
+<ResponseField name="organization" type="string">
+  This is the organization of the user.
+</ResponseField>
+
+<ResponseField name="phone" type="string">
+  This is the phone of the user.
+</ResponseField>
+
+<ResponseField name="regions" type="string">
+  This is the regions of the user.
+</ResponseField>
+
+<ResponseField name="title" type="string">
+  This is the title of the user.
+</ResponseField>
+
+<ResponseField name="twitter" type="string">
+  This is the twitter of the user.
+</ResponseField>
+
+<ResponseField name="username" type="string">
+  This is the username of the user.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.mintlify.com/v1/users/:id' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": 1
+}'
+```
+
+```graphQL GraphQL
+
+query {
+  user {
+    id
+    active
+    avatar
+    bio
+    birthday
+    country
+    email
+    firstName
+    lastName
+    last_seen
+    last_typed
+    location
+    organization
+    phone
+    regions
+    title
+    twitter
+    username
+  }
+}
+```
+
+```javascript Node.js
+
+var user = await stateset.users.get({
+  "id"
+})
+
+```
+
+```python Python
+
+user = stateset.users.get(
+ "id"
+)
+
+```
+
+```ruby Ruby
+
+user = Stateset::Users.get(
+  "id"
+)
+
+```
+
+```php PHP
+
+$user = Stateset\Users::get([
+ "id" => "1"
+]);
+
+```
+
+```go Go
+
+user, err := stateset.Users.get(
+  "id"
+)
+
+```
+```
+
+```java Java
+
+User user = stateset.users.get(
+
+  "id"
+);
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": 1,
+  "active": true,
+  "avatar": "",
+  "bio": "This is the bio of the user.",
+  "birthday": "2020-01-01",
+  "country": "US",
+  "email": "someone@there.com",
+}
+```
+
+</ResponseExample>

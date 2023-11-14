@@ -1,0 +1,111 @@
+---
+title: "Delete User"
+api: "DELETE https://api.mintlify.com/v1/users/:id"
+description: "This endpoint deletes an existing user."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  The ID of the user to delete.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the return
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request DELETE 'https://api.stateset.com/v1/users/:id' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+		"id: "1234",
+}'
+```
+
+```graphQL GraphQL
+
+mutation {
+  deleteUser(
+    input: {
+      id: "1234"
+    }
+  ) {
+    success
+  }
+}
+
+```javascript Node.js
+
+var deleted = await stateset.users.del({
+  id: "1234"
+});
+
+```
+
+```python Python
+
+deleted = stateset.users.del({
+  "id": "1234"
+})
+
+```
+
+```ruby Ruby
+
+deleted = Stateset::Users.del({
+  "id": "1234"
+})
+
+```
+
+```php PHP
+
+$deleted = $stateset->users->del([
+  "id" => "1234"
+]);
+
+```
+
+```go Go
+
+deleted, err := stateset.Users.Del(
+  "1234"
+)
+
+```
+
+```java Java
+
+Stateset.Users.del(
+  "1234"
+);
+
+```
+
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "1234",
+  "object": "user",
+  "deleted": true
+}
+```
+
+</ResponseExample>
