@@ -97,6 +97,12 @@
       ]
     },
     {
+      "group": "Stateset ReSponse API Documentation",
+      "pages": [
+        "api-reference/authentication"
+      ]
+    },
+    {
       "group": "Customers",
       "pages": [
         "api-reference/customer/list",
