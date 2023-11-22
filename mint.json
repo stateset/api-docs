@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Stateset API Docs",
+  "name": "StateSet API Docs",
   "logo": {
     "dark": "/logo/statesetblue.png",
     "light": "/logo/StateSet.png"
@@ -26,12 +26,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:support@stateset.io"
+      "url": "mailto:support@stateset.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://app.stateset.io/dashboard"
+    "url": "https://app.stateset.com/dashboard"
   },
   "tabs": [
     {
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "group": "Stateset One Guides",
+      "group": "StateSet One Guides",
       "pages": [
         "guides/returns-quickstart",
         "guides/warranties-quickstart",
@@ -90,20 +90,20 @@
       ]
     },
     {
-      "group": "Stateset Network Guides",
+      "group": "StateSet Network Guides",
       "pages": [
         "guides/stateset-network",
         "guides/stateset-contracts"
       ]
     },
     {
-      "group": "Stateset One API Documentation",
+      "group": "StateSet One API Documentation",
       "pages": [
         "api-reference/authentication"
       ]
     },
     {
-      "group": "Stateset ReSponse API Documentation",
+      "group": "StateSet ReSponse API Documentation",
       "pages": [
         "response-api-reference/authentication"
       ]
