@@ -1,0 +1,60 @@
+---
+title: "Update Channel Thread"
+api: "PUT https://api.stateset.com/v1/channel_thread"
+description: "This endpoint creates a new channel thread"
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the ID of the channel thread to be created.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request PUT 'https://api.stateset.com/v1/channel_thread' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": ""
+}'
+```
+
+```javascript Node.js
+
+const created = await stateset.channel.update({
+  id: "",
+});
+
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+    "data": {
+        "insert_channel_thread": {
+        "returning": [
+            {
+            "id": "",
+            "name": "",
+            "uuid": "",
+            "user_id": ""
+            }
+        ]
+        }
+    }
+
+}
+```
+
+</ResponseExample>
