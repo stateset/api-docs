@@ -1,0 +1,107 @@
+---
+title: "Delete Message"
+api: "DELETE https://api.stateset.com/v1/messages/:id"
+description: "This endpoint deletes an existing message."
+---
+
+### Body
+
+<ParamField body="message_id" type="string">
+  The ID provided in the data tab may be used to identify the message
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the message
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request DELETE 'https://api.stateset.com/v1/messages/:id' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+		"id": "msg_1NXWPnCo6bFb1KQto6C8OWvE"
+}'
+```
+
+```graphQL GraphQL
+mutation deleteMessage ($id: String!) {
+    delete_message(where: {id: {_eq: $id}}) {
+          affected_rows
+        }
+      }
+```
+
+```js Node.js
+const message = await stateset.channelthread.del({
+  'msg_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```py Python
+message = stateset.message.del({
+  'msg_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```go Go
+message, err := stateset.Cases.Del(
+  "msg_1NXWPnCo6bFb1KQto6C8OWvE"
+)
+```
+
+```java Java
+Case message = stateset.message.del(
+  "msg_1NXWPnCo6bFb1KQto6C8OWvE"
+);
+```
+
+```js Javascript
+const message = await stateset.message.del({
+  'msg_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```ruby Ruby
+message = Stateset::Return.del({
+  'msg_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```php PHP
+$message = $stateset->message->del(
+  'msg_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+
+```http HTTP
+DELETE /v1/channelthread HTTP/1.1
+Host: api.stateset.com 
+Content-Type: application/json
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "ct_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "channel_thread",
+  "deleted": true
+}
+
+```
+
+</ResponseExample>
