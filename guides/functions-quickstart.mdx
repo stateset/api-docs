@@ -1,0 +1,106 @@
+---
+title: "Functions Quickstart"
+description: "Getting started with ReSponse AI Functions"
+---
+
+# ReSponse AI Functions
+
+ReSponse AI Functions are a way to extend the functionality of ReSponse AI. They are written in JavaScript and can be used to perform a variety of tasks, such as:
+
+- Sending emails
+- Sending SMS messages
+- Creating a return
+- Creating a refund
+- Changing an Order
+- Pausing a Subscription
+
+## Creating a Function
+
+To create a function, navigate to the Functions section of the ReSponse AI dashboard and click the "Create Function" button.
+
+This will create a new function with a default name and description. You can edit these by clicking on the name or description.
+
+For example an API for Sending and Verifying a Code via Email could be created as follows:
+
+```javascript
+
+        let function_list = [
+            {
+                "type": "function",
+                "function":
+                {
+                    "name": "send-code",
+                    "description": "Sends a code to the user via their email",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "description": "the email to be used to send the code to the user"
+                            },
+                            "code": {
+                                "type": "string",
+                                "description": "the code that needs to be sent to the user"
+                            }
+                        },
+                        "required": ["email", "code"]
+                    },
+                }
+            },
+            {
+                "type": "function",
+                "function":
+                {
+                    "name": "verify-code",
+                    "description": "Verifies a code that was sent to the user via their email",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "description": "the email that was used to send the code to the user"
+                            },
+                            "code": {
+                                "type": "string",
+                                "description": "the code that needs to be verfied by the user"
+                            }
+                        },
+                        "required": ["email", "code"]
+                    },
+                }
+            }
+        ];
+```
+
+## Using a Function
+
+Then the request will be made to the model using the functions as the tools:
+
+```javascript
+
+        // Chat Completion Request Options
+        var chatCompletionRequestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': process.env.OPEN_AI
+            },
+            body: JSON.stringify({
+                model: 'gpt-4-1106-preview',
+                tools: function_list,
+                tool_choice: "auto",
+                messages: chat_history
+            }),
+            redirect: 'follow'
+        };
+
+        var chat_output;
+        var message_body;
+
+        // Create a first ReSponse which does the Completion API
+        const response = await fetch("https://api.openai.com/v1/chat/completions", chatCompletionRequestOptions);
+        const json = await response.json();
+
+```
+
+For more information on how to use the functions, please reach out at response@stateset.com
