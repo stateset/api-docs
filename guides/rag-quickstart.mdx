@@ -12,7 +12,3 @@ RAG can be particularly effective in addressing issues like hallucinations in la
 The architecture of RAG involves several components working together. An application sends a query to an embedding model, which converts the query into a vector representation. This vector is then matched against a vector database via an API to find the most relevant documents or chunks of text. The results are filtered through metadata to ensure relevance and compliance with access controls. The selected content is streamed into the LLM's context window, providing a foundation for it to generate informed responses.
 
 Additionally, RAG incorporates a continuous cycle of ingestion and updating. New documents are crawled, chunked, and their embeddings are added to the vector database, which ensures that the knowledge base is constantly expanding and staying up-to-date with the latest information. This dynamic nature of RAG makes it a robust system for applications requiring access to a vast, evolving pool of data and the ability to provide accurate, context-aware responses.
-
-## RAG Components
-
-RAG is composed of several components that work together to provide a powerful system for generating responses to queries.
