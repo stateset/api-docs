@@ -105,7 +105,12 @@
     {
       "group": "StateSet ReSponse API Documentation",
       "pages": [
-        "response-api-reference/authentication"
+        "response-api-reference/authentication",
+        "response-api-reference/channel-threads",
+        "response-api-reference/messages",
+        "response-api-reference/rules",
+        "response-api-reference/settings",
+        "response-api-reference/users"
       ]
     },
     {
