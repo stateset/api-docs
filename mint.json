@@ -135,6 +135,16 @@
       ]
     },
     {
+      "group": "Users",
+      "pages": [
+        "response-api-reference/users/list",
+        "response-api-reference/users/get",
+        "response-api-reference/users/create",
+        "response-api-reference/users/update",
+        "response-api-reference/users/delete"
+      ]
+    },
+    {
       "group": "Customers",
       "pages": [
         "api-reference/customer/list",
