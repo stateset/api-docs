@@ -1,0 +1,20 @@
+---
+title: "Authentication"
+description: "Authenticating with the Stateset ReSponse API"
+---
+
+Stateset ReSponse provides a REST and GraphQL API.
+
+#### Authentication
+
+It’s important to note that all data in Stateset is private by default. This means that you must authenticate with the Stateset API in order to read or write data. Stateset uses a token-based authentication system. This means that you must include your API token with every request that you make to the API.
+Each token depicts a user who is authenticated to your Stateset platform instance. Tokens can only be generated for signed in users and each token is tied to a particular user.
+
+
+Tokens can also be generated from your Stateset Cloud Account, using tokens that are set for each user and have a variable expiry date.
+
+
+A request is considered “authenticated” when the backend can securely identify which user and which device is making the request. The reasons for making authenticated requests to the backend include:
+
+- Associating the user with the action being performed
+- Ensuring the user has permission to make the request

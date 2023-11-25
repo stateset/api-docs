@@ -105,3 +105,110 @@ Content-Type: application/json
 ```
 
 </ResponseExample>
+---
+title: "Delete Channel Thread"
+api: "DELETE https://api.stateset.com/v1/channel_thread"
+description: "This endpoint deletes an existing thread."
+---
+
+### Body
+
+<ParamField body="case_id" type="string">
+  The ID provided in the data tab may be used to identify the case
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the case
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request DELETE 'https://api.stateset.com/v1/channel_thread' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+		"id": "rt_1NXWPnCo6bFb1KQto6C8OWvE"
+}'
+```
+
+```graphQL GraphQL
+mutation deleteChannelThread ($id: String!) {
+    delete_channel_thread(where: {id: {_eq: $id}}) {
+          affected_rows
+        }
+      }
+```
+
+```js Node.js
+const channelthead = await stateset.channelthread.del({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```py Python
+channelthead = stateset.channelthead.del({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```go Go
+channelthead, err := stateset.ChannelThread.Del(
+  "rt_1NXWPnCo6bFb1KQto6C8OWvE"
+)
+```
+
+```java Java
+Case channelthead = stateset.channelthead.del(
+  "rt_1NXWPnCo6bFb1KQto6C8OWvE"
+);
+```
+
+```js Javascript
+const channelthead = await stateset.channelthead.del({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+});
+```
+
+```ruby Ruby
+channelthead = Stateset::ChannelThread.del({
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+})
+```
+
+```php PHP
+$channelthead = $stateset->channelthead->del(
+  'rt_1NXWPnCo6bFb1KQto6C8OWvE'
+);
+```
+
+```http HTTP
+DELETE /v1/channelthread HTTP/1.1
+Host: api.stateset.com 
+Content-Type: application/json
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "ct_1NXWPnCo6bFb1KQto6C8OWvE",
+  "object": "channel_thread",
+  "deleted": true
+}
+
+```
+
+</ResponseExample>
