@@ -89,7 +89,9 @@
         "guides/response-quickstart",
         "guides/knowledgebase-quickstart",
         "guides/rag-quickstart",
-        "guides/functions-quickstart"
+        "guides/functions-quickstart",
+        "guides/vision-quickstart",
+        "guides/voice-quickstart"
       ]
     },
     {

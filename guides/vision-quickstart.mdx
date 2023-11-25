@@ -1,0 +1,60 @@
+---
+title: "Vision Quickstart"
+description: "Getting started with ReSponse AI Vision API"
+---
+
+# Vision Quickstart
+
+## Introduction
+
+The Response AI Vision API is a powerful tool that allows you to generate text based on image input. It is powered by OpenAI's GPT-4 model and is currently in preview.
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/en/download/) version 12 or higher
+- [Response AI](https://response.cx) account
+- [OpenAI](https://openai.com) account
+
+```jsx
+
+    // Fetching chat history
+    const chatId = req.body.chat_id;
+    
+    console.log(`Chat ID: ${chatId.id}`);
+
+    const context = await client.request(FETCH_CHAT_CONTEXT, { uuid: chatId.id });
+
+    let history = [{ role: 'system', content: 'Initiating Response AI.' }];
+
+    // Processing chat messages
+    context.channel_thread[0].messages.forEach(message => {
+      let role = message.username !== 'ReSponseAI' ? 'user' : 'assistant';
+
+      let content = message.image_url === null ? message.body : [
+        { "type": "text", "text": message.body },
+        { "type": "image_url", "image_url": { "url": message.image_url } }
+      ];
+
+      history.push({ role, content });
+    });
+
+    // Setting up request to OpenAI
+    let options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': process.env.OPEN_AI },
+      body: JSON.stringify({ 
+        model: 'gpt-4-vision-preview', 
+        temperature: 1.2,
+        max_tokens: 300,
+        messages: history 
+      }),
+      redirect: 'follow'
+    };
+
+```
+
+## Response AI Vision API
+
+The Response AI Vision API is a powerful tool that allows you to generate text based on image input. It is powered by OpenAI's GPT-4 model and is currently in preview.
+
+
