@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Stateset API Docs",
+  "name": "StateSet API Docs",
   "logo": {
     "dark": "/logo/statesetblue.png",
     "light": "/logo/StateSet.png"
