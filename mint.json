@@ -86,7 +86,8 @@
     {
       "group": "StateSet ReSponse Guides",
       "pages": [
-        "guides/response-quickstart"
+        "guides/response-quickstart",
+        "guides/knowledgebase-quickstart"
       ]
     },
     {
@@ -111,6 +112,26 @@
         "response-api-reference/rules",
         "response-api-reference/settings",
         "response-api-reference/users"
+      ]
+    },
+    {
+      "group": "Messages",
+      "pages": [
+        "response-api-reference/messages/list",
+        "response-api-reference/messages/get",
+        "response-api-reference/messages/create",
+        "response-api-reference/messages/update",
+        "response-api-reference/messages/delete"
+      ]
+    },
+    {
+      "group": "Channels",
+      "pages": [
+        "response-api-reference/channel-threads/list",
+        "response-api-reference/channel-threads/get",
+        "response-api-reference/channel-threads/create",
+        "response-api-reference/channel-threads/update",
+        "response-api-reference/channel-threads/delete"
       ]
     },
     {
@@ -369,26 +390,6 @@
         "api-reference/users/create",
         "api-reference/users/update",
         "api-reference/users/delete"
-      ]
-    },
-    {
-      "group": "Messages",
-      "pages": [
-        "api-reference/messages/list",
-        "api-reference/messages/get",
-        "api-reference/messages/create",
-        "api-reference/messages/update",
-        "api-reference/messages/delete"
-      ]
-    },
-    {
-      "group": "Channels",
-      "pages": [
-        "api-reference/channels/list",
-        "api-reference/channels/get",
-        "api-reference/channels/create",
-        "api-reference/channels/update",
-        "api-reference/channels/delete"
       ]
     }
   ],
