@@ -18,3 +18,17 @@ OpenAI’s text embeddings measure the relatedness of text strings. Embeddings a
 
 An embedding is a vector (list) of floating point numbers. The distance between two vectors measures their relatedness. Small distances suggest high relatedness and large distances suggest low relatedness.
 
+Embeddings are central to AI, offering a way to represent large knowledge bases in a continuous vector space. They are numerical representations that encapsulate the features and relationships of discrete objects, like words or documents. For applications like Retrieval-Augmented Generation (RAG), handling embeddings at scale is crucial. With potentially millions of documents, the sheer number of embeddings can be overwhelming, necessitating a pipeline that continuously processes and updates the embedded knowledge base.
+
+Internally, many AI models mimic human brain functions using neural networks composed of interconnected layers of neurons. These networks learn from massive amounts of data, adjusting the connections between layers to extract high-level features. These features, represented as vectors in high-dimensional space, are what we refer to as embeddings.
+
+The geometric representation of vector embeddings is often visualized in a space where the position of each point (embedding) corresponds to the characteristics of the object it represents. This spatial arrangement allows models to infer relationships and similarities between objects based on their proximity.
+
+Contextualized embeddings go a step further by considering the context in which a word or phrase is used. This means that the same word in different sentences can have different embeddings, reflecting its varying meanings depending on usage.
+
+## Getting Started
+
+To add data to the knowledge base use the /add command.
+
+To update data in the knowledge base use the /update command.
+
