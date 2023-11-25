@@ -1,0 +1,22 @@
+---
+title: "RAG Quickstart"
+description: "Getting started with RAG ("Retrieval-Augmented Generation")"
+---
+
+# RAG Overview
+
+Retrieval Augmented Generation (RAG) is a powerful approach that combines the strengths of neural language models with retrieval from a large corpus of documents to produce more accurate and informed outputs. The RAG system enables the retrieval of highly relevant documents using natural language search, and it is scalable to billions of records, functioning much like a traditional database. A key advantage of RAG is that it does not require context stuffing, meaning that the relevant context is pulled from the extensive database rather than being fed into the model in advance.
+
+RAG can be particularly effective in addressing issues like hallucinations in large language models (LLMs), which are instances where the model generates factually incorrect or nonsensical information. By using vector databases that store embeddings of texts, RAG can provide an anchor to the "real world" and structured data. When a query is made, the system retrieves semantically relevant content from the vector database, which is then used by the LLM to generate responses. This ensures that the information is grounded in the content that has been previously validated and stored in the database.
+
+The architecture of RAG involves several components working together. An application sends a query to an embedding model, which converts the query into a vector representation. This vector is then matched against a vector database via an API to find the most relevant documents or chunks of text. The results are filtered through metadata to ensure relevance and compliance with access controls. The selected content is streamed into the LLM's context window, providing a foundation for it to generate informed responses.
+
+Additionally, RAG incorporates a continuous cycle of ingestion and updating. New documents are crawled, chunked, and their embeddings are added to the vector database, which ensures that the knowledge base is constantly expanding and staying up-to-date with the latest information. This dynamic nature of RAG makes it a robust system for applications requiring access to a vast, evolving pool of data and the ability to provide accurate, context-aware responses.
+
+## RAG Components
+
+RAG is composed of several components that work together to provide a powerful system for generating responses to queries. The following diagram illustrates the architecture of RAG:
+
+
+
+

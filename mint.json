@@ -87,7 +87,8 @@
       "group": "StateSet ReSponse Guides",
       "pages": [
         "guides/response-quickstart",
-        "guides/knowledgebase-quickstart"
+        "guides/knowledgebase-quickstart",
+        "guides/rag-quickstart"
       ]
     },
     {
