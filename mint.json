@@ -47,7 +47,7 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://docs.stateset.io"
+      "url": "https://docs.stateset.com"
     },
     {
       "name": "GitHub",
@@ -57,7 +57,7 @@
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://stateset.io/community"
+      "url": "https://stateset.com/community"
     },
     {
       "name": "Newsletter",
@@ -85,7 +85,7 @@
     },
     {
       "group": "StateSet ReSponse Guides",
-      "pages:": [
+      "pages": [
         "guides/response-quickstart"
       ]
     },
