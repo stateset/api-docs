@@ -1,0 +1,47 @@
+---
+title: "Get Templates"
+api: "GET https://api.stateset.com/v1/templates"
+description: "This endpoint gets templates."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the id of the templates.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="number">
+  This is the id of the templates.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  This is the name of the templates.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  This is the description of the templates.
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  This is the created_at of the templates.
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  This is the updated_at of the templates.
+</ResponseField>
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/v1/templates' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": 1
+}'
+```
+
+</ResponseExample>

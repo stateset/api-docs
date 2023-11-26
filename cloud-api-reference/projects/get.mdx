@@ -1,0 +1,51 @@
+---
+title: "Get Projects"
+api: "GET https://api.stateset.com/v1/projects"
+description: "This endpoint gets projects."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the id of the project.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="number">
+  This is the id of the project.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  This is the name of the project.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  This is the description of the project.
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  This is the date the project was created.
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  This is the date the project was last updated.
+</ResponseField>
+
+<ResponseField name="created_by" type="string">
+  This is the id of the user that created the project.
+</ResponseField>
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/v1/projects' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": 1
+}'
+```
+
+</ResponseExample>

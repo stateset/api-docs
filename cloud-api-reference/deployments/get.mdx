@@ -1,0 +1,62 @@
+---
+title: "Get Deployments"
+api: "GET https://api.mintlify.com/v1/deployments"
+description: "This endpoint gets deployments."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the id of the deployment.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="number">
+  This is the id of the deployment
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  This is the name of the deployment
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  This is the url of the deployment
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  This is the status of the deployment
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  This is the created_at of the deployment
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  This is the updated_at of the deployment
+</ResponseField>
+
+<ResponseField name="project_id" type="number">
+  This is the project_id of the deployment
+</ResponseField>
+
+<ResponseField name="user_id" type="number">
+  This is the user_id of the deployment
+</ResponseField>
+
+
+
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.mintlify.com/v1/deployments' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": 1
+}'
+```
+
+</ResponseExample>

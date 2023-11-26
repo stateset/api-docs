@@ -1,0 +1,38 @@
+---
+title: "Delete Project"
+api: "DELETE https://api.mintlify.com/v1/projects/:id"
+description: "This endpoint deletes an existing project."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  The ID of the user to delete.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the project
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request DELETE 'https://api.stateset.com/v1/project/:id' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+		"id: "1234",
+}'
+```
+
+</ResponseExample>

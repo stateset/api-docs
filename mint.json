@@ -414,6 +414,52 @@
         "api-reference/users/update",
         "api-reference/users/delete"
       ]
+    },
+    {
+      "group": "StateSet Cloud Reference API",
+        "pages": [
+          "cloud-api-reference/authentication"
+      ]
+    },
+    {
+      "group": "Deployments",
+      "pages": [
+        "cloud-api-reference/deployments/create",
+        "cloud-api-reference/deployments/get",
+        "cloud-api-reference/deployments/delete"
+      ]
+    },
+    {
+      "group": "Logs",
+      "pages": [
+        "cloud-api-reference/logs/create"
+      ]
+    },
+    {
+      "group": "Projects",
+      "pages": [
+        "cloud-api-reference/projects/create",
+        "cloud-api-reference/projects/get",
+        "cloud-api-reference/projects/delete"
+      ]
+    },
+    {
+      "group": "Secrets",
+      "pages": [
+        "cloud-api-reference/secrets/create",
+        "cloud-api-reference/secrets/get",
+        "cloud-api-reference/secrets/delete",
+        "cloud-api-reference/secrets/update"
+      ]
+    },
+    {
+      "group": "Templates",
+      "pages": [
+        "cloud-api-reference/templates/create",
+        "cloud-api-reference/templates/get",
+        "cloud-api-reference/templates/delete",
+        "cloud-api-reference/templates/update"
+      ]
     }
   ],
   "footerSocials": {

@@ -1,0 +1,30 @@
+---
+title: "Create Logs"
+api: "POST https://api.stateset.com/v1/logs"
+description: "This endpoint create new logs"
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the ID of the logs to be created.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request POST 'https://api.stateset.com/v1/logs' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": ""
+}'
+```
+
+</RequestExample>

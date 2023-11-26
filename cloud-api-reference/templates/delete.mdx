@@ -1,0 +1,38 @@
+---
+title: "Delete Template"
+api: "DELETE https://api.mintlify.com/v1/templates/:id"
+description: "This endpoint deletes an existing template."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  The ID of the template to delete.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID provided in the data tab may be used to identify the template
+</ResponseField>
+
+<ResponseField name="object" type="string">
+  The object type
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request DELETE 'https://api.stateset.com/v1/template/:id' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+		"id: "1234",
+}'
+```
+
+</ResponseExample>
