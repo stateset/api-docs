@@ -1,0 +1,38 @@
+---
+title: "Get Embeddings"
+api: "GET https://api.stateset.com/v1/embeddings/:id"
+description: "This endpoint gets embeddings by id."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the ID of the embedding to be created.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the ID of the embedding.
+</ResponseField>
+
+<ResponseField name="knowledge" type="string">
+ This is the text of the embedding.
+</ResponseField>
+
+<ResponseField name="user_id" type="string">
+ This is the user id of the embedding.
+</ResponseField>
+
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.com/v1/embeddings/:id' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "em_1NXWPnCo6bFb1KQto6C8OWvE",
+}'
+```

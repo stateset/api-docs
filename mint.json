@@ -119,6 +119,15 @@
       ]
     },
     {
+      "group": "Embeddings",
+      "pages": [
+        "response-api-reference/embeddings/get",
+        "response-api-reference/embeddings/create",
+        "response-api-reference/embeddings/update",
+        "response-api-reference/embeddings/delete"
+      ]
+    },
+    {
       "group": "Messages",
       "pages": [
         "response-api-reference/messages/list",
