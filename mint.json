@@ -422,6 +422,7 @@
     {
       "group": "StateSet Cloud Reference API",
         "pages": [
+          "cloud-api-reference/overview",
           "cloud-api-reference/authentication"
       ]
     },
