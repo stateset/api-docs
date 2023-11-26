@@ -41,6 +41,10 @@
     {
       "name": "StateSet ReSponse API Reference",
       "url": "response-api-reference"
+    },
+    {
+      "name": "StateSet Cloud API Reference",
+      "url": "cloud-api-reference"
     }
   ],
   "anchors": [
