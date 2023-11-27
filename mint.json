@@ -110,7 +110,8 @@
       "pages": [
         "api-reference/authentication",
         "api-reference/overview",
-        "api-reference/features"
+        "api-reference/features",
+        "api-reference/reporting"
       ]
     },
     {
