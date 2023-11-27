@@ -108,7 +108,8 @@
     {
       "group": "StateSet One API Documentation",
       "pages": [
-        "api-reference/authentication"
+        "api-reference/authentication",
+        "api-reference/overview"
       ]
     },
     {
