@@ -7,7 +7,7 @@ description: "Building modern web apps with the React Server Components (RSC) fr
 
 ## Introduction
 
-React Server Components (RSC) is a new way to build server-rendered applications with React. It is a set of experimental tools that enables developers to run React components on the server. RSC is a new way to build server-rendered applications with React. It is a set of experimental tools that enables developers to run React components on the server.
+React Server Components (RSC) is a new way to build server-rendered applications with React. It is a set of experimental tools that enables developers to run React components on the server. RSC is a new way to build server-rendered applications with React. 
 
 ## Getting Started
 
@@ -86,7 +86,7 @@ export type StatesetReturnOperation = {
 
 We are already starting to see the benefits of using this pattern in that we can still have the declarative side of GraphQL but we have a much cleaner approach than have queries stored on each JS file. We can keep all of them in ‘lib/stateset’ and import them to the server actions files that we need.
 
-```typescript
+```graphQL
 
 export const getReturnQuery = /* GraphQL */ `
 query getReturn($returnId: String!) {
@@ -117,7 +117,7 @@ export const getReturnsQuery = /* GraphQL */ `
 
 We can also use fragments to keep the queries clean and modular. This is a great way to keep the queries clean and also to keep the types consistent across the application.
 
-```typescript
+```graphQL
 
 export const returnFragment = /* GraphQL */ `
   fragment return on returns {
