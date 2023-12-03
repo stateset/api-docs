@@ -1,0 +1,179 @@
+---
+title: "Workflow Framework"
+description: "Building modern web workflows with the Temporal framework"
+---
+
+# Framework
+
+## Introduction
+
+Stateset Workflows using Temporal
+
+Temporal is an open source programming model that can simplify your code, make your applications more reliable, and help you deliver more features faster. The temporal framework allows activities to be defined and workflows to execute them based on the state or specific signals. Temporal provides the workflow management engine to combine the power of serverless API calls with a deterministic scheduler for execution. By leveraging the Temporal workflow orchestration framework, Stateset automates the entire Returns Management (RMA) process. This includes generating and emailing return labels, creating returns in Stateset, providing search capabilities for efficient record retrieval, updating customer support platforms with tracking information, and processing instant refunds. This automation streamlines the return process, enhances customer experience, and enables businesses to effectively manage and track returns.
+
+## Stateset Workflows
+
+Stateset Workflows are built using the Temporal framework. The framework consists of the following components:
+
+- Temporal Client
+- Temporal Worker
+- Temporal Workflow
+- Temporal Activities
+
+## Temporal Client
+
+The Temporal Client is the main entry point for Temporal applications. The client is used to start workflows and send signals to them. The client is also used to register and start workers. The client is configured with the following parameters:
+
+- Namespace
+- Task Queue
+- Workflow Path
+
+Here is an example of Stateset’s Return API using Temporal Client:
+
+```javascript
+
+import { Connection, WorkflowClient } from '@temporalio/client';
+import { example, returnApprovedWorkflow, warrantyApprovedWorkflow } from './workflows.js';
+import { v4 as uuidv4 } from "uuid";
+
+async function run() {
+
+  const connection = await Connection.connect({
+    address: 'https://api.stateset.com/temporal/api/namespaces/default',
+  });
+
+  const client = new WorkflowClient({
+    connection,
+    namespace: 'stateset', // connects to 'default' namespace if not specified
+  });
+
+
+  const return_id = uuidv4();
+  // Invoke the `example` Workflow, only resolved when the workflow completes
+
+  const return_workflow_result = await client.execute(returnApprovedWorkflow, {
+    taskQueue: 'stateset-returns-automation',
+    workflowId: 'workflow-' + return_id,
+    args: ['I would like to process a Return for the product I bought.', '228476'],
+  });
+
+  console.log(return_workflow_result);
+
+}
+
+run().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+```
+
+### Temporal Worker
+
+Here is an example of Stateset’s Return API using Temporal Worker & Workflow:
+
+```javascript
+
+
+import { Worker } from '@temporalio/worker';
+import { URL } from 'url';
+import * as activities from './activities.js';
+
+async function run() {
+
+  const worker = await Worker.create({
+    workflowsPath: new URL('./workflows/return-ticket-approved.js', import.meta.url).pathname,
+    activities,
+    taskQueue: 'stateset-returns-automation',
+    namespace: 'stateset'
+  });
+
+  await worker.run();
+
+}
+
+run().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+
+```
+
+## Return Approved Workflow
+
+The Returns Workflow is the main workflow that is executed when a return is approved. The workflow is triggered by a signal from the Returns API. The workflow then calls the following activities:
+
+```javascript
+
+import { proxyActivities } from '@temporalio/workflow';
+import * as wf from '@temporalio/workflow';
+
+// Proxy Activities
+const { generateResponse, createZendeskComment, createReturnRecord, generateUSLabel, generateCALabel, updateWorkflowId, updateMatch, cancelSubscription } = proxyActivities({
+    startToCloseTimeout: '1 minute',
+});
+
+/** A workflow that simply calls an activity */
+export async function returnApprovedWorkflow(body, ticket_id_int) {
+    
+    let workflow_state = [];
+    var cancel_subscription = body.cancel_subscription;
+    var condition = body.condition;
+    var match = body.match;
+    var country = body.country;
+
+    // Generate Response
+    await generateResponse(body);
+
+    // Generate Label
+    if (country = "US") {
+
+        await generateUSLabel(ticket_id_int);
+
+    } else {
+
+        await generateCALabel(ticket_id_int);
+    }
+
+    // Create Return
+    var return_id = await createReturnRecord(ticket_id_int);
+
+    // Update Workflow Id
+    await updateWorkflowId(return_id, wf.workflowInfo().workflowId);
+
+    // Cance Subscription
+    if (cancel_subscription) {
+
+        await cancelSubscription(customer_email, ticket_id_int);
+
+    };
+
+    // Sleep
+    await wf.sleep('3 days');
+
+    // If Instant Refund and Conditon = A
+    if (condition == "A" && match == true) {
+
+        const matched_return = await updateMatch(return_id, wf.workflowInfo().workflowId);
+
+        await refundOrder(order_id);
+        
+        await createZendeskComment(ticket_id_int, condition);
+
+        return 'return_and_refund_processed';
+
+    }
+
+}
+
+```
+
+### Activities
+
+The activities are the functions that are called by the workflow. The activities are defined in the activities.js file and are called by the workflow.
+
+
+### StateSet Cloud
+
+StateSet offers hosted Temporal workflows that are completely deterministic and have state-of-the-art infrastruting these operations. The hosted service is available at https://cloud.stateset.com

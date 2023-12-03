@@ -111,6 +111,7 @@
         "api-reference/authentication",
         "api-reference/overview",
         "api-reference/framework",
+        "api-reference/temporal",
         "api-reference/events",
         "api-reference/features",
         "api-reference/reporting"
