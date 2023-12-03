@@ -97,6 +97,20 @@ query getReturn($returnId: String!) {
   ${returnFragment}
 `;
 
+export const getReturnsQuery = /* GraphQL */ `
+    query getReturns(
+        $limit: Int
+        $offset: Int
+        $order_direction: order_by
+    ) {
+        returns(limit: $limit, offset: $offset, order_by: {created_date: $order_direction}) {
+          ...return
+    }
+  }
+
+    ${returnFragment}
+  `;
+
 ```
 
 ### Fragments
@@ -144,15 +158,39 @@ We can now use the server actions to call the GraphQL API and return the data to
 
 ```typescript
 
-export const getReturnAction = async (returnId: string): Promise<Return | undefined> => {
+export async function getReturns({
+  limit,
+  offset,
+  order_direction
+}: {
+  limit?: number;
+  offset?: number;
+  order_direction?: string;
+}): Promise<Return> {
+  const res = await statesetFetch<StatesetReturnsOperation>({
+    query: getReturnsQuery,
+    variables: {
+      limit,
+      offset,
+      order_direction
+    },
+    cache: 'no-store'
+  });
 
-  try {
-    const res = await getReturn(returnId);
-    return res;
-  } catch (e) {
-    return undefined;
-  }
-};
+  return res.body.data.returns;
+}
+
+
+export async function getReturn(returnId: string): Promise<Return | undefined> {
+
+  const res = await statesetFetch<StatesetReturnOperation>({
+    cache: 'no-store',
+    query: getReturnQuery,
+    variables: { returnId },
+  });
+
+  return res.body.data.returns_by_pk;
+}
 
 ```
 
@@ -163,7 +201,7 @@ We can now use the server component to fetch the data and return it to the clien
 ```typescript
 
 export default function ReturnPage({ returnId }: { returnId: string }) {
-    
+
   const [returnData, setReturnData] = useState<Return | undefined>(undefined);
 
   useEffect(() => {
