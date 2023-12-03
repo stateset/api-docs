@@ -1,0 +1,198 @@
+---
+title: "Framework"
+description: "Building server rendered applications with React Server Components (RSC) framework"
+---
+
+# Framework
+
+## Introduction
+
+React Server Components (RSC) is a new way to build server-rendered applications with React. It is a set of experimental tools that enables developers to run React components on the server. RSC is a new way to build server-rendered applications with React. It is a set of experimental tools that enables developers to run React components on the server.
+
+## Getting Started
+
+Using server actions with existing graphQL mutations and queries works well and moves away from wrapping the app / layout file in a context provider / using hooks provided by apollo-client.
+
+The idea is we can have a server component link to the graphQL endpoint and the server actions can be called directly from the UI. This moves away from either needing to using axios from a React Class Component, or using the API routes to make a request that needs to be returned to the client.
+
+```typescript
+
+export const closeReturnAction = async (returnId: string): Promise<String | undefined> => {
+
+    try {
+        await closeReturn(returnId);
+    } catch (e) {
+        return 'Error closing return';
+    }
+};
+
+export const reopenReturnAction = async (returnId: string): Promise<String | undefined> => {
+
+    try {
+        await reopenReturn(returnId);
+    } catch (e) {
+        return 'Error reopening return';
+    }
+};
+
+
+export const cancelReturnAction = async (returnId: string): Promise<String | undefined> => {
+
+    try {
+        await cancelReturn(returnId);
+    } catch (e) {
+        return 'Error closing return';
+    }
+};
+
+```
+
+We can build upon the GraphQL library of mutations, queries and fragments we have made and adopt this new architecture which is modular and type safe throughout.
+
+This allows us to move quickly and have the best of server rendered data with client side interactiveness depending on the use case.
+
+### StateSet Fetch
+
+```typescript
+
+export async function getReturn(returnId: string): Promise<Return | undefined> {
+
+  const res = await statesetFetch<StatesetReturnOperation>({
+    cache: 'no-store',
+    query: getReturnQuery,
+    variables: { returnId },
+  });
+
+  return res.body.data.returns_by_pk;
+}
+
+```
+
+We can now fetch the individual return data using /return/[id]/page.tsx which is a server component. This makes an aysnc call to the Stateset One GraphQL API on Stateset Cloud which we have typed return operators for.
+
+
+```typescript
+
+export type StatesetReturnOperation = {
+  data: {
+    returns_by_pk: Return
+  };
+  variables: {
+    returnId: string;
+  };
+};
+
+```
+
+We are already starting to see the benefits of using this pattern in that we can still have the declarative side of GraphQL but we have a much cleaner approach than have queries stored on each JS file. We can keep all of them in ‘lib/stateset’ and import them to the server actions files that we need.
+
+```typescript
+
+export const getReturnQuery = /* GraphQL */ `
+query getReturn($returnId: String!) {
+  returns_by_pk(id: $returnId) {
+      ...return
+    }
+  }
+  ${returnFragment}
+`;
+
+```
+
+### Fragments
+
+We can also use fragments to keep the queries clean and modular. This is a great way to keep the queries clean and also to keep the types consistent across the application.
+
+```typescript
+
+export const returnFragment = /* GraphQL */ `
+  fragment return on returns {
+    id
+    created_date
+    amount
+    action_needed
+    condition
+    customerEmail
+    customer_id
+    description
+    enteredBy
+    flat_rate_shipping
+    order_date
+    order_id
+    reason_category
+    reported_condition
+    requested_date
+    rma
+    serial_number
+    scanned_serial_number
+    shipped_date
+    status
+    tax_refunded
+    total_refunded
+    tracking_number
+    warehouse_received_date
+    warehouse_condition_date
+    refunded_date
+  }
+`;
+
+```
+
+### Server Actions
+
+We can now use the server actions to call the GraphQL API and return the data to the server component. This is a great way to keep the queries clean and also to keep the types consistent across the application.
+
+```typescript
+
+export const getReturnAction = async (returnId: string): Promise<Return | undefined> => {
+
+  try {
+    const res = await getReturn(returnId);
+    return res;
+  } catch (e) {
+    return undefined;
+  }
+};
+
+```
+
+### Server Component
+
+We can now use the server component to fetch the data and return it to the client. This is a great way to keep the queries clean and also to keep the types consistent across the application.
+
+```typescript
+
+export default function ReturnPage({ returnId }: { returnId: string }) {
+    
+  const [returnData, setReturnData] = useState<Return | undefined>(undefined);
+
+  useEffect(() => {
+    const getReturn = async () => {
+      const res = await getReturnAction(returnId);
+      setReturnData(res);
+    };
+    getReturn();
+  }, []);
+
+  return (
+    <>
+      <TopBar />
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-1">
+          <div className="px-4 mt-8 md:px-20 lg:px-32 space-y-4">
+            <ReturnAnalytics returns_month={100} returns_today={5} />
+          </div>
+          <div className="mt-8 px-4 md:px-20 lg:px-32 space-y-4">
+            <AdvancedReturnTable returns={returnData} offset={0} limit={20} />
+          </div>
+        </div>
+        <div className="mt-8 px-4 md:px-20 lg:px-32 space-y-4">
+            
+        </div>
+      </div>
+    </>
+  );
+}
+
+```
