@@ -1,25 +1,13 @@
 ---
-title: "Update Embedding"
-api: "PUT https://api.stateset.com/v1/embeddings"
-description: "This endpoint updates an embedding"
+title: "Get Embeddings"
+api: "GET https://api.stateset.com/v1/embeddings"
+description: "This endpoint gets all embeddings."
 ---
 
 ### Body
 
-<ParamField body="id" type="string">
-  This is the ID of the embedding to be created.
-</ParamField>
-
-<ParamField body="knowledge" type="string">
-  This is the text of the embedding.
-</ParamField>
-
-<ParamField body="metadata" type="string">
-  This is the metadata of the embedding.
-</ParamField>
-
 <ParamField body="user_id" type="string">
-  This is the user id of the embedding. 
+  This is the ID of the user.
 </ParamField>
 
 ### Response
@@ -41,14 +29,15 @@ description: "This endpoint updates an embedding"
 </ResponseField>
 
 
+
 <RequestExample>
 
 ```bash cURL
-curl --location --request PUT 'https://api.stateset.com/v1/embeddings' \
+curl --location --request GET 'https://api.stateset.com/v1/embeddings' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "id": "em_1NXWPnCo6bFb1KQto6C8OWvE"
+    "id": "em_1NXWPnCo6bFb1KQto6C8OWvE",
 }'
 ```
 

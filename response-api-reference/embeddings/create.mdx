@@ -14,6 +14,10 @@ description: "This endpoint creates a new embedding"
   This is the text of the embedding.
 </ParamField>
 
+<ParamField body="metadata" type="string">
+  This is the metadata of the embedding.
+</ParamField>
+
 <ParamField body="user_id" type="string">
   This is the user id of the embedding. 
 </ParamField>
@@ -26,6 +30,10 @@ description: "This endpoint creates a new embedding"
 
 <ResponseField name="knowledge" type="string">
  This is the text of the embedding.
+</ResponseField>
+
+<ResponseField body="metadata" type="string">
+  This is the metadata of the embedding.
 </ResponseField>
 
 <ResponseField name="user_id" type="string">
