@@ -18,6 +18,10 @@ description: "This endpoint list returns."
   This is the order direction of the returns.
 </ParamField>
 
+<ParamField body="status" required="true" type="string">
+  This is the status of the returns.
+</ParamField>
+
 
 ### Response
 
@@ -171,8 +175,8 @@ curl --location --request GET 'https://api.stateset.com/v1/returns' \
 ```
 
 ```graphQL GraphQL
-query ($limit: Int!, $offset: Int!, $order_direction: order_by) {
-  returns(limit: $limit, offset: $offset, order_by: {created_date: $order_direction}) {
+query ($limit: Int!, $offset: Int!, $order_direction: order_by, $status: String!) {
+  returns(limit: $limit, offset: $offset, order_by: {created_date: $order_direction}, where: {status: {_eq: $status }}) {
     id
     created_date
     amount
