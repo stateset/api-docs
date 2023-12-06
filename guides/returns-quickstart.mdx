@@ -26,19 +26,21 @@ Stateset's Returns Management solution automates the entire returns process, fro
 
 ### Quickstart Guide
 
-1) Setup your company's Stateset One instance by signing up at <a href="https://stateset.io/signup">stateset.io/signup</a>
-
-2) Create a new API Key in the Stateset Cloud Console <a href="https://cloud.stateset.com/api-keys">cloud.stateset.com/api-keys</a>
-
-3) Install the stateset-node SDK in your project:
-
-```jsx
-npm install stateset-node
-```
-
-4) Create a new Return
-
-```jsx
+<Steps>
+  <Step title="Sign Up">
+    Setup your company's Stateset One instance by signing up at <a href="https://stateset.io/signup">stateset.io/signup</a>
+  </Step>
+  <Step title="Create Key">
+    Create a new API Key in the Stateset Cloud Console <a href="https://cloud.stateset.com/api-keys">cloud.stateset.com/api-keys</a>
+  </Step>
+  <Step title="Install Node.js SDK">
+    Install the stateset-node SDK in your project:
+    ```jsx
+    npm install stateset-node
+    ```
+  </Step>
+  <Step title="Create a New Return">
+  ```jsx
 
 import { stateset } from 'stateset-node'('API_KEY');
 
@@ -57,6 +59,8 @@ const return = await stateset.returns.create({
 });
 
 ```
+    </Step>
+</Steps>
 
 
 #### Return Initiation
