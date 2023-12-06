@@ -1,7 +1,7 @@
 ---
-title: "Create Rule"
-api: "POST https://api.stateset.com/v1/rules"
-description: "This endpoint creates a new rule"
+title: "Update Rule"
+api: "PUT https://api.stateset.com/v1/rules"
+description: "This endpoint updates a rule"
 ---
 
 ### Body
@@ -60,7 +60,7 @@ description: "This endpoint creates a new rule"
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.stateset.com/v1/rules' \
+curl --location --request PUT 'https://api.stateset.com/v1/rules' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{

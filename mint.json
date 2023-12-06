@@ -153,6 +153,15 @@
       ]
     },
     {
+      "group": "Rules",
+      "pages": [
+        "response-api-reference/rules/get",
+        "response-api-reference/rules/create",
+        "response-api-reference/rules/update",
+        "response-api-reference/rules/delete"
+      ]
+    },
+    {
       "group": "Channels",
       "pages": [
         "response-api-reference/channel-threads/list",

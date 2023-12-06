@@ -1,7 +1,7 @@
 ---
-title: "Create Rule"
-api: "POST https://api.stateset.com/v1/rules"
-description: "This endpoint creates a new rule"
+title: "Delete Rule"
+api: "DELETE https://api.stateset.com/v1/rules"
+description: "This endpoint deletes a rule"
 ---
 
 ### Body
@@ -9,27 +9,6 @@ description: "This endpoint creates a new rule"
 <ParamField body="id" type="string">
   This is the id of the rule. It is used to identify the rule.
 </ParamField>
-
-<ParamField body="type" type="string">
-  This is the type of the rule. It is used to identify the rule.
-</ParamField>
-
-<ParamField body="name" type="string">
-  This is the name of the rule. It is used to identify the rule.
-</ParamField>
-
-<ParamField body="description" type="string">
-  This is the description of the rule. It is used to identify the rule.
-</ParamField>
-
-<ParamField body="created_at" type="string">
-  This is the created_at of the rule. It is used to identify the rule.
-</ParamField>
-
-<ParamField body="updated_at" type="string">
-  This is the updated_at of the rule. It is used to identify the rule.
-</ParamField>
-
 
 ### Response
 
@@ -60,7 +39,7 @@ description: "This endpoint creates a new rule"
 <RequestExample>
 
 ```bash cURL
-curl --location --request POST 'https://api.stateset.com/v1/rules' \
+curl --location --request DELETE 'https://api.stateset.com/v1/rules' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
