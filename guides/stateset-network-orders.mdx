@@ -131,29 +131,35 @@ The `x/order` module implements an order state machine using the following messa
 
 #### Query an Order
 
+Create a new page called `index.js` in the `pages/order/[id]` directory.
+
 ```javascript
 
-    const [order, setOrder] = useState();
+const Order = () => {
 
-    const handleQueryOrder = async () => {
+    const router = useRouter();
+    const id = router.query;
+    var id_ = id.id;
 
-        const rpcEndpoint = "https://rpc.stateset.zone";
+    const [orders, setOrders] = useState([]);
 
-        const client = await SigningStateSetClient.connect(rpcEndpoint);
+    useEffect(() => {
+        async function getOrders() {
+            const res = await fetch(`https://rest-api.stateset.zone/stateset/core/order/order/${id_}`, {
+                method: 'GET'
+            });
+            const order_data = await res.json();
+            setLoans(order_data.Order);
+        };
 
-        if (client) {
+        getOrders();
+    }, []);
 
-            const queryClient = new QueryClient(rpcEndpoint);
+    return (<OrderPage order={orders} />);
 
-            const order = await queryClient.getOrder(inputs.order_id);
+}
 
-            if (order) {
-
-                setOrder(order);
-            }
-
-        }
-    }
+export default Order
 
 ```
 
