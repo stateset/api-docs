@@ -1,0 +1,60 @@
+---
+title: "Get Order"
+api: "GET https://api.stateset.com/v1/orders/:id"
+description: "This endpoint gets an order."
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the id of the order.
+</ParamField>
+
+### Response
+
+
+<ResponseField name="id" required="true" type="string">
+  This is the id of the order.
+</ResponseField>
+
+<ResponseField name="name" required="true" type="string">
+  This is the name of the order.
+</ResponseField>
+
+<ResponseField name="number" required="true" type="string">
+  This is the number of the order.
+</ResponseField>
+
+<ResponseField name="state" required="true" type="string">
+  This is the state of the order.
+</ResponseField>
+
+
+<RequestExample>
+
+```bash cURL
+curl --location --request GET 'https://api.stateset.network/v1/order' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "1"
+}'
+```
+
+</RequestExample>
+
+
+# Orders
+
+Orders describes the general data about the orders in Stateset Commerce Network.
+
+## The order object
+
+#### Attributes
+
+| Name               | Type      | Description                                              |
+| ------------------ | --------- | -------------------------------------------------------- |
+| id                 | Text      | Unique identifier for the order                    |
+| name               | Text      | Name of the order                                        |
+| number             | Text      | Number of the order                                      |
+| state              | Text      | State of the order                                       |
