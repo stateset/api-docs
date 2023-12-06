@@ -1,0 +1,30 @@
+---
+title: "Create Loan"
+api: "POST https://api.stateset.network/v1/loan"
+description: "This endpoint creates a new loan"
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the ID of the deployment to be created.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request POST 'https://api.stateset.network/v1/loan' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": ""
+}'
+```
+
+</RequestExample>

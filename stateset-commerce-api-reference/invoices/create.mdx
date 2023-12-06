@@ -1,0 +1,30 @@
+---
+title: "Create Invoice"
+api: "POST https://api.stateset.network/v1/invoice"
+description: "This endpoint creates a new invoice"
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the ID of the deployment to be created.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request POST 'https://api.stateset.network/v1/invoice' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": ""
+}'
+```
+
+</RequestExample>

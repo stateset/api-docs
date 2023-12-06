@@ -99,7 +99,7 @@
       ]
     },
     {
-      "group": "StateSet Network Guides",
+      "group": "StateSet Commerce Network Guides",
       "pages": [
         "guides/stateset-network",
         "guides/stateset-network-orders",
@@ -127,6 +127,15 @@
         "response-api-reference/rules",
         "response-api-reference/settings",
         "response-api-reference/users"
+      ]
+    },
+    {
+      "group": "StateSet Commerce Network API Documentation",
+      "pages": [
+        "stateset-commerce-api-reference/invoices",
+        "stateset-commerce-api-reference/loans",
+        "stateset-commerce-api-reference/orders",
+        "stateset-commerce-api-reference/purchaseorders"
       ]
     },
     {

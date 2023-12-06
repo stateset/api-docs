@@ -1,5 +1,5 @@
 ---
-title: "StateSet Commerce Network Quickstart"
+title: "StateSet Orders Quickstart"
 description: "Getting started with Orders on Stateset Network"
 ---
 
@@ -7,14 +7,29 @@ description: "Getting started with Orders on Stateset Network"
 
 StateSet Commerce Network provides a Cosmos SDK based blockchain network for managing orders and payments for the StateSet Commerce platform. This guide will walk you through the steps to get started with the StateSet Commerce Network.
 
-### Creating an Order
-
+### The Order Module
 
 StateSet Commerce Network provides an API for creating Orders. The API is available at https://api.stateset.network
 
 An order is a customer’s completed request to purchase one or more products from a seller. An order is created when a customer completes the checkout process.
 
-#### Create an Order
+The Order is braodcasted to the StateSet Commerce Network and the Order Module maintains the state of the Order.
+
+The States of an Order are:
+
+- UNFULFILLED
+- FULFILLED
+- CANCELLED
+
+### Order Messages
+
+The Order Module provides the following messages:
+
+- MsgCreateOrder
+- MsgFulfillOrder
+- MsgCancelOrder
+
+#### Create an Order Client
 
 ```javascript
 
@@ -180,3 +195,4 @@ An order is a customer’s completed request to purchase one or more products fr
         }
     }
 ```
+
