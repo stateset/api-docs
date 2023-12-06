@@ -102,6 +102,7 @@
       "group": "StateSet Network Guides",
       "pages": [
         "guides/stateset-network",
+        "guides/stateset-network-orders",
         "guides/stateset-contracts"
       ]
     },
