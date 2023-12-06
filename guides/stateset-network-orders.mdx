@@ -219,3 +219,55 @@ The `x/order` module implements an order state machine using the following messa
     }
 ```
 
+### Submitting an Order using the CLI
+
+```bash
+
+statesetd tx order create-order \
+    --from <key-name> \
+    --seller <seller-address> \
+    --amount <amount> \
+    --fee <fee> \
+    --order-number <order-number> \
+    --name <name> \
+    --state <state> \
+    --chain-id stateset-1 \
+    --node tcp://rpc.stateset.zone:26657 \
+    --gas-prices 0.00025state \
+    --gas auto \
+    --broadcast-mode block \
+    --yes
+
+```
+
+### Querying an Order using the CLI
+
+```bash
+
+statesetd query order order <order-id> \
+    --chain-id stateset-1 \
+    --node tcp://rpc.stateset.zone:26657
+
+```
+
+### Fulfilling an Order using the CLI
+
+```bash
+
+statesetd tx order fulfill-order \
+    --from <key-name> \
+    --state <state> \
+    --chain-id stateset-1 \
+    --node tcp://rpc.stateset.zone:26657 \
+    --gas-prices 0.00025state \
+    --gas auto \
+    --broadcast-mode block \
+    --yes
+
+```
+
+## Additional Information (Coming Soon)
+
+- [StateSet Commerce Network](https://stateset.network)
+- [StateSet Commerce API](https://api.stateset.network)
+- [StateSet Zone] (https://app.stateset.zone)
