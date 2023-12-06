@@ -45,6 +45,10 @@
     {
       "name": "StateSet Cloud API Reference",
       "url": "cloud-api-reference"
+    },
+    {
+      "name": "StateSet Commerce Network API Reference",
+      "url": "stateset-commerce-api-reference"
     }
   ],
   "anchors": [
@@ -472,37 +476,6 @@
         "cloud-api-reference/templates/get",
         "cloud-api-reference/templates/delete",
         "cloud-api-reference/templates/update"
-      ]
-    },
-    {
-      "group": "StateSet Commerce Network API Documentation",
-      "pages": [
-        "stateset-commerce-api-reference/overview"
-      ]
-    },
-    {
-      "group": "Invoices",
-      "pages": [
-        "stateset-commerce-api-reference/invoices/create"
-      ]
-    },
-    {
-      "group": "Loans",
-      "pages": [
-        "stateset-commerce-api-reference/loans/create"
-      ]
-    },
-    {
-      "group": "Orders",
-      "pages": [
-        "stateset-commerce-api-reference/orders/get",
-        "stateset-commerce-api-reference/orders/create"
-      ]
-    },
-    {
-      "group": "Purchase Orders",
-      "pages": [
-        "stateset-commerce-api-reference/purchaseorders/create"
       ]
     }
   ],
