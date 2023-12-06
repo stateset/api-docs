@@ -68,7 +68,7 @@ service Msg {
         setStatus(prevStatus => ({ ...prevStatus, submitting: true }))
 
         const myRegistry = new Registry(defaultStargateTypes);
-        myRegistry.register("/stateset.core.loan.MsgCreateOrder", MsgCreateOrder);
+        myRegistry.register("/stateset.core.order.MsgCreateOrder", MsgCreateOrder);
 
         const wallet = await DirectSecp256k1HdWallet.fromMnemonic(
             inputs.mnemonic,
@@ -166,7 +166,7 @@ const Order = () => {
                 method: 'GET'
             });
             const order_data = await res.json();
-            setLoans(order_data.Order);
+            setOrdets(order_data.Order);
         };
 
         getOrders();
