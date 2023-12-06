@@ -33,6 +33,19 @@ The `x/order` module implements an order state machine using the following messa
 - MsgFulfillOrder
 - MsgCancelOrder
 
+```Go
+// Msg defines the bank Msg service.
+service Msg {
+  // MsgCreateOrder defines a method for creating an order
+  rpc Create(MsgCreateOrder) returns (MsgCreateResponse);
+
+  // MsgFulfillOrder defines a method for fulfilling an order
+  rpc Fulfill(MsgFulfillOrder) returns (MsgFulfillResponse);
+
+  // MsgCancelOrder defines a method for cancelling an order
+  rpc Cancel(MsgCancelOrder) returns (MsgCancelResponse);
+}
+```
 <Tip>Use these messages to make state changes on the network</Tip>
 
 #### Create an Order Client
