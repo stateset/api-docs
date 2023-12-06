@@ -35,6 +35,18 @@ The Order Module provides the following messages:
 
 ```javascript
 
+    import { Type, Field } from "protobufjs";
+
+    const MsgCreateOrder = new Type("MsgCreateOrder")
+    .add(new Field("creator", 1, "string"))
+    .add(new Field("seller", 2, "string"))
+    .add(new Field("amount", 3, "string"))
+    .add(new Field("fee", 4, "string"))
+    .add(new Field("order_number", 5, "string"))
+    .add(new Field("name", 6, "string"))
+    .add(new Field("state", 7, "string"));
+
+
     const handleSubmitOrder = async () => {
         setStatus(prevStatus => ({ ...prevStatus, submitting: true }))
 
@@ -83,7 +95,7 @@ The Order Module provides the following messages:
                     fee: inputs.fee,
                     order_number: _uuid,
                     name: inputs.name,
-                    fulfillment_status: "UNFULFILLED"
+                    state: "UNFULFILLED"
 
                 },
             };
@@ -121,6 +133,8 @@ The Order Module provides the following messages:
 
 ```javascript
 
+    const [order, setOrder] = useState();
+
     const handleQueryOrder = async () => {
 
         const rpcEndpoint = "https://rpc.stateset.zone";
@@ -146,6 +160,13 @@ The Order Module provides the following messages:
 #### Fulfill an Order
 
 ```javascript
+
+    import { Type, Field } from "protobufjs";
+
+    const MsgFulfillOrder = new Type("MsgFulfillOrder")
+    .add(new Field("creator", 1, "string"))
+    .add(new Field("state", 2, "string"));
+
 
     const handleFulfillOrder = async () => {
 
@@ -189,7 +210,7 @@ The Order Module provides the following messages:
                 typeUrl: "/stateset.core.order.MsgFulfillOrder",
                 value: {
                     creator: creator_address,
-                    fulfillment_status: "FULFILLED"
+                    state: "FULFILLED"
 
                 },
             }
