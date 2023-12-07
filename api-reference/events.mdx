@@ -22,7 +22,26 @@ How does Stateset Achieve this?
 - Automated Refund Processing
 - Test QA paths for all Serverless Functions
 
-#### Stateset One is a 3 Factor App Architecture with Durable Execution OS
+### Stateset One is a 3 Factor App Architecture with Durable Execution OS
 
 Stateset One is a 3 Factor App Architecture with Durable Execution OS that provides a single point GraphQL API for remote data joins across multiple data sources. Stateset One provides event triggers and webhooks from Stateset. Stateset One provides realtime search for customer service and warehouses operators. Stateset One provides data validation and synchronization. Stateset One provides workflow orchestration, execution and automation with Temporal. 
+
+#### Factor #1: Realtime GraphQL
+Apart from providing an amazing frontend developer experience, GraphQL is a crucial component in 3factor architecture as it allows flexible API access and realtime capabilities. The GraphQL API should have the following properties:
+
+- Low-latency: An end-user should see instant feedback of an action (i.e. state manipulation) and not have to wait long on an API
+- Support subscriptions: Consume information “realtime” from the backend via GraphQL Subscriptions. Avoid the use of continuous polling (for scalability).
+
+
+##### Factor #2: Reliable eventing
+In 3factor, business logic is initiated via events. This removes complex state management in your API layer and defers it to bespoke business logic functions. Events can also be persisted so that entire history of state is available for observability. Further, the event system must have the following 2 properties:
+
+- Atomic: Mutations to the application state should atomically create event(s).
+- Reliable: Events should be delivered (to any consumer) with atleast-once guarantee.
+
+##### Factor #3: Async serverless
+Write business logic as event handling functions. Each function only cares about one event and is hence small & cohesive. The easiest way to deploy such functions is in serverless compute. Serverless minimizes backend ops and gives “infinite” scalability while being cost-efficient. The serverless functions should follow few best-practices:
+
+- Idempotent: The code should be prepared for duplicate delivery of events.
+- Out-of-order: Events may not be guaranteed to be received in any realtime order. The code should not depend on any expected sequence of events.
 

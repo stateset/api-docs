@@ -18,7 +18,7 @@ React Server Components (RSC) is a new way to build server-rendered applications
 Using server actions with existing graphQL mutations and queries works well and moves away from wrapping the app / layout file in a context provider / using hooks provided by apollo-client.
 
 The idea is we can have a server component link to the graphQL endpoint and the server actions can be called directly from the UI. This moves away from either needing to using axios from a React Class Component, or using the API routes to make a request that needs to be returned to the client.
-https://assets.vercel.com/image/upload/v1607554385/repositories/react-server-components/react-server-components.png
+
 ```typescript
 
 export const closeReturnAction = async (returnId: string): Promise<String | undefined> => {
