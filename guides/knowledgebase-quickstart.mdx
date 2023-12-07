@@ -9,6 +9,21 @@ iconType: "solid"
 
 ReSponse is leveraging the Vector Embeddings API from OpenAI
 
+```javascript
+
+var vectors_embeddings;
+
+let embedding_response = await fetch("https://api.openai.com/v1/embeddings", requestOptions)
+    .then(response => response.json())
+    .then(json => {
+        vectors_embeddings = json.data[0].embedding;
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
+```
+
 OpenAI’s text embeddings measure the relatedness of text strings. Embeddings are commonly used for:
 
 - Search (where results are ranked by relevance to a query string)
