@@ -1,0 +1,192 @@
+---
+title: "Shopify Product Quickstart"
+description: "Getting started with the Shopify Embeddings"
+icon: "shopify"
+iconType: "solid"
+---
+
+### Quickstart Guide
+
+This is a quickstart guide to get you up and running with the Shopify Embeddings. This guide will walk you through the steps to get your Shopify product data into Pinecone and create embeddings for each product.
+
+<Steps>
+  <Step title="Loop Through Products">
+     Loop Through Shopify Product Data
+  </Step>
+  <Step title="Create Embeddings">
+    Create embeddings for each product returns and store in Pinecone
+  </Step>
+  <Step title="Store Chunks of Product Data">
+   Store the vector representation of the product data in Pinecone and associated metadata with the product data
+  </Step>
+</Steps>
+
+
+```javascript
+
+let page = 1;
+
+// Get Shopify Products
+async function getShopifyProducts(nextPageToken, shop, limit, maxPage, shopify_access_token, pinecone_index, pinecone_api_key, pinecone_namespace) {
+
+    if (nextPageToken && page <= maxPage) {
+
+        const axiosConfig = {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Shopify-Access-Token': shopify_access_token
+            },
+        };
+
+        const response = await axios.get(`https://${shop}/admin/api/2021-10/products.json?limit=${limit}&page_info=${nextPageToken}; rel="next"`, axiosConfig);
+        nextPageToken = response.headers.link?.split(",")?.find((link) => link.includes(`rel="next"`))?.match(/<(.+)>/)?.[1];
+        const products = response.data.products;
+
+        const documents = [];
+
+        for (const item of products) {
+
+            try {
+
+                const id = item.id || null;
+                const title = item.title || null;
+                const handle = item.handle || null;
+                const image = item.image.src || null;
+                const images_src = item.image.src || null;
+                const vendor = item.vendor || null;
+                const product_type = item.product_type || null;
+
+                for (const variant of item.variants) {
+
+                    const sku = variant.sku || null;
+                    const variants_sku = variant.sku || null;
+                    const variants_price = variant.price || null;
+                    const variants_compare_at_price = variant.compare_at_price || null;
+                    const variants_inventory_quantity = variant.inventory_quantity || null;
+                    const option_1 = variant.option1 || null;
+                    const option_2 = variant.option2 || null;
+                    const option_3 = variant.option3 || null;
+                    const shipping_weight = variant.weight || null;
+                    const variant_id = variant.id || null;
+
+
+                    let metadata = {
+                        id,
+                        title,
+                        handle,
+                        image,
+                        sku,
+                        variants_sku,
+                        images_src,
+                        variants_price,
+                        variants_compare_at_price,
+                        variants_inventory_quantity,
+                        vendor,
+                        option_1,
+                        option_2,
+                        option_3,
+                        shipping_weight,
+                        product_type,
+                        variant_id
+                    };
+
+                    const document = {
+                        id: uuid(),
+                        title,
+                        metadata,
+                    };
+
+                    documents.push(document);
+
+                }
+
+            } catch (error) {
+                console.log(`Error processing item: ${JSON.stringify(item)}`);
+                console.log(error);
+            }
+
+            for (let i = 0; i < documents.length; i += DOCUMENT_UPSERT_BATCH_SIZE) {
+
+                // Split documents into batches
+                var batchDocuments = documents.slice(i, i + DOCUMENT_UPSERT_BATCH_SIZE);
+
+                console.log(batchDocuments);
+
+                // Convert batchDocuments to string
+                var batchDocumentString = JSON.stringify(batchDocuments)
+
+                // Remove commas from string
+                console.log(batchDocumentString);
+
+                // Create Embeddings
+                console.log('Looping through documents...');
+
+                const user_id = "domsteil";
+
+                // OpenAI Request Body
+                var raw = JSON.stringify({ "input": batchDocumentString, "model": "text-embedding-ada-002", "user": user_id });
+
+                // OpenAI Request Options
+                var requestOptions = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': process.env.OPEN_AI
+                    },
+                    body: raw,
+                    redirect: 'follow'
+                };
+
+                // Make Callout to OpenAI to get Embeddings
+
+                console.log('Creating Embedding...');
+
+                // Make Callout to OpenAI
+                let embeddings_response = await fetch("https://api.openai.com/v1/embeddings", requestOptions)
+
+                // Create Pinecone Request Body
+                const vectors_embeddings = await embeddings_response.json();
+
+                console.log(vectors_embeddings);
+
+                // Create Pinecone Request Body
+                var vectors_object = { id: uuid(), values: vectors_embeddings.data[0].embedding, metadata: { "text": batchDocumentString, "user": user_id } };
+
+                console.log(vectors_object);
+
+                var raw = JSON.stringify({ "vectors": vectors_object, "namespace": "shopify_product_data" });
+
+                var pineconeRequestOptions = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Host": pinecone_index,
+                        "Content-Length": 60,
+                        "Api-Key": pinecone_api_key,
+                    },
+                    body: raw,
+                    redirect: "follow",
+                };
+
+                // Make Callout to Pinecone
+                // Pinecone Upsert
+
+                console.log('Upserting Pinecone...');
+
+                let pinecone_query_response = await fetch(`https://${pinecone_index}/vectors/upsert`, pineconeRequestOptions)
+                    .then(response => response.text())
+                    .then(json => {
+                        console.log(json);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+
+            }
+        }
+
+        page += 1;
+        console.log(`On page ${page}, processing next page...`);
+        return getShopifyProducts(nextPageToken, shop, limit, maxPage, shopify_access_token, pinecone_index, pinecone_api_key, pinecone_namespace);
+
+        ```

@@ -98,6 +98,7 @@
         "guides/knowledgebase-quickstart",
         "guides/rag-quickstart",
         "guides/functions-quickstart",
+        "guides/shopify-quickstart",
         "guides/vision-quickstart",
         "guides/voice-quickstart"
       ]
