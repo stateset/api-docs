@@ -6,10 +6,6 @@ description: "This endpoint gets all embeddings."
 
 ### Body
 
-<ParamField body="user_id" type="string">
-  This is the ID of the user.
-</ParamField>
-
 ### Response
 
 <ResponseField name="id" type="string">
@@ -36,9 +32,7 @@ description: "This endpoint gets all embeddings."
 curl --location --request GET 'https://api.stateset.com/v1/embeddings' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
---data-raw '{
-    "id": "em_1NXWPnCo6bFb1KQto6C8OWvE",
-}'
+
 ```
 
 </RequestExample>

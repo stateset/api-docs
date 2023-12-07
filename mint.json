@@ -136,6 +136,7 @@
     {
       "group": "Embeddings",
       "pages": [
+        "response-api-reference/embeddings/list",
         "response-api-reference/embeddings/get",
         "response-api-reference/embeddings/create",
         "response-api-reference/embeddings/update",
@@ -155,6 +156,7 @@
     {
       "group": "Rules",
       "pages": [
+        "response-api-reference/rules/list",
         "response-api-reference/rules/get",
         "response-api-reference/rules/create",
         "response-api-reference/rules/update",
