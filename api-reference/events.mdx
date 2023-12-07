@@ -33,13 +33,13 @@ Apart from providing an amazing frontend developer experience, GraphQL is a cruc
 - Support subscriptions: Consume information “realtime” from the backend via GraphQL Subscriptions. Avoid the use of continuous polling (for scalability).
 
 
-##### Factor #2: Reliable eventing
+#### Factor #2: Reliable eventing
 In 3factor, business logic is initiated via events. This removes complex state management in your API layer and defers it to bespoke business logic functions. Events can also be persisted so that entire history of state is available for observability. Further, the event system must have the following 2 properties:
 
 - Atomic: Mutations to the application state should atomically create event(s).
 - Reliable: Events should be delivered (to any consumer) with atleast-once guarantee.
 
-##### Factor #3: Async serverless
+#### Factor #3: Async serverless
 Write business logic as event handling functions. Each function only cares about one event and is hence small & cohesive. The easiest way to deploy such functions is in serverless compute. Serverless minimizes backend ops and gives “infinite” scalability while being cost-efficient. The serverless functions should follow few best-practices:
 
 - Idempotent: The code should be prepared for duplicate delivery of events.
