@@ -1,0 +1,29 @@
+---
+title: "Get Logs"
+api: "GET https://api.stateset.com/v1/logs"
+description: "This endpoint gets new logs"
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the ID of the logs to be get
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+    This is the ID of the logs 
+</ResponseField>
+
+<ResponseField name="description" type="string">
+    This is the description of the logs
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+    This is the timestamp of the logs
+</ResponseField>
+
+<ResponseField name="type" type="string">
+    This is the type of the logs
+</ResponseField>

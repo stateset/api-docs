@@ -460,7 +460,8 @@
     {
       "group": "Logs",
       "pages": [
-        "cloud-api-reference/logs/create"
+        "cloud-api-reference/logs/create",
+        "cloud-api-reference/logs/get"
       ]
     },
     {
