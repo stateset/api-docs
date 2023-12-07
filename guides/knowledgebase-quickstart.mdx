@@ -45,11 +45,17 @@ Contextualized embeddings go a step further by considering the context in which 
 
 At a very high level, the workflow that ReSponse use can be divided into three stages:
 
-Data preprocessing / embedding: This stage involves storing private data (FAQ / Customer Support documents, in our example) to be retrieved later. Typically, the documents are broken into chunks, passed through an embedding model, then stored in a specialized database called a vector database. 
-
-Prompt construction / retrieval: When a user submits a query (a customer question, in this case), the application constructs a series of prompts to submit to the language model. A compiled prompt typically combines a prompt template hard-coded by the developer; examples of valid outputs called few-shot examples; any necessary information retrieved from external APIs; and a set of relevant documents retrieved from the vector database. 
-
-Prompt execution / inference: Once the prompts have been compiled, they are submitted to a pre-trained LLM for inference—including both proprietary model APIs and open-source or self-trained models. Some developers also add operational systems like logging, caching, and validation at this stage.
+<Steps>
+  <Step title="Data preprocessing / embedding">
+    This stage involves storing private data (FAQ / Customer Support documents, in our example) to be retrieved later. Typically, the documents are broken into chunks, passed through an embedding model, then stored in a specialized database called a vector database. 
+  </Step>
+  <Step title="Prompt construction / retrieval:">
+    When a user submits a query (a customer question, in this case), the application constructs a series of prompts to submit to the language model. A compiled prompt typically combines a prompt template hard-coded by the developer; examples of valid outputs called few-shot examples; any necessary information retrieved from external APIs; and a set of relevant documents retrieved from the vector database. 
+  </Step>
+  <Step title="Prompt execution / inference">
+    Once the prompts have been compiled, they are submitted to a pre-trained LLM for inference—including both proprietary model APIs and open-source or self-trained models. Some developers also add operational systems like logging, caching, and validation at this stage.
+  </Step>
+</Steps>
 
 ### Upsert, Retrieve and Update
 
@@ -57,11 +63,11 @@ The Upsert function enable us to generate an embedding, save it with the text in
 The Retrieve functions allows us to pass query the vector database with the embedding based on the question, return back the text from the metadata as a context to be used in the completions API.
 The Update function enable us to generate an embedding, search for the corresponding vector Id in Pinecone, and update it with the text in the metadata and vector array into Pinecone.
 
-ReSponse is using the chat functionality to to call /add, /answer and /update commands.
+ReSponse is using the chat functionality to to call `/add`, `/answer` and `/update` commands.
 
-/add calls the Upsert API
-/answer calls the Retrieve API
-/update calls the Update API
+- `/add` calls the Upsert API
+- `/answer` calls the Retrieve API
+- `/update` calls the Update API
 
 ## Getting Started
 
