@@ -1,0 +1,54 @@
+---
+title: "Search Quickstart"
+description: "Getting started with the Search API"
+icon: "magnifying-glass"
+iconType: "solid"
+---
+
+# Search
+
+### How to use the Search on StateSet One?
+
+Global Search is available across the Stateset One Platform and across 3PL instances. Customer Service Agents, Warehouse Operators and other users can search for specific records by serial number, order id, ticket id and other configurable fields to specific records in stateset.
+
+### How to use Search?
+
+<Steps>
+  <Step title="Create Index">
+    Create an index in the StateSet app
+  </Step>
+  <Step title="Save a Record">
+    Save a record in the StateSet app
+  </Step>
+  <Step title="Update a Record">
+    Update a record in the StateSet app
+  </Step>
+</Steps>
+
+
+### Search Hits
+
+```jsx Search
+
+const ReturnHits = ({ hits }) => (
+
+  <ul class="list-none">
+    {hits.map(hit => (
+
+      <li key={hit.objectID}>
+        <div className="rounded-lg px-3 py-3 hover:bg-gray-100 relative focus-within:ring-2 focus-within:ring-blue-500 z-50">
+          <h3 className="text-base font-semibold text-gray-800">
+            <a className="hover:underline focus:outline-none">
+              <Link href='/crm/return/[id]' as={`/crm/return/${hit.objectID}`}>{hit.rma}</Link>
+            </a>
+          </h3>
+          <p className="mb-3 mt-1 text-base text-gray-600 line-clamp-2">{hit.rma} - Serial Number: {hit.serial_number} - Status: {hit.status} - Order Id: {hit.order_id}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+);
+
+```
+
+
