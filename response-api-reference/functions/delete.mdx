@@ -1,0 +1,60 @@
+---
+title: "Delete Function"
+api: "DELETE https://api.stateset.com/v1/functions"
+description: "This endpoint deletes a function"
+---
+
+### Body
+
+<ParamField body="id" type="string">
+  This is the id of the function. It is used to identify the function.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the id of the function. It is used to identify the function.
+</ResponseField>
+
+<ResponseField name="type" type="string">
+  This is the type of the function. It is used to identify the function.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  This is the name of the function. It is used to identify the function.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  This is the description of the function. It is used to identify the function.
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  This is the created_at of the function. It is used to identify the function.
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  This is the updated_at of the function. It is used to identify the function.
+</ResponseField>
+
+<RequestExample>
+
+```bash cURL
+curl --location --request DELETE 'https://api.stateset.com/v1/functions' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "id": "2438cf38-4004-41d3-8c90-131735ff7d00"
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+    "id": "2438cf38-4004-41d3-8c90-131735ff7d00"
+}
+```
+
+</ResponseExample>

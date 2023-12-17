@@ -165,6 +165,16 @@
       ]
     },
     {
+      "group": "Functions",
+      "pages": [
+        "response-api-reference/functions/list",
+        "response-api-reference/functions/get",
+        "response-api-reference/functions/create",
+        "response-api-reference/functions/update",
+        "response-api-reference/functions/delete"
+      ]
+    },
+    {
       "group": "Channels",
       "pages": [
         "response-api-reference/channel-threads/list",
